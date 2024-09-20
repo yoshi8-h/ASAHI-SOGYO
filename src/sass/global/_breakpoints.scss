@@ -1,5 +1,5 @@
 // どっちファーストの設定（"sp" or "pc"）
-$startFrom: sp;
+$startFrom: pc;
 
 // デフォルト値を設定
 $mediaquerys: (
@@ -28,9 +28,9 @@ $mediaquerys: (
 
 } @else {
   $breakpoints: (
-    xl: 1440,
+    xl: 1280,
     lg: 1023,
-    md: 767,
+    md: 899,
     sm: 600,
   );
   $mediaquerys: (
