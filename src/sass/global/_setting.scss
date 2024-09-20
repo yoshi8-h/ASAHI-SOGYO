@@ -1,35 +1,55 @@
 @use "sass:math";
 
+////////////////////
 // インナー幅設定
-// コンテンツのインナー幅（最も共通の幅が多い部分）
-$inner: 1100px;
-// ※キュンパス幅ではなくインナーの幅を指す
+////////////////////
+
+// コンテンツのインナー幅（最も共通の幅が多い部分）(※キャンパス幅ではなくインナーの幅を指す)
+$inner: 1460px;
 
 // 余白
 $padding-pc: 25px;
-$padding-sp: 20px;
+$padding-sp: 15px;
+
+
 
 ////////////////////
 // フォント設定
 ////////////////////
 
-$base-font-family: "";
-$second-font-family: "";
-// ※検証ツールでしっかり反映されているか確認する
+// font-family (※検証ツールでしっかり反映されているか確認する)
+$font-family-base: "Zen Kaku Gothic New", sans-serif;
+$font-family-ja-1: "Shippori Antique B1", sans-serif;
+$font-family-ja-2: "Noto Sans JP", sans-serif;  // (Noto Sans JPは『ローディング画面』のみに使用)
+$font-family-en-1: "M PLUS 2", sans-serif;
 
-body {
-  font-family: $base-font-family;
-}
-
-// フォントウェイト
-$regular: 300;
+// font-weight (bodyタグ指定の上に書く必要あり！！)
 $normal: 400;
+$medium: 500;
 $bold: 700;
+
+// line-height (bodyタグ指定の上に書く必要あり！！) (line-heightは、『reset.scss』で定義されており、そっちが優先される(1.5))
+// $line-height-base: 1.9;
+
+
 
 ////////////////////
 // 色の指定
 ////////////////////
 
 //色指定（共通性のあるものは出来る限り指定すると良い）
-$black: #111;
-$white: #fff;
+$color-font-base: #212121;
+$color-background-base-1: #FFF;
+$color-background-base-2: #E7E3D2;
+$color-accent1: #D53934;
+$color-accent2: #0B446F;
+
+
+
+// ====================================
+body {
+  font-family: $font-family-base;
+  font-weight: $medium;
+  color: $color-font-base;
+  font-style: normal;
+}
