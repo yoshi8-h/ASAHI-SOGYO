@@ -1,0 +1,90 @@
+@use "global" as *;
+
+
+.btn {
+  border-radius: rem(25);
+  border: rem(1) solid $color-accent1;
+  padding-block: rem(10);
+  padding-inline: rem(35);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(10);
+
+  transition: all 0.2s ease-out;
+}
+
+.btn svg path {
+  transition: fill 0.2s ease-out;
+}
+
+.btn__text {
+  color: $color-accent1;
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: 1.5;
+  transition: all 0.2s ease-out;
+}
+
+.btn svg {
+  width: rem(24);
+  transition: width 0.2s ease-out;
+}
+
+
+// hover
+.btn:hover {
+  background: $color-accent1;
+  border-radius: rem(28.76);
+  padding-block: rem(17.27);
+  padding-inline: rem(36);
+  gap: rem(9);
+}
+
+.btn:hover .btn__text {
+  color: #fff;
+  font-size: rem(16.18);
+  font-weight: $medium;
+  line-height: 1.45;
+  transition: color 0.2s ease-out;
+  letter-spacing: 0.04em;  // emで指定
+}
+
+.btn:hover svg {
+  width: rem(21.57);
+}
+
+.btn:hover svg path {
+  fill: #fff;
+}
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+.btn--red {
+  background: $color-accent1;
+}
+
+.btn--red .btn__text {
+  color: #fff;
+}
+
+
+// hover
+.btn--red:hover {
+  background: #FFF;
+  border: rem(1) solid $color-font-base;
+}
+
+.btn--red:hover .btn__text {
+  color: $color-font-base;
+  transition: color 0.2s ease-out;
+}
+
+.btn--red:hover svg path {
+  fill: $color-font-base;
+}
