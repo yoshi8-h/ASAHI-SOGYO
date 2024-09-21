@@ -1,0 +1,31 @@
+@use "global" as *;
+
+
+.btn3 {
+  aspect-ratio: 1 /1;
+  width: rem(40);  // ここだけ、Blockにwidthを指定
+  border: rem(1) solid $color-accent1;
+  background: $color-accent1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s ease-out;
+}
+
+.btn3 svg {
+  width: rem(15);
+}
+
+.btn3 svg path {
+  transition: fill 0.2s ease-out;
+}
+
+
+// hover
+.btn3:hover {
+  background: #FFF;
+}
+
+.btn3:hover svg path {
+  fill: $color-accent1;
+}

@@ -1,0 +1,28 @@
+@use "global" as *;
+
+
+.link1 {
+  display: inline-block;
+  font-size: rem(18);
+  font-weight: $medium;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  padding-left: rem(31);
+  position: relative;
+  transition: transform 0.2s ease-out;
+}
+
+.link1:hover {  // hover
+  transform: translateX(rem(3));
+}
+
+.link1::before {  // 赤い三角形 ▶︎
+  content: "";
+  width: rem(15);
+  height: rem(12);
+  background: url(../images/common/polygon-red.svg) no-repeat center center / contain;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}

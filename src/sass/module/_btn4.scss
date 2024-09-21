@@ -1,0 +1,44 @@
+@use "global" as *;
+
+
+.btn4 {
+  border-radius: rem(5);
+  border: rem(1) solid $color-font-base;
+  background: $color-background-base-1;
+  padding-block: rem(12);
+  padding-inline: rem(32);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(13);
+  transition: background 0.2s ease-out;
+}
+
+.btn4__text {
+  font-size: rem(20);
+  font-weight: $bold;
+  line-height: 1.5;
+  transition: color 0.2s ease-out;
+}
+
+.btn4 svg {
+  width: rem(18);
+}
+
+.btn4 svg path {
+  transition: fill 0.2s ease-out;
+}
+
+
+// hover
+.btn4:hover {
+  background: $color-font-base;
+}
+
+.btn4:hover .btn4__text {
+  color: $color-background-base-1;
+}
+
+.btn4:hover svg path {  // hover
+  fill: $color-background-base-1;
+}

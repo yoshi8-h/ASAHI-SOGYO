@@ -1,0 +1,31 @@
+@use "global" as *;
+
+
+.btn2 {
+  border-radius: rem(32.448);
+  background: $color-accent1;
+  padding-block: rem(16.95);
+  padding-left: rem(36);
+  padding-right: rem(24);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(16);
+}
+
+.btn2 svg {
+  width: rem(18.84);
+  transition: transform 0.2s ease-out;
+}
+
+.btn2:hover svg {  // hover
+  transform: translateX(rem(5));
+}
+
+.btn2__text {
+  color: #FFF;
+  text-align: center;
+  font-size: rem(18);
+  font-weight: $medium;
+  line-height: 1.7;
+}
