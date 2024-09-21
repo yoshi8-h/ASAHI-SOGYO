@@ -1,0 +1,103 @@
+@use "global" as *;
+
+
+.card1 {
+  display: block;
+  border-radius: rem(16);
+  background: #F5F5F5;
+  position: relative;
+}
+
+// hover
+.card1:hover .card1__bottom {
+  background: #888;
+}
+
+.card1__corner {
+  aspect-ratio: 123 / 278;
+  width: rem(123);
+  position: absolute;
+  top: rem(-103);
+  left: rem(-58);
+}
+
+.card1__number {
+  display: inline-block;
+  font-family: $font-family-en-1;
+  font-size: rem(96);
+  font-weight: $medium;
+  line-height: 1.9;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card1__title-en {
+  display: inline-block;
+  font-family: $font-family-en-1;
+  font-size: rem(24);
+  font-weight: $medium;
+  line-height: 1.9;
+  transform: rotate(90deg);
+  position: absolute;
+  top: rem(195);
+  left: rem(8.71);
+  left: rem(-30);
+}
+
+.card1__contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: rem(32.65);
+  padding-top: rem(69);
+  padding-bottom: rem(101.15);
+  padding-inline: rem(64);
+}
+
+.card1__title {
+  color: $color-font-base;
+  leading-trim: both;
+  text-edge: cap;
+  font-size: rem(33.427);
+  font-weight: $bold;
+  line-height: 2.0;
+  letter-spacing: -0.01em;
+  padding-bottom: rem(11);
+  width: rem(393);
+  text-align: center;
+  border-bottom: rem(1) solid rgba(211, 211, 211, 0.5);
+}
+
+.card1__title {
+}
+
+.card1__img {
+  max-width: rem(389);
+  width: 100%;
+}
+
+.card1__text {
+  color: $color-font-base;
+  leading-trim: both;
+  text-edge: cap;
+  font-size: rem(18);
+  font-weight: $medium;
+  line-height: 1.9;
+  letter-spacing: -0.09em;
+}
+
+.card1__bottom {
+  border-radius: 0px 0px rem(16) rem(16);
+  background: $color-accent1;
+  color: #FFF;
+  font-size: rem(22.285);
+  font-weight: $medium;
+  line-height: 1.9;
+  text-align: center;
+  padding-top: rem(15.48);
+  padding-bottom: rem(17.52);
+  transition: background 0.2s ease-out;
+}
+
