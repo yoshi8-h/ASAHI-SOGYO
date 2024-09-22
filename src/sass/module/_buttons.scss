@@ -1,0 +1,13 @@
+@use "global" as *;
+
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(16);
+}
+
+.buttons__item {
+
+}

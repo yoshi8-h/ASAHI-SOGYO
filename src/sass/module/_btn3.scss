@@ -3,7 +3,7 @@
 
 .btn3 {
   aspect-ratio: 1 /1;
-  width: rem(40);  // ここだけ、Blockにwidthを指定
+  // width: rem(40);  // ここだけ、Blockにwidthを指定
   border: rem(1) solid $color-accent1;
   background: $color-accent1;
   border-radius: 50%;
@@ -28,4 +28,19 @@
 
 .btn3:hover svg path {
   fill: $color-accent1;
+}
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+.btn3--gray {
+  border: rem(1) solid #FFF;
+  background: transparent;
+}
+
+.btn3--gray:hover svg path {
+  fill: #424242;
 }

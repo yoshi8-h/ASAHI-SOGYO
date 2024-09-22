@@ -1,0 +1,88 @@
+@use "global" as *;
+
+
+.sub-menu {
+  background: #424242;
+  padding-top: rem(75.63);
+  padding-bottom: rem(72);
+  padding-left: rem(232);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: rem(80);
+
+  opacity: 0;  // 通常時は非表示
+  visibility: hidden;  // 通常時は非表示
+  transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+
+  width: 100vw;
+  position: absolute; /* サブメニューを親要素から絶対配置する */
+  top: 100%; /* 親メニューの下に配置 */
+  left: 0;
+}
+
+// .sub-menu:hover + .header__inner .header__link::after {  // hover
+//   opacity: 1;  // hoverしたら表示
+//   visibility: visible;
+// }
+
+.sub-menu__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(9);
+}
+
+.sub-menu__title:hover .sub-menu__title-btn {  // hover
+  background: #FFF;
+}
+
+.sub-menu__title:hover .sub-menu__title-btn svg path {  // hover
+  fill: #424242;
+}
+
+.sub-menu__title-text {
+  color: #FFF;
+  font-size: rem(20);
+  font-weight: $bold;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+}
+
+.sub-menu__title-btn {
+  width: rem(40);
+}
+
+.sub-menu__divider {  // 白い仕切り線
+  width: rem(1);
+  height: rem(81);
+  background: #FFF;
+}
+
+.sub-menu__items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  // 『grid-template-rows』は指定しない事で、行の高さは、その行に含まれるコンテンツのサイズに基づいて自動的に調整される。
+  row-gap: rem(17);
+  align-items: flex-start;
+}
+
+.sub-menu.is-company .sub-menu__items {
+  column-gap: rem(243);
+}
+
+.sub-menu.is-service .sub-menu__items {
+  column-gap: rem(163);
+}
+
+.sub-menu__item {
+  color: #FFF;
+  font-size: rem(20);
+  font-weight: $bold;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  transition: opacity 0.2s ease-out;
+}
+
+.sub-menu__item:hover {  // hover
+  opacity: 0.7;
+}

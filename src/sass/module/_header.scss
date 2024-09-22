@@ -1,0 +1,165 @@
+@use "global" as *;
+
+
+.header {
+  background: rgba(255, 255, 255, 0.60);
+  position: relative;
+}
+
+.header__inner {
+  height: rem(152);
+  padding-inline: rem(72);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(15);
+  transition: opacity 0.2s ease-out;
+}
+
+.header__title:hover {
+  opacity: 0.7;
+}
+
+.header__title-text {
+  font-size: rem(14);
+  font-weight: $bold;
+  line-height: 1.5;
+}
+
+.header__logo {
+
+}
+
+.header__logo img {
+  width: rem(207);
+}
+
+.header__nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(40);
+}
+
+.header__nav-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: rem(18);
+}
+
+.header__nav-buttons {
+
+}
+
+.header__nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(48);
+}
+
+.header__link {
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: 1.5;
+  position: relative;
+}
+
+.header__link::after {  // hover時の黒いアンダーライン
+  content: "";
+  background: $color-font-base;
+  width: rem(16);
+  height: rem(2);
+  position: absolute;
+  bottom: rem(-12);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;  // 通常時は非表示
+  visibility: hidden;  // 通常時は非表示
+  transition: all 0.2s ease-out;
+}
+
+.header__link:hover::after {  // hover
+  opacity: 1;  // hoverしたら表示
+  visibility: visible;
+}
+
+.header__link.is-service::before,
+.header__link.is-company::before {  // hover時のグレーの三角形▲ (サブメニューの一部)
+  content: "";
+  background: url(../images/common/sub-menu-polygon.svg) no-repeat center center / contain;
+  width: rem(24);
+  height: rem(11.7);
+  position: absolute;
+  bottom: rem(-33.5);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;  // 通常時は非表示
+  transition: opacity 0.2s ease-out;
+}
+
+.header__link.is-service:hover::before,
+.header__link.is-company:hover::before {  // hover
+  opacity: 1;  // hoverしたら表示
+}
+
+
+/* 黒いアンダーラインとグレーの三角形をhoverクラスにも適用 */
+.header__link.hover::after,
+.header__link.is-service.hover::before,
+.header__link.is-company.hover::before {
+  opacity: 1;  /* hoverクラスが追加されたときも表示 */
+  visibility: visible; /* hoverクラスが追加されたときも表示 */
+}
+
+
+
+
+.header__hamburger {  // ハンバーガーメニュー
+  width: rem(88);
+  height: rem(88);
+  border-radius: rem(3.2);
+  background: $color-background-base-2;
+  display: grid;
+  place-items: center;
+}
+
+.js-header__hamburger {
+
+}
+
+.header__bars {
+  width: rem(27.2);
+  height: rem(25.6);
+  position: relative;
+}
+
+.header__bar {
+  display: inline-block;
+  width: rem(24);
+  height: rem(3.2);
+  background: $color-font-base;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: transform 0.3s ease-out, top 0.3s ease-out, opacity 0.2s ease-out;
+}
+
+.header__bar:nth-of-type(2) {
+  width: rem(16);
+  top: rem(11.2);
+}
+
+.header__bar:nth-of-type(3) {
+  width: rem(27.2);
+  top: rem(22.4);
+}
