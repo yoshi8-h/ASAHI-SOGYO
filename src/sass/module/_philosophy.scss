@@ -1,0 +1,116 @@
+@use "global" as *;
+
+
+.philosophy {
+  background: #FFF7E8;
+  padding-top: rem(152);
+  padding-bottom: rem(196);
+}
+
+.philosophy__inner {
+  position: relative;
+}
+
+.philosophy__scroll {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: rem(36);
+
+  position: absolute;
+  top: rem(-240);
+  left: rem(126);
+}
+
+.philosophy__scroll-line {
+  width: rem(1);
+  height: rem(159);
+  background: $color-font-base;
+}
+
+.philosophy__scroll-text {
+  font-family: $font-family-en-1;
+  font-size: rem(14);
+  font-weight: $medium;
+  line-height: 1.45;
+  transform: rotate(90deg);
+}
+
+.philosophy__bg {  // 背景の大きな魚 (ランチャーム)
+  max-width: rem(950);
+  width: 100%;
+  position: absolute;
+  top: rem(69);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.philosophy__bg img {
+  width: 100%;
+}
+
+.philosophy__titles {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(62);
+  margin-top: rem(40);
+}
+
+.philosophy__title-text {
+  color: #000;
+  font-feature-settings: 'vert' on;
+  font-family: $font-family-ja-1;
+  font-size: rem(54);
+  font-weight: $normal;
+  line-height: 1.15;
+  letter-spacing: 0.15em;
+
+  writing-mode: vertical-rl; /* 縦書きに変更 */
+  text-orientation: upright; /* 日本語や漢字をそのままの形で表示 */
+  width: rem(54); /* 横幅を適切に設定 */
+
+  display: flex;  // 文字を中央揃え
+  justify-content: center;
+  align-items: center;
+}
+
+.philosophy__text {
+  color: #000;
+  font-size: rem(18);
+  font-weight: $medium;
+  line-height: 2.2;
+  letter-spacing: 0.06em;
+
+  max-width: rem(595);
+  width: 100%;
+  margin-inline: auto;
+}
+
+.philosophy__img-right {  // 右上の写真
+  border-radius: rem(5);
+  overflow: hidden;
+  aspect-ratio: 280 / 390;
+  width: rem(280);
+  max-width: rem(280);
+  object-fit: cover;
+
+  position: absolute;
+  top: rem(-40);
+  right: rem(25);  // innerのpadding分を考慮
+}
+
+.philosophy__img-left {  // 左下の写真
+  border-radius: rem(5);
+  overflow: hidden;
+  aspect-ratio: 310 / 380;
+  width: rem(310);
+  max-width: rem(310);
+  object-fit: cover;
+
+  position: absolute;
+  bottom: rem(-36);
+  left: rem(25);  // innerのpadding分を考慮
+}
