@@ -13,7 +13,7 @@
   font-family: $font-family-ja-1;
   font-size: rem(60);
   font-weight: $normal;
-  line-height: 2.0;
+  line-height: 1.1;
   letter-spacing: 0.03em;
 }
 
@@ -22,5 +22,18 @@
   font-size: rem(12);
   font-weight: $medium;
   line-height: 1.45;
-  margin-top: rem(-18);
+  margin-top: rem(7);
+  margin-left: rem(2);
+}
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+// .section-head--2
+.section-head--2 .section-head__title {
+  font-size: rem(72);
+  white-space: nowrap;
 }

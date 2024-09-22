@@ -291,7 +291,7 @@ const caseSwiper = new Swiper(".js-case-swiper", {
   loop: true,
 
   slidesPerView: 'auto', // スライドの幅をCSSで指定
-  spaceBetween: 24,
+  spaceBetween: 67,
 
   grabCursor: true,  // PCでホバー時にマウスカーソルを「掴む」マークに。
 
