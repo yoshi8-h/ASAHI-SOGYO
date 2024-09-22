@@ -1,0 +1,48 @@
+@use "global" as *;
+
+
+.fv {
+  position: relative;
+}
+
+.fv__wrap {
+  // height: 100vh;
+}
+
+// swiper
+.fv__swiper {
+}
+
+.fv__swiper-wrapper.swiper-wrapper {
+}
+
+.fv__swiper-slide.swiper-slide {
+}
+
+.fv__slide-item {
+}
+
+.fv__slide-img {
+}
+
+.fv__slide-img img {
+  aspect-ratio: 1208 / 712;
+  width: calc(1208px / 1920px * 100vw);
+  object-fit: cover;
+}
+
+.fv__texts {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.fv__text-1 {
+
+}
+
+.fv__text-2 {
+
+}

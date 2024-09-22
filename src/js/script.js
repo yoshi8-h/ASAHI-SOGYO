@@ -222,41 +222,41 @@ setupHoverEvents('is-service', 'is-service');
 
 
 
-// サブメニューを表示する関数
-function showSubMenu(headerLink, subMenu) {
-  subMenu.style.opacity = '1';
-  subMenu.style.visibility = 'visible';
-  headerLink.classList.add('is-hover'); // header__linkにis-hoverクラスを追加
-}
+// // サブメニューを表示する関数
+// function showSubMenu(headerLink, subMenu) {
+//   subMenu.style.opacity = '1';
+//   subMenu.style.visibility = 'visible';
+//   headerLink.classList.add('is-hover'); // header__linkにis-hoverクラスを追加
+// }
 
-// サブメニューを非表示にする関数
-function hideSubMenu(headerLink, subMenu) {
-  subMenu.style.opacity = '0';
-  subMenu.style.visibility = 'hidden';
-  headerLink.classList.remove('is-hover'); // header__linkからis-hoverクラスを削除
-}
+// // サブメニューを非表示にする関数
+// function hideSubMenu(headerLink, subMenu) {
+//   subMenu.style.opacity = '0';
+//   subMenu.style.visibility = 'hidden';
+//   headerLink.classList.remove('is-hover'); // header__linkからis-hoverクラスを削除
+// }
 
-// メニューリンクとサブメニューを関連付ける関数
-function setupHoverEvents(linkClass, menuClass) {
-  const headerLinks = document.querySelectorAll(`.header__link.${linkClass}`);
-  const subMenus = document.querySelectorAll(`.sub-menu.${menuClass}`);
+// // メニューリンクとサブメニューを関連付ける関数
+// function setupHoverEvents(linkClass, menuClass) {
+//   const headerLinks = document.querySelectorAll(`.header__link.${linkClass}`);
+//   const subMenus = document.querySelectorAll(`.sub-menu.${menuClass}`);
 
-  headerLinks.forEach((headerLink, index) => {
-    const subMenu = subMenus[index];
+//   headerLinks.forEach((headerLink, index) => {
+//     const subMenu = subMenus[index];
 
-    // メニューリンクにhoverしたときのイベント設定
-    headerLink.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu));
-    headerLink.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu));
+//     // メニューリンクにhoverしたときのイベント設定
+//     headerLink.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu));
+//     headerLink.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu));
 
-    // サブメニュー自体にhoverしたときのイベント設定
-    subMenu.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu)); // サブメニュー上にマウスが乗っても表示
-    subMenu.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu)); // サブメニューから離れたら非表示
-  });
-}
+//     // サブメニュー自体にhoverしたときのイベント設定
+//     subMenu.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu)); // サブメニュー上にマウスが乗っても表示
+//     subMenu.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu)); // サブメニューから離れたら非表示
+//   });
+// }
 
-// is-company と is-service の両方に対応
-setupHoverEvents('is-company', 'is-company');
-setupHoverEvents('is-service', 'is-service');
+// // is-company と is-service の両方に対応
+// setupHoverEvents('is-company', 'is-company');
+// setupHoverEvents('is-service', 'is-service');
 
 
 
@@ -269,5 +269,20 @@ setupHoverEvents('is-service', 'is-service');
 
 /* -------------------------------------------------------------------------------- */
 /* swiper (スワイパー) fv */
+// const fvSwiper = new Swiper(".js-fv-swiper", {
+//   loop: true,
+//   effect: 'slide',
 
+//   centeredSlides: true, // アクティブなスライドを中央に配置する
+//   slidesPerView: 'auto', // スライドの幅をCSSで指定
+//   spaceBetween: 72,
+
+//   speed: 2000,  // 切り替わる最中のスピード(ミリ秒)
+//   autoplay: {  // 自動再生ON
+//     delay: 4000,  // 次のスライドに切り替わるまでの時間
+//     disableOnInteraction: false,  // ユーザーがドラッグなどの操作をしても自動再生が止まらないように。
+//   },
+// });
+
+/* -------------------------------------------------------------------------------- */
 

@@ -19,7 +19,7 @@
 .gnavi__list:hover {
   background-color: #0071BB;
 }
-.gnavi__list:not(:first-child)::before {
+.gnavi__list:not(:first-child)::before {  // 仕切り線だから、関係ない
   content: "";
   width: 1px;
   height: 100%;
@@ -29,7 +29,7 @@
   left: 0;
   transition: all .3s;
 }
-.gnavi__list:hover::before {
+.gnavi__list:hover::before {  // 仕切り線の事だから、関係ない
   background-color: #0071BB;
 }
 .gnavi__list a {
