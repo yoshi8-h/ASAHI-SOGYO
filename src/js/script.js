@@ -139,18 +139,101 @@ setupHoverEvents('is-service', 'is-service');
 
 
 
+// // サブメニューを表示する関数
+// function showSubMenu(headerLink, subMenu) {
+//   subMenu.style.opacity = '1';
+//   subMenu.style.visibility = 'visible';
+//   headerLink.classList.add('hover'); // header__linkにhoverクラスを追加
+// }
+
+// // サブメニューを非表示にする関数
+// function hideSubMenu(headerLink, subMenu) {
+//   subMenu.style.opacity = '0';
+//   subMenu.style.visibility = 'hidden';
+//   headerLink.classList.remove('hover'); // header__linkからhoverクラスを削除
+// }
+
+// // メニューリンクとサブメニューを関連付ける関数
+// function setupHoverEvents(linkClass, menuClass) {
+//   const headerLinks = document.querySelectorAll(`.header__link.${linkClass}`);
+//   const subMenus = document.querySelectorAll(`.sub-menu.${menuClass}`);
+
+//   headerLinks.forEach((headerLink, index) => {
+//     const subMenu = subMenus[index];
+
+//     // メニューリンクにhoverしたときのイベント設定
+//     headerLink.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu));
+//     headerLink.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu));
+
+//     // サブメニュー自体にhoverしたときのイベント設定
+//     subMenu.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu)); // サブメニュー上にマウスが乗っても表示
+//     subMenu.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu)); // サブメニューから離れたら非表示
+//   });
+// }
+
+// // is-company と is-service の両方に対応
+// setupHoverEvents('is-company', 'is-company');
+// setupHoverEvents('is-service', 'is-service');
+
+
+
+
+
+
+// // サブメニューを表示する関数
+// function showSubMenu(headerLink, subMenu) {
+//   subMenu.style.opacity = '1';
+//   subMenu.style.visibility = 'visible';
+//   headerLink.classList.add('hover'); // header__linkにhoverクラスを追加
+// }
+
+// // サブメニューを非表示にする関数
+// function hideSubMenu(headerLink, subMenu) {
+//   subMenu.style.opacity = '0';
+//   subMenu.style.visibility = 'hidden';
+//   headerLink.classList.remove('hover'); // header__linkからhoverクラスを削除
+// }
+
+// // メニューリンクとサブメニューを関連付ける関数
+// function setupHoverEvents(linkClass, menuClass) {
+//   const headerLinks = document.querySelectorAll(`.header__link.${linkClass}`);
+//   const subMenus = document.querySelectorAll(`.sub-menu.${menuClass}`);
+
+//   headerLinks.forEach((headerLink, index) => {
+//     const subMenu = subMenus[index];
+
+//     // メニューリンクにhoverしたときのイベント設定
+//     headerLink.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu));
+//     headerLink.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu));
+
+//     // サブメニュー自体にhoverしたときのイベント設定
+//     subMenu.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu)); // サブメニュー上にマウスが乗っても表示
+//     subMenu.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu)); // サブメニューから離れたら非表示
+//   });
+// }
+
+// // is-company と is-service の両方に対応
+// setupHoverEvents('is-company', 'is-company');
+// setupHoverEvents('is-service', 'is-service');
+
+
+
+
+
+
+
 // サブメニューを表示する関数
 function showSubMenu(headerLink, subMenu) {
   subMenu.style.opacity = '1';
   subMenu.style.visibility = 'visible';
-  headerLink.classList.add('hover'); // header__linkにhoverクラスを追加
+  headerLink.classList.add('is-hover'); // header__linkにis-hoverクラスを追加
 }
 
 // サブメニューを非表示にする関数
 function hideSubMenu(headerLink, subMenu) {
   subMenu.style.opacity = '0';
   subMenu.style.visibility = 'hidden';
-  headerLink.classList.remove('hover'); // header__linkからhoverクラスを削除
+  headerLink.classList.remove('is-hover'); // header__linkからis-hoverクラスを削除
 }
 
 // メニューリンクとサブメニューを関連付ける関数
@@ -174,7 +257,6 @@ function setupHoverEvents(linkClass, menuClass) {
 // is-company と is-service の両方に対応
 setupHoverEvents('is-company', 'is-company');
 setupHoverEvents('is-service', 'is-service');
-
 
 
 
