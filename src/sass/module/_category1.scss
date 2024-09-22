@@ -1,0 +1,24 @@
+@use "global" as *;
+
+
+.category1 {
+  width: fit-content;
+  border-radius: rem(1);
+  background: $color-accent1;
+  padding-block: rem(8);
+  padding-inline: rem(12);
+  color: #FFF;
+  font-size: rem(16);
+  font-weight: $medium;
+  line-height: 1.9;
+}
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+.category1--blue {
+  background: $color-accent2;
+}

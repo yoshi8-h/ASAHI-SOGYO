@@ -284,5 +284,27 @@ const fvSwiper = new Swiper(".js-fv-swiper", {
   },
 });
 
+
 /* -------------------------------------------------------------------------------- */
+/* swiper (スワイパー) caseセクション */
+const caseSwiper = new Swiper(".js-case-swiper", {
+  loop: true,
+
+  slidesPerView: 'auto', // スライドの幅をCSSで指定
+  spaceBetween: 24,
+
+  grabCursor: true,  // PCでホバー時にマウスカーソルを「掴む」マークに。
+
+  breakpoints: {
+    768: {  // 768px以上の場合 (PC時)
+      spaceBetween: 40,
+    },
+  },
+
+  // Navigation arrows（矢印のオプション指定）
+  navigation: {
+    nextEl: '#js-case-next',
+    prevEl: '#js-case-prev',
+  },
+});
 
