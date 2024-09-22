@@ -1,0 +1,17 @@
+@use "global" as *;
+
+
+.items1 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(94);
+}
+
+.items1__item {
+
+}
+
+.items1__item.is-down {  // 『.is-down』クラスがついているitemは、少し下にズラす。
+  margin-top: rem(80);
+}

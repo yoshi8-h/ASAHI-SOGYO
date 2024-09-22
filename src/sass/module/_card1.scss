@@ -41,8 +41,12 @@
   transform: rotate(90deg);
   position: absolute;
   top: rem(195);
-  left: rem(8.71);
   left: rem(-30);
+}
+
+.card1__title-en.is-02 {  // 要素によって位置調整
+  top: rem(170);
+  left: rem(-4);
 }
 
 .card1__contents {
@@ -62,9 +66,9 @@
   text-edge: cap;
   font-size: rem(33.427);
   font-weight: $bold;
-  line-height: 2.0;
+  line-height: 1.0;
   letter-spacing: -0.01em;
-  padding-bottom: rem(11);
+  padding-bottom: rem(9);
   width: rem(393);
   text-align: center;
   border-bottom: rem(1) solid rgba(211, 211, 211, 0.5);

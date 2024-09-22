@@ -1,0 +1,16 @@
+@use "global" as *;
+
+
+.item1 {
+
+}
+
+.item1__card {
+  max-width: rem(654);
+  width: 100%;
+}
+
+.item1__list {
+  margin-top: rem(22);
+  margin-left: rem(20);
+}

@@ -1,0 +1,30 @@
+@use "global" as *;
+
+
+.service {
+
+}
+
+.service__inner {
+
+}
+
+.service__headings {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: rem(65);
+}
+
+.service__head {
+
+}
+
+.service__head-text {
+
+}
+
+.service__items {
+  margin-top: rem(152);
+  margin-left: rem(58);  // カードの角の数字『01』の文を、左に寄せる。
+}
