@@ -269,20 +269,20 @@ setupHoverEvents('is-service', 'is-service');
 
 /* -------------------------------------------------------------------------------- */
 /* swiper (スワイパー) fv */
-// const fvSwiper = new Swiper(".js-fv-swiper", {
-//   loop: true,
-//   effect: 'slide',
+const fvSwiper = new Swiper(".js-fv-swiper", {
+  loop: true,
+  effect: 'slide',
 
-//   centeredSlides: true, // アクティブなスライドを中央に配置する
-//   slidesPerView: 'auto', // スライドの幅をCSSで指定
-//   spaceBetween: 72,
+  centeredSlides: true, // アクティブなスライドを中央に配置する
+  slidesPerView: 'auto', // スライドの幅をCSSで指定
+  spaceBetween: 72,
 
-//   speed: 2000,  // 切り替わる最中のスピード(ミリ秒)
-//   autoplay: {  // 自動再生ON
-//     delay: 4000,  // 次のスライドに切り替わるまでの時間
-//     disableOnInteraction: false,  // ユーザーがドラッグなどの操作をしても自動再生が止まらないように。
-//   },
-// });
+  speed: 2000,  // 切り替わる最中のスピード(ミリ秒)
+  autoplay: {  // 自動再生ON
+    delay: 4000,  // 次のスライドに切り替わるまでの時間
+    disableOnInteraction: false,  // ユーザーがドラッグなどの操作をしても自動再生が止まらないように。
+  },
+});
 
 /* -------------------------------------------------------------------------------- */
 
