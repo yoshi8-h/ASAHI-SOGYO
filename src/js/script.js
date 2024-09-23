@@ -295,16 +295,51 @@ const caseSwiper = new Swiper(".js-case-swiper", {
 
   grabCursor: true,  // PCでホバー時にマウスカーソルを「掴む」マークに。
 
+  speed: 2000,  // 切り替わる最中のスピード(ミリ秒)
+  autoplay: {  // 自動再生ON
+    delay: 4000,  // 次のスライドに切り替わるまでの時間
+    disableOnInteraction: false,  // ユーザーがドラッグなどの操作をしても自動再生が止まらないように。
+  },
+
   breakpoints: {
-    768: {  // 768px以上の場合 (PC時)
+    900: {  // 900px以上の場合 (PC時)
       spaceBetween: 40,
     },
   },
 
-  // Navigation arrows（矢印のオプション指定）
+  // 「前へ」「次へ」ボタン (Navigation arrows)（矢印のオプション指定）
   navigation: {
-    nextEl: '#js-case-next',
-    prevEl: '#js-case-prev',
+    nextEl: '.js-case-next',
+    prevEl: '.js-case-prev',
+  },
+
+  // ページネーション (pagination)（スライドの総数と現在のスライドが何番目か表示させる）：『1/5』のように。
+  pagination: {
+    el: '.js-case-pagination',
+    type: "fraction", // 枚数表示
+    // clickable: true, // ページネーションの丸(ドット)をクリックしてもスライド可能に。
   },
 });
 
+
+// ページネーションの『1/5』の部分の、『/』だけにスタイルを当てるために、「custom-slash」というspanタグで囲うように指定。(CSSだけでは制御不可能)
+document.addEventListener("DOMContentLoaded", function() {
+  // ページネーション内の`/`部分を特定してクラスを付与
+  const pagination = document.querySelector('.swiper-pagination-fraction');
+  if (pagination) {
+    pagination.childNodes.forEach((node, index) => {
+      if (node.nodeType === 3 && node.textContent.trim() === '/') {
+        // テキストノードを<span>に置き換える
+        const span = document.createElement('span');
+        span.classList.add('custom-slash'); // 任意のクラスを追加
+        span.textContent = '/'; // '/'を設定
+
+        // テキストノードを置き換える
+        pagination.replaceChild(span, node);
+      }
+    });
+  }
+});
+
+
+/* -------------------------------------------------------------------------------- */

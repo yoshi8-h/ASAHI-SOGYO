@@ -12,6 +12,7 @@
   justify-content: center;
   align-items: center;
   gap: rem(90.19);
+  position: relative;
 }
 
 .case__headings {
@@ -45,7 +46,9 @@
   padding-bottom: rem(174.5);
   padding-left: rem(96.2);
   margin-right: calc(50% - 50vw);  // ※親要素をはみ出るように指定。
+  position: relative;
 }
+
 
 
 // swiper
@@ -70,4 +73,71 @@
 }
 
 
+// swiperの「前へ」「次へ」ボタン
+.case__arrows {
+  width: rem(181);
+  height: rem(41);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(115);
+  position: absolute;
+  bottom: rem(48);
+  right: calc(50% - min(48vw, 56rem));  // ※min関数で制御
+  z-index: 100;
+}
 
+.case__prev,
+.case__next {
+  z-index: 30;
+}
+
+.case__prev::after,
+.case__next::after {
+  display: none;  // swiperのデフォルトの青い矢印(ボタン)を消す
+}
+
+.case__prev-img,
+.case__next-img {
+
+}
+
+.case__prev svg,
+.case__next svg {
+  width: rem(33);
+}
+
+.case__prev svg path,
+.case__next svg path {
+  transition: fill 0.2s ease-out;
+}
+
+.case__prev:hover svg path,
+.case__next:hover svg path {
+  fill: $color-accent1;
+}
+
+
+// ページネーション (枚数表示)
+  // スライドの総数と現在のスライドが何番目か表示させる：『1/5』のように。
+.swiper-pagination-fraction {  // JSで制御すると自動生成されるクラス名に指定
+  color: $color-font-base;
+  font-family: $font-family-base;
+  font-size: rem(16);
+  font-weight: $medium;
+  line-height: 1.5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(6);
+
+  transform: translateY(rem(6));  // 位置調整
+}
+
+// 『1/5』の部分の、『/』だけスタイルを変更
+  // JavaScriptで、「custom-slash」というクラス名の<span>タグで囲われるように別途指定。
+.custom-slash {
+  font-size: rem(30);
+  // font-weight: $normal;
+}
