@@ -1,3 +1,23 @@
 @use "global" as *;
 
 
+.post2 {
+  max-width: rem(461);
+  width: 100%;
+}
+
+.post2__wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(16);
+}
+
+.post2__card {
+
+}
+
+.post2__tags {
+
+}

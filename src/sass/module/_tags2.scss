@@ -1,0 +1,14 @@
+@use "global" as *;
+
+
+.tags2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: rem(8);
+}
+
+.tags2__item {
+
+}

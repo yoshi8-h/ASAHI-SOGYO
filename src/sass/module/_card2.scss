@@ -1,0 +1,54 @@
+@use "global" as *;
+
+
+.card2 {
+  display: block;
+  position: relative;
+}
+
+.card2__category {
+  position: absolute;
+  top: rem(-10);
+  left: rem(-10);
+}
+
+.card2__wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: rem(16);
+}
+
+.card2__img {
+  aspect-ratio: 461 / 346;
+  width: rem(461);
+  object-fit: cover;
+}
+
+.card2__img img {
+  width: 100%;
+}
+
+.card2__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(16);
+}
+
+.card2__title {
+  font-family: $font-family-ja-2;
+  font-size: rem(18);
+  font-weight: $bold;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+.card2__date {
+  font-family: $font-family-en-1;
+  font-size: rem(16);
+  font-weight: $normal;
+  line-height: 2.0;
+}

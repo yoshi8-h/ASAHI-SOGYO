@@ -1,0 +1,23 @@
+@use "global" as *;
+
+
+.tag2 {
+  display: inline-block;
+  background: #FFF;
+  color: $color-font-base;
+  font-family: $font-family-ja-2;
+  font-size: rem(13);
+  font-weight: $normal;
+  line-height: 2.0;
+
+  padding-block: rem(5);
+  padding-inline: rem(12);
+  border-radius: rem(25);
+  border: rem(1) solid $color-font-base;
+  transition: all 0.2s ease-out;
+}
+
+.tag2:hover {  // hover
+  background: $color-font-base;
+  color: #FFF;
+}
