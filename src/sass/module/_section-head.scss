@@ -37,3 +37,26 @@
   font-size: rem(72);
   white-space: nowrap;
 }
+
+
+
+// .section-head--center (中央揃えパターン)
+.section-head--center {
+  width: fit-content;
+  margin-inline: auto;
+  align-items: center;
+}
+
+.section-head--center .section-head__title {
+  text-align: center;
+  font-family: $font-family-ja-1;
+  font-size: rem(48);
+}
+
+.section-head--center .section-head__title-en {
+  font-size: rem(16);
+  font-weight: $medium;
+  line-height: 1.45;
+  margin-top: rem(15);
+  margin-left: 0;  // モディファイアで打ち消し
+}

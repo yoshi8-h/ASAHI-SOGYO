@@ -343,3 +343,107 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 /* -------------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* ================================================================================ */
+/*  アニメーション  */
+/* ================================================================================ */
+/* テキストを、フェードで1文字ずつ表示させる */
+// ※ <span>タグで1文字ずつ囲む処理をする際に、<br>タグは1文字ずつ<span>で囲む対象から外す処理も。
+
+window.addEventListener('DOMContentLoaded', function() {
+  let splitTargets = document.querySelectorAll(".js-splitText");  // ターゲットとなる要素を全て取得
+
+  // 文字１つ１つを、spanタグで分割
+  splitTargets.forEach(function(target) {
+    let newText = '';  // 生成する要素を格納する為の変数
+    let spanText = target.innerHTML;  // 要素のHTMLを取得
+
+    // 正規表現を使って、<br>タグを特別な処理で除外
+    spanText.split(/(<br\s*\/?>)/).forEach(function(part) {
+      if (part === "<br>" || part === "<br/>" || part === "<br />") {
+        // <br>タグはそのまま保持
+        newText += part;
+      } else {
+        // それ以外の部分を1文字ずつ分割して<span>で囲む
+        part.split('').forEach(function(char) {
+          newText += '<span>' + char + '</span>';
+        });
+      }
+    });
+
+    target.innerHTML = newText;  // 加工した新しいHTMLを元の要素に代入
+  });
+
+
+  // パターン1
+  let targets1 = document.querySelectorAll(".js-text-fadein-1");
+  targets1.forEach(function(target) {
+    let spans = target.querySelectorAll('span');
+    gsap.fromTo(spans, {autoAlpha:0}, {autoAlpha:1, stagger:.05, scrollTrigger:{
+      trigger: spans,
+      start: 'top 50%',
+      // markers:{
+      //   startColor: "blue",
+      // },
+    }
+    });
+  })
+
+  // パターン2 (パターン1より少し遅れて表示)
+  let targets2 = document.querySelectorAll(".js-text-fadein-2");
+  targets2.forEach(function(target) {
+    let spans = target.querySelectorAll('span');
+    gsap.fromTo(spans, {autoAlpha:0}, {autoAlpha:1, delay:.3, stagger:.05, scrollTrigger:{
+      trigger: spans,
+      start: 'top 50%',
+      // markers:{
+      //   startColor: "blue",
+      // },
+    }
+    });
+  })
+
+  // パターン3 (フェードの間隔短め)
+  let targets3 = document.querySelectorAll(".js-text-fadein-3");
+  targets3.forEach(function(target) {
+    let spans = target.querySelectorAll('span');
+    gsap.fromTo(spans, {autoAlpha:0}, {autoAlpha:1, stagger:.02, scrollTrigger:{
+      trigger: spans,
+      start: 'top 90%',
+      // markers:{
+      //   startColor: "blue",
+      // },
+    }
+    });
+  })
+
+})
+
+
+/* -------------------------------------------------------------------------------- */
+/* 背景が先に上からトリミングが外れる形で表示され、その後、文字がフワッと上から下にフェードインして表示される */
+document.addEventListener('DOMContentLoaded', function() {
+  const downBgToTexts = document.querySelectorAll(".js-down-bg-to-text");  // ページ内の、このアニメーションをさせたい全ての要素を取得
+
+  downBgToTexts.forEach(downBgToText => {
+    let bg = downBgToText.querySelectorAll('.js-down-bg');
+    let text = downBgToText.querySelectorAll('.js-down-text');
+
+    let tl = gsap.timeline({scrollTrigger:{
+      trigger: downBgToText,
+      start: 'top 70%',
+      // markers:{
+      //   startColor: "green",
+      // },
+    }});
+    tl  // 先にトリミングが外れて背景が表示され、その後、テキストがフェードインで表示される
+    .fromTo(bg, {'clipPath':'inset(0 0 100% 0)'}, {'clipPath':'inset(0 0 0% 0)', duration:.5, ease:"out"})
+    .fromTo(text, {y:-20, autoAlpha:0}, {y:0, autoAlpha:1},'-=.1')
+
+  });
+});

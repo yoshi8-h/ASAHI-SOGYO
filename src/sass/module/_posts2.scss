@@ -1,0 +1,14 @@
+@use "global" as *;
+
+
+.posts2 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(36);
+}
+
+.posts2__item {
+  max-width: rem(461);
+  width: 100%;
+}

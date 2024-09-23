@@ -1,0 +1,13 @@
+@use "global" as *;
+
+
+.categories2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(32);
+}
+
+.categories2__item {
+
+}

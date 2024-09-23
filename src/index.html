@@ -32,9 +32,13 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 
     <!-- JavaScript -->
-    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script defer src="./assets/js/jquery.inview.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>  <!-- GSAP -->
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>  <!-- GSAPのプラグイン「ScrollTrigger」 -->
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>  <!-- GSAPのプラグイン「ScrollTo」 -->
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>  <!-- GSAPのプラグイン「CustomEase」 -->
+    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>  <!-- jQuery -->
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  <!-- swiper -->
+    <script defer src="./assets/js/jquery.inview.min.js"></script>  <!-- inview.js -->
     <script defer src="./assets/js/script.js"></script>
   </head>
   <body>
@@ -189,9 +193,37 @@
               </div>
             </div>
           </div>
-          <div class="fv__texts">
-            <p class="fv__text-1">人にやさしく</p>
-            <p class="fv__text-2">食におもいやり</p>
+          <!-- <div class="fv__texts">
+            <div class="fv__text-1 js-fadeInDown">
+              人にやさしく
+              <div class="fv__text-bg">
+                <div class="fv__text-bg-white js-trimming-to-top-clearly"></div>
+                <div class="fv__text-bg-red js-trimming-to-top-clearly"></div>
+              </div>
+            </div>
+            <div class="fv__text-2 js-fadeInDown">
+              食におもいやり
+              <div class="fv__text-bg">
+                <div class="fv__text-bg-white js-trimming-to-top-clearly"></div>
+                <div class="fv__text-bg-red js-trimming-to-top-clearly"></div>
+              </div>
+            </div>
+          </div> -->
+          <div class="fv__texts js-down-bg-to-text">
+            <div class="fv__text-1">
+              <p class="js-down-text">人にやさしく</p>
+              <div class="fv__text-bg">
+                <div class="fv__text-bg-white js-trimming-to-top-clearly js-down-bg"></div>
+                <div class="fv__text-bg-red js-trimming-to-top-clearly js-down-bg"></div>
+              </div>
+            </div>
+            <div class="fv__text-2">
+              <p class="js-down-text">食におもいやり</p>
+              <div class="fv__text-bg">
+                <div class="fv__text-bg-white js-trimming-to-top-clearly js-down-bg"></div>
+                <div class="fv__text-bg-red js-trimming-to-top-clearly js-down-bg"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -205,10 +237,10 @@
           </div>
           <div class="philosophy__bg"><img src="./assets/images/common/rancharm-big.png" alt="大きなランチャーム"></div>
           <h2 class="philosophy__titles">
-            <div class="philosophy__title-text">人にやさしく</div>
-            <div class="philosophy__title-text">食におもいやり。</div>
+            <div class="philosophy__title-text js-splitText js-text-fadein-1">人にやさしく</div>
+            <div class="philosophy__title-text js-splitText js-text-fadein-2">食におもいやり。</div>
           </h2>
-          <p class="philosophy__text">
+          <p class="philosophy__text js-splitText js-text-fadein-3">
             旭創業は、食品関連資材や調理用消耗品の製造・販売、OEMを通じて 「食」の加工に関わる幅広いサービスを展開しています。 <br
             >日本で初めて魚型の醤油差し たれびん『ランチャーム』 を発売し、 創業から65年以上「食の安心・安全」を追求し続けています。
           </p>
@@ -392,7 +424,7 @@
       <!-- topics セクション -->
       <section class="topics l-topics">
         <div class="topics__inner inner">
-          <div class="topics__head section-head">
+          <div class="topics__head section-head section-head--center">
             <h2 class="section-head__title">最新情報</h2>
             <div class="section-head__title-en">TOPICS</div>
           </div>
@@ -401,7 +433,72 @@
             <a href="" class="categories2__item category2">商品情報</a>
             <a href="" class="categories2__item category2">リリース</a>
           </div>
-          <div class="topics__posts posts2"></div>
+          <div class="topics__posts posts2">
+            <div class="posts2__item post2">
+              <div class="post2__wrap">
+                <a href="" class="post2__card card2">
+                  <div class="card2__category category3">商品情報</div>
+                  <div class="card2__wrap">
+                    <div class="card2__img"><img src="./assets/images/common/card2-img-01.jpg" alt="組み立て式使い捨てトレーの写真"></div>
+                    <div class="card2__body">
+                      <p class="card2__title">新発売！組み立て式使い捨てトレー『紙製トレー トレポイ’』</p>
+                      <time class="card2__date" datetime="2022-08-08">2022.08.08</time>
+                    </div>
+                  </div>
+                </a>
+                <div class="post2__tags tags2">
+                  <a href="" class="tags2__item tag2">#調理・飲食用資材</a>
+                  <a href="" class="tags2__item tag2">#衛生用品/設備・施設用</a>
+                </div>
+              </div>
+            </div>
+            <div class="posts2__item post2">
+              <div class="post2__wrap">
+                <a href="" class="post2__card card2">
+                  <div class="card2__category category3">商品情報</div>
+                  <div class="card2__wrap">
+                    <div class="card2__img"><img src="./assets/images/common/card2-img-01.jpg" alt="組み立て式使い捨てトレーの写真"></div>
+                    <div class="card2__body">
+                      <p class="card2__title">新発売！組み立て式使い捨てトレー『紙製トレー トレポイ’』</p>
+                      <time class="card2__date" datetime="2022-08-08">2022.08.08</time>
+                    </div>
+                  </div>
+                </a>
+                <div class="post2__tags tags2">
+                  <a href="" class="tags2__item tag2">#調理・飲食用資材</a>
+                  <a href="" class="tags2__item tag2">#衛生用品/設備・施設用</a>
+                </div>
+              </div>
+            </div>
+            <div class="posts2__item post2">
+              <div class="post2__wrap">
+                <a href="" class="post2__card card2">
+                  <div class="card2__category category3">商品情報</div>
+                  <div class="card2__wrap">
+                    <div class="card2__img"><img src="./assets/images/common/card2-img-01.jpg" alt="組み立て式使い捨てトレーの写真"></div>
+                    <div class="card2__body">
+                      <p class="card2__title">新発売！組み立て式使い捨てトレー『紙製トレー トレポイ’』</p>
+                      <time class="card2__date" datetime="2022-08-08">2022.08.08</time>
+                    </div>
+                  </div>
+                </a>
+                <div class="post2__tags tags2">
+                  <a href="" class="tags2__item tag2">#調理・飲食用資材</a>
+                  <a href="" class="tags2__item tag2">#衛生用品/設備・施設用</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="topics__link-wrap">
+            <a href="" class="topics__link link2">
+              <span class="link2__text">最新情報一覧をみる</span>
+              <span class="link2__btn btn3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="10" viewBox="0 0 15 10" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.28571 9.67627C11.4011 5.51627 15 5.17627 15 5.17627C11.5714 5.17627 7.28571 0.67627 7.28571 0.67627C7.28571 0.67627 8.63571 2.73827 8.94 4.51827H0V5.86827H8.93357C8.61857 7.64027 7.28571 9.67627 7.28571 9.67627Z" fill="white"/>
+                </svg>
+              </span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -435,27 +532,6 @@
 
 
 
-
-
-      <!-- post2 -->
-      <div class="post2">
-        <div class="post2__wrap">
-          <a href="" class="post2__card card2">
-            <div class="card2__category category3">商品情報</div>
-            <div class="card2__wrap">
-              <div class="card2__img"><img src="./assets/images/common/card2-img-01.jpg" alt="組み立て式使い捨てトレーの写真"></div>
-              <div class="card2__body">
-                <p class="card2__title">新発売！組み立て式使い捨てトレー『紙製トレー トレポイ’』</p>
-                <time class="card2__date" datetime="2022-08-08">2022.08.08</time>
-              </div>
-            </div>
-          </a>
-          <div class="post2__tags tags2">
-            <a href="" class="tags2__item tag2">#調理・飲食用資材</a>
-            <a href="" class="tags2__item tag2">#衛生用品/設備・施設用</a>
-          </div>
-        </div>
-      </div>
 
 
 
