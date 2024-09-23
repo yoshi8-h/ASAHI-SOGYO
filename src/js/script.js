@@ -295,9 +295,9 @@ const caseSwiper = new Swiper(".js-case-swiper", {
 
   grabCursor: true,  // PCでホバー時にマウスカーソルを「掴む」マークに。
 
-  speed: 2000,  // 切り替わる最中のスピード(ミリ秒)
+  speed: 1500,  // 切り替わる最中のスピード(ミリ秒)
   autoplay: {  // 自動再生ON
-    delay: 4000,  // 次のスライドに切り替わるまでの時間
+    delay: 3500,  // 次のスライドに切り替わるまでの時間
     disableOnInteraction: false,  // ユーザーがドラッグなどの操作をしても自動再生が止まらないように。
   },
 
