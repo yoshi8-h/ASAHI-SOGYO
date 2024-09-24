@@ -22,3 +22,14 @@
   left: calc(100% + rem(12));
   transform: translateY(-50%);
 }
+
+.category2.is-choosed::before {  // 『is-choosed』クラスが付いている場合は、『下線』を表示。
+  content: "";
+  width: 100%;
+  height: rem(1);
+  background: $color-font-base;
+  position: absolute;
+  bottom: rem(5);
+  left: 50%;
+  transform: translateX(-50%);
+}

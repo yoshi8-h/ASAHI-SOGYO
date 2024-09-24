@@ -2,7 +2,8 @@
 
 
 .category3 {
-  display: inline-block;
+  display: grid;
+  place-items: center;
   padding: rem(16);
   border-radius: rem(5);
   background: $color-accent1;

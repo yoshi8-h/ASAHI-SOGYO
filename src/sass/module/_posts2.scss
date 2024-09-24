@@ -2,10 +2,11 @@
 
 
 .posts2 {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: rem(36);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: rem(36);
+  row-gap: rem(65);
+  align-items: flex-start;  // 上揃えに。
 }
 
 .posts2__item {
