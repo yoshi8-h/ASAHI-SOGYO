@@ -6,9 +6,9 @@
 }
 
 .nav-sub2__title {
-  color: #000;
-  font-size: rem(17.425);
-  font-weight: $normal;
+  color: $color-font-base;
+  font-size: rem(15);
+  font-weight: $medium;
   line-height: 1.5;
   transition: color 0.2s ease-out;
 }
@@ -18,5 +18,5 @@
 }
 
 .nav-sub2__lists {
-  margin-top: rem(10);
+  margin-top: rem(2);
 }

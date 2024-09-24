@@ -170,8 +170,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 /* -------------------------------------------------------------------------------- */
-/* モーダル (topicsセクション) */
-// 開閉の際のアニメーションも付与。
+/* モーダル (メガメニュー mega-menu) */
+// 開閉の際にアニメーションを付与。
 // 『閉じるボタン(×アイコン)』を押した時だけでなく、モーダルの外枠をクリックした時もモーダルが閉じるように実装。
 
 // モーダルを開く処理
@@ -179,7 +179,7 @@ document.querySelectorAll(".js-modal-open").forEach(function(button) {
   button.addEventListener("click", function(e) {
     e.preventDefault();
     var modalNumber = this.getAttribute("data-modal");
-    var modal = document.querySelector("#js-topics-modal-" + modalNumber);
+    var modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
     modal.showModal();
     modal.classList.add("is-visible");  // クラスを追加してアニメーションを適用
     document.documentElement.classList.add("is-fixed");
@@ -198,7 +198,7 @@ document.querySelectorAll(".js-modal-close").forEach(function(button) {
   button.addEventListener("click", function(e) {
     e.preventDefault();
     var modalNumber = this.getAttribute("data-modal");
-    var modal = document.querySelector("#js-topics-modal-" + modalNumber);
+    var modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
     closeModal(modal);
   });
 });

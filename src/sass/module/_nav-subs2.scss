@@ -6,9 +6,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: rem(12);
+  gap: rem(16);
 }
 
 .nav-subs2__item {
 
+}
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+.nav-subs2--narrow {
+  gap: rem(8);
 }

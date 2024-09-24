@@ -1,7 +1,7 @@
 @use "global" as *;
 
 
-.mega-menu {
+.mega-menu {  // (モーダル)
   padding: 0;  // <dialog>タグにデフォルトで当たっている指定を打ち消し。
   border: none;  // <dialog>タグにデフォルトで当たっている指定を打ち消し。
   width: 97.5vw;  // メガメニューだけは、Blockに幅を指定。
@@ -9,6 +9,25 @@
   border-radius: rem(5);
   background: $color-background-base-1;
   z-index: 1000;
+
+  transform: scale(0.8);  // 初期状態を小さく
+  opacity: 0;  // 初期状態を透明に
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;  // アニメーションを設定
+}
+
+// 要素を固定するクラス (スクロール不可に)
+.is-fixed {
+  overflow: hidden;
+}
+
+.mega-menu.is-visible {  // モーダルが表示される際のアニメーション
+  transform: scale(1);  // 元のサイズに
+  opacity: 1;  // 不透明に
+}
+
+.mega-menu::backdrop {  // モーダルが表示されている間の暗い背景
+  opacity: 0.25;
+  background: #000;
 }
 
 .mega-menu__head {
@@ -21,6 +40,12 @@
   align-items: center;
   gap: rem(50);  // 念の為設定
   border-bottom: rem(1) solid #626262;
+
+  @include mq(md) {  // スマホ時にスクロールした時に、ボタンをstickyする為の親クラス
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
 }
 
 .mega-menu__titles {
@@ -62,6 +87,14 @@
   left: 0;
   right: 0;
   transition: transform 0.3s ease-out, top 0.3s ease-out, opacity 0.2s ease-out;
+}
+
+.mega-menu__close-bar:nth-of-type(1) {
+  transform: rotate(45deg);
+}
+
+.mega-menu__close-bar:nth-of-type(2) {
+  transform: rotate(-45deg);
 }
 
 .mega-menu__body {

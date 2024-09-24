@@ -13,7 +13,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: rem(40);
+  gap: rem(32);
 }
 
 .nav2__contents {
@@ -25,7 +25,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: rem(5);
+  gap: rem(3);
+  transition: color 0.2s ease-out;
+}
+
+.nav2__title:hover {  // hover
+  color: $color-accent1;
 }
 
 .nav2__title-en {
@@ -34,23 +39,16 @@
   font-family: Roboto;
   font-size: rem(36);
   font-weight: 100;
-  line-height: 1.5;
+  line-height: 1.0;  // カンプ通りだとズレるため調整
 }
 
 .nav2__title-ja {
   font-size: rem(18);
   font-weight: $bold;
-  line-height: 1.5;
-}
-
-.nav2__title:hover {  // hover
-  color: $color-accent1;
+  line-height: 1.0;
 }
 
 .nav2__sub-contents {
-  margin-top: rem(12.3);
-}
-
-.nav2__btn {  // 『SNSはこちら』
-
+  margin-top: rem(8);
+  margin-left: rem(9.07);
 }
