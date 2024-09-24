@@ -2,11 +2,18 @@
 
 
 .nav {
-
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: rem(96);
 }
 
 .nav__column {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(40);
 }
 
 .nav__contents {
@@ -14,11 +21,18 @@
 }
 
 .nav__title {
+  font-size: rem(20);
+  font-weight: $bold;
+  line-height: 1.5;
+  transition: color 0.2s ease-out;
+}
 
+.nav__title:hover {  // hover
+  color: $color-accent1;
 }
 
 .nav__sub-contents {
-
+  margin-top: rem(12.3);
 }
 
 .nav__btn {  // 『SNSはこちら』

@@ -6,9 +6,17 @@
 }
 
 .nav-sub__title {
+  color: #000;
+  font-size: rem(17.425);
+  font-weight: $normal;
+  line-height: 1.5;
+  transition: color 0.2s ease-out;
+}
 
+.nav-sub__title:hover {  // hover
+  color: $color-accent1;
 }
 
 .nav-sub__lists {
-
+  margin-top: rem(10);
 }

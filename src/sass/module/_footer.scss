@@ -2,59 +2,104 @@
 
 
 .footer {
-
-}
-
-.footer__wrap {
-
+  background: #FFF7F9;
+  padding-top: rem(56);
 }
 
 .footer__inner {
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: rem(50);  // 念の為指定
 }
 
 .footer__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(46);
+  flex-shrink: 0;
 
+  margin-top: rem(-50);
 }
 
 .footer__title {
+  transition: opacity 0.2s ease-out;
+}
 
+.footer__title:hover {  // hover
+  opacity: 0.7;
 }
 
 .footer__title-text {
-
+  font-size: rem(12);
+  font-weight: $medium;
+  line-height: 1.5;
 }
 
 .footer__logo {
+  max-width: rem(251);
+  width: 100%;
+}
 
+.footer__logo img {
+  width: 100%;
 }
 
 .footer__informations {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(8);
 }
 
 .footer__company-name {
-
+  font-size: rem(14);
+  font-weight: $medium;
+  line-height: 1.5;
 }
 
 .footer__address {
+  transition: color 0.2s ease-out;
+}
 
+.footer__address:hover {  // hover
+  color: $color-accent1;
 }
 
 .footer__address-number {
-
+  font-size: rem(14);
+  font-weight: $medium;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
 }
 
 .footer__address-text {
-
+  font-size: rem(14);
+  font-weight: $medium;
+  line-height: 1.5;
 }
 
 .footer__tel {
+  font-family: Roboto;
+  font-size: rem(14);
+  font-weight: $normal;
+  line-height: 1.5;
+  transition: color 0.2s ease-out;
+}
 
+.footer__tel:hover {  // hover
+  color: $color-accent1;
 }
 
 .footer__right {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: rem(80);
 }
 
 .footer__buttons {
@@ -66,13 +111,36 @@
 }
 
 .footer__bottom {
+  margin-top: rem(197);
+  padding-inline: rem(70);
+}
 
+.footer__bottom-wrap {
+  padding-block: rem(25.8);
+  border-top: rem(1) solid #888;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: rem(40);  // 念の為指定
 }
 
 .footer__copyright {
-
+  color: #888;
+  font-family: $font-family-en-1;
+  font-size: rem(11);
+  font-weight: $bold;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
 }
 
 .footer__policy {
+  color: #888;
+  font-size: rem(14);
+  font-weight: $bold;
+  line-height: 1.5;
+  transition: color 0.2s ease-out;
+}
 
+.footer__policy:hover {  // hover
+  color: $color-accent1;
 }

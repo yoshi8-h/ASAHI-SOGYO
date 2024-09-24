@@ -2,7 +2,11 @@
 
 
 .nav-subs {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(12);
 }
 
 .nav-subs__item {

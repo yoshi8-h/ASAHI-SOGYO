@@ -2,7 +2,10 @@
 
 
 .btns5 {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(16);
 }
 
 .btns5__item {

@@ -2,5 +2,25 @@
 
 
 .list2 {
+  font-size: rem(14);
+  font-weight: $normal;
+  line-height: 1.5;
+  position: relative;
+  padding-left: rem(24);
+  transition: color 0.2s ease-out;
+}
 
+.list2:hover {  // hover
+  color: $color-accent1;
+}
+
+.list2::before {  // グレーの横線 (-)
+  content: "";
+  width: rem(14);
+  height: rem(1);
+  background: #B6B6B6;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
