@@ -19,7 +19,7 @@
   position: absolute; /* サブメニューを親要素から絶対配置する */
   top: 100%; /* 親メニューの下に配置 */
   left: 0;
-  z-index: 300;  // fvより前面に表示
+  z-index: 600;  // fvより前面に表示
 }
 
 // .sub-menu:hover + .header__inner .header__link::after {  // hover

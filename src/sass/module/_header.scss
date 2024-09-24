@@ -3,8 +3,20 @@
 
 .header {
   padding-top: rem(32);
-  background: rgba(255, 255, 255, 0.60);
+  background: rgba(255, 255, 255, 0.80);
   position: relative;
+
+  // ページ上部に固定
+  position: fixed; /* ページ上部に固定 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* ヘッダーが他の要素の上に表示されるように */
+  transition: transform 0.3s ease-out; /* スクロール時にスムーズに表示・非表示 */
+}
+
+.header.hidden {
+  transform: translateY(-100%); /* ヘッダーを上に非表示 */
 }
 
 .header__inner {

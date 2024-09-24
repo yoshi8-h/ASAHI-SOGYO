@@ -53,6 +53,48 @@ setupHoverEvents('is-service', 'is-service');
 
 
 /* -------------------------------------------------------------------------------- */
+/* headerのスクロール検知 (下にスクロールした時は非表示に。上にスクロールした時は表示する) */
+// headerはページ上部に固定。 (CSSで制御)
+// fixedでは、headerの下にheaderの真下の要素が潜り込んでしまうため、「headerの高さ」と「headerの真下にある要素(セクション)」を自動検知し、headerの真下にある要素に『margin-top』でheaderの高さ分を付与してページの見た目を保つ制御。(headerの真下のセクションを自動検知する事で全ページで適用可能なコード)
+
+// ヘッダーの高さを取得して、headerの真下のセクションの上に余白を追加する
+function adjustSectionPadding() {
+  const header = document.querySelector('.header'); // ヘッダーを取得
+  const nextElement = header.nextElementSibling; // ヘッダーの次にある要素（最初のセクション）を取得
+
+  if (nextElement) {
+    const headerHeight = header.offsetHeight; // ヘッダーの高さを取得
+
+    // 最初のセクションにヘッダーの高さ分の余白を追加
+    nextElement.style.marginTop = `${headerHeight}px`;
+  }
+}
+
+// ページが読み込まれた時と、ウィンドウがリサイズされた時に実行
+window.addEventListener('DOMContentLoaded', adjustSectionPadding);
+window.addEventListener('resize', adjustSectionPadding);
+
+// ヘッダーのスクロール制御
+let lastScrollY = window.scrollY;
+const header = document.querySelector('.header');
+
+window.addEventListener('scroll', () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY) {
+    // 下にスクロールしている時、ヘッダーを非表示にする
+    header.classList.add('hidden');
+  } else {
+    // 上にスクロールしている時、ヘッダーを表示する
+    header.classList.remove('hidden');
+  }
+
+  lastScrollY = currentScrollY;
+});
+
+
+
+/* -------------------------------------------------------------------------------- */
 /* swiper (スワイパー) fv */
 const fvSwiper = new Swiper(".js-fv-swiper", {
   loop: true,
