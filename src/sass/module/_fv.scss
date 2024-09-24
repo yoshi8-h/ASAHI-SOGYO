@@ -3,6 +3,8 @@
 
 .fv {
   position: relative;
+
+  display: none;  // dialogタグの表示確認のために今だけ一旦非表示
 }
 
 .fv__inner {

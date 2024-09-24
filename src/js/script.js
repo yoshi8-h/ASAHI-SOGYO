@@ -170,6 +170,48 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 /* -------------------------------------------------------------------------------- */
+/* モーダル (topicsセクション) */
+// 開閉の際のアニメーションも付与。
+// 『閉じるボタン(×アイコン)』を押した時だけでなく、モーダルの外枠をクリックした時もモーダルが閉じるように実装。
+
+// モーダルを開く処理
+document.querySelectorAll(".js-modal-open").forEach(function(button) {
+  button.addEventListener("click", function(e) {
+    e.preventDefault();
+    var modalNumber = this.getAttribute("data-modal");
+    var modal = document.querySelector("#js-topics-modal-" + modalNumber);
+    modal.showModal();
+    modal.classList.add("is-visible");  // クラスを追加してアニメーションを適用
+    document.documentElement.classList.add("is-fixed");
+
+    // モーダルの枠外をクリックした時の処理を追加
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
+});
+
+// モーダルを閉じる処理
+document.querySelectorAll(".js-modal-close").forEach(function(button) {
+  button.addEventListener("click", function(e) {
+    e.preventDefault();
+    var modalNumber = this.getAttribute("data-modal");
+    var modal = document.querySelector("#js-topics-modal-" + modalNumber);
+    closeModal(modal);
+  });
+});
+
+// モーダルを閉じる共通処理
+function closeModal(modal) {
+  modal.classList.remove("is-visible");  // クラスを削除してアニメーションを適用
+  // アニメーションが終わるのを待ってからモーダルを閉じる
+  setTimeout(function() {
+    modal.close();
+  }, 300);  // アニメーションの時間と同じに設定
+  document.documentElement.classList.remove("is-fixed");
+}
 
 
 
