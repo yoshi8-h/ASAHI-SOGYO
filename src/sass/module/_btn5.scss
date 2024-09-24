@@ -1,0 +1,92 @@
+@use "global" as *;
+
+
+.btn5 {
+  border-radius: rem(32);
+  border: rem(2) solid $color-accent1;
+  background: $color-accent1;
+  padding-block: rem(19);
+  padding-inline: rem(40);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(10);
+
+  transition: all 0.2s ease-out;
+}
+
+.btn5 svg path {
+  transition: fill 0.2s ease-out;
+}
+
+.btn5__text {
+  color: #FFF;
+  font-size: rem(18);
+  font-weight: $medium;
+  line-height: 1.45;
+  transition: all 0.2s ease-out;
+}
+
+.btn5 svg {
+  width: rem(24);
+  transition: width 0.2s ease-out;
+}
+
+
+// hover
+.btn5:hover {
+  border: rem(1.123) solid $color-accent1;
+  background: $color-background-base-1;
+  border-radius: rem(28.079);
+  padding-block: rem(11.23);
+  padding-inline: rem(39.31);
+  gap: rem(11.23);
+}
+
+.btn5:hover .btn5__text {
+  color: $color-accent1;
+  font-size: rem(17.97);
+  font-weight: $bold;
+  line-height: 1.5;
+  transition: color 0.2s ease-out;
+}
+
+.btn5:hover svg {
+  width: rem(26.95);
+}
+
+.btn5:hover svg path {
+  fill: $color-accent1;
+}
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+.btn5--white {
+  background: $color-background-base-1;
+  border: rem(2) solid $color-font-base;
+}
+
+.btn5--white .btn5__text {
+  color: $color-font-base;
+}
+
+
+// hover
+.btn5--white:hover {
+  background: $color-accent1;
+  border: rem(1.123) solid $color-accent1;
+}
+
+.btn5--white:hover .btn5__text {
+  color: #FFF;
+  transition: color 0.2s ease-out;
+}
+
+.btn5--white:hover svg path {
+  fill: #FFF;
+}
