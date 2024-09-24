@@ -7,6 +7,11 @@
   font-weight: $medium;
   line-height: 1.9;
   position: relative;
+  transition: opacity 0.2s ease-out;
+}
+
+.category2:hover {  // hover
+  opacity: 0.6;
 }
 
 .category2:not(:last-child)::after {  // 『/』を、最後の要素以外に付与

@@ -82,6 +82,12 @@
   width: 100%;
 }
 
+.card1__img img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
 .card1__text {
   color: $color-font-base;
   leading-trim: both;
