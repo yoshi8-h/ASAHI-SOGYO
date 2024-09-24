@@ -1,0 +1,115 @@
+@use "global" as *;
+
+
+.mega-menu {
+  padding: 0;  // <dialog>タグにデフォルトで当たっている指定を打ち消し。
+  border: none;  // <dialog>タグにデフォルトで当たっている指定を打ち消し。
+  width: 97.5vw;  // メガメニューだけは、Blockに幅を指定。
+  max-width: rem(1872);
+  border-radius: rem(5);
+  background: $color-background-base-1;
+  z-index: 1000;
+}
+
+.mega-menu__head {
+  padding-top: rem(31);
+  padding-bottom: rem(23);
+  padding-left: rem(48);
+  padding-right: rem(77.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: rem(50);  // 念の為設定
+  border-bottom: rem(1) solid #626262;
+}
+
+.mega-menu__titles {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: rem(10);
+}
+
+.mega-menu__logo {
+  width: rem(207);
+  max-width: 100%;
+}
+
+.mega-menu__logo img {
+  width: 100%;
+}
+
+.mega-menu__title-text {
+  font-size: rem(14);
+  font-weight: $bold;
+  line-height: 1.5;
+}
+
+.mega-menu__close {  // 『×』ボタン
+  width: rem(26.74);
+  height: rem(26.74);
+  position: relative;
+  z-index: 100;
+}
+
+.mega-menu__close-bar {
+  display: inline-block;
+  width: 100%;
+  height: rem(2);
+  background: $color-font-base;
+  position: absolute;
+  top: rem(13.4);
+  left: 0;
+  right: 0;
+  transition: transform 0.3s ease-out, top 0.3s ease-out, opacity 0.2s ease-out;
+}
+
+.mega-menu__body {
+  padding-top: rem(95);
+  padding-bottom: rem(80);
+  padding-inline: rem(30);  // 念の為指定。
+}
+
+.mega-menu__body-wrap {
+  width: rem(1208);
+  max-width: rem(1208);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: rem(61.7);
+}
+
+.mega-menu__contents {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: rem(136.93);
+}
+
+.mega-menu__img {
+  border-radius: rem(7);
+  overflow: hidden;
+  aspect-ratio: 307 / 443;
+  // width: rem(307);
+  max-width: rem(307);
+  object-fit: cover;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.mega-menu__img img {
+  width: 100%;
+}
+
+
+
+.mega-menu__nav {
+
+}
+
+.mega-menu__buttons {
+
+}

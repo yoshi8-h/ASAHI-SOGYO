@@ -1,0 +1,14 @@
+@use "global" as *;
+
+
+.nav-subs2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(12);
+}
+
+.nav-subs2__item {
+
+}
