@@ -19,3 +19,12 @@
 .link2__btn {
   width: rem(40);
 }
+
+
+.link2:hover .link2__btn {  // hover
+  background: #FFF;
+}
+
+.link2:hover .link2__btn svg path {  // hover
+  fill: $color-accent1;
+}
