@@ -2,12 +2,13 @@
 
 
 .header {
+  padding-top: rem(32);
   background: rgba(255, 255, 255, 0.60);
   position: relative;
 }
 
 .header__inner {
-  height: rem(152);
+  // height: rem(152);
   padding-inline: rem(72);
   display: flex;
   justify-content: space-between;
@@ -68,6 +69,7 @@
 }
 
 .header__link {
+  padding-bottom: rem(28);  // 下にクリック領域を確保
   font-size: rem(16);
   font-weight: $bold;
   line-height: 1.5;
@@ -80,7 +82,7 @@
   width: rem(16);
   height: rem(2);
   position: absolute;
-  bottom: rem(-12);
+  bottom: rem(16);
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;  // 通常時は非表示
@@ -100,7 +102,7 @@
   width: rem(24);
   height: rem(11.7);
   position: absolute;
-  bottom: rem(-33.5);
+  bottom: rem(-2);
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;  // 通常時は非表示
@@ -112,19 +114,13 @@
   opacity: 1;  // hoverしたら表示
 }
 
-
-
-
-/* 黒いアンダーラインとグレーの三角形をis-hoverクラスにも適用 */
-.header__link.is-hover::after, 
-.header__link.is-service.is-hover::before,
-.header__link.is-company.is-hover::before {
-  opacity: 1;  /* is-hoverクラスが追加されたときも表示 */
-  visibility: visible; /* is-hoverクラスが追加されたときも表示 */
+/* .header__link::after (underline) と .header__link::before (triangle) は hover 時に表示される */
+// active クラスが付いた場合も擬似要素を表示 (JSで制御)
+.header__link.active::after,
+.header__link.active::before {
+  opacity: 1;
+  visibility: visible;
 }
-
-
-
 
 
 .header__hamburger {  // ハンバーガーメニュー

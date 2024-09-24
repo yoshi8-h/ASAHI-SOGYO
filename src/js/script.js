@@ -4,111 +4,29 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
 
 });
 
+
 /* -------------------------------------------------------------------------------- */
 /* サブメニューの表示 */
-// 『.header__link』と『.is-company』を持つ要素をhoverした時に、サブメニュー(『.sub-menu』と『.is-company』を持つ要素)を表示する。
-// document.querySelector('.header__link.is-company').addEventListener('mouseenter', function() {
-//   document.querySelector('.sub-menu.is-company').style.opacity = '1';
-//   document.querySelector('.sub-menu.is-company').style.visibility = 'visible';
-// });
+// 『.header__link』にhoverした際に、『is-service』や『.is-company』を付与している項目の場合は、それらに対応するサブメニュー(.sub-menu)を表示する。
+// また、サブメニュー自体にhoverした場合もサブメニューを表示し続ける。
+// サブメニュー自体にhoverしている間は、その項目に対応する『.header__link』の擬似要素(beforeとafter)に『.active』クラスを付与して、『.header__link』の擬似要素も表示されたままにする。(CSSでも制御)
 
-// // hoverが外れた時にサブメニューを非表示
-// document.querySelector('.header__link.is-company').addEventListener('mouseleave', function() {
-//   document.querySelector('.sub-menu.is-company').style.opacity = '0';
-//   document.querySelector('.sub-menu.is-company').style.visibility = 'hidden';
-// });
-
-
-// // サブメニューを表示する関数
-// function showSubMenu() {
-//   const subMenu = document.querySelector('.sub-menu.is-company');
-//   subMenu.style.opacity = '1';
-//   subMenu.style.visibility = 'visible';
-// }
-
-// // サブメニューを非表示にする関数
-// function hideSubMenu() {
-//   const subMenu = document.querySelector('.sub-menu.is-company');
-//   subMenu.style.opacity = '0';
-//   subMenu.style.visibility = 'hidden';
-// }
-
-// // メニューリンクにhoverしたときのイベント設定
-// const headerLinkCompany = document.querySelector('.header__link.is-company');
-// headerLinkCompany.addEventListener('mouseenter', showSubMenu);
-// headerLinkCompany.addEventListener('mouseleave', hideSubMenu);
-
-// // サブメニュー自体にhoverしたときのイベント設定
-// const subMenu = document.querySelector('.sub-menu.is-company');
-// subMenu.addEventListener('mouseenter', showSubMenu); // マウスをサブメニューに乗せたときも表示
-// subMenu.addEventListener('mouseleave', hideSubMenu);
-
-
-
-
-// // サブメニューを表示する関数
-// function showSubMenu() {
-//   const subMenu = document.querySelector('.sub-menu.is-service');
-//   subMenu.style.opacity = '1';
-//   subMenu.style.visibility = 'visible';
-// }
-
-// // サブメニューを非表示にする関数
-// function hideSubMenu() {
-//   const subMenu = document.querySelector('.sub-menu.is-service');
-//   subMenu.style.opacity = '0';
-//   subMenu.style.visibility = 'hidden';
-// }
-
-// // メニューリンクにhoverしたときのイベント設定
-// const headerLink = document.querySelector('.header__link.is-service');
-// headerLink.addEventListener('mouseenter', showSubMenu);
-// headerLink.addEventListener('mouseleave', hideSubMenu);
-
-// // サブメニュー自体にhoverしたときのイベント設定
-// const subMenu = document.querySelector('.sub-menu.is-service');
-// subMenu.addEventListener('mouseenter', showSubMenu); // マウスをサブメニューに乗せたときも表示
-// subMenu.addEventListener('mouseleave', hideSubMenu);
-
-
-// // サブメニューを表示する関数
-// function showSubMenu() {
-//   const subMenu = document.querySelector('.sub-menu.is-company');
-//   subMenu.style.opacity = '1';
-//   subMenu.style.visibility = 'visible';
-// }
-
-// // サブメニューを非表示にする関数
-// function hideSubMenu() {
-//   const subMenu = document.querySelector('.sub-menu.is-company');
-//   subMenu.style.opacity = '0';
-//   subMenu.style.visibility = 'hidden';
-// }
-
-// // メニューリンクにhoverしたときのイベント設定
-// const headerLink = document.querySelector('.header__link.is-company');
-// headerLink.addEventListener('mouseenter', showSubMenu);
-// headerLink.addEventListener('mouseleave', hideSubMenu);
-
-// // サブメニュー自体にhoverしたときのイベント設定
-// const subMenu = document.querySelector('.sub-menu.is-company');
-// subMenu.addEventListener('mouseenter', showSubMenu); // マウスをサブメニューに乗せたときも表示
-// subMenu.addEventListener('mouseleave', hideSubMenu); // マウスがサブメニューから離れたら非表示
-
-
-
-
-// ==========================================
 // サブメニューを表示する関数
-function showSubMenu(subMenu) {
+function showSubMenu(subMenu, headerLink) {
   subMenu.style.opacity = '1';
   subMenu.style.visibility = 'visible';
+
+  // ナビゲーションリンクにもactiveクラスを付与して擬似要素を表示し続ける
+  headerLink.classList.add('active');
 }
 
 // サブメニューを非表示にする関数
-function hideSubMenu(subMenu) {
+function hideSubMenu(subMenu, headerLink) {
   subMenu.style.opacity = '0';
   subMenu.style.visibility = 'hidden';
+
+  // ナビゲーションリンクからactiveクラスを削除
+  headerLink.classList.remove('active');
 }
 
 // メニューリンクとサブメニューを関連付ける関数
@@ -120,151 +38,18 @@ function setupHoverEvents(linkClass, menuClass) {
     const subMenu = subMenus[index];
 
     // メニューリンクにhoverしたときのイベント設定
-    headerLink.addEventListener('mouseenter', () => showSubMenu(subMenu));
-    headerLink.addEventListener('mouseleave', () => hideSubMenu(subMenu));
+    headerLink.addEventListener('mouseenter', () => showSubMenu(subMenu, headerLink));
+    headerLink.addEventListener('mouseleave', () => hideSubMenu(subMenu, headerLink));
 
     // サブメニュー自体にhoverしたときのイベント設定
-    subMenu.addEventListener('mouseenter', () => showSubMenu(subMenu));
-    subMenu.addEventListener('mouseleave', () => hideSubMenu(subMenu));
+    subMenu.addEventListener('mouseenter', () => showSubMenu(subMenu, headerLink));
+    subMenu.addEventListener('mouseleave', () => hideSubMenu(subMenu, headerLink));
   });
 }
 
 // is-company と is-service の両方に対応
 setupHoverEvents('is-company', 'is-company');
 setupHoverEvents('is-service', 'is-service');
-// ==========================================
-
-
-
-
-
-
-// // サブメニューを表示する関数
-// function showSubMenu(headerLink, subMenu) {
-//   subMenu.style.opacity = '1';
-//   subMenu.style.visibility = 'visible';
-//   headerLink.classList.add('hover'); // header__linkにhoverクラスを追加
-// }
-
-// // サブメニューを非表示にする関数
-// function hideSubMenu(headerLink, subMenu) {
-//   subMenu.style.opacity = '0';
-//   subMenu.style.visibility = 'hidden';
-//   headerLink.classList.remove('hover'); // header__linkからhoverクラスを削除
-// }
-
-// // メニューリンクとサブメニューを関連付ける関数
-// function setupHoverEvents(linkClass, menuClass) {
-//   const headerLinks = document.querySelectorAll(`.header__link.${linkClass}`);
-//   const subMenus = document.querySelectorAll(`.sub-menu.${menuClass}`);
-
-//   headerLinks.forEach((headerLink, index) => {
-//     const subMenu = subMenus[index];
-
-//     // メニューリンクにhoverしたときのイベント設定
-//     headerLink.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu));
-//     headerLink.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu));
-
-//     // サブメニュー自体にhoverしたときのイベント設定
-//     subMenu.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu)); // サブメニュー上にマウスが乗っても表示
-//     subMenu.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu)); // サブメニューから離れたら非表示
-//   });
-// }
-
-// // is-company と is-service の両方に対応
-// setupHoverEvents('is-company', 'is-company');
-// setupHoverEvents('is-service', 'is-service');
-
-
-
-
-
-
-// // サブメニューを表示する関数
-// function showSubMenu(headerLink, subMenu) {
-//   subMenu.style.opacity = '1';
-//   subMenu.style.visibility = 'visible';
-//   headerLink.classList.add('hover'); // header__linkにhoverクラスを追加
-// }
-
-// // サブメニューを非表示にする関数
-// function hideSubMenu(headerLink, subMenu) {
-//   subMenu.style.opacity = '0';
-//   subMenu.style.visibility = 'hidden';
-//   headerLink.classList.remove('hover'); // header__linkからhoverクラスを削除
-// }
-
-// // メニューリンクとサブメニューを関連付ける関数
-// function setupHoverEvents(linkClass, menuClass) {
-//   const headerLinks = document.querySelectorAll(`.header__link.${linkClass}`);
-//   const subMenus = document.querySelectorAll(`.sub-menu.${menuClass}`);
-
-//   headerLinks.forEach((headerLink, index) => {
-//     const subMenu = subMenus[index];
-
-//     // メニューリンクにhoverしたときのイベント設定
-//     headerLink.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu));
-//     headerLink.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu));
-
-//     // サブメニュー自体にhoverしたときのイベント設定
-//     subMenu.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu)); // サブメニュー上にマウスが乗っても表示
-//     subMenu.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu)); // サブメニューから離れたら非表示
-//   });
-// }
-
-// // is-company と is-service の両方に対応
-// setupHoverEvents('is-company', 'is-company');
-// setupHoverEvents('is-service', 'is-service');
-
-
-
-
-
-
-
-// // サブメニューを表示する関数
-// function showSubMenu(headerLink, subMenu) {
-//   subMenu.style.opacity = '1';
-//   subMenu.style.visibility = 'visible';
-//   headerLink.classList.add('is-hover'); // header__linkにis-hoverクラスを追加
-// }
-
-// // サブメニューを非表示にする関数
-// function hideSubMenu(headerLink, subMenu) {
-//   subMenu.style.opacity = '0';
-//   subMenu.style.visibility = 'hidden';
-//   headerLink.classList.remove('is-hover'); // header__linkからis-hoverクラスを削除
-// }
-
-// // メニューリンクとサブメニューを関連付ける関数
-// function setupHoverEvents(linkClass, menuClass) {
-//   const headerLinks = document.querySelectorAll(`.header__link.${linkClass}`);
-//   const subMenus = document.querySelectorAll(`.sub-menu.${menuClass}`);
-
-//   headerLinks.forEach((headerLink, index) => {
-//     const subMenu = subMenus[index];
-
-//     // メニューリンクにhoverしたときのイベント設定
-//     headerLink.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu));
-//     headerLink.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu));
-
-//     // サブメニュー自体にhoverしたときのイベント設定
-//     subMenu.addEventListener('mouseenter', () => showSubMenu(headerLink, subMenu)); // サブメニュー上にマウスが乗っても表示
-//     subMenu.addEventListener('mouseleave', () => hideSubMenu(headerLink, subMenu)); // サブメニューから離れたら非表示
-//   });
-// }
-
-// // is-company と is-service の両方に対応
-// setupHoverEvents('is-company', 'is-company');
-// setupHoverEvents('is-service', 'is-service');
-
-
-
-
-
-
-
-
 
 
 /* -------------------------------------------------------------------------------- */
@@ -444,6 +229,36 @@ document.addEventListener('DOMContentLoaded', function() {
     tl  // 先にトリミングが外れて背景が表示され、その後、テキストがフェードインで表示される
     .fromTo(bg, {'clipPath':'inset(0 0 100% 0)'}, {'clipPath':'inset(0 0 0% 0)', duration:.5, ease:"out"})
     .fromTo(text, {y:-20, autoAlpha:0}, {y:0, autoAlpha:1},'-=.1')
+
+  });
+});
+
+
+/* -------------------------------------------------------------------------------- */
+/* スクロール (小さなランチャームが泳ぐように下にスクロール移動) (無限ループ(繰り返す)) */
+document.addEventListener('DOMContentLoaded', function() {
+  const scrollDowns = document.querySelectorAll(".js-scroll-down");  // ページ内の、このアニメーションをさせたい全ての要素を取得
+
+  scrollDowns.forEach(scrollDown => {
+    let item = scrollDown.querySelector('.js-scroll-item');
+
+    let tl = gsap.timeline({
+      repeat: -1,  // 無限ループ
+      repeatDelay: 1.0,  // 無限ループの間隔を設定
+    });
+    tl  // 先にトリミングが外れて背景が表示され、その後、テキストがフェードインで表示される
+    .fromTo(item, {rotate:'10deg'}, {rotate:'-10deg', duration:.07, ease:"liner"})
+    .fromTo(item, {rotate:'-10deg'}, {rotate:'10deg', duration:.07, ease:"liner"})
+    .fromTo(item, {rotate:'10deg'}, {rotate:'-10deg', duration:.07, ease:"liner"})
+    .fromTo(item, {rotate:'-10deg'}, {rotate:'10deg', duration:.07, ease:"liner"})
+    .fromTo(item, {rotate:'10deg'}, {rotate:'-10deg', duration:.07, ease:"liner"})
+    .fromTo(item, {rotate:'-10deg'}, {rotate:'10deg', duration:.07, ease:"liner"})
+    .fromTo(item, {rotate:'10deg'}, {rotate:'-10deg', duration:.07, ease:"liner"})
+    .fromTo(item, {rotate:'-10deg'}, {rotate:'0deg', duration:.07, ease:"liner"})
+    // .fromTo(item, {rotate:'10deg'}, {rotate:'-10deg', duration:.1, ease:"liner"})
+    // .fromTo(item, {rotate:'-10deg'}, {rotate:'0deg', duration:.1, ease:"liner"})
+
+    .fromTo(item, {y:0,}, {y:125, ease:"out"},'+=.4')
 
   });
 });

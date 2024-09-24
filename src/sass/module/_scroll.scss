@@ -1,0 +1,38 @@
+@use "global" as *;
+
+
+.scroll {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: rem(36);
+}
+
+.scroll__line {
+  width: rem(1);
+  height: rem(159);
+  background: $color-font-base;
+  position: relative;
+}
+
+.scroll__item {  // 小さなランチャーム (アニメーションの対象)
+  width: rem(17);
+  height: rem(40);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll__item img {
+  width: 100%;
+}
+
+.scroll__text {
+  font-family: $font-family-en-1;
+  font-size: rem(14);
+  font-weight: $medium;
+  line-height: 1.45;
+  transform: rotate(90deg);
+}

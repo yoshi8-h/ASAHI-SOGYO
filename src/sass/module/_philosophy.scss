@@ -12,29 +12,9 @@
 }
 
 .philosophy__scroll {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: rem(36);
-
   position: absolute;
   top: rem(-240);
   left: rem(126);
-}
-
-.philosophy__scroll-line {
-  width: rem(1);
-  height: rem(159);
-  background: $color-font-base;
-}
-
-.philosophy__scroll-text {
-  font-family: $font-family-en-1;
-  font-size: rem(14);
-  font-weight: $medium;
-  line-height: 1.45;
-  transform: rotate(90deg);
 }
 
 .philosophy__bg {  // 背景の大きな魚 (ランチャーム)
