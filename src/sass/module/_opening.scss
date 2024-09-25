@@ -1,0 +1,39 @@
+@use "global" as *;
+
+
+.opening {
+  background: $color-background-base-1;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3000;
+
+  display: grid;
+  place-items: center;
+}
+
+.opening__text {
+  color: $color-accent1;
+  font-family: $font-family-ja-2;
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.opening__gif {
+  width: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.opening__gif img {  // ランチャームが回っているGIF動画
+  aspect-ratio: 1 / 1;
+  width: rem(320);
+  height: rem(320);
+  object-fit: cover;
+}

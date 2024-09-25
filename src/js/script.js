@@ -214,6 +214,19 @@ function closeModal(modal) {
 }
 
 
+/* -------------------------------------------------------------------------------- */
+// トップへ戻るボタン
+// 画面を少し(今回は100px)スクロールした時に表示(通常は非表示)
+const pageTop = document.querySelector("#js-top-btn");
+
+window.addEventListener("scroll", function () {
+  if (100 < window.scrollY) {  // 100px
+    pageTop.classList.add("is-show");
+  } else {
+    pageTop.classList.remove("is-show");
+  }
+});
+
 
 
 
@@ -221,6 +234,18 @@ function closeModal(modal) {
 /* ================================================================================ */
 /*  アニメーション  */
 /* ================================================================================ */
+/* オープニングアニメーション (ローディング) */
+// ランチャームが回っている (GIF動画)
+gsap.ticker.lagSmoothing(false);  // 別タブを開いている間もアニメーションが進むようになる。
+
+window.addEventListener('DOMContentLoaded', function() {
+  const openingTL = gsap.timeline();
+  openingTL
+  .fromTo('.opening',{autoAlpha:1},{autoAlpha:0, duration:5, delay:.5, ease:'in'})
+})
+
+
+/* -------------------------------------------------------------------------------- */
 /* テキストを、フェードで1文字ずつ表示させる */
 // ※ <span>タグで1文字ずつ囲む処理をする際に、<br>タグは1文字ずつ<span>で囲む対象から外す処理も。
 
@@ -311,8 +336,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // },
     }});
     tl  // 先にトリミングが外れて背景が表示され、その後、テキストがフェードインで表示される
-    .fromTo(bg, {'clipPath':'inset(0 0 100% 0)'}, {'clipPath':'inset(0 0 0% 0)', duration:.5, ease:"out"})
-    .fromTo(text, {y:-20, autoAlpha:0}, {y:0, autoAlpha:1},'-=.1')
+    .fromTo(bg, {'clipPath':'inset(0 0 100% 0)'}, {'clipPath':'inset(0 0 0% 0)',delay:.6, duration:.6, ease:"out"})
+    .fromTo(text, {y:-20, autoAlpha:0}, {y:0, autoAlpha:1},'-=.27')
 
   });
 });

@@ -1,0 +1,73 @@
+@use "global" as *;
+
+
+// TOPへ戻るボタン
+.top-btn {
+  display: inline-block;
+  position: fixed;
+  bottom: rem(40);
+  right: rem(60);
+  z-index: 300;
+  opacity: 0;    // 通常は透明に。(スクロールしたら現れる)
+  visibility: hidden;  // かつ、通常は押せないように。
+}
+
+.top-btn {
+  display: inline-block;
+  position: fixed;
+  bottom: rem(40);
+  right: rem(60);
+  z-index: 300;
+  opacity: 0;    // 通常は透明に。(スクロールしたら現れる)
+  visibility: hidden;  // かつ、通常は押せないように。
+}
+
+.top-btn__img {
+  width: fit-content;
+}
+
+.top-btn__img img {
+  aspect-ratio: 145.85 / 221.15;
+  width: rem(145.85);
+}
+
+.top-btn.is-show {  // 画面をスクロールした際にボタンを表示する為のクラス
+  opacity: 1;
+  visibility: visible;
+}
+
+
+// hover時のアニメーション
+/* 上に10px動いて元の位置に戻るアニメーション */
+@keyframes moveUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* 左右に揺れる (15度ずつ傾いて戻るアニメーション) */
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  75% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* ホバー時に両方のアニメーションを連続して発動 */
+.top-btn__img:hover {
+  animation: moveUp 0.5s ease forwards, shake 0.4s ease forwards 0.5s;
+}

@@ -14,13 +14,17 @@
   color: $color-accent1;
 }
 
+.list2:hover::before {  // hover
+  background: $color-accent1;
+}
+
 .list2::before {  // グレーの横線 (-)
   content: "";
   width: rem(14);
   height: rem(1);
   background: #B6B6B6;
   position: absolute;
-  top: 50%;
+  top: rem(10.5);
   left: 0;
-  transform: translateY(-50%);
+  transition: background 0.2s ease-out;
 }
