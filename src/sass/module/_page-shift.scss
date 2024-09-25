@@ -1,0 +1,33 @@
+@use "global" as *;
+
+
+// ページ遷移アニメーション用
+// TOPページ以外に付与。(TOPページには『オープニングアニメーション』があるため不要。)
+// JSで、TOPページ以外の<body>タグに、ページ遷移時に『fade』クラスを追加している。
+
+.fade .page-shift {
+  background: #FFF;
+  content: "";
+  position: fixed;
+  z-index: 5000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  animation-name: PageAnime-fade;
+  animation-duration: 0.3s;
+  animation-delay: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+}
+
+@keyframes PageAnime-fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
