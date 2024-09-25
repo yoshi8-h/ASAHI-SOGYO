@@ -23,6 +23,10 @@
   letter-spacing: 0.04em;
 }
 
+.opening__text span {  // GSAPでアニメーションを『inline要素』にも適用するために、inline要素以外にする指定が必要。(JSで、1文字ずつ<span>タグで加工処理をしている。)
+  display: inline-block;
+}
+
 .opening__gif {
   width: fit-content;
   position: absolute;

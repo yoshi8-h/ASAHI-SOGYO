@@ -254,18 +254,34 @@ window.addEventListener("scroll", function () {
 
 
 
+
 /* ================================================================================ */
 /*  アニメーション  */
 /* ================================================================================ */
 /* オープニングアニメーション (ローディング) */
 // ランチャームが回っている (GIF動画)
-gsap.ticker.lagSmoothing(false);  // 別タブを開いている間もアニメーションが進むようになる。
+// 『ローディング中...』の文字は、1文字ずつ上に少し上がり、時間が経つと1文字ずつ順番に元の位置に下がってくるアニメーション。
+// 以下の処理で1文字ずつ<span>タグで囲った文字を、動かすために『※CSSでinline要素以外にする指定』が必要。
 
-window.addEventListener('DOMContentLoaded', function() {
-  const openingTL = gsap.timeline();
-  openingTL
-  .fromTo('.opening',{autoAlpha:1},{autoAlpha:0, duration:5, delay:.5, ease:'in'})
-})
+  // 各文字をspanで包む関数
+  function wrapTextInSpan(selector) {
+    const element = document.querySelector(selector);
+    const text = element.textContent; // テキストを取得
+    const wrappedText = text.split('').map(char => `<span>${char}</span>`).join(''); // 各文字をspanでラップ
+    element.innerHTML = wrappedText; // 新しいHTMLに置き換え
+  }
+
+  // 上で定義した『各文字をspanで包む関数』を実行。 → .opening__textのテキストをspanでラップ
+  wrapTextInSpan('.opening__text');
+
+  document.addEventListener('DOMContentLoaded', function() {
+    gsap.ticker.lagSmoothing(false);  // 別タブを開いている間もアニメーションが進むようになる。
+
+    gsap.timeline({ repeat: -1, repeatDelay: 1 }) // 無限ループ。ループの繰り返しの間隔は1秒。
+    .fromTo(".opening__text span", {y: 0}, { y: -10, stagger: 0.1, duration: 0.4, ease: "liner"})
+    // .to(".opening__text span", {y: 0, stagger: 0.1, duration: 0.5, ease: "liner"});
+    .fromTo(".opening__text span", { y: -10}, {y: 0, stagger: 0.1, duration: 0.4, ease: "liner"},'-=.5')  // 最後の文字が上がりきる前に最初の文字が下がり始めるように、少し食い気味に発火。
+  });
 
 
 /* -------------------------------------------------------------------------------- */
