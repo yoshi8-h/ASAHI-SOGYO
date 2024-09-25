@@ -263,25 +263,55 @@ window.addEventListener("scroll", function () {
 // 『ローディング中...』の文字は、1文字ずつ上に少し上がり、時間が経つと1文字ずつ順番に元の位置に下がってくるアニメーション。
 // 以下の処理で1文字ずつ<span>タグで囲った文字を、動かすために『※CSSでinline要素以外にする指定』が必要。
 
-  // 各文字をspanで包む関数
-  function wrapTextInSpan(selector) {
-    const element = document.querySelector(selector);
-    const text = element.textContent; // テキストを取得
-    const wrappedText = text.split('').map(char => `<span>${char}</span>`).join(''); // 各文字をspanでラップ
-    element.innerHTML = wrappedText; // 新しいHTMLに置き換え
-  }
+// 各文字をspanで包む関数
+function wrapTextInSpan(selector) {
+  const element = document.querySelector(selector);
+  const text = element.textContent; // テキストを取得
+  const wrappedText = text.split('').map(char => `<span>${char}</span>`).join(''); // 各文字をspanでラップ
+  element.innerHTML = wrappedText; // 新しいHTMLに置き換え
+}
 
-  // 上で定義した『各文字をspanで包む関数』を実行。 → .opening__textのテキストをspanでラップ
-  wrapTextInSpan('.opening__text');
+// 上で定義した『各文字をspanで包む関数』を実行。 → .opening__textのテキストをspanでラップ
+wrapTextInSpan('.opening__text');
 
-  document.addEventListener('DOMContentLoaded', function() {
-    gsap.ticker.lagSmoothing(false);  // 別タブを開いている間もアニメーションが進むようになる。
+// アニメーションの実装
+document.addEventListener('DOMContentLoaded', function() {
+  // 『オープニング画面』を作成
+  gsap.timeline({ repeat: -1, repeatDelay: 1 }) // 無限ループ。ループの繰り返しの間隔は1秒。
+  .fromTo(".opening__text span", {y: 0}, { y: -10, stagger: 0.1, delay:0.4, duration: 0.4, ease: "liner"})
+  .fromTo(".opening__text span", { y: -10}, {y: 0, stagger: 0.1, duration: 0.4, ease: "liner"},'-=.5')  // 最後の文字が上がりきる前に最初の文字が下がり始めるように、少し食い気味に発火。
 
-    gsap.timeline({ repeat: -1, repeatDelay: 1 }) // 無限ループ。ループの繰り返しの間隔は1秒。
-    .fromTo(".opening__text span", {y: 0}, { y: -10, stagger: 0.1, duration: 0.4, ease: "liner"})
-    // .to(".opening__text span", {y: 0, stagger: 0.1, duration: 0.5, ease: "liner"});
-    .fromTo(".opening__text span", { y: -10}, {y: 0, stagger: 0.1, duration: 0.4, ease: "liner"},'-=.5')  // 最後の文字が上がりきる前に最初の文字が下がり始めるように、少し食い気味に発火。
+  // 上で作った『オープニング画面』を、非表示に。
+  gsap.ticker.lagSmoothing(false);  // 別タブを開いている間もアニメーションが進むようになる。
+  gsap.fromTo('.opening', {y:'0%'}, {y:'-100%', duration:2, delay:2, ease:'power4.out'})
+});
+
+
+/* -------------------------------------------------------------------------------- */
+/* 背景が先に上からトリミングが外れる形で表示され、その後、文字がフワッと上から下にフェードインして表示される */
+// TOPページのFV。
+// ※ローディング画面が終わった後に実行するようにするために、『delay』で大幅(3.0s)に実行を遅延。
+
+document.addEventListener('DOMContentLoaded', function() {
+  const downBgToTexts = document.querySelectorAll(".js-down-bg-to-text");  // ページ内の、このアニメーションをさせたい全ての要素を取得
+
+  downBgToTexts.forEach(downBgToText => {
+    let bg = downBgToText.querySelectorAll('.js-down-bg');
+    let text = downBgToText.querySelectorAll('.js-down-text');
+
+    let tl = gsap.timeline({scrollTrigger:{
+      trigger: downBgToText,
+      start: 'top 70%',
+      // markers:{
+      //   startColor: "green",
+      // },
+    }});
+    tl  // 先にトリミングが外れて背景が表示され、その後、テキストがフェードインで表示される
+    .fromTo(bg, {'clipPath':'inset(0 0 100% 0)'}, {'clipPath':'inset(0 0 0% 0)',delay:3.0, duration:.6, ease:"out"})
+    .fromTo(text, {y:-20, autoAlpha:0}, {y:0, autoAlpha:1},'-=.27')
+
   });
+});
 
 
 /* -------------------------------------------------------------------------------- */
@@ -356,30 +386,6 @@ window.addEventListener('DOMContentLoaded', function() {
   })
 
 })
-
-
-/* -------------------------------------------------------------------------------- */
-/* 背景が先に上からトリミングが外れる形で表示され、その後、文字がフワッと上から下にフェードインして表示される */
-document.addEventListener('DOMContentLoaded', function() {
-  const downBgToTexts = document.querySelectorAll(".js-down-bg-to-text");  // ページ内の、このアニメーションをさせたい全ての要素を取得
-
-  downBgToTexts.forEach(downBgToText => {
-    let bg = downBgToText.querySelectorAll('.js-down-bg');
-    let text = downBgToText.querySelectorAll('.js-down-text');
-
-    let tl = gsap.timeline({scrollTrigger:{
-      trigger: downBgToText,
-      start: 'top 70%',
-      // markers:{
-      //   startColor: "green",
-      // },
-    }});
-    tl  // 先にトリミングが外れて背景が表示され、その後、テキストがフェードインで表示される
-    .fromTo(bg, {'clipPath':'inset(0 0 100% 0)'}, {'clipPath':'inset(0 0 0% 0)',delay:.6, duration:.6, ease:"out"})
-    .fromTo(text, {y:-20, autoAlpha:0}, {y:0, autoAlpha:1},'-=.27')
-
-  });
-});
 
 
 /* -------------------------------------------------------------------------------- */
