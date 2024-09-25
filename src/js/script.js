@@ -56,7 +56,11 @@ setupHoverEvents('is-service', 'is-service');
 /* headerのスクロール検知 (下にスクロールした時は非表示に。上にスクロールした時は表示する) */
 // headerはページ上部に固定。 (CSSで制御)
 // fixedでは、headerの下にheaderの真下の要素が潜り込んでしまうため、「headerの高さ」と「headerの真下にある要素(セクション)」を自動検知し、headerの真下にある要素に『margin-top』でheaderの高さ分を付与してページの見た目を保つ制御。(headerの真下のセクションを自動検知する事で全ページで適用可能なコード)
+// fvまではheaderを表示し、fvを超えた時にheaderを非表示にする。
+// fvが存在しないページも考慮し(TOPページ以外)、fvが存在しない場合でもエラーにならず、スクロールに応じてheaderの表示・非表示を切り替える仕様に。
 
+// ヘッダーの高さを取得して、headerの真下のセクションの上に余白を追加する
+// ヘッダーの高さを取得して、headerの真下のセクションの上に余白を追加する
 // ヘッダーの高さを取得して、headerの真下のセクションの上に余白を追加する
 function adjustSectionPadding() {
   const header = document.querySelector('.header'); // ヘッダーを取得
@@ -74,24 +78,43 @@ function adjustSectionPadding() {
 window.addEventListener('DOMContentLoaded', adjustSectionPadding);
 window.addEventListener('resize', adjustSectionPadding);
 
-// ヘッダーのスクロール制御
-let lastScrollY = window.scrollY;
+// ファーストビューが存在するか確認し、その高さを取得する
+const fv = document.querySelector('.fv');
 const header = document.querySelector('.header');
+let lastScrollY = window.scrollY; // スクロールの位置を保持
 
 window.addEventListener('scroll', () => {
   const currentScrollY = window.scrollY;
 
-  if (currentScrollY > lastScrollY) {
-    // 下にスクロールしている時、ヘッダーを非表示にする
-    header.classList.add('hidden');
+  if (fv) {
+    const fvHeight = fv.offsetHeight; // ファーストビューの高さを取得
+
+    if (currentScrollY > fvHeight) {
+      // ファーストビューを超えた時
+      if (currentScrollY > lastScrollY) {
+        // 下にスクロールしている時はヘッダーを非表示
+        header.classList.add('hidden');
+      } else {
+        // 上にスクロールしている時はヘッダーを表示
+        header.classList.remove('hidden');
+      }
+    } else {
+      // ファーストビュー内にいる時は常にヘッダーを表示
+      header.classList.remove('hidden');
+    }
   } else {
-    // 上にスクロールしている時、ヘッダーを表示する
-    header.classList.remove('hidden');
+    // .fvが存在しない場合の処理
+    if (currentScrollY > lastScrollY) {
+      // 下にスクロールしている時はヘッダーを非表示
+      header.classList.add('hidden');
+    } else {
+      // 上にスクロールしている時はヘッダーを表示
+      header.classList.remove('hidden');
+    }
   }
 
-  lastScrollY = currentScrollY;
+  lastScrollY = currentScrollY; // 現在のスクロール位置を保存
 });
-
 
 
 /* -------------------------------------------------------------------------------- */
