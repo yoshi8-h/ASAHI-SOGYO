@@ -12,7 +12,7 @@
 
   transform: scale(0.8);  // 初期状態を小さく
   opacity: 0;  // 初期状態を透明に
-  transition: transform 0.3s ease-out, opacity 0.3s ease-out;  // アニメーションを設定
+  transition: transform 0.2s ease-out, opacity 0.3s ease-out;  // アニメーションを設定
 }
 
 // 要素を固定するクラス (スクロール不可に)
@@ -26,8 +26,8 @@
 }
 
 .mega-menu::backdrop {  // モーダルが表示されている間の暗い背景
-  opacity: 0.25;
-  background: #000;
+  opacity: 0.8;
+  background: rgba(98, 98, 98);
 }
 
 .mega-menu__head {

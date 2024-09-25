@@ -209,7 +209,7 @@ function closeModal(modal) {
   // アニメーションが終わるのを待ってからモーダルを閉じる
   setTimeout(function() {
     modal.close();
-  }, 300);  // アニメーションの時間と同じに設定
+  }, 200);  // アニメーションの時間と同じに設定
   document.documentElement.classList.remove("is-fixed");
 }
 
