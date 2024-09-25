@@ -272,6 +272,7 @@ window.addEventListener("scroll", function () {
 /* ================================================================================ */
 /*  アニメーション  */
 /* ================================================================================ */
+
 /* オープニングアニメーション (ローディング) */
 // ランチャームが回っている (GIF動画)
 // 『ローディング中...』の文字は、1文字ずつ上に少し上がり、時間が経つと1文字ずつ順番に元の位置に下がってくるアニメーション。
@@ -298,6 +299,49 @@ document.addEventListener('DOMContentLoaded', function() {
   // 上で作った『オープニング画面』を、非表示に。
   gsap.ticker.lagSmoothing(false);  // 別タブを開いている間もアニメーションが進むようになる。
   gsap.fromTo('.opening', {y:'0%'}, {y:'-100%', duration:2, delay:2, ease:'power4.out'})
+});
+
+
+/* -------------------------------------------------------------------------------- */
+/* １つの要素をフワッと下から出現 */
+
+document.addEventListener('DOMContentLoaded', function() {
+  const fadeInUps = document.querySelectorAll(".js-fadeInUp");  // ページ内の、このアニメーションをさせたい全ての要素を取得
+
+  fadeInUps.forEach(item => {
+    gsap.fromTo(item, {y:20, autoAlpha:0}, {y:0, autoAlpha:1, scrollTrigger:{
+        trigger: item,
+        start: 'top 90%',
+        // markers:{
+        //   startColor: "green",
+        // },
+      }
+    });
+  });
+
+});
+
+
+/* -------------------------------------------------------------------------------- */
+/* 複数枚のカードを時差でフワッと下から出現 (左から順番に時差で) */
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ページ内の全てのカードコンテナ(複数枚カードのコンテナ。PC時にトリガーとなる要素)を取得
+  const cardContainers = document.querySelectorAll(".js-cards-fadeInUp-trigger");
+
+  cardContainers.forEach(container => {
+    const cards = container.querySelectorAll(".js-card-fadeInUp");  // そのコンテナ内のカードを全て取得
+    gsap.fromTo(cards, {y:40, autoAlpha:0}, {y:0, autoAlpha:1, stagger:.09, scrollTrigger:{
+        trigger: container,
+        start: 'top 70%',
+        // markers:{
+        //   startColor: "white",
+        // },
+      }
+    });
+  });
+
 });
 
 

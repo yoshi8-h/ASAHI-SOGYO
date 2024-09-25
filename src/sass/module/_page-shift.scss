@@ -5,6 +5,8 @@
 // TOPページ以外に付与。(TOPページには『オープニングアニメーション』があるため不要。)
 // JSで、TOPページ以外の<body>タグに、ページ遷移時に『fade』クラスを追加している。
 
+// ※HTMLの記述も必要。(『.page-shift』クラスの<div>タグ)
+
 .fade .page-shift {
   background: #FFF;
   content: "";
