@@ -21,22 +21,33 @@
 
 .header__inner {
   // height: rem(152);
-  padding-inline: rem(72);
+  // padding-inline: rem(72);
+  padding-inline: 4.054%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: rem(40);  // 念の為指定。
+
+  max-width: calc(rem(1776) + (4.054%) * 2);  // 『padding-inline』の分も考慮
+  margin-inline: auto;
+}
+
+.header__contents {
+  width: 92.792%;
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: rem(20);  // 念の為指定。
 }
 
 .header__title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: rem(15);
   transition: opacity 0.2s ease-out;
 }
 
-.header__title:hover {
+.header__title:hover {  // hover
   opacity: 0.7;
 }
 
@@ -46,38 +57,38 @@
   line-height: 1.5;
 }
 
-.header__logo {
+.header__buttons {
 
+}
+
+.header__bottom {
+  margin-top: rem(18);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: rem(20);  // 念の為指定。
+}
+
+.header__logo {
+  margin-top: rem(-32);
+  max-width: rem(207);
+  width: 100%;
+  transition: opacity 0.2s ease-out;
+}
+
+.header__logo:hover {  // hover
+  opacity: 0.7;
 }
 
 .header__logo img {
-  width: rem(207);
-}
-
-.header__nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: rem(40);
-}
-
-.header__nav-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  gap: rem(18);
-}
-
-.header__nav-buttons {
-
+  width: 100%;
 }
 
 .header__nav-links {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  gap: rem(48);
+  gap: clamp(0px, calc(48px / 1920px * 100vw), rem(48));  // clamp関数で制御：clamp(最小値, 推奨値, 最大値)  最大でも48pxになるように指定。
 }
 
 .header__link {
@@ -114,7 +125,7 @@
   width: rem(24);
   height: rem(11.7);
   position: absolute;
-  bottom: rem(-2);
+  bottom: rem(-3);
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;  // 通常時は非表示
@@ -134,10 +145,12 @@
   visibility: visible;
 }
 
-
 .header__hamburger {  // ハンバーガーメニュー
-  width: rem(88);
-  height: rem(88);
+  aspect-ratio: 1 / 1;
+  max-width: rem(88);
+  width: 100%;
+  max-height: rem(88);
+  height: 100%;
   border-radius: rem(3.2);
   background: $color-background-base-2;
   display: grid;

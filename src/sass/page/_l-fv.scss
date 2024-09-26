@@ -1,0 +1,9 @@
+@use "global" as *;
+
+
+// JS制御でheader直下の要素(TOPページの場合<main>タグ)に、headerの高さ分の「margin-top」を付与するように指定してる為、
+// 『.l-fv』に「margin-top」を付与すると、<main>タグに付いている「margin-top」と競合して打ち消されてしまうので、『padding』で対応。
+.l-fv {
+  // margin-top: rem(33);
+  padding-top: rem(33);
+}

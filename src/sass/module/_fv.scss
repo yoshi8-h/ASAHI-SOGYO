@@ -43,7 +43,7 @@
   gap: rem(13);
 
   position: absolute;
-  top: rem(32);
+  top: rem(65);
   right: rem(480);
   right: calc(480px / 1920px * 100vw);
   right: calc(50% - min(28vw, 30rem));  // ※min関数で制御
