@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // 上で作った『オープニング画面』を、非表示に。
   gsap.ticker.lagSmoothing(false);  // 別タブを開いている間もアニメーションが進むようになる。
-  gsap.fromTo('.opening', {y:'0%'}, {y:'-100%', duration:2, delay:2, ease:'power4.out'})
+  gsap.fromTo('.opening', {autoAlpha:1}, {autoAlpha:0, duration:1.0, delay:2.2, ease:'power4.out'})
 });
 
 
@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // },
     }});
     tl  // 先にトリミングが外れて背景が表示され、その後、テキストがフェードインで表示される
-    .fromTo(bg, {'clipPath':'inset(0 0 100% 0)'}, {'clipPath':'inset(0 0 0% 0)',delay:3.0, duration:.6, ease:"out"})
+    .fromTo(bg, {'clipPath':'inset(0 0 100% 0)'}, {'clipPath':'inset(0 0 0% 0)',delay:2.6, duration:.6, ease:"out"})
     .fromTo(text, {y:-20, autoAlpha:0}, {y:0, autoAlpha:1},'-=.27')
 
   });

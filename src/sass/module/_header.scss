@@ -145,6 +145,7 @@
   visibility: visible;
 }
 
+
 .header__hamburger {  // ハンバーガーメニュー
   aspect-ratio: 1 / 1;
   max-width: rem(88);
@@ -155,6 +156,11 @@
   background: $color-background-base-2;
   display: grid;
   place-items: center;
+  transition: opacity 0.2s ease-out;
+}
+
+.header__hamburger:hover {  // hover
+  opacity: 0.8;
 }
 
 .js-header__hamburger {
@@ -176,6 +182,7 @@
   top: 0;
   right: 0;
   transition: transform 0.3s ease-out, top 0.3s ease-out, opacity 0.2s ease-out;
+  max-height: 3.1px;
 }
 
 .header__bar:nth-of-type(2) {

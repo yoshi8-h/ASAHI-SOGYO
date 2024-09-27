@@ -9,8 +9,12 @@
 }
 
 // hover
-.card1:hover .card1__bottom {
-  background: #888;
+.card1:hover .card1__img img {
+  transform: scale(1.1);
+}
+
+.card1:hover .card1__bottom-arrow {
+  transform: translateX(rem(10));
 }
 
 .card1__corner {
@@ -80,12 +84,15 @@
 .card1__img {
   max-width: rem(389);
   width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .card1__img img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  transition: transform 0.2s ease-out;
 }
 
 .card1__text {
@@ -101,13 +108,30 @@
 .card1__bottom {
   border-radius: 0px 0px rem(16) rem(16);
   background: $color-accent1;
+  padding-top: rem(15.48);
+  padding-bottom: rem(17.52);
+}
+
+.card1__bottom-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(40.88);
+}
+
+.card1__bottom-text {
   color: #FFF;
   font-size: rem(22.285);
   font-weight: $medium;
   line-height: 1.9;
   text-align: center;
-  padding-top: rem(15.48);
-  padding-bottom: rem(17.52);
-  transition: background 0.2s ease-out;
 }
 
+.card1__bottom-arrow {
+  display: grid;
+  place-items: center;
+}
+
+.card1__bottom-arrow {
+  transition: transform 0.2s ease-out;
+}
