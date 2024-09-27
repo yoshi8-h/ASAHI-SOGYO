@@ -74,6 +74,7 @@
 .case__arrows {
   width: rem(181);
   height: rem(41);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,7 +97,8 @@
 
 .case__prev-img,
 .case__next-img {
-
+  display: grid;
+  place-items: center;
 }
 
 .case__prev svg,
@@ -117,7 +119,7 @@
 
 // ページネーション (枚数表示)
   // スライドの総数と現在のスライドが何番目か表示させる：『1/5』のように。
-.swiper-pagination-fraction {  // JSで制御すると自動生成されるクラス名に指定
+.case__pagination.swiper-pagination-fraction {  // JSで制御すると自動生成されるクラス名(.swiper-pagination-fraction)に指定
   color: $color-font-base;
   font-family: $font-family-base;
   font-size: rem(16);
@@ -129,7 +131,8 @@
   align-items: center;
   gap: rem(6);
 
-  transform: translateY(rem(6));  // 位置調整
+  height: rem(41);
+  position: static;  // ※swiperのデフォルトの指定(absolute)を打ち消し。
 }
 
 // 『1/5』の部分の、『/』だけスタイルを変更
