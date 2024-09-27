@@ -3,6 +3,7 @@
 
 .fv {
   position: relative;
+  overflow-x: hidden;  // vwを使っているため、スクロールバーの分の横スクロールを防ぐ
 }
 
 .fv__inner {

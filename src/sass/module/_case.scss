@@ -5,6 +5,7 @@
 .case {
   padding-block: rem(120);
   background: #F5F5F5;
+  overflow-x: hidden;  // vwを使っているため、スクロールバーの分の横スクロールを防ぐ
 }
 
 .case__inner {

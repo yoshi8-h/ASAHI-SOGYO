@@ -470,7 +470,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // .fromTo(item, {rotate:'10deg'}, {rotate:'-10deg', duration:.1, ease:"liner"})
     // .fromTo(item, {rotate:'-10deg'}, {rotate:'0deg', duration:.1, ease:"liner"})
 
-    .fromTo(item, {y:0,}, {y:125, ease:"out"},'+=.4')
+    .fromTo(item, {y:0,}, {y: '7.8125rem', ease:"out"},'+=.4')  // 位置制御のために『rem』で制御 (125px / 16px = 7.8125rem)
 
   });
 });
