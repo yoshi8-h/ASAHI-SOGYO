@@ -40,6 +40,18 @@
 .section-head--2 .section-head__title {
   font-size: rem(72);
   white-space: nowrap;
+
+  @include mq(md) {
+    font-size: rem(40);
+    margin-top: rem(5);
+  }
+}
+
+.section-head--2 .section-head__title-en {
+  @include mq(md) {
+    margin-top: rem(5);
+    margin-left: 0;
+  }
 }
 
 

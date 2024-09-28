@@ -11,6 +11,12 @@
   font-size: rem(16);
   font-weight: $medium;
   line-height: 1.9;
+
+  @include mq(md) {
+    padding-block: rem(2);
+    padding-inline: rem(10);
+    font-size: rem(14);
+  }
 }
 
 

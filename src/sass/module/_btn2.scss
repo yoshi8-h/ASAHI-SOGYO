@@ -11,6 +11,13 @@
   justify-content: center;
   align-items: center;
   gap: rem(16);
+
+  @include mq(md) {
+    padding-block: rem(16);
+    padding-left: rem(32);
+    padding-right: rem(24);
+    justify-content: space-between;
+  }
 }
 
 .btn2 svg {
