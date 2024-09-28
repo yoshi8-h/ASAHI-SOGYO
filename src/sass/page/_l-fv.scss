@@ -6,4 +6,8 @@
 .l-fv {
   // margin-top: rem(33);
   padding-top: rem(33);
+
+  @include mq(md) {
+    padding-top: rem(56);
+  }
 }

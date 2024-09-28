@@ -125,7 +125,13 @@ const fvSwiper = new Swiper(".js-fv-swiper", {
 
   centeredSlides: true, // アクティブなスライドを中央に配置する
   slidesPerView: 'auto', // スライドの幅をCSSで指定
-  spaceBetween: 72,
+  spaceBetween: 16,  // SP時
+
+  breakpoints: {
+    900: {  // 900px以上の場合 (PC時)
+      spaceBetween: 72,
+    },
+  },
 
   speed: 2000,  // 切り替わる最中のスピード(ミリ秒)
   autoplay: {  // 自動再生ON

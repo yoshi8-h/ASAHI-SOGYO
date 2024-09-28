@@ -6,6 +6,10 @@
   border-radius: rem(16);
   background: #F5F5F5;
   position: relative;
+
+  @include mq(md) {
+    border-radius: rem(10);
+  }
 }
 
 // hover
@@ -23,6 +27,14 @@
   position: absolute;
   top: rem(-103);
   left: rem(-58);
+
+  @include mq(md) {
+    aspect-ratio: 62 / 148;
+    width: rem(62);
+    position: absolute;
+    top: rem(-53);
+    left: rem(-30);
+  }
 }
 
 .card1__number {
@@ -34,6 +46,10 @@
   position: absolute;
   top: 0;
   left: 0;
+
+  @include mq(md) {
+    font-size: rem(48);
+  }
 }
 
 .card1__title-en {
@@ -46,11 +62,22 @@
   position: absolute;
   top: rem(195);
   left: rem(-30);
+
+  @include mq(md) {
+    font-size: rem(12);
+    top: rem(100);
+    left: rem(-16);
+  }
 }
 
 .card1__title-en.is-02 {  // 要素によって位置調整
   top: rem(170);
   left: rem(-4);
+
+  @include mq(md) {
+    top: rem(86);
+    left: rem(-6);
+  }
 }
 
 .card1__contents {
@@ -62,6 +89,13 @@
   padding-top: rem(69);
   padding-bottom: rem(101.15);
   padding-inline: rem(64);
+
+  @include mq(md) {
+    gap: rem(14.34);
+    padding-top: rem(40);
+    padding-bottom: rem(39.66);
+    padding-inline: rem(20);
+  }
 }
 
 .card1__title {
@@ -76,9 +110,12 @@
   width: rem(393);
   text-align: center;
   border-bottom: rem(1) solid rgba(211, 211, 211, 0.5);
-}
 
-.card1__title {
+  @include mq(md) {
+    font-size: rem(24);
+    padding-bottom: rem(11);
+    width: rem(280);
+  }
 }
 
 .card1__img {
@@ -86,6 +123,10 @@
   width: 100%;
   border-radius: 50%;
   overflow: hidden;
+
+  @include mq(md) {
+    max-width: rem(190);
+  }
 }
 
 .card1__img img {
@@ -103,6 +144,12 @@
   font-weight: $medium;
   line-height: 1.9;
   letter-spacing: -0.09em;
+
+  @include mq(md) {
+    font-size: rem(14);
+    text-align: left;
+    margin-top: rem(17.53);
+  }
 }
 
 .card1__bottom {
@@ -110,6 +157,13 @@
   background: $color-accent1;
   padding-top: rem(15.48);
   padding-bottom: rem(17.52);
+
+  @include mq(md) {
+    border-radius: 0px 0px rem(10) rem(10);
+    padding-top: rem(20);
+    padding-bottom: rem(20);
+    padding-inline: rem(10);
+  }
 }
 
 .card1__bottom-wrap {
@@ -117,6 +171,10 @@
   justify-content: center;
   align-items: center;
   gap: rem(40.88);
+
+  @include mq(md) {
+    gap: rem(16);
+  }
 }
 
 .card1__bottom-text {
@@ -125,6 +183,13 @@
   font-weight: $medium;
   line-height: 1.9;
   text-align: center;
+
+  @include mq(md) {
+    leading-trim: both;
+    text-edge: cap;
+    font-size: rem(14);
+    font-weight: $bold
+  }
 }
 
 .card1__bottom-arrow {
@@ -134,4 +199,10 @@
 
 .card1__bottom-arrow {
   transition: transform 0.2s ease-out;
+}
+
+.card1__bottom-arrow svg {
+  @include mq(md) {
+    width: rem(12);
+  }
 }

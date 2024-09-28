@@ -10,6 +10,11 @@
   padding-left: rem(31);
   position: relative;
   transition: transform 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(14);
+    padding-left: rem(19.87);
+  }
 }
 
 .link1:hover {  // hover
@@ -22,7 +27,12 @@
   height: rem(12);
   background: url(../images/common/polygon-red.svg) no-repeat center center / contain;
   position: absolute;
-  top: 50%;
+  top: rem(11);  // もし2行になっても、1行目の真ん中に来るように指定。
   left: 0;
-  transform: translateY(-50%);
+
+  @include mq(md) {
+    width: rem(12);
+    height: rem(9.6);
+    top: rem(8);
+  }
 }

@@ -13,7 +13,7 @@
 // swiper
 .fv__swiper {
   width: 100vw;
-  margin: 0 calc(50% - 50vw);
+  margin: 0 calc(50% - 50vw);  // 親要素からはみ出す指定
 }
 
 .fv__swiper-wrapper.swiper-wrapper {
@@ -34,6 +34,12 @@
   width: calc(1208px / 1920px * 100vw);
   max-width: rem(1208);
   object-fit: cover;
+
+  @include mq(md) {
+    aspect-ratio: 330 / 454;
+    width: calc(330px / 390px * 100vw);
+    max-width: rem(330);
+  }
 }
 
 .fv__texts {
@@ -45,13 +51,19 @@
 
   position: absolute;
   top: rem(65);
-  right: rem(480);
-  right: calc(480px / 1920px * 100vw);
+  // right: calc(480px / 1920px * 100vw);
   right: calc(50% - min(28vw, 30rem));  // ※min関数で制御
   z-index: 30;
+
+  @include mq(md) {
+    gap: rem(6.5);
+    top: rem(96);
+    right: calc(50% - min(37.05vw, 9.031rem));  // ※min関数で制御
+  }
 }
 
-.fv__text-1 {
+.fv__text-1,
+.fv__text-2 {
   font-family: $font-family-ja-1;
   font-size: rem(36);
   font-weight: $normal;
@@ -68,80 +80,25 @@
   justify-content: center;
   align-items: center;
   position: relative;
-}
-
-.fv__text-2 {
-  font-family: $font-family-ja-1;
-  font-size: rem(36);
-  font-weight: $normal;
-  line-height: 1.45;
-  letter-spacing: 0.44em;  // 文字の間隔を制御
-  text-indent: 0.44em;
-
-  writing-mode: vertical-rl; /* 縦書きに変更 */
-  text-orientation: upright; /* 日本語や漢字をそのままの形で表示 */
-  width: rem(56); /* 横幅を適切に設定 */
-  padding: rem(10); /* テキストの周囲に余白を設定 */
-
-  margin-top: rem(64);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-// .fv__text-1::before,
-// .fv__text-2::before {  // 文字の後ろの白い背景
-//   content: "";
-//   display: block;
-//   width: inherit;
-//   height: 100%;
-//   background: $color-background-base-1;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   z-index: -1;
-// }
-
-// .fv__text-1::after,
-// .fv__text-2::after {  // 赤い背景部分
-//   content: "";
-//   display: block;
-//   width: inherit;
-//   height: 100%;
-//   background: $color-accent1;
-//   position: absolute;
-//   top: rem(7);
-//   left: rem(7);
-//   z-index: -2;
-// }
-
-
-
-
-
-// .fv__text-1,
-// .fv__text-2 {  // 文字の後ろの白い背景
-//   --scaleY: 0;  // 擬似要素の親要素にカスタムプロパティーを定義。広がっていくから、初期値は0にして見えないように。
-// }
-
-// .fv__text-1::before,
-// .fv__text-1::after,
-// .fv__text-2::before,
-// .fv__text-2::after {
-//   transform-origin: top;  /* アニメーションが上から下に動くように */
-//   transform: scaleY(var(--scaleY));  /* カスタムプロパティでスケールを調整 */
-// }
-
-
-
-
-
-
-.fv__text-1,
-.fv__text-2 {
   z-index: 30;
+
+  @include mq(md) {
+    font-size: rem(20);
+    width: rem(28);
+    padding: rem(5);
+  }
+}
+
+.fv__text-1 {
+
+}
+
+.fv__text-2 {
+  margin-top: rem(64);
+
+  @include mq(md) {
+    margin-top: rem(42);
+  }
 }
 
 .fv__text-bg {
@@ -170,8 +127,8 @@
   height: 100%;
   background: $color-accent1;
   position: absolute;
-  top: rem(7);
-  left: rem(7);
+  top: rem(4);
+  left: rem(4);
   z-index: 1;
 }
 

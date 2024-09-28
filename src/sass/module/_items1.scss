@@ -6,6 +6,11 @@
   justify-content: center;
   align-items: flex-start;
   gap: rem(94);
+
+  @include mq(md) {
+    flex-direction: column;
+    gap: rem(116);
+  }
 }
 
 .items1__item {
@@ -14,4 +19,8 @@
 
 .items1__item.is-down {  // 『.is-down』クラスがついているitemは、少し下にズラす。
   margin-top: rem(80);
+
+  @include mq(md) {
+    margin-top: 0;
+  }
 }

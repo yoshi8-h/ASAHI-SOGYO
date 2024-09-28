@@ -3,4 +3,8 @@
 
 .l-case {
   margin-top: rem(159);
+
+  @include mq(md) {
+    margin-top: rem(113);
+  }
 }
