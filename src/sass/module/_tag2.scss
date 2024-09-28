@@ -15,6 +15,13 @@
   border-radius: rem(25);
   border: rem(1) solid $color-font-base;
   transition: all 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(12);
+    padding-block: rem(5.11);
+    padding-inline: rem(12.25);
+    border-radius: rem(25.526);
+  }
 }
 
 .tag2:hover {  // hover

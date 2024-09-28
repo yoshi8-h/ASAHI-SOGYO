@@ -8,6 +8,10 @@
   line-height: 1.9;
   position: relative;
   transition: opacity 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
 }
 
 .category2:hover {  // hover
@@ -26,6 +30,10 @@
   top: 50%;
   left: calc(100% + rem(12));
   transform: translateY(-50%);
+
+  @include mq(md) {
+    font-weight: $normal;
+  }
 }
 
 .category2.is-choosed::before {  // 『is-choosed』クラスが付いている場合は、『下線』を表示。

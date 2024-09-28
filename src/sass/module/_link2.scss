@@ -14,12 +14,19 @@
   font-size: rem(20);
   font-weight: $medium;
   line-height: 2.0;
+
+  @include mq(md) {
+    font-size: rem(18);
+  }
 }
 
 .link2__btn {
   width: rem(40);
-}
 
+  @include mq(md) {
+    width: rem(30);
+  }
+}
 
 .link2:hover .link2__btn {  // hover
   background: #FFF;

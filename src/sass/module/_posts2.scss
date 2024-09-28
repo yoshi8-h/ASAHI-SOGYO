@@ -7,9 +7,21 @@
   column-gap: rem(36);
   row-gap: rem(65);
   align-items: flex-start;  // 上揃えに。
+
+  @include mq(md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: rem(81.79);
+  }
 }
 
 .posts2__item {
   max-width: rem(461);
   width: 100%;
+
+  @include mq(md) {
+    max-width: rem(330);
+  }
 }

@@ -13,6 +13,12 @@
 
 .btn3 svg {
   width: rem(15);
+  max-width: rem(15);
+  width: 100%;
+
+  @include mq(md) {
+    max-width: rem(11.25);
+  }
 }
 
 .btn3 svg path {

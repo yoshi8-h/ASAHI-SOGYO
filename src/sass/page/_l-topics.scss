@@ -3,4 +3,8 @@
 
 .l-topics {
   margin-top: rem(95);
+
+  @include mq(md) {
+    margin-top: rem(65);
+  }
 }
