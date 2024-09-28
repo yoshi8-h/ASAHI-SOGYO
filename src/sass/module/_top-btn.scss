@@ -10,16 +10,11 @@
   z-index: 300;
   opacity: 0;    // 通常は透明に。(スクロールしたら現れる)
   visibility: hidden;  // かつ、通常は押せないように。
-}
 
-.top-btn {
-  display: inline-block;
-  position: fixed;
-  bottom: rem(40);
-  right: rem(60);
-  z-index: 300;
-  opacity: 0;    // 通常は透明に。(スクロールしたら現れる)
-  visibility: hidden;  // かつ、通常は押せないように。
+  @include mq(md) {
+    bottom: rem(30);
+    right: rem(25);
+  }
 }
 
 .top-btn__img {
@@ -29,6 +24,10 @@
 .top-btn__img img {
   aspect-ratio: 145.85 / 221.15;
   width: rem(145.85);
+
+  @include mq(md) {
+    width: rem(95);
+  }
 }
 
 .top-btn.is-show {  // 画面をスクロールした際にボタンを表示する為のクラス

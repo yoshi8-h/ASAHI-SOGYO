@@ -110,9 +110,15 @@
 
 }
 
+
 .footer__bottom {
   margin-top: rem(197);
   padding-inline: rem(70);
+
+  @include mq(md) {
+    margin-top: rem(60);
+    padding-inline: rem(20);
+  }
 }
 
 .footer__bottom-wrap {
@@ -122,6 +128,15 @@
   justify-content: space-between;
   align-items: center;
   gap: rem(40);  // 念の為指定
+
+  @include mq(md) {
+    padding-top: rem(20);
+    padding-bottom: rem(30.5);
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: flex-start;
+    gap: rem(16);
+  }
 }
 
 .footer__copyright {
