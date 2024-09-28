@@ -20,6 +20,10 @@
   top: 100%; /* 親メニューの下に配置 */
   left: 0;
   z-index: 600;  // fvより前面に表示
+
+  @include mq(md) {
+    display: none;  // 念の為指定
+  }
 }
 
 // .sub-menu:hover + .header__inner .header__link::after {  // hover
