@@ -6,6 +6,13 @@
   justify-content: flex-end;
   align-items: flex-start;
   gap: rem(96);
+
+  @include mq(md) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+  }
 }
 
 .nav__column {
@@ -14,10 +21,48 @@
   justify-content: center;
   align-items: flex-start;
   gap: rem(40);
+
+  @include mq(md) {
+    gap: 0;
+    width: 100%;
+  }
 }
 
 .nav__contents {
+  @include mq(md) {
+    width: 100%;
+    padding-block: rem(19);
+    padding-left: rem(5);
+    border-top: rem(1) solid #FFF;
+  }
+}
 
+.nav__contents.is-last {  // 最後の項目にはborder-bottomを付与
+  @include mq(md) {
+    border-bottom: rem(1) solid #FFF;
+  }
+}
+
+.nav__contents.is-open .nav__click-wrap .nav__accordion-btn .nav__plus-btn .plus-btn__bar-vertical {  // 『.is-open』が付いた時に『＋』ボタンの縦線が横線になるように90度回転
+  @include mq(md) {
+    transform: rotate(90deg);
+  }
+}
+
+.nav__contents.is-open .nav__click-wrap .nav__accordion-btn .nav__plus-btn .plus-btn__bar-horizontal {  // 『.is-open』が付いた時に『＋』ボタンの横線が非表示に。
+  @include mq(md) {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.nav__click-wrap {
+  @include mq(md) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .nav__title {
@@ -25,16 +70,52 @@
   font-weight: $bold;
   line-height: 1.5;
   transition: color 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(16);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
 }
 
 .nav__title:hover {  // hover
   color: $color-accent1;
 }
 
+.nav__accordion-btn {  // クリック領域
+  @include mq(md) {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;  // 『＋』ボタンを右寄せに。
+    align-items: center;
+    cursor: pointer;  // クリック領域だと分かるように。
+  }
+}
+
+.nav__plus-btn {  // SP時のみ表示される『＋』ボタン
+  @include mq(md) {
+    width: rem(12);
+    height: rem(12);
+    margin-left: auto;
+  }
+}
+
 .nav__sub-contents {
   margin-top: rem(12.3);
+
+  @include mq(md) {
+    margin-top: rem(40);
+    display: none;  // SP時は、普段(最初)は「.nav__sub-contents」は閉じている仕様のため。
+  }
 }
 
 .nav__btn {  // 『SNSはこちら』
-
+  @include mq(md) {
+    margin-top: rem(20);
+    margin-left: rem(5);
+  }
 }

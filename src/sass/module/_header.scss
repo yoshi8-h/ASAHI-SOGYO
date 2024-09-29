@@ -40,7 +40,7 @@
     padding-inline: 5.128%;
     align-items: center;
     gap: rem(25.41);
-    max-width: calc(rem(600) + (5.128%) * 2);  // 『padding-inline』の分も考慮  // SP時の最大幅を600pxに設定
+    // max-width: calc(rem(600) + (5.128%) * 2);  // 『padding-inline』の分も考慮  // SP時の最大幅を600pxに設定
   }
 }
 
@@ -50,7 +50,7 @@
   @include mq(md) {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-start;
     gap: rem(12);
   }

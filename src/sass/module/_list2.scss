@@ -8,6 +8,10 @@
   position: relative;
   padding-left: rem(24);
   transition: color 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(12);
+  }
 }
 
 .list2:hover {  // hover
@@ -27,4 +31,8 @@
   top: rem(10.5);
   left: 0;
   transition: background 0.2s ease-out;
+
+  @include mq(md) {
+    top: rem(9.5);
+  }
 }

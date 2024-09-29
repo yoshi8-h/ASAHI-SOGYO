@@ -7,6 +7,10 @@
   justify-content: center;
   align-items: flex-start;
   gap: rem(3);
+
+  @include mq(md) {
+    gap: rem(6);
+  }
 }
 
 .list2__item {

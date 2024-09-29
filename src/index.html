@@ -45,12 +45,12 @@
     <div class="page-shift"></div>
 
     <!-- オープニングアニメーション (ローディング) -->
-    <!-- <div class="opening">
+    <div class="opening">
       <span class="opening__text">ローディング中...</span>
       <div class="opening__gif">
         <img src="./assets/images/common/opening_lording.gif" alt="ローディング中">
       </div>
-    </div> -->
+    </div>
 
     <!-- メガメニュー (モーダル) -->
     <dialog class="mega-menu js-mega-menu-modal-1">
@@ -651,7 +651,7 @@
       <div class="footer__inner inner">
         <div class="footer__left">
           <a href="#" class="footer__title">
-            <p class="footer__title-text">食品関連資材･調理用消耗品の製造・販売 | 株式会社旭創業</p>
+            <p class="footer__title-text">食品関連資材･調理用消耗品の製造・販売<span class="footer__title-text-pc-only"> | 株式会社旭創業</span></p>
             <div class="footer__logo">
               <img src="./assets/images/common/footer-logo.png" alt="Asahi">
             </div>
@@ -692,47 +692,67 @@
                 <a href="" class="nav__title">トップページ</a>
               </div>
               <div class="nav__contents">
-                <a href="" class="nav__title">事業内容</a>
+                <div class="nav__click-wrap">
+                  <a href="" class="nav__title">事業内容</a>
+                  <div class="nav__accordion-btn u-mobile js-accordion">  <!-- 『＋』ボタン (SPのみ) -->
+                    <div class="nav__plus-btn plus-btn">
+                      <span class="plus-btn__bar-vertical"></span>
+                      <span class="plus-btn__bar-horizontal"></span>
+                    </div>
+                  </div>
+                </div>
                 <div class="nav__sub-contents nav-subs">
-                  <div class="nav-subs__item nav-sub">
-                    <a href="" class="nav-sub__title">取扱商品</a>
-                    <div class="nav-sub__lists lists2">
-                      <a href="" class="list2__item list2">ミニパック調味料(ランチャーム)・タレビン</a>
-                      <a href="" class="list2__item list2">バラン・造花(料理飾り)・生化粧笹</a>
-                      <a href="" class="list2__item list2">衛生用品/作業者用</a>
-                      <a href="" class="list2__item list2">衛生用品/設備・施設用</a>
-                      <a href="" class="list2__item list2">調理・飲食用資材</a>
-                      <a href="" class="list2__item list2">環境配慮製品</a>
+                  <div class="nav-subs__wrap">
+                    <div class="nav-subs__item nav-sub">
+                      <a href="" class="nav-sub__title">取扱商品</a>
+                      <div class="nav-sub__lists lists2">
+                        <a href="" class="list2__item list2">ミニパック調味料(ランチャーム)・タレビン</a>
+                        <a href="" class="list2__item list2">バラン・造花(料理飾り)・生化粧笹</a>
+                        <a href="" class="list2__item list2">衛生用品/作業者用</a>
+                        <a href="" class="list2__item list2">衛生用品/設備・施設用</a>
+                        <a href="" class="list2__item list2">調理・飲食用資材</a>
+                        <a href="" class="list2__item list2">環境配慮製品</a>
+                      </div>
                     </div>
-                  </div>
-                  <div class="nav-subs__item nav-sub">
-                    <a href="" class="nav-sub__title">OEM</a>
-                    <div class="nav-sub__lists lists2">
-                      <a href="" class="list2__item list2">液体調味料のOEM</a>
-                      <a href="" class="list2__item list2">衛生用品、調理・飲食用資材のOEM</a>
+                    <div class="nav-subs__item nav-sub">
+                      <a href="" class="nav-sub__title">OEM</a>
+                      <div class="nav-sub__lists lists2">
+                        <a href="" class="list2__item list2">液体調味料のOEM</a>
+                        <a href="" class="list2__item list2">衛生用品、調理・飲食用資材のOEM</a>
+                      </div>
                     </div>
-                  </div>
-                  <div class="nav-subs__item nav-sub">
-                    <a href="" class="nav-sub__title">品質へのこだわり</a>
+                    <div class="nav-subs__item nav-sub">
+                      <a href="" class="nav-sub__title">品質へのこだわり</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="nav__column is-02">
               <div class="nav__contents">
-                <a href="" class="nav__title">企業情報</a>
+                <div class="nav__click-wrap">
+                  <a href="" class="nav__title">企業情報</a>
+                  <div class="nav__accordion-btn u-mobile js-accordion">  <!-- 『＋』ボタン (SPのみ) -->
+                    <div class="nav__plus-btn plus-btn">
+                      <span class="plus-btn__bar-vertical"></span>
+                      <span class="plus-btn__bar-horizontal"></span>
+                    </div>
+                  </div>
+                </div>
                 <div class="nav__sub-contents nav-subs">
-                  <div class="nav-subs__item nav-sub">
-                    <a href="" class="nav-sub__title">経営理念</a>
-                  </div>
-                  <div class="nav-subs__item nav-sub">
-                    <a href="" class="nav-sub__title">会社情報</a>
-                  </div>
-                  <div class="nav-subs__item nav-sub">
-                    <a href="" class="nav-sub__title">拠点一覧</a>
-                  </div>
-                  <div class="nav-subs__item nav-sub">
-                    <a href="" class="nav-sub__title">沿革</a>
+                  <div class="nav-subs__wrap">
+                    <div class="nav-subs__item nav-sub">
+                      <a href="" class="nav-sub__title">経営理念</a>
+                    </div>
+                    <div class="nav-subs__item nav-sub">
+                      <a href="" class="nav-sub__title">会社情報</a>
+                    </div>
+                    <div class="nav-subs__item nav-sub">
+                      <a href="" class="nav-sub__title">拠点一覧</a>
+                    </div>
+                    <div class="nav-subs__item nav-sub">
+                      <a href="" class="nav-sub__title">沿革</a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -750,7 +770,7 @@
               <div class="nav__contents">
                 <a href="" class="nav__title">採用情報</a>
               </div>
-              <div class="nav__contents">
+              <div class="nav__contents is-last">
                 <a href="" class="nav__title">環境への取り組み</a>
               </div>
               <a href="https://lit.link/asahisogyo1955" class="nav__btn btn4">

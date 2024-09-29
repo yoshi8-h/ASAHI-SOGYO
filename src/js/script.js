@@ -264,6 +264,21 @@ window.addEventListener("scroll", function () {
 
 
 /* -------------------------------------------------------------------------------- */
+/* SP時のfooterのアコーディオンメニュー */
+jQuery(".js-accordion").on("click", function (e) {
+  e.preventDefault();
+
+  if (jQuery(this).closest('.nav__contents').hasClass("is-open")) {  // 最も近い『.nav__contents』が『.is-open』を持っている場合
+    jQuery(this).closest('.nav__contents').removeClass("is-open");
+    jQuery(this).parent().next().slideUp();  // 親要素の隣にある要素をスライドアップ
+  } else {
+    jQuery(this).closest('.nav__contents').addClass("is-open");
+    jQuery(this).parent().next().slideDown();
+  }
+});
+
+
+/* -------------------------------------------------------------------------------- */
 /* ページ遷移アニメーション (フェード) (jQuery) */
 // 『TOPページ以外』のページの<body>タグに、ページ遷移時に『fade』クラスを追加する事で、ページ遷移時にフェードイン-アウトのアニメーションを実装。
 // TOPページには『オープニングアニメーション』があるため不要。

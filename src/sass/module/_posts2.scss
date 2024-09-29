@@ -22,6 +22,7 @@
   width: 100%;
 
   @include mq(md) {
-    max-width: rem(330);
+    // max-width: rem(330);
+    max-width: none;
   }
 }

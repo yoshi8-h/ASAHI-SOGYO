@@ -9,12 +9,19 @@
 
   @include mq(md) {
     flex-direction: column;
+    align-items: center;
     gap: rem(116);
   }
 }
 
 .items1__item {
+  max-width: rem(654);
 
+  @include mq(md) {
+    max-width: rem(500);
+    width: 100%;
+    margin-inline: auto;
+  }
 }
 
 .items1__item.is-down {  // 『.is-down』クラスがついているitemは、少し下にズラす。

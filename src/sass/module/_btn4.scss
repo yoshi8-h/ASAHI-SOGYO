@@ -12,6 +12,10 @@
   align-items: center;
   gap: rem(13);
   transition: background 0.2s ease-out;
+
+  @include mq(md) {
+    gap: rem(10);
+  }
 }
 
 .btn4__text {
@@ -19,6 +23,10 @@
   font-weight: $bold;
   line-height: 1.5;
   transition: color 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(16);
+  }
 }
 
 .btn4 svg {

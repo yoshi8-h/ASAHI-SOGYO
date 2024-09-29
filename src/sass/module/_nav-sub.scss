@@ -11,6 +11,10 @@
   font-weight: $normal;
   line-height: 1.5;
   transition: color 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
 }
 
 .nav-sub__title:hover {  // hover
@@ -19,4 +23,8 @@
 
 .nav-sub__lists {
   margin-top: rem(10);
+
+  @include mq(md) {
+    margin-top: rem(9.5);
+  }
 }

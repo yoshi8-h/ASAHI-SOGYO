@@ -14,6 +14,13 @@
   gap: rem(10);
 
   transition: all 0.2s ease-out;
+
+  @include mq(md) {
+    border: rem(1) solid $color-accent1;
+    padding-block: rem(15);
+    padding-inline: rem(27.5);
+    gap: rem(8);
+  }
 }
 
 .btn5 svg path {
@@ -26,11 +33,20 @@
   font-weight: $medium;
   line-height: 1.45;
   transition: all 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(14);
+    letter-spacing: 0.04em;
+  }
 }
 
 .btn5 svg {
   width: rem(24);
   transition: width 0.2s ease-out;
+
+  @include mq(md) {
+    width: rem(18);
+  }
 }
 
 
@@ -69,6 +85,11 @@
 .btn5--white {
   background: $color-background-base-1;
   border: rem(2) solid $color-font-base;
+
+  @include mq(md) {
+    background: transparent;
+    border: rem(1) solid $color-font-base;
+  }
 }
 
 .btn5--white .btn5__text {
@@ -80,6 +101,10 @@
 .btn5--white:hover {
   background: $color-accent1;
   border: rem(2) solid $color-accent1;
+
+  @include mq(md) {
+    border: rem(1) solid $color-accent1;
+  }
 }
 
 .btn5--white:hover .btn5__text {

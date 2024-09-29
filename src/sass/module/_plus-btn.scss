@@ -1,0 +1,36 @@
+@use "global" as *;
+
+
+@include mq(md) {
+  .plus-btn {
+    position: relative;
+  }
+
+  .plus-btn__bar-vertical,
+  .plus-btn__bar-horizontal {
+    display: inline-block;
+    background: $color-accent1;
+    position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+  }
+
+  .plus-btn__bar-vertical {  // 縦のボタン
+    width: rem(2);
+    height: rem(12);
+    transition: transform 0.2s ease-out;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .plus-btn__bar-horizontal {  // 横のボタン
+    width: rem(12);
+    height: rem(2);
+    transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

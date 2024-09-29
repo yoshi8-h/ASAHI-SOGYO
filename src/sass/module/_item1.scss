@@ -6,12 +6,7 @@
 }
 
 .item1__card {
-  max-width: rem(654);
   width: 100%;
-
-  @include mq(md) {
-    max-width: rem(320);
-  }
 }
 
 .item1__list {

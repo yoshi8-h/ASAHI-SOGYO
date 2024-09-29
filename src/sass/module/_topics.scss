@@ -6,7 +6,9 @@
 }
 
 .topics__inner {
-
+  @include mq(md) {
+    max-width: rem(640);  // 600+20*2 (padding分を考慮)
+  }
 }
 
 .topics__head {
@@ -28,6 +30,9 @@
 
   @include mq(md) {
     margin-top: rem(81);
+    max-width: rem(600);
+    width: 100%;
+    margin-inline: auto;
   }
 }
 

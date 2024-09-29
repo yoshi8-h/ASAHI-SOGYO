@@ -93,6 +93,7 @@
   margin-inline: auto;
 
   @include mq(md) {
+    max-width: rem(600);
     margin-top: rem(57);
     font-size: rem(15);
   }

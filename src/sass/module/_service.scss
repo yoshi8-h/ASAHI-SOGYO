@@ -6,7 +6,9 @@
 }
 
 .service__inner {
-
+  @include mq(md) {
+    max-width: rem(640);  // 600+20*2 (padding分を考慮)
+  }
 }
 
 .service__headings {
