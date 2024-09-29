@@ -302,7 +302,7 @@ jQuery(".js-accordion-2").on("click", function (e) {
   $(window).on('load', function() {
     // 現在のURLのパスが'/'でない場合（TOPページでない場合）
     if (window.location.pathname !== '/') {
-      $('body').addClass('appear');
+      $('body').addClass('fade');
     }
   });
 })(jQuery);
