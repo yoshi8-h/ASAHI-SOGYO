@@ -53,6 +53,51 @@ setupHoverEvents('is-service', 'is-service');
 
 
 /* -------------------------------------------------------------------------------- */
+/* モーダル (メガメニュー mega-menu) */
+// 開閉の際にアニメーションを付与。
+// 『閉じるボタン(×アイコン)』を押した時だけでなく、モーダルの外枠をクリックした時もモーダルが閉じるように実装。
+
+// モーダルを開く処理
+document.querySelectorAll(".js-modal-open").forEach(function(button) {
+  button.addEventListener("click", function(e) {
+    e.preventDefault();
+    var modalNumber = this.getAttribute("data-modal");
+    var modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
+    modal.showModal();
+    modal.classList.add("is-visible");  // クラスを追加してアニメーションを適用
+    document.documentElement.classList.add("is-fixed");
+
+    // モーダルの枠外をクリックした時の処理を追加
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
+});
+
+// モーダルを閉じる処理
+document.querySelectorAll(".js-modal-close").forEach(function(button) {
+  button.addEventListener("click", function(e) {
+    e.preventDefault();
+    var modalNumber = this.getAttribute("data-modal");
+    var modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
+    closeModal(modal);
+  });
+});
+
+// モーダルを閉じる共通処理
+function closeModal(modal) {
+  modal.classList.remove("is-visible");  // クラスを削除してアニメーションを適用
+  // アニメーションが終わるのを待ってからモーダルを閉じる
+  setTimeout(function() {
+    modal.close();
+  }, 200);  // アニメーションの時間と同じに設定
+  document.documentElement.classList.remove("is-fixed");
+}
+
+
+/* -------------------------------------------------------------------------------- */
 /* headerのスクロール検知 (下にスクロールした時は非表示に。上にスクロールした時は表示する) */
 // headerはページ上部に固定。 (CSSで制御)
 // fixedでは、headerの下にheaderの真下の要素が潜り込んでしまうため、「headerの高さ」と「headerの真下にある要素(セクション)」を自動検知し、headerの真下にある要素に『margin-top』でheaderの高さ分を付与してページの見た目を保つ制御。(headerの真下のセクションを自動検知する事で全ページで適用可能なコード)
@@ -205,51 +250,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 /* -------------------------------------------------------------------------------- */
-/* モーダル (メガメニュー mega-menu) */
-// 開閉の際にアニメーションを付与。
-// 『閉じるボタン(×アイコン)』を押した時だけでなく、モーダルの外枠をクリックした時もモーダルが閉じるように実装。
-
-// モーダルを開く処理
-document.querySelectorAll(".js-modal-open").forEach(function(button) {
-  button.addEventListener("click", function(e) {
-    e.preventDefault();
-    var modalNumber = this.getAttribute("data-modal");
-    var modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
-    modal.showModal();
-    modal.classList.add("is-visible");  // クラスを追加してアニメーションを適用
-    document.documentElement.classList.add("is-fixed");
-
-    // モーダルの枠外をクリックした時の処理を追加
-    modal.addEventListener('click', function(event) {
-      if (event.target === modal) {
-        closeModal(modal);
-      }
-    });
-  });
-});
-
-// モーダルを閉じる処理
-document.querySelectorAll(".js-modal-close").forEach(function(button) {
-  button.addEventListener("click", function(e) {
-    e.preventDefault();
-    var modalNumber = this.getAttribute("data-modal");
-    var modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
-    closeModal(modal);
-  });
-});
-
-// モーダルを閉じる共通処理
-function closeModal(modal) {
-  modal.classList.remove("is-visible");  // クラスを削除してアニメーションを適用
-  // アニメーションが終わるのを待ってからモーダルを閉じる
-  setTimeout(function() {
-    modal.close();
-  }, 200);  // アニメーションの時間と同じに設定
-  document.documentElement.classList.remove("is-fixed");
-}
-
-
-/* -------------------------------------------------------------------------------- */
 /* トップへ戻るボタン */
 // 画面を少し(今回は100px)スクロールした時に表示(通常は非表示)
 const pageTop = document.querySelector("#js-top-btn");
@@ -264,8 +264,8 @@ window.addEventListener("scroll", function () {
 
 
 /* -------------------------------------------------------------------------------- */
-/* SP時のfooterのアコーディオンメニュー */
-jQuery(".js-accordion").on("click", function (e) {
+/* SP時の「footer」内の『アコーディオンメニュー』 */
+jQuery(".js-accordion-1").on("click", function (e) {
   e.preventDefault();
 
   if (jQuery(this).closest('.nav__contents').hasClass("is-open")) {  // 最も近い『.nav__contents』が『.is-open』を持っている場合
@@ -273,6 +273,21 @@ jQuery(".js-accordion").on("click", function (e) {
     jQuery(this).parent().next().slideUp();  // 親要素の隣にある要素をスライドアップ
   } else {
     jQuery(this).closest('.nav__contents').addClass("is-open");
+    jQuery(this).parent().next().slideDown();
+  }
+});
+
+
+/* -------------------------------------------------------------------------------- */
+/* SP時の「メガメニュー」内の『アコーディオンメニュー』 */
+jQuery(".js-accordion-2").on("click", function (e) {
+  e.preventDefault();
+
+  if (jQuery(this).closest('.nav2__contents').hasClass("is-open")) {  // 最も近い『.nav2__contents』が『.is-open』を持っている場合
+    jQuery(this).closest('.nav2__contents').removeClass("is-open");
+    jQuery(this).parent().next().slideUp();  // 親要素の隣にある要素をスライドアップ
+  } else {
+    jQuery(this).closest('.nav2__contents').addClass("is-open");
     jQuery(this).parent().next().slideDown();
   }
 });

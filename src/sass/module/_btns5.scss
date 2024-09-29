@@ -9,5 +9,9 @@
 }
 
 .btns5__item {
-
+  @include mq(md) {
+    // max-width: rem(236);
+    // width: 100%;
+    width: rem(236);
+  }
 }

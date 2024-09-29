@@ -2,11 +2,19 @@
 
 
 .nav-subs2 {
+
+}
+
+.nav2-subs__wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: rem(16);
+
+  @include mq(md) {
+    gap: rem(16);
+  }
 }
 
 .nav-subs2__item {

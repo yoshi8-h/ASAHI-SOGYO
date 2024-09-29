@@ -10,7 +10,7 @@
   background: $color-background-base-1;
   z-index: 1000;
 
-  // transform: scale(0.8);  // 初期状態を小さく
+  // transform: scale(0.8);  // 初期状態を小さくする指定は、下の『transform』で一緒に指定。
   opacity: 0;  // 初期状態を透明に
   transition: transform 0.2s ease-out, opacity 0.3s ease-out;  // アニメーションを設定
 
@@ -20,6 +20,14 @@
   left: 50%;  /* 水平方向の中央に配置 */
   transform: translateX(-50%) scale(0.8);  /* 水平中央揃え ＋ 初期状態を小さく */
   margin: 0;  // dialogタグにデフォルトで当たっている指定を打ち消し。(『margin-top』と『margin-bottom』がデフォルトで当たっており、上下中央に来るようにしてあるためそれを打ち消し。)
+
+  @include mq(md) {
+    width: 93.846vw;
+    max-width: none;
+    border-radius: rem(10);
+    background: #FFF7F9;
+    top: rem(12);
+  }
 }
 
 // 要素を固定するクラス (スクロール不可に)
@@ -49,10 +57,18 @@
   gap: rem(50);  // 念の為設定
   border-bottom: rem(1) solid #626262;
 
-  @include mq(md) {  // スマホ時にスクロールした時に、ボタンをstickyする為の親クラス
+  @include mq(md) {  // スマホ時にスクロールした時に、ボタンをstickyする為の親クラス(親クラスが必要)
     position: sticky;
+    background: #FFF7F9;
+    z-index: 5000;
+
+    padding-top: rem(27);
+    padding-bottom: rem(28);
+    padding-left: rem(8);
+    padding-right: rem(22.5);
     top: 0;
     left: 0;
+    border-bottom: none;
   }
 }
 
@@ -66,6 +82,10 @@
 .mega-menu__logo {
   width: rem(207);
   max-width: 100%;
+
+  @include mq(md) {
+    width: rem(86);
+  }
 }
 
 .mega-menu__logo img {
@@ -76,6 +96,10 @@
   font-size: rem(14);
   font-weight: $bold;
   line-height: 1.5;
+
+  @include mq(md) {
+    display: none;
+  }
 }
 
 .mega-menu__close {  // 『×』ボタン
@@ -95,6 +119,10 @@
   left: 0;
   right: 0;
   transition: transform 0.3s ease-out, top 0.3s ease-out, opacity 0.2s ease-out;
+
+  @include mq(md) {
+    height: rem(2.5);
+  }
 }
 
 .mega-menu__close-bar:nth-of-type(1) {
@@ -109,6 +137,17 @@
   padding-top: rem(95);
   padding-bottom: rem(80);
   padding-inline: rem(30);  // 念の為指定。
+
+  @include mq(md) {
+    padding-top: rem(18);
+    padding-bottom: rem(42);
+    padding-left: rem(24);
+    padding-right: rem(32);
+
+    max-width: rem(556);  // 500+24+32=556 (paddingを考慮)
+    width: 100%;
+    margin-inline: auto;
+  }
 }
 
 .mega-menu__body-wrap {
@@ -120,6 +159,13 @@
   justify-content: center;
   align-items: flex-end;
   gap: rem(61.7);
+
+  @include mq(md) {
+    max-width: none;
+    width: 100%;
+    align-items: flex-start;
+    gap: rem(41);
+  }
 }
 
 .mega-menu__contents {
@@ -128,6 +174,10 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: rem(136.93);
+
+  @include mq(md) {
+    display: block;
+  }
 }
 
 .mega-menu__img {
@@ -139,6 +189,10 @@
   object-fit: cover;
   flex-grow: 1;
   width: 100%;
+
+  @include mq(md) {
+    display: none;
+  }
 }
 
 .mega-menu__img img {
@@ -152,5 +206,9 @@
 }
 
 .mega-menu__buttons {
-
+  @include mq(md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(12);
+  }
 }
