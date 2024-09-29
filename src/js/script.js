@@ -416,7 +416,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* -------------------------------------------------------------------------------- */
 /* テキストを、フェードで1文字ずつ表示させる */
-// ※ <span>タグで1文字ずつ囲む処理をする際に、<br>タグは1文字ずつ<span>で囲む対象から外す処理も。
+// ※ <span>タグで1文字ずつ囲む処理をする際に、<br>タグは1文字ずつ<span>で囲む対象から外す。
+// ※ <span>タグで1文字ずつ囲む処理をする際にその分割処理から除外する<br>タグについて、<br>にclassが付与されていても除外対象だと判別されるように実装。
 
 window.addEventListener('DOMContentLoaded', function() {
   let splitTargets = document.querySelectorAll(".js-splitText");  // ターゲットとなる要素を全て取得
@@ -426,10 +427,10 @@ window.addEventListener('DOMContentLoaded', function() {
     let newText = '';  // 生成する要素を格納する為の変数
     let spanText = target.innerHTML;  // 要素のHTMLを取得
 
-    // 正規表現を使って、<br>タグを特別な処理で除外
-    spanText.split(/(<br\s*\/?>)/).forEach(function(part) {
-      if (part === "<br>" || part === "<br/>" || part === "<br />") {
-        // <br>タグはそのまま保持
+    // 正規表現を使って、<br>タグを特別な処理で除外（クラスやスペースも含める）
+    spanText.split(/(<br[^>]*>)/).forEach(function(part) {
+      if (part.match(/<br[^>]*>/)) {
+        // <br>タグ（クラス付き含む）はそのまま保持
         newText += part;
       } else {
         // それ以外の部分を1文字ずつ分割して<span>で囲む
