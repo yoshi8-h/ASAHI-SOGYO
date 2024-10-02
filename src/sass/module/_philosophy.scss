@@ -109,7 +109,7 @@
 
   position: absolute;
   top: rem(-40);
-  right: rem(25);  // innerのpadding分を考慮
+  right: rem(50);  // innerのpadding分($padding-pc)を考慮
 
   @include mq(md) {
     display: none;
@@ -126,7 +126,7 @@
 
   position: absolute;
   bottom: rem(-36);
-  left: rem(25);  // innerのpadding分を考慮
+  left: rem(50);  // innerのpadding分($padding-pc)を考慮
 
   @include mq(md) {
     display: none;
