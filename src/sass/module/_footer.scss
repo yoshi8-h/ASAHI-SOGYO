@@ -147,11 +147,8 @@
 
 .footer__buttons {
   @include mq(md) {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    column-gap: rem(8);
-    row-gap: rem(8);
+    max-width: 100%;
+    width: 100%;
   }
 }
 

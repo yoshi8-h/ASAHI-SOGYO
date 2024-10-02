@@ -12,6 +12,29 @@
   @include mq(md) {
     // max-width: rem(236);
     // width: 100%;
-    width: rem(236);
+    // width: rem(236);
+    width: 100%;
+  }
+}
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+.btns5--footer {
+  @include mq(md) {
+    // flex-wrap: wrap;
+    // justify-content: flex-start;
+    // align-items: center;
+    column-gap: rem(8);
+    row-gap: rem(8);
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: rem(8);
+    grid-row-gap: rem(8);
   }
 }
