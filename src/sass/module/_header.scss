@@ -229,15 +229,18 @@
   position: relative;
 
   @include mq(md) {
-    width: rem(24);
+    width: rem(27.2);
     height: rem(21.8);
   }
 }
 
 .header__bar {
-  display: inline-block;
+  display: block;
   width: rem(24);
   height: rem(3.2);
+  height: 3px;
+  height: calc(3px / 1920px * 100vw);
+  min-height: 2px;
   background: $color-font-base;
   position: absolute;
   top: 0;
@@ -252,10 +255,12 @@
 
 .header__bar:nth-of-type(2) {
   width: rem(16);
+  aspect-ratio: 16 / 3.2;
   top: rem(9.4);
 }
 
 .header__bar:nth-of-type(3) {
   width: rem(27.2);
+  aspect-ratio: 27.2 / 3.2;
   top: rem(18.8);
 }
