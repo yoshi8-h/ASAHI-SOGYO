@@ -237,11 +237,16 @@
 .header__bar {
   display: block;
   width: rem(24);
-  height: rem(3.2);
-  height: 3px;
-  height: calc(3px / 1920px * 100vw);
-  min-height: 2px;
-  background: $color-font-base;
+  // height: rem(3.2);
+  // height: 3px;
+  // height: calc(3.2px / 1920px * 100vw);
+  // max-height: 3.2px;
+  // min-height: 2px;
+  // height: clamp(2px, calc(1px + 1vw), 3.2px);
+  // height: clamp(2px, 0.2rem + 1vw, 3.2px); // 最小値: 2px, 理想値: 0.2rem + 1vw, 最大値: 3.2px
+  // background: $color-font-base;
+  height: 0; // 高さを0に設定
+  border-top: rem(3.2) solid $color-font-base; // 上部の線を描画 (『height』で指定すると、サブピクセルレンダリングの影響を受けて画面幅によって太さが変わってしまうため、borderを用いて線の太さを制御)
   position: absolute;
   top: 0;
   right: 0;
@@ -249,18 +254,17 @@
   max-height: 3.1px;
 
   @include mq(md) {
-    height: rem(3);
+    // height: rem(3);
+    border-top: rem(3) solid $color-font-base;
   }
 }
 
 .header__bar:nth-of-type(2) {
   width: rem(16);
-  aspect-ratio: 16 / 3.2;
   top: rem(9.4);
 }
 
 .header__bar:nth-of-type(3) {
   width: rem(27.2);
-  aspect-ratio: 27.2 / 3.2;
   top: rem(18.8);
 }
