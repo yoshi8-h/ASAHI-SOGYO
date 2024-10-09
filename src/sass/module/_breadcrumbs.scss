@@ -1,0 +1,39 @@
+@use "global" as *;
+
+
+/* ブロック要素（パンくず全体） */
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  color: $color-font-base;
+  font-size: rem(14);
+}
+
+/* パンくずアイテム */
+.breadcrumbs__item {
+  margin-right: rem(14);  // パンくずアイテム間のスペース
+}
+
+.breadcrumbs__item:last-child {
+  margin-right: 0;  // 最後のアイテムにはスペースを適用しない
+}
+
+
+/* リンク */
+.breadcrumbs__link {
+  transition: all 0.2s ease-out;
+}
+
+.breadcrumbs__link:hover {  // hover
+  color: $color-accent1;
+}
+
+
+/* 区切り（›の部分） */
+.breadcrumbs__separator {
+  margin-right: rem(14); /* 区切り記号の余白 */
+  color: $color-font-base;
+  display: grid;
+  place-items: center;
+}

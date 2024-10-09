@@ -1,0 +1,46 @@
+@use "global" as *;
+
+
+.fv2 {
+
+}
+
+.fv2__inner {
+  max-width: rem(calc(1776 + 60 * 2));
+  margin-inline: auto;
+  padding-inline: rem(60);
+  position: relative;
+}
+
+.fv2__wrap  {
+  min-height: rem(400);
+  border-radius: rem(10);
+}
+
+.fv2__text {
+  color: #FFF;
+  font-family: $font-family-ja-1;
+  font-size: rem(32);
+  font-weight: $normal;
+  line-height: 0.9375;
+
+  position: absolute;
+  top: 50%;
+  left: rem(220);
+  transform: translateY(-50%);
+}
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+// fv2--service (事業紹介ページ)
+.fv2--service .fv2__wrap {
+  background: url(../images/page/pc/service_fv-bg.webp) no-repeat center center / cover;
+
+  @include mq(md) {
+    background: url(../images/page/sp/service_fv-bg.webp) no-repeat center center / cover;
+  }
+}

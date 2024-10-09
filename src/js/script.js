@@ -520,24 +520,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-// function adjustHeaderBarHeight() {
-//   const headerBar = document.querySelector('.header__bar');
-
-//   if (!headerBar) return; // 要素がない場合は処理を終了
-
-//   const viewportHeight = window.innerHeight;
-
-//   // ビューポートの高さが900px以上で899px以下はCSSで制御するためJavaScriptは何もしない
-//   if (viewportHeight >= 900 && viewportHeight <= 1499) {
-//     headerBar.style.height = '2.2px';
-//   } else if (viewportHeight >= 1500) {
-//     headerBar.style.height = '3.2px';
-//   }
-// }
-
-// // 初期化時に実行
-// adjustHeaderBarHeight();
-
-// // ウィンドウリサイズ時に高さを再調整
-// window.addEventListener('resize', adjustHeaderBarHeight);
