@@ -14,17 +14,19 @@
 }
 
 .service-page__top {
-
+  margin-top: rem(80);
+  margin-left: rem(129);
 }
 
 .service-page__top-title {
-
+  font-size: rem(32);
+  font-weight: $bold;
+  line-height: normal;
+  letter-spacing: 0.96px;
+  letter-spacing: 0.03em;
+  text-indent: 0.03em;
 }
 
 .service-page__top-text {
-
-}
-
-.service-page__navs {
-
+  margin-top: rem(34);
 }

@@ -2,13 +2,41 @@
 
 
 .page-title {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(12);
 }
 
 .page-title__main {
-
+  font-family: $font-family-ja-1;
+  font-size: rem(56);
+  font-weight: $normal;
+  line-height: normal;
+  letter-spacing: 0.03em;
+  text-indent: 0.03em;
 }
 
 .page-title__sub {
+  font-family: $font-family-en-1;
+  font-size: rem(20);
+  font-weight: $bold;
+  line-height: normal;
+  letter-spacing: 0.14em;
+  text-indent: 0.14em;
 
+  position: relative;
+  padding-left: rem(35);
+}
+
+.page-title__sub::before {  // 左側の赤い丸
+  content: "";
+  width: rem(16);
+  height: rem(16);
+  background: url(../images/common/page-title_circle-red.svg) no-repeat center center / contain;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }

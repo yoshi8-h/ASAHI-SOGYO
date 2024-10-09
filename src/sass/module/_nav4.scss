@@ -10,9 +10,14 @@
 }
 
 .nav4__item-title {
-
+  font-family: $font-family-ja-1;
+  font-size: rem(28.768);
+  font-weight: $normal;
+  line-height: normal;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
 }
 
 .nav4__item-links {
-
+  margin-top: rem(8);
 }

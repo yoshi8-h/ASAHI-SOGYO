@@ -2,11 +2,23 @@
 
 
 .navs {
+  background: #F5F5F5;
+}
 
+.navs__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: rem(85.5);
 }
 
 .navs__left {
-
+  padding-top: rem(109.85);
+  padding-bottom: rem(122.15);
+  flex-grow: 1;
+  width: 19.5%;
+  padding-right: rem(11.5);
+  border-right: 1px solid #EDEDED;
 }
 
 .navs__sub {
@@ -14,7 +26,10 @@
 }
 
 .navs__right {
-
+  padding-top: rem(109.85);
+  padding-bottom: rem(122.15);
+  flex-grow: 1;
+  width: 74.1780%;
 }
 
 .navs__main {

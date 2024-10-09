@@ -6,17 +6,35 @@
 }
 
 .nav3__title {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(10);
 }
 
 .nav3__title-en {
-
+  color: $color-accent1;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: $font-family-en-1;
+  font-size: rem(17);
+  font-weight: $medium;
+  line-height: normal;
+  letter-spacing: 0.1em;
+  text-indent: 0.1em;
 }
 
 .nav3__title-ja {
-
+  leading-trim: both;
+  text-edge: cap;
+  font-size: rem(14);
+  font-weight: $medium;
+  line-height: normal;
+  letter-spacing: 0.01em;
+  text-indent: 0.01em;
 }
 
 .nav3__contents {
-
+  margin-top: rem(24);
 }

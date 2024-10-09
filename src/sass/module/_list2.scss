@@ -36,3 +36,38 @@
     top: rem(9.5);
   }
 }
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+// list2--2 (事業紹介ページの)
+.list2--2.list2 {
+  leading-trim: both;
+  text-edge: cap;
+  line-height: normal;
+  letter-spacing: 0.02em;
+  text-indent: 0.02em;
+  padding-left: rem(16);
+
+  @include mq(md) {
+    font-size: rem(12);
+  }
+}
+
+.list2--2.list2::before {  // グレーの横線 (-)
+  content: "";
+  width: rem(8);
+  height: rem(1);
+  background: $color-accent1;
+  position: absolute;
+  top: rem(10.5);
+  left: 0;
+  transition: background 0.2s ease-out;
+
+  @include mq(md) {
+    top: rem(9.5);
+  }
+}

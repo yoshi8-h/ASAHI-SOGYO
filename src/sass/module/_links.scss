@@ -2,9 +2,18 @@
 
 
 .links {
-
+  background: $color-background-base-1;
+  border-radius: rem(7.751);
+  padding: rem(24);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  align-items: flex-start;  // 上揃えに。
+  column-gap: rem(30);
+  row-gap: rem(16);
 }
 
 .links__item {
-
+  max-width: rem(309);
+  width: 100%;
 }

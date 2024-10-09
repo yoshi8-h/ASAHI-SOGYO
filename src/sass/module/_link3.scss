@@ -2,21 +2,50 @@
 
 
 .link3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.link3:hover .link3__text {  // hover
+  color: $color-accent1;
+}
+
+.link3:hover .link3__arrow svg path {  // hover
+  stroke: $color-accent1;
 }
 
 .link3__main {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(19.38);
 }
 
 .link3__img {
 
 }
 
-.link3__text {
+.link3__img img {
+  aspect-ratio: 62.931 / 44.95;
+  max-width: rem(62.931);
+  width: 100%;
+  object-fit: cover;
+}
 
+.link3__text {
+  font-size: rem(13);
+  font-weight: $bold;
+  line-height: normal;
+  letter-spacing: 0.01em;
+  text-indent: 0.01em;
+  transition: color 0.2s ease-out;
 }
 
 .link3__arrow {
 
+}
+
+.link3__arrow svg path {
+  transition: stroke 0.2s ease-out;
 }
