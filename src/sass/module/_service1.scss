@@ -8,7 +8,8 @@
 .service1__inner {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  // align-items: flex-start;
+  align-items: stretch; // 『service1__left』の高さを『service1__right』と合わせるための指定
   gap: rem(85.5);
 }
 
@@ -37,10 +38,30 @@
 }
 
 .service1__title {
+  position: relative;
+}
+
+.service1__title-text {
   font-family: $font-family-ja-1;
   font-size: rem(38);
   font-weight: $normal;
   line-height: 1.5;
+}
+
+.service1__title.is-01 .service1__title-number {  // 左側にある『01』の文字
+  font-family: $font-family-en-1;
+  font-size: rem(12);
+  font-style: normal;
+  font-weight: $medium;
+  line-height: 1.5;
+  padding-block: rem(1);
+  padding-inline: rem(9);
+
+  border-radius: rem(12);
+  border: 1px solid #212121;
+  position: absolute;
+  top: 0;
+  right: calc(100% + rem(10));
 }
 
 .service1__message {
