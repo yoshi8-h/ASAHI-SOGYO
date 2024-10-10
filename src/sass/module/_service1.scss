@@ -1,3 +1,54 @@
 @use "global" as *;
 
 
+.service1 {
+
+}
+
+.service1__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: rem(85.5);
+}
+
+.service1__left {
+  padding-top: rem(145.59);
+  flex-grow: 1;
+  width: 19.5%;
+
+  padding-top: rem(160);
+  // padding-bottom: rem(134);
+  flex-grow: 1;
+  width: 19.5%;
+  padding-right: rem(11.5);
+  border-right: 1px solid #EDEDED;
+}
+
+.service1__nav-sub {
+
+}
+
+.service1__right {
+  padding-top: rem(145.59);
+  padding-bottom: rem(119.41);
+  flex-grow: 1;
+  width: 74.1780%;
+}
+
+.service1__title {
+  font-family: $font-family-ja-1;
+  font-size: rem(38);
+  font-weight: $normal;
+  line-height: 1.5;
+}
+
+.service1__message {
+  font-size: rem(19);
+  font-weight: $medium;
+  line-height: 1.7;
+}
+
+.service1__products {
+  margin-top: rem(112);
+}

@@ -1,0 +1,16 @@
+@use "global" as *;
+
+
+.toggles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(7);
+}
+
+.toggles__item {
+  flex-grow: 1;
+  max-width: rem(511);
+  width: 100%;
+}

@@ -1,0 +1,45 @@
+@use "global" as *;
+
+
+.toggle {
+
+}
+
+.is-open {
+
+}
+
+.toggle__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: rem(40);  // 最低限の余白を設定
+}
+
+.toggle__head-text {
+
+}
+
+.toggle__open-btn {
+
+}
+
+.toggle__body {
+
+}
+
+.toggle__text {
+
+}
+
+.toggle__list-warp {
+
+}
+
+.toggle__list-title {
+
+}
+
+.toggle__list {
+
+}

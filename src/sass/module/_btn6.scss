@@ -1,3 +1,34 @@
 @use "global" as *;
 
 
+.btn6 {
+  display: inline-block;
+  background: $color-background-base-1;
+  border: rem(1) solid #212121;
+  border-radius: rem(50);
+  padding-block: rem(13);
+  padding-inline: rem(20);  // 最低限の両端の余白を設定
+  transition: background 0.2s ease-out;
+}
+
+.btn6:hover {  // hover
+  background: $color-font-base;
+}
+
+.btn6:hover .btn6__text {  // hover
+  color: #FFF;
+}
+
+.btn6__text {
+color: $color-font-base;
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  // font-family: "Heisei Kaku Gothic Std";
+  font-size: rem(14);
+  font-weight: $bold;
+  line-height: 2.142;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+  transition: color 0.2s ease-out;
+}
