@@ -1,0 +1,35 @@
+@use "global" as *;
+
+
+.list-item2 {
+
+}
+
+.list-item2__title {
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: normal;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+  padding-left: rem(14);
+  position: relative;
+}
+
+.list-item2__title::before {  // 左側の赤い横線
+  content: "";
+  width: rem(8);
+  height: rem(1);
+  background: $color-accent1;
+  position: absolute;
+  top: rem(12);
+  left: 0;
+}
+
+.list-item2__text {
+  margin-top: rem(3);
+  font-size: rem(14);
+  font-weight: $normal;
+  line-height: 1.7;
+  letter-spacing: 0.07em;
+  text-indent: 0.07em;
+}

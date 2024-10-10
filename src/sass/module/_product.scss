@@ -64,3 +64,31 @@
   max-width: rem(280);
   width: 100%;
 }
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+// product--2
+.product--2 .product__btn {
+  max-width: rem(200);
+  padding-inline: rem(10);
+}
+
+
+// hover
+.product--2 .product__btn.btn--red:hover {
+  background: #FFF;
+  border: rem(1) solid $color-accent1;
+}
+
+.btn--red:hover .btn__text {
+  color: $color-accent1;
+  transition: color 0.2s ease-out;
+}
+
+.btn--red:hover svg path {
+  fill: $color-accent1;
+}

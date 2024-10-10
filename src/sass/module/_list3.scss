@@ -2,13 +2,13 @@
 
 
 .list3 {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(2);
 }
 
 .list3__item {
-
-}
-
-.list-item {
 
 }

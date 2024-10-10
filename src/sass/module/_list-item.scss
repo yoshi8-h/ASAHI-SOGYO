@@ -1,0 +1,20 @@
+@use "global" as *;
+
+
+.list-item {
+  font-size: rem(14);
+  font-weight: $normal;
+  line-height: 1.8;
+  padding-left: rem(17);
+  position: relative;
+}
+
+.list-item::before {  // リストの前の点『・』
+  content: "・";
+  font-size: rem(14);
+  font-weight: $normal;
+  line-height: 1.8;
+  position: absolute;
+  top: rem(0.5);
+  left: 0;
+}

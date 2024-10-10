@@ -1,0 +1,14 @@
+@use "global" as *;
+
+
+.list4 {
+
+}
+
+.list4__item {
+
+}
+
+.list4__item:nth-of-type(n+2) {
+  margin-top: rem(23);
+}

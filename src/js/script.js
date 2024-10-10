@@ -310,9 +310,28 @@ jQuery(".js-accordion-2").on("click", function (e) {
 
 
 
+/* -------------------------------------------------------------------------------- */
+/* toggle(アコーディオン)：事業紹介ページなど */
+// ※絶対に、GSAPの記述より前に書く必要あり。
+jQuery(".js-accordion").on("click", function (e) {
+  e.preventDefault();
+
+  if (jQuery(this).parent().hasClass("is-open")) {
+    jQuery(this).parent().removeClass("is-open");
+    jQuery(this).next().slideUp();
+  } else {
+    jQuery(this).parent().addClass("is-open");
+    jQuery(this).next().slideDown();
+  }
+});
+
+
+
+
 
 /* ================================================================================ */
 /*  アニメーション  */
+// ※jQueryなどの制御の記述は、GSAPの記述より前に書く必要あり。
 /* ================================================================================ */
 
 /* オープニングアニメーション (ローディング) */
@@ -520,3 +539,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+// /* -------------------------------------------------------------------------------- */
+// /* toggle(アコーディオン)：事業紹介ページなど */
+// jQuery(".js-accordion").on("click", function (e) {
+//   e.preventDefault();
+
+//   if (jQuery(this).parent().hasClass("is-open")) {
+//     jQuery(this).parent().removeClass("is-open");
+//     jQuery(this).next().slideUp();
+//   } else {
+//     jQuery(this).parent().addClass("is-open");
+//     jQuery(this).next().slideDown();
+//   }
+// });
