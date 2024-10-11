@@ -69,7 +69,6 @@
 
   @include mq(md) {
     font-size: rem(32);
-    font-weight: $bold;
   }
 }
 
@@ -157,6 +156,10 @@
 // service1--2
 .service1--2.service1 {
   background: #F5F5F5;
+}
+
+.service1--2 .service1__title-text {
+  font-family: $font-family-en-1;
 }
 
 
