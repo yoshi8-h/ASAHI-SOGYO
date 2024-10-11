@@ -43,6 +43,8 @@
 }
 
 .navs__main {
-  max-width: rem(500);
-  margin-inline: auto;
+  @include mq(md) {
+    max-width: rem(500);
+    margin-inline: auto;
+  }
 }

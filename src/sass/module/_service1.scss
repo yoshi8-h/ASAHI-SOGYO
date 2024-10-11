@@ -18,6 +18,8 @@
 
   @include mq(md) {
     display: block;
+    max-width: rem(calc(500 + 20 * 2));  // 両端のpadding分を考慮
+    margin-inline: auto;
   }
 }
 
