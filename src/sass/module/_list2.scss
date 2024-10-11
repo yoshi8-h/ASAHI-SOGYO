@@ -19,22 +19,27 @@
 }
 
 .list2:hover::before {  // hover
-  background: $color-accent1;
+  // background: $color-accent1;
+  border-top: rem(1) solid $color-accent1;
 }
 
 .list2::before {  // グレーの横線 (-)
   content: "";
+  // width: rem(14);
+  // height: rem(1);
+  // background: #B6B6B6;
+  // position: absolute;
+  // top: rem(10.5);
+  // left: 0;
+  // transition: background 0.2s ease-out;
   width: rem(14);
-  height: rem(1);
-  background: #B6B6B6;
+  height: 0; // 高さを0に設定
+  border-top: rem(1) solid #B6B6B6; // 上部の線を描画 (『height』で指定すると、サブピクセルレンダリングの影響を受けて画面幅によって太さが変わってしまうため、borderを用いて線の太さを制御)
   position: absolute;
-  top: rem(10.5);
+  top: rem(9.5);
   left: 0;
-  transition: background 0.2s ease-out;
-
-  @include mq(md) {
-    top: rem(9.5);
-  }
+  transition: border-top 0.2s ease-out;
+  max-height: 1px;
 }
 
 
@@ -57,17 +62,26 @@
   }
 }
 
-.list2--2.list2::before {  // グレーの横線 (-)
+.list2--2.list2::before {  // 赤の横線 (-)
+  // content: "";
+  // width: rem(8);
+  // height: rem(1);
+  // background: $color-accent1;
+  // position: absolute;
+  // top: rem(10.5);
+  // left: 0;
+  // transition: background 0.2s ease-out;
   content: "";
   width: rem(8);
-  height: rem(1);
-  background: $color-accent1;
+  height: 0; // 高さを0に設定
+  border-top: 1px solid $color-accent1; // 上部の線を描画 (『height』で指定すると、サブピクセルレンダリングの影響を受けて画面幅によって太さが変わってしまうため、borderを用いて線の太さを制御)
   position: absolute;
-  top: rem(10.5);
+  top: rem(9.5);
   left: 0;
-  transition: background 0.2s ease-out;
+  transition: border-top 0.2s ease-out;
+  max-height: 1px;
 
   @include mq(md) {
-    top: rem(9.5);
+    top: rem(8.5);
   }
 }

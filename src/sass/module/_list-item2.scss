@@ -16,13 +16,21 @@
 }
 
 .list-item2__title::before {  // 左側の赤い横線
+  // content: "";
+  // width: rem(8);
+  // height: rem(1);
+  // background: $color-accent1;
+  // position: absolute;
+  // top: rem(12);
+  // left: 0;
   content: "";
   width: rem(8);
-  height: rem(1);
-  background: $color-accent1;
+  height: 0; // 高さを0に設定
+  border-top: 1px solid $color-accent1; // 上部の線を描画 (『height』で指定すると、サブピクセルレンダリングの影響を受けて画面幅によって太さが変わってしまうため、borderを用いて線の太さを制御)
   position: absolute;
   top: rem(12);
   left: 0;
+  max-height: 1px;
 }
 
 .list-item2__text {
