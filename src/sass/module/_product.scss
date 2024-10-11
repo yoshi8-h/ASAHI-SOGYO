@@ -40,6 +40,13 @@
   line-height: 1.75;
 }
 
+.product__text-2 {
+  margin-top: rem(38);
+  font-size: rem(16);
+  font-weight: $medium;
+  line-height: 1.75;
+}
+
 .product__toggles-wrap {
   margin-top: rem(40);
 }
@@ -63,6 +70,30 @@
   margin-top: rem(40);
   max-width: rem(280);
   width: 100%;
+}
+
+.product__list-area {
+  margin-top: rem(38);
+  border-radius: rem(11);
+  background: $color-background-base-1;
+  padding-block: rem(8);
+  padding-inline: rem(16);
+  max-width: rem(527);
+  width: 100%;
+}
+
+.product__list-title {
+  font-size: rem(16);
+  font-weight: $medium;
+  line-height: 1.75;
+}
+
+.product__list {
+
+}
+
+.product__list-area2 {
+  margin-top: rem(38);
 }
 
 

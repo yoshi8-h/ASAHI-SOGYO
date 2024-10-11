@@ -8,3 +8,18 @@
     margin-top: rem(116.8);
   }
 }
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+// l-footer--service
+.l-footer--service.l-footer {
+  margin-top: rem(74);
+
+  @include mq(md) {
+    margin-top: rem(116.8);
+  }
+}

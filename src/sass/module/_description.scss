@@ -1,0 +1,56 @@
+@use "global" as *;
+
+
+.description {
+
+}
+
+.description__wrap {
+  aspect-ratio: 1083 / 841;
+  max-width: rem(1083);
+  width: 100%;
+  position: relative;
+}
+
+.description__img {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.description__img img {
+  aspect-ratio: 746 / 581;
+  max-width: rem(746);
+  width: 100%;
+  object-fit: cover;
+}
+
+.description__text-area {
+  border-radius: rem(5);
+  background: $color-background-base-1;
+  // aspect-ratio: 582 / 481;
+  max-width: rem(582);
+  width: 100%;
+  padding-top: rem(56);
+  padding-right: rem(56);
+  padding-left: rem(10);
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.description__title {
+  color: $color-accent1;
+  font-size: rem(24);
+  font-weight: $bold;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+
+.description__text {
+  margin-top: rem(16);
+  font-size: rem(17);
+  font-weight: $normal;
+  line-height: 2.0;
+}

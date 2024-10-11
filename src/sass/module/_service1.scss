@@ -64,6 +64,16 @@
   right: calc(100% + rem(10));
 }
 
+.service1__title-en {  // 『Quality』の文字
+  color: $color-accent1;
+  font-family: $font-family-en-1;
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: normal;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+}
+
 .service1__message {
   font-size: rem(19);
   font-weight: $medium;
@@ -72,4 +82,35 @@
 
 .service1__products {
   margin-top: rem(112);
+}
+
+.service1__right-btn-wrap {
+  margin-top: rem(122);
+  text-align: center;
+}
+
+.service1__right-btn {
+
+}
+
+.service1__quality-descriptions {
+  margin-top: rem(120);
+}
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+// service1--2
+.service1--2.service1 {
+  background: #F5F5F5;
+}
+
+
+
+// service1--3
+.service1--3 .service1__right {
+  padding-bottom: rem(81);  // 『.service1__left』との境界線の長さを担保
 }

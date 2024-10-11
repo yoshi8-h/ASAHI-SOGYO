@@ -342,23 +342,27 @@ jQuery(".js-accordion").on("click", function (e) {
 // 各文字をspanで包む関数
 function wrapTextInSpan(selector) {
   const element = document.querySelector(selector);
-  const text = element.textContent; // テキストを取得
-  const wrappedText = text.split('').map(char => `<span>${char}</span>`).join(''); // 各文字をspanでラップ
-  element.innerHTML = wrappedText; // 新しいHTMLに置き換え
+
+  // elementが存在する場合のみ処理を実行
+  if (element) {
+    const text = element.textContent; // テキストを取得
+    const wrappedText = text.split('').map(char => `<span>${char}</span>`).join(''); // 各文字をspanでラップ
+    element.innerHTML = wrappedText; // 新しいHTMLに置き換え
+  }
 }
 
-// 上で定義した『各文字をspanで包む関数』を実行。 → .opening__textのテキストをspanでラップ
-wrapTextInSpan('.opening__text');
-
-// アニメーションの実装
+// DOMが完全にロードされた後にアニメーションを設定
 document.addEventListener('DOMContentLoaded', function() {
-  // 『オープニング画面』を作成
+  // .opening__text のテキストをspanでラップする
+  wrapTextInSpan('.opening__text'); // // 上で定義した『各文字をspanで包む関数』を実行。 → .opening__textのテキストをspanでラップ
+
+  // GSAPアニメーションの実装
   gsap.timeline({ repeat: -1, repeatDelay: 1 }) // 無限ループ。ループの繰り返しの間隔は1秒。
   .fromTo(".opening__text span", {y: 0}, { y: -10, stagger: 0.1, delay:0.4, duration: 0.4, ease: "liner"})
   .fromTo(".opening__text span", { y: -10}, {y: 0, stagger: 0.1, duration: 0.4, ease: "liner"},'-=.5')  // 最後の文字が上がりきる前に最初の文字が下がり始めるように、少し食い気味に発火。
 
   // 上で作った『オープニング画面』を、非表示に。
-  gsap.ticker.lagSmoothing(false);  // 別タブを開いている間もアニメーションが進むようになる。
+  gsap.ticker.lagSmoothing(false);  // 別タブを開いている間もアニメーションが進むように
   gsap.fromTo('.opening', {autoAlpha:1}, {autoAlpha:0, duration:1.0, delay:2.2, ease:'power4.out'})
 });
 
@@ -397,7 +401,31 @@ document.addEventListener('DOMContentLoaded', function() {
         trigger: container,
         start: 'top 70%',
         // markers:{
-        //   startColor: "white",
+        //   startColor: "green",
+        // },
+      }
+    });
+  });
+
+});
+
+
+/* -------------------------------------------------------------------------------- */
+/* 1つの親要素に囲まれた複数枚の要素を時差でフワッと下から出現 (順番に時差で) */
+// 事業紹介ページのタイトル部分など。
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ページ内の全ての要素のコンテナ(複数の要素のコンテナ。トリガーとなる要素)を取得
+  const elementContainers = document.querySelectorAll(".js-elements-fadeInUp-trigger");
+
+  elementContainers.forEach(container => {
+    const elements = container.querySelectorAll(".js-element-fadeInUp");  // そのコンテナ内の要素を全て取得
+    gsap.fromTo(elements, {y:40, autoAlpha:0}, {y:0, autoAlpha:1, stagger:.4, scrollTrigger:{
+        trigger: container,
+        start: 'top 60%',
+        // markers:{
+        //   startColor: "green",
         // },
       }
     });
@@ -539,17 +567,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-// /* -------------------------------------------------------------------------------- */
-// /* toggle(アコーディオン)：事業紹介ページなど */
-// jQuery(".js-accordion").on("click", function (e) {
-//   e.preventDefault();
-
-//   if (jQuery(this).parent().hasClass("is-open")) {
-//     jQuery(this).parent().removeClass("is-open");
-//     jQuery(this).next().slideUp();
-//   } else {
-//     jQuery(this).parent().addClass("is-open");
-//     jQuery(this).next().slideDown();
-//   }
-// });
+console.log(gsap);

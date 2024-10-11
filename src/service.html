@@ -37,7 +37,6 @@
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>  <!-- GSAPのプラグイン「CustomEase」 -->
     <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>  <!-- jQuery -->
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  <!-- swiper -->
-    <script defer src="./assets/js/jquery.inview.min.js"></script>  <!-- inview.js -->
     <script defer src="./assets/js/script.js"></script>
   </head>
   <body>
@@ -294,7 +293,7 @@
         <div class="breadcrumbs-area__inner">
           <nav class="breadcrumbs-area__breadcrumbs breadcrumbs">
             <span class="breadcrumbs__item">
-              <a class="breadcrumbs__link" href="/">
+              <a class="breadcrumbs__link" href="./index.html">
                 <span>ホーム</span>
               </a>
             </span>
@@ -322,13 +321,13 @@
       <!-- service-page セクション -->
       <section class="service-page l-service-page">
         <div class="service-page__inner inner">
-          <div class="service-page__title page-title">
-            <h2 class="page-title__main">旭創業の事業</h2>
-            <div class="page-title__sub">OUR SERVICE</div>
+          <div class="service-page__title page-title js-elements-fadeInUp-trigger">
+            <h2 class="page-title__main js-element-fadeInUp">旭創業の事業</h2>
+            <div class="page-title__sub js-element-fadeInUp">OUR SERVICE</div>
           </div>
           <div class="service-page__top">
-            <div class="service-page__top-title">自社商品およびOEM製品の企画～製造</div>
-            <p class="service-page__top-text">
+            <div class="service-page__top-title js-fadeInUp">自社商品およびOEM製品の企画～製造</div>
+            <p class="service-page__top-text js-fadeInUp">
               グループ企業内の工場や国内外の協力工場と連携し、自社商品およびOEM製品の企画～製造まで一貫して対応しています。<br
               >特に液体調味料のOEMは小ロットの発注にも柔軟に対応し、迅速にご用意いたします。<br
               >また、「旭創業に言えば、何でも揃う」を目指し、衛生商品や食品関連資材もこだわりを持って幅広く取り揃えています。<br
@@ -342,7 +341,7 @@
       <div class="navs l-navs">
         <div class="navs__inner inner">
           <div class="navs__left">
-            <div class="navs__sub nav3">
+            <div class="navs__sub nav3 js-fadeInUp">
               <div class="nav3__title">
                 <div class="nav3__title-en">OUR SERVICE</div>
                 <div class="nav3__title-ja">事業紹介</div>
@@ -380,7 +379,7 @@
           </div>
           <div class="navs__right">
             <div class="navs__main nav4">
-              <div class="nav4__item">
+              <div class="nav4__item js-fadeInUp">
                 <div class="nav4__item-title">取扱商品</div>
                 <div class="nav4__item-links links">
                   <a href="#" class="links__item link3">
@@ -462,7 +461,7 @@
                   </a>
                 </div>
               </div>
-              <div class="nav4__item">
+              <div class="nav4__item js-fadeInUp">
                 <div class="nav4__item-title">OEM</div>
                 <div class="nav4__item-links links">
                   <a href="#" class="links__item link3">
@@ -496,10 +495,10 @@
 
       <!-- services セクション -->
       <section class="services">
-        <div class="services__item service1">
+        <div class="services__item service1">  <!-- 取扱商品 -->
           <div class="service1__inner inner">
             <div class="service1__left">
-              <div class="service1__nav-sub nav3">
+              <div class="service1__nav-sub nav3 js-fadeInUp">
                 <div class="nav3__title">
                   <div class="nav3__title-en">OUR SERVICE</div>
                   <div class="nav3__title-ja">事業紹介</div>
@@ -536,13 +535,13 @@
               </div>
             </div>
             <div class="service1__right">
-              <div class="service1__title is-01">
+              <div class="service1__title is-01 js-fadeInUp">
                 <div class="service1__title-text">取扱商品</div>
                 <div class="service1__title-number">01</div>
               </div>
-              <p class="service1__message">「旭創業に言えば、何でも揃う」を目指し、衛生商品や食品関連資材もこだわりを持って幅広く取り揃えています。</p>
+              <p class="service1__message js-fadeInUp">「旭創業に言えば、何でも揃う」を目指し、衛生商品や食品関連資材もこだわりを持って幅広く取り揃えています。</p>
               <div class="service1__products products">
-                <div class="products__item product">
+                <div class="products__item product js-fadeInUp">
                   <div class="product__img"><img src="./assets/images/common/product_1-1.webp" alt="取扱商品01"></div>
                   <div class="product__contents">
                     <div class="product__title">ミニパック調味料(ランチャーム)・タレビン</div>
@@ -608,48 +607,48 @@
                         </div>
                       </div>
                     </div>
-                    <a href="" class="product__btn btn6">
+                    <a href="https://asahisogyo-webcatalog.com/" class="product__btn btn6">
                       <div class="btn6__text">WEBカタログへ</div>
                     </a>
                   </div>
                 </div>
-                <div class="products__item product">
+                <div class="products__item product js-fadeInUp">
                   <div class="product__img"><img src="./assets/images/common/product_1-2.webp" alt="取扱商品02"></div>
                   <div class="product__contents">
                     <div class="product__title">バラン・造花(料理飾り)・生化粧笹</div>
                     <p class="product__text">
                       バラン、造花（料理飾り）、生化粧笹は、料理に彩りを加えるとともに、衛生面や風味にも配慮した装飾品として、弁当、寿司、ケータリング、テイクアウト、デリバリーなどで広く利用されています。スタッフの負担を軽減し、作業の効率化を図りながら、食の魅力を高める商品です。
                     </p>
-                    <a href="" class="product__btn btn6">
+                    <a href="https://asahisogyo-webcatalog.com/" class="product__btn btn6">
                       <div class="btn6__text">WEBカタログへ</div>
                     </a>
                   </div>
                 </div>
-                <div class="products__item product">
+                <div class="products__item product js-fadeInUp">
                   <div class="product__img"><img src="./assets/images/common/product_1-3.webp" alt="取扱商品03"></div>
                   <div class="product__contents">
                     <div class="product__title">衛生用品/作業者用</div>
                     <p class="product__text">
                       使い捨て手袋、マスクをはじめ、食品工場や各種加工場、スーパーのバックヤード、調理室などで働く人の衛生管理対策に役立つ商品を豊富に取り揃えています。頭の上から指先・足先まで、食品業界に長年関わってきた経験が生んだこだわりのラインナップで、食の安心・安全をサポートします。
                     </p>
-                    <a href="" class="product__btn btn6">
+                    <a href="https://asahisogyo-webcatalog.com/" class="product__btn btn6">
                       <div class="btn6__text">WEBカタログへ</div>
                     </a>
                   </div>
                 </div>
-                <div class="products__item product">
+                <div class="products__item product js-fadeInUp">
                   <div class="product__img"><img src="./assets/images/common/product_1-4.webp" alt="取扱商品04"></div>
                   <div class="product__contents">
                     <div class="product__title">衛生用品/設備・施設用</div>
                     <p class="product__text">
                       厨房や食品工場、各施設、設備の衛生管理に欠かせない「アルコール製剤」や、異物の持ち込みを防ぐ「粘着マット」などを取り扱っています。このほかメーカー商品も多数取り扱っています。お探し物がWEBカタログで見つからない場合は、お問い合わせフォームよりご連絡ください。
                     </p>
-                    <a href="" class="product__btn btn6">
+                    <a href="https://asahisogyo-webcatalog.com/" class="product__btn btn6">
                       <div class="btn6__text">WEBカタログへ</div>
                     </a>
                   </div>
                 </div>
-                <div class="products__item product">
+                <div class="products__item product js-fadeInUp">
                   <div class="product__img"><img src="./assets/images/common/product_1-5.webp" alt="取扱商品05"></div>
                   <div class="product__contents">
                     <div class="product__title">調理・飲食用資材</div>
@@ -657,24 +656,24 @@
                       調理に役立つツールや飲食用資材を多数取り扱っています。主な商品として、おかずカップ、使い捨て容器、飲用カップ・ストロー、カトラリーなどがあります。<br
                       >弁当・総菜工場や飲食店の厨房・キッチンでのご使用や、テイクアウト・デリバリーなどにお使いいただけるラインナップです。
                     </p>
-                    <a href="" class="product__btn btn6">
+                    <a href="https://asahisogyo-webcatalog.com/" class="product__btn btn6">
                       <div class="btn6__text">WEBカタログへ</div>
                     </a>
                   </div>
                 </div>
-                <div class="products__item product">
+                <div class="products__item product js-fadeInUp">
                   <div class="product__img"><img src="./assets/images/common/product_1-6.webp" alt="取扱商品06"></div>
                   <div class="product__contents">
                     <div class="product__title">環境配慮製品</div>
                     <p class="product__text">
                       旭創業では、環境に配慮した商品の開発と取り扱いに早くから取り組んできました。とうもろこしなど穀物でんぷんで作った「とうきび楊枝」、バイオマスプラスチックを使用したバラン・衛生用品などをご提案します。
                     </p>
-                    <a href="" class="product__btn btn6">
+                    <a href="https://asahisogyo-webcatalog.com/" class="product__btn btn6">
                       <div class="btn6__text">WEBカタログへ</div>
                     </a>
                   </div>
                 </div>
-                <div class="products__item product product--2">
+                <div class="products__item product product--2 js-fadeInUp">
                   <div class="product__img"><img src="./assets/images/common/product_1-7.webp" alt="取扱商品07"></div>
                   <div class="product__contents">
                     <div class="product__title">その他仕入れ商品</div>
@@ -696,6 +695,190 @@
             </div>
           </div>
         </div>
+        <div class="services__item service1 service1--2">  <!-- OEM -->
+          <div class="service1__inner inner">
+            <div class="service1__left">
+              <div class="service1__nav-sub nav3 js-fadeInUp">
+                <div class="nav3__title">
+                  <div class="nav3__title-en">OUR SERVICE</div>
+                  <div class="nav3__title-ja">事業紹介</div>
+                </div>
+                <div class="nav3__contents nav-subs">
+                  <div class="nav-subs__wrap">
+                    <div class="nav-subs__item nav-sub nav-sub--2">
+                      <a href="" class="nav-sub__title">取扱商品</a>
+                      <div class="nav-sub__lists lists2">
+                        <a href="" class="list2__item list2 list2--2">ミニパック調味料(ランチャーム)・<br>タレビン</a>
+                        <a href="" class="list2__item list2 list2--2">バラン・造花(料理飾り)・生化粧笹</a>
+                        <a href="" class="list2__item list2 list2--2">衛生用品/作業者用</a>
+                        <a href="" class="list2__item list2 list2--2">衛生用品/設備・施設用</a>
+                        <a href="" class="list2__item list2 list2--2">調理・飲食用資材</a>
+                        <a href="" class="list2__item list2 list2--2">その他仕入れ商品</a>
+                      </div>
+                    </div>
+                    <div class="nav-subs__item nav-sub nav-sub--2">
+                      <a href="" class="nav-sub__title">OEM</a>
+                      <div class="nav-sub__lists lists2 lists2--2">
+                        <a href="" class="list2__item list2 list2--2">液体調味料のOEM</a>
+                        <a href="" class="list2__item list2 list2--2">その他衛生用品、食品関連資材、<br>消耗品のOEM</a>
+                      </div>
+                    </div>
+                    <div class="nav-subs__item nav-sub nav-sub--2">
+                      <a href="" class="nav-sub__title">品質へのこだわり</a>
+                      <div class="nav-sub__lists lists2">
+                        <a href="" class="list2__item list2 list2--2">ランチャーム・<br>液体調味料の製造工場</a>
+                        <a href="" class="list2__item list2 list2--2">品質管理についての考え方</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="service1__right">
+              <div class="service1__title is-01 js-fadeInUp">
+                <div class="service1__title-text">OEM</div>
+                <div class="service1__title-number">02</div>
+              </div>
+              <p class="service1__message js-fadeInUp">OEM製品の企画～製造まで一貫して対応しています。特に小ロットの発注にも柔軟に対応し、迅速にご用意いたします。</p>
+              <div class="service1__products products">
+                <div class="products__item product js-fadeInUp">
+                  <div class="product__img"><img src="./assets/images/common/product_2-1.webp" alt="OEM01"></div>
+                  <div class="product__contents">
+                    <div class="product__title">液体調味料のOEM</div>
+                    <p class="product__text">
+                      小ロットでの製造が可能です！<br><br
+                      >当社では原液150～350リットルから液体調味料のOEMをお受けしており、パッケージデザイン、味の調整などの企画から製造・納品まで一括してご相談いただけます。つゆ･たれ類であれば、ベースとなる醤油を50種以上の中からブレンドすることも可能です。添付用、卓上用、調理用など用途にあった形状をご提案いたします。お気軽にご相談ください。
+                    </p>
+                    <div class="product__list-area">
+                      <div class="product__list-title">OEM可能な液体調味料</div>
+                      <div class="product__list list3 list3--2">
+                        <div class="list3__item list-item">醤油</div>
+                        <div class="list3__item list-item">ソース</div>
+                        <div class="list3__item list-item">ポン酢</div>
+                        <div class="list3__item list-item">めんつゆ</div>
+                        <div class="list3__item list-item">どんぶりのたれ</div>
+                        <div class="list3__item list-item">シロップ</div>
+                        <div class="list3__item list-item">果汁</div>
+                        <div class="list3__item list-item">食用植物油脂（オリーブオイル、米油などの健康オイル）</div>
+                        <div class="list3__item list-item">ドレッシング</div>
+                        <div class="list3__item list-item">飲むお酢（濃縮）</div>
+                        <div class="list3__item list-item">健康食品</div>
+                        <div class="list3__item list-item">ラーメンスープ（濃縮）</div>
+                      </div>
+                    </div>
+                    <p class="product__text-2">
+                      上記以外でもお気軽にご相談ください！<br
+                      >※液体の性質によってはお受けできない場合があります。
+                    </p>
+                  </div>
+                </div>
+                <div class="products__item product js-fadeInUp">
+                  <div class="product__img"><img src="./assets/images/common/product_2-2.webp" alt="OEM02"></div>
+                  <div class="product__contents">
+                    <div class="product__title">その他衛生用品、食品関連資材、消耗品のOEM</div>
+                    <p class="product__text">
+                      衛生用品や食品関連資材、調理用消耗品のOEMも対応可能です。パッケージデザイン及びラベルデザインもお任せください。
+                    </p>
+                    <div class="product__list-area2">
+                      <div class="product__list-title">OEM可能な液体調味料</div>
+                      <div class="product__list list3 list3--2">
+                        <div class="list3__item list-item list-item--2">生化粧笹</div>
+                        <div class="list3__item list-item list-item--2">使い捨て手袋</div>
+                        <div class="list3__item list-item list-item--2">飲用カップ</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="service1__right-btn-wrap js-fadeInUp">
+                <a href="./case.html" class="service1__right-btn btn2 js-fadeInUp">
+                  <span class="btn2__text">旭創業のOEM事例一覧</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.64769 12.2046C14.8167 6.8827 19.3371 6.44774 19.3371 6.44774C15.0307 6.44774 9.64769 0.690918 9.64769 0.690918C9.64769 0.690918 11.3433 3.32882 11.7255 5.60597H0.496582V7.33301H11.7175C11.3218 9.59992 9.64769 12.2046 9.64769 12.2046Z" fill="white"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="services__item service1 service1--3">  <!-- 品質へのこだわり -->
+          <div class="service1__inner inner">
+            <div class="service1__left">
+              <div class="service1__nav-sub nav3 js-fadeInUp">
+                <div class="nav3__title">
+                  <div class="nav3__title-en">OUR SERVICE</div>
+                  <div class="nav3__title-ja">事業紹介</div>
+                </div>
+                <div class="nav3__contents nav-subs">
+                  <div class="nav-subs__wrap">
+                    <div class="nav-subs__item nav-sub nav-sub--2">
+                      <a href="" class="nav-sub__title">取扱商品</a>
+                      <div class="nav-sub__lists lists2">
+                        <a href="" class="list2__item list2 list2--2">ミニパック調味料(ランチャーム)・<br>タレビン</a>
+                        <a href="" class="list2__item list2 list2--2">バラン・造花(料理飾り)・生化粧笹</a>
+                        <a href="" class="list2__item list2 list2--2">衛生用品/作業者用</a>
+                        <a href="" class="list2__item list2 list2--2">衛生用品/設備・施設用</a>
+                        <a href="" class="list2__item list2 list2--2">調理・飲食用資材</a>
+                        <a href="" class="list2__item list2 list2--2">その他仕入れ商品</a>
+                      </div>
+                    </div>
+                    <div class="nav-subs__item nav-sub nav-sub--2">
+                      <a href="" class="nav-sub__title">OEM</a>
+                      <div class="nav-sub__lists lists2 lists2--2">
+                        <a href="" class="list2__item list2 list2--2">液体調味料のOEM</a>
+                        <a href="" class="list2__item list2 list2--2">その他衛生用品、食品関連資材、<br>消耗品のOEM</a>
+                      </div>
+                    </div>
+                    <div class="nav-subs__item nav-sub nav-sub--2">
+                      <a href="" class="nav-sub__title">品質へのこだわり</a>
+                      <div class="nav-sub__lists lists2">
+                        <a href="" class="list2__item list2 list2--2">ランチャーム・<br>液体調味料の製造工場</a>
+                        <a href="" class="list2__item list2 list2--2">品質管理についての考え方</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="service1__right">
+              <div class="service1__title is-01 js-fadeInUp">
+                <div class="service1__title-text">品質へのこだわり</div>
+                <div class="service1__title-en">Quality</div>
+              </div>
+              <div class="service1__quality-descriptions descriptions">
+                <div class="descriptions__item description js-fadeInUp">
+                  <div class="description__wrap">
+                    <div class="description__img"><img src="./assets/images/common/quality_img-01.webp" alt="品質へのこだわり01"></div>
+                    <div class="description__text-area">
+                      <div class="description__title">ランチャーム・液体調味料の製造工場</div>
+                      <p class="description__text">
+                        当社の製造工場では、原液（しょうゆ、ソースなど）の入荷時に<br
+                        >検査証や製品の外観、原液の状態に異常がないかを常にチェックしています。<br
+                        >原液はタンク～充填までの工程は異物除去対策を行い、洗浄水などのコンタミネーションがないよう、検査を実施した上で充填します。その後、検品を経て丁寧に梱包し、お客様の元へお届けしています。また、菌検査なども製造工場の自社内で実施しており、<br
+                        >定期的な検査を行うとともに、随時検査ができるよう、体制を整えています。すべて国内の自社工場での生産です。<br
+                        >皆様に安心してご利用いただけるよう、一つ一つの工程を丁寧に取り組んでいます。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="descriptions__item description js-fadeInUp">
+                  <div class="description__wrap">
+                    <div class="description__img"><img src="./assets/images/common/quality_img-02.webp" alt="品質へのこだわり02"></div>
+                    <div class="description__text-area">
+                      <div class="description__title">品質管理についての考え方</div>
+                      <p class="description__text">
+                        「人にやさしく食に思いやり」<br
+                        >—この理念を実現するために、品質管理に全力を注いでおります。<br
+                        >安全性に特にこだわりを持ち、品質管理・開発部門には複数の専門スタッフが所属。<br
+                        >製造工場では、HACCPの考え方を取り入れた衛生管理の下、化学的な品質検査や作業員による製品検査を実施し、エンドユーザー様や一般消費者様に安心・安全を最優先に考えた品質管理体制のもとで製品を提供しています。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
     </main>
@@ -708,7 +891,7 @@
     </a>
 
     <!-- footer -->
-    <footer class="footer l-footer js-fadeInUp">
+    <footer class="footer l-footer l-footer--service js-fadeInUp">
       <div class="footer__inner inner">
         <div class="footer__left">
           <a href="/" class="footer__title">

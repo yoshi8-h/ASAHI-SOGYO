@@ -9,6 +9,10 @@
 
 }
 
+.nav4__item:nth-of-type(n+2) {
+  margin-top: rem(56);
+}
+
 .nav4__item-title {
   font-family: $font-family-ja-1;
   font-size: rem(28.768);

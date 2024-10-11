@@ -1,0 +1,14 @@
+@use "global" as *;
+
+
+.descriptions {
+
+}
+
+.descriptions__item {
+
+}
+
+.descriptions__item:nth-of-type(n+2) {
+  margin-top: rem(80);
+}
