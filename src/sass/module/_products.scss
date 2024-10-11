@@ -12,4 +12,8 @@
 
 .products__item:nth-of-type(n+1) {
   margin-top: rem(144);
+
+  @include mq(md) {
+    margin-top: rem(70);
+  }
 }

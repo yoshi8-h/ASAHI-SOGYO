@@ -10,11 +10,21 @@
   margin-inline: auto;
   padding-inline: rem(60);
   position: relative;
+
+  @include mq(md) {
+    max-width: none;
+    padding-inline: rem(20);
+  }
 }
 
 .fv2__wrap  {
   min-height: rem(400);
   border-radius: rem(10);
+
+  @include mq(md) {
+    min-height: rem(170);
+    border-radius: rem(10);
+  }
 }
 
 .fv2__text {
@@ -28,6 +38,12 @@
   top: 50%;
   left: rem(220);
   transform: translateY(-50%);
+
+  @include mq(md) {
+    font-size: rem(24);
+    line-height: 1.25;
+    left: rem(30);
+  }
 }
 
 

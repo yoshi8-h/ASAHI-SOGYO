@@ -11,4 +11,8 @@
 
 .descriptions__item:nth-of-type(n+2) {
   margin-top: rem(80);
+
+  @include mq(md) {
+    margin-top: rem(60);
+  }
 }

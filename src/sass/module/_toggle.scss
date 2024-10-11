@@ -15,6 +15,10 @@
 
 .toggle:nth-of-type(n+2).is-open {  // 並んでいるtoggleを両方開くと、間隔が少し変に見えるため、2個目以降のtoggleを開くときは、margin-topを付与。
   margin-top: rem(24);
+
+  @include mq(md) {
+    margin-top: rem(18);
+  }
 }
 
 .toggle__head {
@@ -29,12 +33,22 @@
   justify-content: space-between;
   align-items: center;
   gap: rem(40);  // 最低限の余白を設定
+
+  @include mq(md) {
+    padding-block: rem(4.56);
+    padding-left: rem(16.78);
+    padding-right: rem(7.29);
+  }
 }
 
 .toggle__head-text {
   font-size: rem(14);
   font-weight: $medium;
   line-height: 1.8;
+
+  @include mq(md) {
+    font-size: rem(13);
+  }
 }
 
 .toggle__open-btn {
@@ -42,6 +56,11 @@
   width: rem(9);
   height: rem(9);
   position: relative;
+
+  @include mq(md) {
+    width: rem(8.2);
+    height: rem(8.2);
+  }
 }
 
 .toggle__open-btn::before,
@@ -59,6 +78,10 @@
   height: rem(1);
   min-height: rem(1);
   max-height: rem(1);
+
+  @include mq(md) {
+    width: rem(8.2);
+  }
 }
 
 .toggle__open-btn::after {  // 縦線
@@ -67,28 +90,49 @@
   min-width: rem(1);
   height: rem(9);
   transition: transform 0.3s ease-out;
+
+  @include mq(md) {
+    height: rem(8.2);
+  }
 }
 
 .toggle__body {
   display: none;  // 普段(最初)は「.qa-box__body」は閉じている仕様のため。
   margin-top: rem(15);
   padding-left: rem(16);
+
+  @include mq(md) {
+    margin-top: rem(13.67);
+    padding-left: rem(14.58);
+  }
 }
 
 .toggle__text {
   font-size: rem(16);
   font-weight: $normal;
   line-height: 1.8;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
 }
 
 .toggle__list-warp {
   margin-top: rem(26);
+
+  @include mq(md) {
+    margin-top: rem(22.78);
+  }
 }
 
 .toggle__list-title {
   font-size: rem(16);
   font-weight: $normal;
   line-height: 1.8;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
 }
 
 .toggle__list {
@@ -97,4 +141,8 @@
 
 .toggle__list2 {
   margin-top: rem(23);
+
+  @include mq(md) {
+    margin-top: rem(15);
+  }
 }

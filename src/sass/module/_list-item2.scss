@@ -13,6 +13,10 @@
   text-indent: 0.04em;
   padding-left: rem(14);
   position: relative;
+
+  @include mq(md) {
+    padding-left: 0;
+  }
 }
 
 .list-item2__title::before {  // 左側の赤い横線
@@ -31,6 +35,10 @@
   top: rem(12);
   left: 0;
   max-height: 1px;
+
+  @include mq(md) {
+    display: none;
+  }
 }
 
 .list-item2__text {
@@ -40,4 +48,8 @@
   line-height: 1.7;
   letter-spacing: 0.07em;
   text-indent: 0.07em;
+
+  @include mq(md) {
+    margin-top: rem(7.29);
+  }
 }

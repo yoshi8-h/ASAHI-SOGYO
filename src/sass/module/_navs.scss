@@ -19,6 +19,10 @@
   width: 19.5%;
   padding-right: rem(11.5);
   border-right: 1px solid #EDEDED;
+
+  @include mq(md) {
+    display: none;
+  }
 }
 
 .navs__sub {
@@ -27,11 +31,18 @@
 
 .navs__right {
   padding-top: rem(109.85);
-  padding-bottom: rem(122.15);
+  padding-bottom: rem(120.15);
   flex-grow: 1;
   width: 74.1780%;
+
+  @include mq(md) {
+    padding-top: rem(32);
+    padding-bottom: rem(46.13);
+    width: 100%;
+  }
 }
 
 .navs__main {
-
+  max-width: rem(500);
+  margin-inline: auto;
 }

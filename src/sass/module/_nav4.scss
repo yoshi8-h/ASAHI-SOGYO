@@ -11,6 +11,10 @@
 
 .nav4__item:nth-of-type(n+2) {
   margin-top: rem(56);
+
+  @include mq(md) {
+    margin-top: rem(32);
+  }
 }
 
 .nav4__item-title {
@@ -20,8 +24,16 @@
   line-height: normal;
   letter-spacing: 0.04em;
   text-indent: 0.04em;
+
+  @include mq(md) {
+    font-size: rem(24.712);
+  }
 }
 
 .nav4__item-links {
   margin-top: rem(8);
+
+  @include mq(md) {
+    margin-top: rem(10);
+  }
 }

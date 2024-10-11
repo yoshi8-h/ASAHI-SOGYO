@@ -2,5 +2,9 @@
 
 
 .l-navs {
-  margin-top: rem(112);
+  margin-top: rem(110);
+
+  @include mq(md) {
+    margin-top: rem(52);
+  }
 }

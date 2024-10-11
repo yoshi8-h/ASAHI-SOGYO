@@ -3,6 +3,10 @@
 
 .service1 {
 
+  @include mq(md) {
+    padding-top: rem(51);
+    padding-bottom: rem(50);
+  }
 }
 
 .service1__inner {
@@ -11,6 +15,10 @@
   // align-items: flex-start;
   align-items: stretch; // 『service1__left』の高さを『service1__right』と合わせるための指定
   gap: rem(85.5);
+
+  @include mq(md) {
+    display: block;
+  }
 }
 
 .service1__left {
@@ -24,6 +32,10 @@
   width: 19.5%;
   padding-right: rem(11.5);
   border-right: 1px solid #EDEDED;
+
+  @include mq(md) {
+    display: none;
+  }
 }
 
 .service1__nav-sub {
@@ -35,6 +47,12 @@
   padding-bottom: rem(119.41);
   flex-grow: 1;
   width: 74.1780%;
+
+  @include mq(md) {
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+  }
 }
 
 .service1__title {
@@ -46,6 +64,11 @@
   font-size: rem(38);
   font-weight: $normal;
   line-height: 1.5;
+
+  @include mq(md) {
+    font-size: rem(32);
+    font-weight: $bold;
+  }
 }
 
 .service1__title.is-01 .service1__title-number {  // 左側にある『01』の文字
@@ -62,6 +85,10 @@
   position: absolute;
   top: 0;
   right: calc(100% + rem(10));
+
+  @include mq(md) {
+    display: none;
+  }
 }
 
 .service1__title-en {  // 『Quality』の文字
@@ -72,21 +99,39 @@
   line-height: normal;
   letter-spacing: 0.04em;
   text-indent: 0.04em;
+
+  @include mq(md) {
+    font-size: rem(11);
+  }
 }
 
 .service1__message {
+  margin-top: rem(39);
   font-size: rem(19);
   font-weight: $medium;
   line-height: 1.7;
+
+  @include mq(md) {
+    margin-top: rem(40);
+    font-size: rem(16);
+  }
 }
 
 .service1__products {
   margin-top: rem(112);
+
+  @include mq(md) {
+    margin-top: rem(72);
+  }
 }
 
 .service1__right-btn-wrap {
   margin-top: rem(122);
   text-align: center;
+
+  @include mq(md) {
+    margin-top: rem(34.63);
+  }
 }
 
 .service1__right-btn {
@@ -95,6 +140,10 @@
 
 .service1__quality-descriptions {
   margin-top: rem(120);
+
+  @include mq(md) {
+    margin-top: rem(45);
+  }
 }
 
 
@@ -113,4 +162,8 @@
 // service1--3
 .service1--3 .service1__right {
   padding-bottom: rem(81);  // 『.service1__left』との境界線の長さを担保
+
+  @include mq(md) {
+    padding-bottom: 0;
+  }
 }

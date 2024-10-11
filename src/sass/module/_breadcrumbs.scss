@@ -8,11 +8,19 @@
   list-style: none;
   color: $color-font-base;
   font-size: rem(14);
+
+  @include mq(md) {
+    font-size: rem(11);
+  }
 }
 
 /* パンくずアイテム */
 .breadcrumbs__item {
   margin-right: rem(14);  // パンくずアイテム間のスペース
+
+  @include mq(md) {
+    margin-right: rem(10.5);
+  }
 }
 
 .breadcrumbs__item:last-child {
@@ -36,4 +44,8 @@
   color: $color-font-base;
   display: grid;
   place-items: center;
+
+  @include mq(md) {
+    margin-right: rem(10.5);
+  }
 }

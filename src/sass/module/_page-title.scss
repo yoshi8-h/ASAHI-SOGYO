@@ -7,6 +7,10 @@
   justify-content: center;
   align-items: flex-start;
   gap: rem(12);
+
+  @include mq(md) {
+    gap: rem(5.5);
+  }
 }
 
 .page-title__main {
@@ -16,6 +20,10 @@
   line-height: normal;
   letter-spacing: 0.03em;
   text-indent: 0.03em;
+
+  @include mq(md) {
+    font-size: rem(28);
+  }
 }
 
 .page-title__sub {
@@ -28,6 +36,11 @@
 
   position: relative;
   padding-left: rem(35);
+
+  @include mq(md) {
+    font-size: rem(10);
+    padding-left: rem(16);
+  }
 }
 
 .page-title__sub::before {  // 左側の赤い丸
@@ -39,4 +52,9 @@
   top: 50%;
   left: 0;
   transform: translateY(-50%);
+
+  @include mq(md) {
+    width: rem(8);
+    height: rem(8);
+  }
 }

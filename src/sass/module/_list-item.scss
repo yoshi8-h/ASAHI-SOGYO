@@ -7,6 +7,10 @@
   line-height: 1.8;
   padding-left: rem(17);
   position: relative;
+
+  @include mq(md) {
+    font-size: rem(13);
+  }
 }
 
 .list-item::before {  // リストの前の点『・』
@@ -17,6 +21,10 @@
   position: absolute;
   top: rem(0.5);
   left: 0;
+
+  @include mq(md) {
+    font-size: rem(13);
+  }
 }
 
 
@@ -30,4 +38,8 @@
   font-size: rem(16);
   font-weight: $normal;
   line-height: 1.75;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
 }

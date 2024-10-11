@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   elementContainers.forEach(container => {
     const elements = container.querySelectorAll(".js-element-fadeInUp");  // そのコンテナ内の要素を全て取得
-    gsap.fromTo(elements, {y:40, autoAlpha:0}, {y:0, autoAlpha:1, stagger:.4, scrollTrigger:{
+    gsap.fromTo(elements, {y:40, autoAlpha:0}, {y:0, autoAlpha:1, stagger:.3, scrollTrigger:{
         trigger: container,
         start: 'top 60%',
         // markers:{
@@ -566,5 +566,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
-console.log(gsap);

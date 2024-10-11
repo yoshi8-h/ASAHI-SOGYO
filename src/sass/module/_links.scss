@@ -11,9 +11,20 @@
   align-items: flex-start;  // 上揃えに。
   column-gap: rem(30);
   row-gap: rem(16);
+
+  @include mq(md) {
+    border-radius: rem(6.658);
+    padding: rem(24.71);
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: rem(18);
+  }
 }
 
 .links__item {
   max-width: rem(309);
   width: 100%;
+
+  @include mq(md) {
+    max-width: none;
+  }
 }

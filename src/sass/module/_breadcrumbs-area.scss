@@ -10,6 +10,11 @@
   max-width: rem(calc(1776 + 60 * 2));
   margin-inline: auto;
   padding-inline: rem(60);
+
+  @include mq(md) {
+    max-width: none;
+    padding-inline: rem(20);
+  }
 }
 
 .breadcrumbs-area__breadcrumbs {
