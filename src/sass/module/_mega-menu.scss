@@ -13,6 +13,7 @@
   // transform: scale(0.8);  // 初期状態を小さくする指定は、下の『transform』で一緒に指定。
   opacity: 0;  // 初期状態を透明に
   transition: transform 0.2s ease-out, opacity 0.3s ease-out;  // アニメーションを設定
+  will-change: transform, opacity;  // ※アニメーションが行われる要素をブラウザに事前に知らせる(カクつかないように。)
 
   /* 画面上部から24px離れた位置に固定 */
   position: fixed;  /* スクロールしても画面内に固定 */
@@ -26,6 +27,7 @@
     max-width: none;
     border-radius: rem(10);
     top: rem(12);
+    transition: transform 0.3s ease-out, opacity 0.4s ease-out;  /* カクつかないように、SP時だけアニメーション時間を長く */
   }
 }
 
@@ -80,7 +82,9 @@
 }
 
 .mega-menu__titles:hover {  // hover
-  opacity: 0.7;
+  @include mq(md) {
+    opacity: 0.7;
+  }
 }
 
 .mega-menu__logo {

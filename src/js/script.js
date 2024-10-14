@@ -87,13 +87,36 @@ document.querySelectorAll(".js-modal-close").forEach(function(button) {
 });
 
 // モーダルを閉じる共通処理
+// function closeModal(modal) {
+//   modal.classList.remove("is-visible");  // クラスを削除してアニメーションを適用
+//   // アニメーションが終わるのを待ってからモーダルを閉じる
+//   setTimeout(function() {
+//     modal.close();
+//   }, 200);  // アニメーションの時間と同じに設定
+//   document.documentElement.classList.remove("is-fixed");
+// }
+
+// モーダルを閉じる共通処理 (requestAnimationFrameを使用 → 『setTimeout』を使うと、アニメーションがカクつく可能性があるから。)
 function closeModal(modal) {
   modal.classList.remove("is-visible");  // クラスを削除してアニメーションを適用
-  // アニメーションが終わるのを待ってからモーダルを閉じる
-  setTimeout(function() {
-    modal.close();
-  }, 200);  // アニメーションの時間と同じに設定
-  document.documentElement.classList.remove("is-fixed");
+
+  const animationDuration = 200;  // アニメーションの時間 (200ms)
+  let startTime = null;
+
+  // アニメーションが終わるのを待ってからモーダルを閉じる処理
+  function waitForAnimation(time) {
+    if (!startTime) startTime = time;  // 初回呼び出し時に開始時間をセット
+    const elapsedTime = time - startTime;
+
+    if (elapsedTime >= animationDuration) {
+      modal.close();  // アニメーション終了後にモーダルを閉じる
+      document.documentElement.classList.remove("is-fixed");
+    } else {
+      requestAnimationFrame(waitForAnimation);  // アニメーションの進行を監視し続ける
+    }
+  }
+
+  requestAnimationFrame(waitForAnimation);  // 初回のフレームをリクエスト
 }
 
 
@@ -324,6 +347,24 @@ jQuery(".js-accordion").on("click", function (e) {
     jQuery(this).next().slideDown();
   }
 });
+
+
+/* -------------------------------------------------------------------------------- */
+// ※別ページの遷移先のid部分にアンカーリンクで飛ぶ場合に、アニメーションのせいでDOMが最初に非表示になっている要素の場合だとしっかりアンカーリンク先に飛ばない時がある為、それでもしっかりそのアンカーリンク先に飛ぶようにする指定。
+// (ページ読み込み完了時に処理)
+window.addEventListener("load", function() {
+  // URLにハッシュ（#product2など）があるか確認
+  const hash = window.location.hash;
+  if (hash) {
+    // ハッシュに対応する要素がある場合、そこにスクロール
+    const targetElement = document.querySelector(hash);
+    if (targetElement) {
+      // ページ全体がロードされてからスムーズにスクロール
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+});
+
 
 
 
