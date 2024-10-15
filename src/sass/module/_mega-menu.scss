@@ -81,8 +81,12 @@
   transition: opacity 0.2s ease-out;
 }
 
-.mega-menu__titles:hover {  // hover
-  @include mq(md) {
+.mega-menu__titles:focus {
+  outline: none;
+}
+
+@include mq(md) {
+  .mega-menu__titles:hover {  // hover
     opacity: 0.7;
   }
 }
