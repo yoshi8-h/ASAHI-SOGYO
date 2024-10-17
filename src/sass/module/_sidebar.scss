@@ -1,0 +1,22 @@
+@use "global" as *;
+
+
+.sidebar {
+  padding-right: rem(24);
+  border-right: 1px solid #EDEDED;
+
+  height: 98.4%;  // 『top』で下にズラしている分、はみ出ないように高さを調整
+  position: absolute;
+  top: rem(122);
+  left: calc(50% - min(46vw, 45.43rem));
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.sidebar__nav {
+  position: sticky;  // 追従するように
+  top: rem(122);
+  left: 0;
+}

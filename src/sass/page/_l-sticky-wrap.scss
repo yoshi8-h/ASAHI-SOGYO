@@ -1,0 +1,10 @@
+@use "global" as *;
+
+
+.l-sticky-wrap {
+  margin-top: rem(110);
+
+  @include mq(md) {
+    margin-top: rem(52);
+  }
+}

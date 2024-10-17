@@ -10,11 +10,11 @@
 }
 
 .service1__inner {
-  display: flex;
-  justify-content: space-between;
-  // align-items: flex-start;
-  align-items: stretch; // 『service1__left』の高さを『service1__right』と合わせるための指定
-  gap: rem(85.5);
+  // display: flex;
+  // justify-content: space-between;
+  // // align-items: flex-start;
+  // align-items: stretch; // 『service1__left』の高さを『service1__right』と合わせるための指定
+  // gap: rem(85.5);
 
   @include mq(md) {
     display: block;
@@ -23,32 +23,32 @@
   }
 }
 
-.service1__left {
-  padding-top: rem(145.59);
-  flex-grow: 1;
-  width: 19.5%;
+// .service1__left {
+//   padding-top: rem(145.59);
+//   flex-grow: 1;
+//   width: 19.5%;
 
-  padding-top: rem(160);
-  // padding-bottom: rem(134);
-  flex-grow: 1;
-  width: 19.5%;
-  padding-right: rem(11.5);
-  border-right: 1px solid #EDEDED;
+//   padding-top: rem(160);
+//   // padding-bottom: rem(134);
+//   flex-grow: 1;
+//   width: 19.5%;
+//   padding-right: rem(11.5);
+//   border-right: 1px solid #EDEDED;
 
-  @include mq(md) {
-    display: none;
-  }
-}
+//   @include mq(md) {
+//     display: none;
+//   }
+// }
 
-.service1__nav-sub {
+// .service1__nav-sub {
 
-}
+// }
 
-.service1__right {
+.service1__wrap {
   padding-top: rem(145.59);
   padding-bottom: rem(119.41);
-  flex-grow: 1;
   width: 74.1780%;
+  margin-left: auto;
 
   @include mq(md) {
     padding-top: 0;
@@ -126,7 +126,7 @@
   }
 }
 
-.service1__right-btn-wrap {
+.service1__btn-wrap {
   margin-top: rem(122);
   text-align: center;
 
@@ -135,7 +135,7 @@
   }
 }
 
-.service1__right-btn {
+.service1__btn {
 
 }
 

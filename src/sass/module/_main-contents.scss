@@ -1,10 +1,18 @@
 @use "global" as *;
 
 
-.l-navs {
+.main-contents {
+
+}
+
+.main-contents__navs {
   margin-top: rem(110);
 
   @include mq(md) {
     margin-top: rem(52);
   }
+}
+
+.main-contents__services {
+
 }
