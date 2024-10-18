@@ -4,7 +4,7 @@
 .service1 {
 
   @include mq(md) {
-    padding-top: rem(51);
+    padding-top: rem(70);
     padding-bottom: rem(80);
   }
 }
@@ -88,7 +88,11 @@
   right: calc(100% + rem(10));
 
   @include mq(md) {
-    display: none;
+    font-size: rem(11);
+    padding-inline: rem(7);
+    top: rem(-20);
+    left: 0;
+    right: auto;
   }
 }
 
