@@ -1,0 +1,9 @@
+@use "global" as *;
+
+
+.bg-luncharms1 {
+  // min-height: rem(455);
+  height: rem(455);  // ここだけ、heightを指定
+  max-height: rem(455);
+  background: url(../images/common/bg-luncharms1-pc.png) no-repeat center center / cover;
+}
