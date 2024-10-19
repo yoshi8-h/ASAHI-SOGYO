@@ -12,6 +12,8 @@
 
   @include mq(md) {
     min-height: rem(750);
+    padding-top: rem(150);
+    padding-bottom: rem(72);
     background: url(../images/common/about_bg-red-main-sp.png) no-repeat center center / cover;  // 赤い背景画像のメイン部分(上下の端のボヤけてる所以外)
   }
 }
@@ -20,12 +22,13 @@
   content: "";
   width: 100%;
   height: rem(50);
-  background: url(../images/common/about_bg-red-top-pc.png) no-repeat center center / cover;  // 赤い背景画像
+  background: url(../images/common/about_bg-red-top-pc.png) no-repeat center center / cover;
   position: absolute;
-  top: rem(-32);
+  top: rem(-15);
 
   @include mq(md) {
-    background: url(../images/common/about_bg-red-top-sp.png) no-repeat center center / cover;  // 赤い背景画像
+    height: rem(80);
+    background: url(../images/common/about_bg-red-top-sp.png) no-repeat center center / cover;
   }
 }
 
@@ -33,12 +36,13 @@
   content: "";
   width: 100%;
   height: rem(50);
-  background: url(../images/common/about_bg-red-bottom-pc.png) no-repeat center center / cover;  // 赤い背景画像
+  background: url(../images/common/about_bg-red-bottom-pc.png) no-repeat center center / cover;
   position: absolute;
-  bottom: rem(-32);
+  bottom: rem(-15);
 
   @include mq(md) {
-    background: url(../images/common/about_bg-red-bottom-sp.png) no-repeat center center / cover;  // 赤い背景画像
+    height: rem(80);
+    background: url(../images/common/about_bg-red-bottom-sp.png) no-repeat center center / cover;
   }
 }
 
@@ -51,8 +55,15 @@
   border-radius: 50%;
   position: absolute;
   top: rem(-200);
-  // left: rem(-50);
-  left: calc(50% - min(52vw, 65rem));  // 画面幅が小さい時の位置を調整
+  left: calc(50% - min(52vw, 65rem));
+
+  @include mq(md) {
+    width: calc(272px / 390px * 100vw);
+    max-width: rem(272);
+    max-height: rem(272);
+    top: rem(-100);
+    left: calc(50% - min(60vw, 17rem));
+  }
 }
 
 .about__img img {  // 大きいランチャームの画像
@@ -64,15 +75,23 @@
   bottom: rem(100);
   // bottom: max(rem(100), 80px);
   // bottom: rem(45);
-
   // bottom: calc(100px / 1920px * 100vw);
   // bottom: max(calc(100px / 1920px * 100vw), 100px);
   left: 50%;
   transform: translateX(-50%);
+
+  @include mq(md) {
+    max-width: rem(180);
+    width: calc(180px / 390px * 100vw);
+    display: block;
+    position: absolute;
+    bottom: rem(50);
+    transform: translateX(calc(-50% + rem(5)));
+  }
 }
 
 .about__inner {
-  height: 100%;
+
 }
 
 .about__wrap {
@@ -80,6 +99,10 @@
   justify-content: center;
   align-items: flex-start;
   gap: rem(160);
+
+  @include mq(md) {
+    gap: rem(36);
+  }
 }
 
 .about__texts {
@@ -88,6 +111,11 @@
   justify-content: center;
   align-items: flex-start;
   gap: rem(24);
+
+  @include mq(md) {
+    margin-top: rem(75);
+    gap: rem(14.4);
+  }
 }
 
 .about__text-column-pc {  // PC時のみ表示するテキスト列
@@ -102,12 +130,29 @@
   writing-mode: vertical-rl; /* 縦書きに変更 */
   text-orientation: upright; /* 日本語や漢字をそのままの形で表示 */
   width: rem(30); /* 横幅を適切に設定 */
+
+  @include mq(md) {
+    display: none;
+  }
 }
 
 .about__text-column-sp {  // SP時のみ表示するテキスト列
-  writing-mode: vertical-rl; /* 縦書きに変更 */
-  text-orientation: upright; /* 日本語や漢字をそのままの形で表示 */
-  width: rem(30); /* 横幅を適切に設定 */
+  display: none;
+
+  @include mq(md) {
+    color: #FFF;
+    font-feature-settings: 'vert' on;
+    font-family: "Zen Kaku Gothic New";
+    font-size: rem(14);
+    font-weight: $medium;
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+    text-indent: 0.04em;
+
+    writing-mode: vertical-rl; /* 縦書きに変更 */
+    text-orientation: upright; /* 日本語や漢字をそのままの形で表示 */
+    width: rem(18); /* 横幅を適切に設定 */
+  }
 }
 
 .about__titles {
@@ -116,6 +161,10 @@
   justify-content: center;
   align-items: flex-start;
   gap: rem(15);
+
+  @include mq(md) {
+    gap: rem(3.5);
+  }
 }
 
 .about__title-ja {
@@ -132,7 +181,11 @@
   align-items: flex-start;
   gap: rem(16);
   position: relative;
-  z-index: 30;
+
+  @include mq(md) {
+    font-size: rem(25);
+    gap: rem(7.5);
+  }
 }
 
 .about__title-ja1,
@@ -142,18 +195,27 @@
   width: rem(57); /* 横幅を適切に設定 */
   position: relative;
   padding-right: rem(2);
+
+  @include mq(md) {
+    width: rem(28);
+    padding-right: rem(4);
+  }
 }
 
 .about__title-ja1::before,  // 右側の白い縦線
 .about__title-ja2::before {
   content: "";
-  width: rem(3);
+  border-right: rem(3) solid $color-background-base-1;
   height: 100%;
   background: $color-background-base-1;
   border-radius: rem(3);
   position: absolute;
   top: 0;
   right: 0;
+
+  @include mq(md) {
+    border-right: rem(1.5) solid $color-background-base-1;
+  }
 }
 
 .about__title-ja2::before {
@@ -171,4 +233,9 @@
 
   writing-mode: vertical-rl; /* 縦書きに変更 */
   width: rem(23); /* 横幅を適切に設定 */
+
+  @include mq(md) {
+    font-size: rem(8);
+    width: rem(12);
+  }
 }
