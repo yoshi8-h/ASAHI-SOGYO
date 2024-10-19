@@ -1,0 +1,174 @@
+@use "global" as *;
+
+
+.about {
+  background: url(../images/common/about_bg-red-main-pc.png) no-repeat center center / cover;  // 赤い背景画像のメイン部分(上下の端のボヤけてる所以外)
+  min-height: rem(800);
+  position: relative;
+  padding-top: rem(178);
+  padding-bottom: rem(153);
+
+  // overflow: hidden;
+
+  @include mq(md) {
+    min-height: rem(750);
+    background: url(../images/common/about_bg-red-main-sp.png) no-repeat center center / cover;  // 赤い背景画像のメイン部分(上下の端のボヤけてる所以外)
+  }
+}
+
+.about::before {  // 背景の赤い画像の上側のモヤモヤ
+  content: "";
+  width: 100%;
+  height: rem(50);
+  background: url(../images/common/about_bg-red-top-pc.png) no-repeat center center / cover;  // 赤い背景画像
+  position: absolute;
+  top: rem(-32);
+
+  @include mq(md) {
+    background: url(../images/common/about_bg-red-top-sp.png) no-repeat center center / cover;  // 赤い背景画像
+  }
+}
+
+.about::after {  // 背景の赤い画像の下側のモヤモヤ
+  content: "";
+  width: 100%;
+  height: rem(50);
+  background: url(../images/common/about_bg-red-bottom-pc.png) no-repeat center center / cover;  // 赤い背景画像
+  position: absolute;
+  bottom: rem(-32);
+
+  @include mq(md) {
+    background: url(../images/common/about_bg-red-bottom-sp.png) no-repeat center center / cover;  // 赤い背景画像
+  }
+}
+
+.about__img {
+  aspect-ratio: 1 / 1;
+  width: calc(545px / 1920px * 100vw);
+  max-width: rem(545);
+  max-height: rem(545);
+  background: $color-background-base-1;
+  border-radius: 50%;
+  position: absolute;
+  top: rem(-200);
+  // left: rem(-50);
+  left: calc(50% - min(52vw, 65rem));  // 画面幅が小さい時の位置を調整
+}
+
+.about__img img {  // 大きいランチャームの画像
+  aspect-ratio: 671 / 401;
+  max-width: rem(400);
+  width: calc(400px / 1920px * 100vw);
+  display: block;
+  position: absolute;
+  bottom: rem(100);
+  // bottom: max(rem(100), 80px);
+  // bottom: rem(45);
+
+  // bottom: calc(100px / 1920px * 100vw);
+  // bottom: max(calc(100px / 1920px * 100vw), 100px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about__inner {
+  height: 100%;
+}
+
+.about__wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(160);
+}
+
+.about__texts {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(24);
+}
+
+.about__text-column-pc {  // PC時のみ表示するテキスト列
+  color: #FFF;
+  font-feature-settings: 'vert' on;
+  font-size: rem(24);
+  font-weight: $medium;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+
+  writing-mode: vertical-rl; /* 縦書きに変更 */
+  text-orientation: upright; /* 日本語や漢字をそのままの形で表示 */
+  width: rem(30); /* 横幅を適切に設定 */
+}
+
+.about__text-column-sp {  // SP時のみ表示するテキスト列
+  writing-mode: vertical-rl; /* 縦書きに変更 */
+  text-orientation: upright; /* 日本語や漢字をそのままの形で表示 */
+  width: rem(30); /* 横幅を適切に設定 */
+}
+
+.about__titles {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(15);
+}
+
+.about__title-ja {
+  color: #FFF;
+  font-feature-settings: 'vert' on;
+  font-family: $font-family-ja-1;
+  font-size: rem(50);
+  font-weight: $normal;
+  line-height: 1.1;
+
+  display: flex;  // 文字を中央揃え
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(16);
+  position: relative;
+  z-index: 30;
+}
+
+.about__title-ja1,
+.about__title-ja2 {
+  writing-mode: vertical-rl; /* 縦書きに変更 */
+  text-orientation: upright; /* 日本語や漢字をそのままの形で表示 */
+  width: rem(57); /* 横幅を適切に設定 */
+  position: relative;
+  padding-right: rem(2);
+}
+
+.about__title-ja1::before,  // 右側の白い縦線
+.about__title-ja2::before {
+  content: "";
+  width: rem(3);
+  height: 100%;
+  background: $color-background-base-1;
+  border-radius: rem(3);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.about__title-ja2::before {
+  height: 93%;  // 微調整
+}
+
+.about__title-en {
+  color: #FFF;
+  font-family: $font-family-en-1;
+  font-size: rem(16);
+  font-weight: $normal;
+  line-height: normal;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+
+  writing-mode: vertical-rl; /* 縦書きに変更 */
+  width: rem(23); /* 横幅を適切に設定 */
+}

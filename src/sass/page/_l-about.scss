@@ -1,0 +1,11 @@
+@use "global" as *;
+
+
+.l-about {
+  // margin-top: rem(25);
+  margin-top: max(calc(25px / 1920px * 100vw), 70px);
+
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
