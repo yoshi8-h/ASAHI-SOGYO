@@ -27,6 +27,18 @@
   right: calc(50% - min(48vw, 39rem));  // 位置制御
 }
 
+.content__title.is-04 {
+  position: absolute;
+  top: rem(-164);
+  left: calc(50% - min(48vw, 36rem));  // 位置制御
+}
+
+.content__title.is-05 {
+  position: absolute;
+  top: rem(-136);
+  right: calc(50% - min(48vw, 39rem));  // 位置制御
+}
+
 .content__main {
   z-index: 30;
   display: flex;
@@ -34,7 +46,8 @@
   align-items: center;
 }
 
-.content__main.is-03 {
+.content__main.is-03,
+.content__main.is-05 {
   flex-direction: row-reverse;
 }
 
@@ -56,6 +69,14 @@
   width: 100%;
   object-fit: cover;
   transition: transform 0.2s ease-out;
+}
+
+.content__img.is-04 img {
+  max-width: rem(329);
+}
+
+.content__img.is-05 img {
+  max-width: rem(465);
 }
 
 .content__speech-bubble {
@@ -80,4 +101,14 @@
 .content__speech-bubble.is-03 {
   margin-top: rem(-200);
   margin-right: rem(-100);
+}
+
+.content__speech-bubble.is-04 {
+  margin-top: rem(-250);
+  margin-left: rem(40);
+}
+
+.content__speech-bubble.is-05 {
+  margin-bottom: rem(-40);
+  margin-right: rem(-50);
 }

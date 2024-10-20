@@ -42,3 +42,26 @@
   z-index: -1;
 }
 
+.speech-bubble.is-04::after {  // 背景の吹き出しアイコン
+  content: "";
+  width: rem(596);
+  height: rem(284);
+  background: url(../images/common/speech-bubble-icon-04-pc.png) no-repeat center center / contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + rem(14)));
+  z-index: -1;
+}
+
+.speech-bubble.is-05::after {  // 背景の吹き出しアイコン
+  content: "";
+  width: rem(620);
+  height: rem(364);
+  background: url(../images/common/speech-bubble-icon-05-pc.png) no-repeat center center / contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + rem(10)));
+  z-index: -1;
+}
