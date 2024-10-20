@@ -6,29 +6,29 @@
 }
 
 .contents__item {
-
+  width: fit-content;
 }
 
 .contents__item.is-01 {
-  margin-left: rem(-100);
+  margin-left: calc(50% - min(48vw, 31rem));
 }
 
 .contents__item.is-02 {
   margin-top: rem(227);
-  margin-right: rem(-190);
+  margin-left: calc(50% - min(48vw, 25rem));
 }
 
 .contents__item.is-03 {
   margin-top: rem(348);
-  margin-left: rem(-240);
+  margin-left: calc(50% - min(48vw, 32rem));
 }
 
 .contents__item.is-04 {
   margin-top: rem(258);
-  margin-left: rem(-120);
+  margin-left: calc(50% - min(48vw, 29rem));
 }
 
 .contents__item.is-05 {
   margin-top: rem(160);
-  margin-left: rem(-200);
+  margin-left: calc(50% - min(48vw, 33rem));
 }
