@@ -476,6 +476,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /* -------------------------------------------------------------------------------- */
+/* 1つの親要素に囲まれた複数個の要素を時差でフワッと上から出現 (順番に時差で) */
+// 『ランチャームとは』ページの、テキスト部分。
+// スクロールトリガーはなし。
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ページ内の全ての要素のコンテナ(複数の要素のコンテナ。トリガーとなる要素)を取得
+  const elementContainersTopToBottom = document.querySelectorAll(".js-elements-fadeInDown-trigger");
+
+  elementContainersTopToBottom.forEach(container => {
+    const elements = container.querySelectorAll(".js-element-fadeInDown");  // そのコンテナ内の要素を全て取得
+    gsap.fromTo(elements, {y:-25, autoAlpha:0}, {y:0, autoAlpha:1, stagger:.2, delay:1.3});
+  });
+
+});
+
+
+/* -------------------------------------------------------------------------------- */
 /* 背景が先に上からトリミングが外れる形で表示され、その後、文字がフワッと上から下にフェードインして表示される */
 // TOPページのFV。
 // ※ローディング画面が終わった後に実行するようにするために、『delay』で大幅(3.0s)に実行を遅延。
@@ -574,6 +592,20 @@ window.addEventListener('DOMContentLoaded', function() {
     });
   })
 
+  // パターン4 (アニメーションの発動を、少し遅らせる(lunch.htmlの。ページ遷移アニメーションの分遅らせる。かつ、スクロールトリガーを無しに。『ランチを』の文字))
+  let targets4 = document.querySelectorAll(".js-text-fadein-4");
+  targets4.forEach(function(target) {
+    let spans = target.querySelectorAll('span');
+      gsap.fromTo(spans, {autoAlpha:0}, {autoAlpha:1, delay:1.17, stagger:.05});
+  })
+
+  // パターン4 (アニメーションの発動を、少し遅らせる(lunch.htmlの。ページ遷移アニメーションの分遅らせる。かつ、スクロールトリガーを無しに。『チャーミングに。』の文字))
+  let targets5 = document.querySelectorAll(".js-text-fadein-5");
+  targets5.forEach(function(target) {
+    let spans = target.querySelectorAll('span');
+    gsap.fromTo(spans, {autoAlpha:0}, {autoAlpha:1, delay:1.4, stagger:.05});
+  })
+
 })
 
 
@@ -607,3 +639,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+/* -------------------------------------------------------------------------------- */
+/* 文字を強調するアニメーションのために、『is-act』というクラスを付与。(アニメーションはCSSのキーフレームで設定。) */
+document.addEventListener('DOMContentLoaded', function() {
+  let triggersStrong = document.querySelectorAll(".js-trigger-strong");
+
+  triggersStrong.forEach(function(trigger) {
+    gsap.to(trigger, {
+      scrollTrigger: {
+        trigger: trigger,
+        start: "top 80%",
+        toggleClass: { targets: trigger, className: "is-act" },
+        once: true,  // 一度だけ実行
+        // markers: {
+        //   startColor: "blue",
+        // },
+      }
+    });
+  });
+});
