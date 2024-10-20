@@ -5,7 +5,8 @@
   position: relative;
 }
 
-.content__dashline-pc {  // 赤い点線
+.content__dashline.is-pc {  // 赤い点線
+  display: block;
   position: absolute;
   top: 50%;
   top: rem(70);
@@ -18,6 +19,16 @@
     display: none;
   }
 }
+
+.content__dashline path {  // 赤い点線の <path>
+  // stroke-dasharray: 6197.67431640625px;
+  // stroke-dashoffset: 0px;
+}
+
+// .content__dashline path {
+//   stroke-dasharray: 1000;  /* 線の長さを指定（大きな値で線が一気に引かれるように設定） */
+//   stroke-dashoffset: 1000;  /* 初期状態で線が見えないようにする */
+// }
 
 .content__title {
   width: fit-content;

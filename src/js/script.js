@@ -410,14 +410,65 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* -------------------------------------------------------------------------------- */
 /* １つの要素をフワッと下から出現 */
-
 document.addEventListener('DOMContentLoaded', function() {
   const fadeInUps = document.querySelectorAll(".js-fadeInUp");  // ページ内の、このアニメーションをさせたい全ての要素を取得
 
   fadeInUps.forEach(item => {
     gsap.fromTo(item, {y:20, autoAlpha:0}, {y:0, autoAlpha:1, scrollTrigger:{
         trigger: item,
-        start: 'top 90%',
+        start: 'top 70%',
+        // markers:{
+        //   startColor: "green",
+        // },
+      }
+    });
+  });
+
+});
+
+/* １つの要素をフワッと上から下に出現 */
+document.addEventListener('DOMContentLoaded', function() {
+  const fadeInUps = document.querySelectorAll(".js-fadeInDown");  // ページ内の、このアニメーションをさせたい全ての要素を取得
+
+  fadeInUps.forEach(item => {
+    gsap.fromTo(item, {y:-30, autoAlpha:0}, {y:0, autoAlpha:1, scrollTrigger:{
+        trigger: item,
+        start: 'top 70%',
+        // markers:{
+        //   startColor: "green",
+        // },
+      }
+    });
+  });
+
+});
+
+/* １つの要素をフワッと左から右に出現 */
+document.addEventListener('DOMContentLoaded', function() {
+  const fadeInRights = document.querySelectorAll(".js-fadeInRight");  // ページ内の、このアニメーションをさせたい全ての要素を取得
+
+  fadeInRights.forEach(item => {
+    gsap.fromTo(item, {x:-30, autoAlpha:0}, {x:0, autoAlpha:1, scrollTrigger:{
+        trigger: item,
+        start: 'top 70%',
+        // markers:{
+        //   startColor: "green",
+        // },
+      }
+    });
+  });
+
+});
+
+
+/* １つの要素をフワッと右から左に出現 */
+document.addEventListener('DOMContentLoaded', function() {
+  const fadeInLefts = document.querySelectorAll(".js-fadeInLeft");  // ページ内の、このアニメーションをさせたい全ての要素を取得
+
+  fadeInLefts.forEach(item => {
+    gsap.fromTo(item, {x:30, autoAlpha:0}, {x:0, autoAlpha:1, scrollTrigger:{
+        trigger: item,
+        start: 'top 70%',
         // markers:{
         //   startColor: "green",
         // },
@@ -639,8 +690,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-/* -------------------------------------------------------------------------------- */
-/* 文字を強調するアニメーションのために、『is-act』というクラスを付与。(アニメーションはCSSのキーフレームで設定。) */
+// /* -------------------------------------------------------------------------------- */
+// /* 文字を強調するアニメーションのために、『is-act』というクラスを付与。(アニメーションはCSSのキーフレームで設定。) */
 document.addEventListener('DOMContentLoaded', function() {
   let triggersStrong = document.querySelectorAll(".js-trigger-strong");
 
@@ -653,6 +704,27 @@ document.addEventListener('DOMContentLoaded', function() {
         once: true,  // 一度だけ実行
         // markers: {
         //   startColor: "blue",
+        // },
+      }
+    });
+  });
+});
+
+
+/* -------------------------------------------------------------------------------- */
+/* 点線が伸びていくアニメーション (『ランチャームとはページ』のsvg) */
+
+// 下からトリミングが外れる (上から出現)　の、この『ランチャームとはページ』のsvgが伸びる場合専用！！
+// アニメーションにかかる『秒数』を長く設定するから！
+document.addEventListener('DOMContentLoaded', function() {
+  const trimmingToTopItemsClearlyLong = document.querySelectorAll(".js-trimming-to-top-clearly-long");  // ページ内の、このアニメーションをさせたい全ての要素を取得
+
+  trimmingToTopItemsClearlyLong.forEach(topItem => {
+    gsap.fromTo(topItem,{'clipPath':'inset(0 0 100% 0)'},{'clipPath':'inset(0 0 0% 0)', duration: 7.5, ease:"linear", scrollTrigger:{
+        trigger: topItem,
+        start: 'top 60%',
+        // markers:{
+        //   startColor: "green",
         // },
       }
     });
