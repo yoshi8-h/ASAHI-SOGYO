@@ -6,10 +6,6 @@
   z-index: 10;
 }
 
-.speech-bubble.is-01 {
-  max-width: rem(514);
-}
-
 .speech-bubble.is-01::after {  // 背景の吹き出しアイコン
   content: "";
   width: rem(611);
@@ -18,7 +14,31 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, calc(-50% + rem(10)));
+  transform: translate(-50%, calc(-50% + rem(14)));
+  z-index: -1;
+}
+
+.speech-bubble.is-02::after {  // 背景の吹き出しアイコン
+  content: "";
+  width: rem(658);
+  height: rem(316);
+  background: url(../images/common/speech-bubble-icon-02-pc.png) no-repeat center center / contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% - rem(24)), -50%);
+  z-index: -1;
+}
+
+.speech-bubble.is-03::after {  // 背景の吹き出しアイコン
+  content: "";
+  width: rem(620);
+  height: rem(404);
+  background: url(../images/common/speech-bubble-icon-03-pc.png) no-repeat center center / contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + rem(14)));
   z-index: -1;
 }
 

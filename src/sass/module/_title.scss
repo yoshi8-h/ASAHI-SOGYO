@@ -12,7 +12,7 @@
   font-size: rem(48);
   font-weight: 900;
   line-height: 1.2;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.2em;
   text-indent: 0.04em;
 
   writing-mode: vertical-rl; /* 縦書きに変更 */
@@ -30,6 +30,9 @@
   line-height: 1.2;
   letter-spacing: 0.04em;
   text-indent: 0.04em;
+
+  display: inline-block;
+  padding-bottom: rem(10);
 }
 
 .title__text-bg {  // 白い背景色
@@ -54,6 +57,12 @@
   position: absolute;
   top: rem(-11);
   right: calc(-100% - rem(4));
+}
+
+.title.is-02 .title__number-mark,
+.title.is-04 .title__number-mark {
+  right: auto;
+  left: calc(-100% - rem(4));
 }
 
 .title__number-text {  // 『秘話』という文字

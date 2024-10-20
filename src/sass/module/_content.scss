@@ -2,15 +2,40 @@
 
 
 .content {
-
+  position: relative;
 }
 
 .content__title {
   width: fit-content;
 }
 
+.content__title.is-01 {
+  position: absolute;
+  top: rem(-20);
+  right: calc(50% - min(48vw, 39rem));  // 位置制御
+}
+
+.content__title.is-02 {
+  position: absolute;
+  top: rem(-20);
+  left: calc(50% - min(48vw, 38rem));  // 位置制御
+}
+
+.content__title.is-03 {
+  position: absolute;
+  top: rem(-40);
+  right: calc(50% - min(48vw, 39rem));  // 位置制御
+}
+
 .content__main {
   z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content__main.is-03 {
+  flex-direction: row-reverse;
 }
 
 .content__img {
@@ -39,4 +64,20 @@
   line-height: 1.6;
   letter-spacing: 0.04em;
   text-indent: 0.04em;
+
+  max-width: rem(514);
+}
+
+.content__speech-bubble.is-01 {
+  margin-left: rem(-65);
+}
+
+.content__speech-bubble.is-02 {
+  margin-bottom: rem(-340);
+  margin-left: rem(10);
+}
+
+.content__speech-bubble.is-03 {
+  margin-top: rem(-200);
+  margin-right: rem(-100);
 }
