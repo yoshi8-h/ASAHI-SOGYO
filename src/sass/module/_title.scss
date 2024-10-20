@@ -1,0 +1,103 @@
+@use "global" as *;
+
+
+.title {
+  position: relative;
+  z-index: 40;
+}
+
+.title__text {
+  text-align: center;
+  font-feature-settings: 'vert' on;
+  font-size: rem(48);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+
+  writing-mode: vertical-rl; /* 縦書きに変更 */
+  text-orientation: upright; /* 日本語や漢字をそのままの形で表示 */
+  width: rem(72); /* 横幅を適切に設定 */
+  padding-block: rem(12);
+  padding-inline: rem(9);
+}
+
+.title__text-number {
+  writing-mode: horizontal-tb;  // 数字部分は、横向きのまま表示
+  font-feature-settings: 'vert' on;
+  font-size: rem(40);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+}
+
+.title__text-bg {  // 白い背景色
+  width: 100%;
+  height: 100%;
+  background: $color-background-base-1;
+  border: rem(2) solid $color-font-base;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.title__number-mark {
+  background: $color-accent1;
+  padding-block: rem(10);
+  padding-inline: rem(10);
+  border-radius: 50%;
+
+  position: absolute;
+  top: rem(-11);
+  right: calc(-100% - rem(4));
+}
+
+.title__number-text {  // 『秘話』という文字
+  text-align: center;
+  font-size: rem(14);
+  font-weight: $bold;
+  line-height: normal;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+  position: absolute;
+  top: rem(-28);
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: rem(30);
+}
+
+.title__number-text::before {  // 『秘話』の文字の両サイドの斜め線の左側
+  content: "";
+  border-left: rem(1) solid $color-font-base;
+  height: rem(18);
+  transform: rotate(-30deg);
+  position: absolute;
+  bottom: rem(-4);
+  left: rem(-7);
+}
+
+.title__number-text::after {  // 『秘話』の文字の両サイドの斜め線の右側
+  content: "";
+  border-left: rem(1) solid $color-font-base;
+  height: rem(18);
+  transform: rotate(30deg);
+  position: absolute;
+  bottom: rem(-4);
+  right: rem(-7);
+}
+
+.title__number {
+  color: #FFF;
+  text-align: center;
+  font-family: $font-family-en-1;
+  font-size: rem(24);
+  font-weight: $medium;
+  line-height: normal;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+}

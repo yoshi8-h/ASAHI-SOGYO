@@ -1,0 +1,32 @@
+@use "global" as *;
+
+
+.section-title {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: rem(5);
+}
+
+.section-title__left {
+  text-align: center;
+  font-size: rem(48);
+  font-weight: $bold;
+  line-height: normal;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+}
+
+.section-title__right {
+  color: #FFF;
+  text-align: center;
+  text-shadow: rem(2) rem(4) 0px $color-font-base;
+  -webkit-text-stroke-width: rem(1);
+  -webkit-text-stroke-color: $color-font-base;
+  text-stroke: rem(1) $color-font-base;
+  font-size: rem(64);
+  font-weight: $bold;
+  line-height: normal;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+}

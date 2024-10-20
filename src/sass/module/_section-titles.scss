@@ -1,0 +1,25 @@
+@use "global" as *;
+
+
+.section-titles {
+
+}
+
+.section-titles__top {
+
+}
+
+.section-titles__en {
+  text-align: center;
+  color: $color-accent1;
+  font-family: $font-family-en-1;
+  font-size: rem(18);
+  font-weight: $bold;
+  line-height: normal;
+  letter-spacing: 0.1em;
+  text-indent: 0.1em;
+}
+
+.section-titles__bottom {
+  margin-top: rem(6.5);
+}

@@ -1,0 +1,42 @@
+@use "global" as *;
+
+
+.content {
+
+}
+
+.content__title {
+  width: fit-content;
+}
+
+.content__main {
+  z-index: 30;
+}
+
+.content__img {
+  width: fit-content;
+  border-radius: 50%;
+  border: rem(2) solid $color-font-base;
+  box-shadow: rem(10) rem(10) 0px 0px $color-font-base;
+  overflow: hidden;
+}
+
+.content__img:hover img {  // hover
+  transform: scale(1.1);
+}
+
+.content__img img {
+  aspect-ratio: 1 / 1;
+  max-width: rem(433);
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease-out;
+}
+
+.content__speech-bubble {
+  font-size: rem(18);
+  font-weight: $medium;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+}
