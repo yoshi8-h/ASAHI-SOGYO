@@ -5,6 +5,20 @@
   position: relative;
 }
 
+.content__dashline-pc {  // 赤い点線
+  position: absolute;
+  top: 50%;
+  top: rem(70);
+  left: rem(140);
+  width: rem(671);
+  height: fit-content;
+  z-index: -1;
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
 .content__title {
   width: fit-content;
 }
