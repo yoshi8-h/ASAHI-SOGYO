@@ -66,7 +66,7 @@
   }
 }
 
-.title.is-01 .title__text-bg {
+.title.is-01 .title__text-bg {  // 『is-01』だけ、「29」があるためか、少し背景部分の大きさが小さくなるため、個別に調整。
   @include mq(md) {
     height: 110%;
     top: 54%;
