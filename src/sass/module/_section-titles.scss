@@ -18,8 +18,16 @@
   line-height: normal;
   letter-spacing: 0.1em;
   text-indent: 0.1em;
+
+  @include mq(md) {
+    font-size: rem(9);
+  }
 }
 
 .section-titles__bottom {
   margin-top: rem(6.5);
+
+  @include mq(md) {
+    margin-top: rem(4);
+  }
 }

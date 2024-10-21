@@ -454,6 +454,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // markers:{
         //   startColor: "green",
         // },
+        end: 'top 20%',   // アニメーション終了タイミングを設定
+        toggleActions: 'play none none none', // アニメーションの挙動制御
       }
     });
   });
@@ -565,6 +567,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }});
     tl  // 先にトリミングが外れて背景が表示され、その後、テキストがフェードインで表示される
     .fromTo(bg, {'clipPath':'inset(0 0 100% 0)'}, {'clipPath':'inset(0 0 0% 0)',delay:2.6, duration:.6, ease:"out"})
+    .fromTo(text, {y:-20, autoAlpha:0}, {y:0, autoAlpha:1},'-=.27')
+
+  });
+});
+
+
+/* -------------------------------------------------------------------------------- */
+/* 背景が先に上からトリミングが外れる形で表示され、その後、文字がフワッと上から下にフェードインして表示される */
+// 『ランチャームとは？ページ』の、birthセクション。
+// これはdelayでの遅延はなし。(遅延ありは上で実装しているから、『2』としている)
+
+document.addEventListener('DOMContentLoaded', function() {
+  const downBgToTexts2 = document.querySelectorAll(".js-down-bg-to-text-2");  // ページ内の、このアニメーションをさせたい全ての要素を取得
+
+  downBgToTexts2.forEach(downBgToText => {
+    let bg = downBgToText.querySelectorAll('.js-down-bg');
+    let text = downBgToText.querySelectorAll('.js-down-text');
+
+    let tl = gsap.timeline({scrollTrigger:{
+      trigger: downBgToText,
+      start: 'top 70%',
+      // markers:{
+      //   startColor: "green",
+      // },
+    }});
+    tl  // 先にトリミングが外れて背景が表示され、その後、テキストがフェードインで表示される
+    .fromTo(bg, {'clipPath':'inset(0 0 100% 0)'}, {'clipPath':'inset(0 0 0% 0)', duration:.6, ease:"out"})
     .fromTo(text, {y:-20, autoAlpha:0}, {y:0, autoAlpha:1},'-=.27')
 
   });

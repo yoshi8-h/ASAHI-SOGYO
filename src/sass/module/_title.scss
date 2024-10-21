@@ -20,9 +20,18 @@
   width: rem(72); /* 横幅を適切に設定 */
   padding-block: rem(12);
   padding-inline: rem(9);
+
+  white-space: nowrap;
+
+  @include mq(md) {
+    font-size: rem(24);
+    width: rem(36);
+    padding-block: rem(8);
+    padding-inline: rem(5);
+  }
 }
 
-.title__text-number {
+.title__text-number {  // 『29』の部分
   writing-mode: horizontal-tb;  // 数字部分は、横向きのまま表示
   font-feature-settings: 'vert' on;
   font-size: rem(40);
@@ -33,6 +42,11 @@
 
   display: inline-block;
   padding-bottom: rem(10);
+
+  @include mq(md) {
+    font-size: rem(20);
+    padding-bottom: rem(5);
+  }
 }
 
 .title__text-bg {  // 白い背景色
@@ -46,6 +60,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
+
+  @include mq(md) {
+    border: rem(1) solid $color-font-base;
+  }
+}
+
+.title.is-01 .title__text-bg {
+  @include mq(md) {
+    height: 110%;
+    top: 54%;
+  }
 }
 
 .title__number-mark {
@@ -57,12 +82,23 @@
   position: absolute;
   top: rem(-11);
   right: calc(-100% - rem(4));
+
+  @include mq(md) {
+    padding-block: rem(5);
+    padding-inline: rem(5);
+    top: rem(-7);
+    right: calc(-100% - rem(1));
+  }
 }
 
 .title.is-02 .title__number-mark,
 .title.is-04 .title__number-mark {
   right: auto;
   left: calc(-100% - rem(4));
+
+  @include mq(md) {
+    left: calc(-100% - rem(1));
+  }
 }
 
 .title__number-text {  // 『秘話』という文字
@@ -78,6 +114,11 @@
   transform: translateX(-50%);
 
   width: rem(30);
+
+  @include mq(md) {
+    font-size: rem(7);
+    top: rem(-15);
+  }
 }
 
 .title__number-text::before {  // 『秘話』の文字の両サイドの斜め線の左側
@@ -88,6 +129,11 @@
   position: absolute;
   bottom: rem(-4);
   left: rem(-7);
+
+  @include mq(md) {
+    height: rem(10);
+    left: rem(2);
+  }
 }
 
 .title__number-text::after {  // 『秘話』の文字の両サイドの斜め線の右側
@@ -98,6 +144,11 @@
   position: absolute;
   bottom: rem(-4);
   right: rem(-7);
+
+  @include mq(md) {
+    height: rem(10);
+    right: rem(2);
+  }
 }
 
 .title__number {
@@ -109,4 +160,8 @@
   line-height: normal;
   letter-spacing: 0.04em;
   text-indent: 0.04em;
+
+  @include mq(md) {
+    font-size: rem(12);
+  }
 }

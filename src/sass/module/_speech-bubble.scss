@@ -2,8 +2,18 @@
 
 
 .speech-bubble {
+  font-size: rem(18);
+  font-weight: $medium;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+
   position: relative;
   z-index: 10;
+
+  @include mq(md) {
+    font-size: rem(15);
+  }
 }
 
 .speech-bubble.is-01::after {  // 背景の吹き出しアイコン
@@ -16,6 +26,13 @@
   left: 50%;
   transform: translate(-50%, calc(-50% + rem(14)));
   z-index: -1;
+
+  @include mq(md) {
+    width: rem(305);
+    height: rem(352);
+    background: url(../images/common/speech-bubble-icon-01-sp.png) no-repeat center center / contain;
+    transform: translate(-50%, calc(-50% + rem(12)));
+  }
 }
 
 .speech-bubble.is-02::after {  // 背景の吹き出しアイコン
@@ -28,6 +45,13 @@
   left: 50%;
   transform: translate(calc(-50% - rem(24)), -50%);
   z-index: -1;
+
+  @include mq(md) {
+    width: rem(305);
+    height: rem(378);
+    background: url(../images/common/speech-bubble-icon-02-sp.png) no-repeat center center / contain;
+    transform: translate(-50%, calc(-50% + rem(12)));
+  }
 }
 
 .speech-bubble.is-03::after {  // 背景の吹き出しアイコン
@@ -40,6 +64,13 @@
   left: 50%;
   transform: translate(-50%, calc(-50% + rem(14)));
   z-index: -1;
+
+  @include mq(md) {
+    width: rem(305);
+    height: rem(448);
+    background: url(../images/common/speech-bubble-icon-03-sp.png) no-repeat center center / contain;
+    transform: translate(-50%, calc(-50% + rem(12)));
+  }
 }
 
 .speech-bubble.is-04::after {  // 背景の吹き出しアイコン
@@ -52,6 +83,13 @@
   left: 50%;
   transform: translate(-50%, calc(-50% + rem(14)));
   z-index: -1;
+
+  @include mq(md) {
+    width: rem(305);
+    height: rem(314);
+    background: url(../images/common/speech-bubble-icon-04-sp.png) no-repeat center center / contain;
+    transform: translate(-50%, calc(-50% + rem(12)));
+  }
 }
 
 .speech-bubble.is-05::after {  // 背景の吹き出しアイコン
@@ -64,4 +102,11 @@
   left: 50%;
   transform: translate(-50%, calc(-50% + rem(10)));
   z-index: -1;
+
+  @include mq(md) {
+    width: rem(305);
+    height: rem(422);
+    background: url(../images/common/speech-bubble-icon-05-sp.png) no-repeat center center / contain;
+    transform: translate(-50%, calc(-50% + rem(12)));
+  }
 }

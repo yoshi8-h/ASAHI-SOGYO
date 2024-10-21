@@ -2,7 +2,12 @@
 
 
 .contents {
-
+  @include mq(md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .contents__item {
@@ -11,24 +16,49 @@
 
 .contents__item.is-01 {
   margin-left: calc(50% - min(48vw, 31rem));
+
+  @include mq(md) {
+    margin-left: rem(-10);
+  }
 }
 
 .contents__item.is-02 {
   margin-top: rem(227);
   margin-left: calc(50% - min(48vw, 25rem));
+
+  @include mq(md) {
+    margin-top: rem(520);
+    margin-left: 0;
+    margin-right: rem(-17);
+  }
 }
 
 .contents__item.is-03 {
-  margin-top: rem(348);
+  margin-top: rem(380);
   margin-left: calc(50% - min(48vw, 32rem));
+
+  @include mq(md) {
+    margin-top: rem(461);
+    margin-left: rem(-16);
+  }
 }
 
 .contents__item.is-04 {
   margin-top: rem(258);
   margin-left: calc(50% - min(48vw, 29rem));
+
+  @include mq(md) {
+    margin-top: rem(460);
+    margin-left: rem(-10);
+  }
 }
 
 .contents__item.is-05 {
   margin-top: rem(160);
   margin-left: calc(50% - min(48vw, 33rem));
+
+  @include mq(md) {
+    margin-top: rem(469);
+    margin-left: rem(-10);
+  }
 }

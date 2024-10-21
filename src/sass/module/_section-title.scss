@@ -6,6 +6,10 @@
   justify-content: center;
   align-items: flex-end;
   gap: rem(5);
+
+  @include mq(md) {
+    gap: rem(2);
+  }
 }
 
 .section-title__left {
@@ -15,6 +19,10 @@
   line-height: normal;
   letter-spacing: 0.04em;
   text-indent: 0.04em;
+
+  @include mq(md) {
+    font-size: rem(24);
+  }
 }
 
 .section-title__right {
@@ -29,6 +37,13 @@
   line-height: normal;
   letter-spacing: 0.04em;
   text-indent: 0.04em;
+
+  @include mq(md) {
+    text-shadow: rem(1) rem(2) 0px $color-font-base;
+    -webkit-text-stroke-width: rem(0.5);
+    text-stroke: rem(1) $color-font-base;
+    font-size: rem(32);
+  }
 }
 
 .section-title__right.is-strong {
@@ -57,6 +72,12 @@
   height: 150%;
   opacity: 0;
   will-change: transform, opacity;
+
+  @include mq(md) {
+    text-shadow: rem(1) rem(2) 0px $color-font-base;
+    -webkit-text-stroke-width: rem(0.5);
+    text-stroke: rem(1) $color-font-base;
+  }
 }
 
 .is-act .section-title__right.is-strong::before,
@@ -104,10 +125,29 @@
 // section-title--2 (『points セクション』)
 .section-title--2 {
   align-items: center;
+
+  @include mq(md) {
+    display: block;
+  }
 }
 
 .section-title--2 .section-title__left {
   margin-top: rem(5);
+
+  @include mq(md) {
+    font-size: rem(20);
+  }
+}
+
+.section-title__right-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(5);
+
+  @include mq(md) {
+    margin-top: rem(-3);
+  }
 }
 
 .section-title--2 .section-title__right.is-strong::before,
@@ -130,6 +170,12 @@
   justify-content: center;
   align-items: center;
   gap: rem(10);
+
+  @include mq(md) {
+    font-size: rem(20);
+    margin-left: rem(1);
+    gap: rem(5);
+  }
 }
 
 .section-title__right-word {

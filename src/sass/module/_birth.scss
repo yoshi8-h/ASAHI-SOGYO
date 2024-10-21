@@ -8,6 +8,12 @@
   position: relative;
 
   z-index: 100;  // 赤い点線のための指定
+
+  @include mq(md) {
+    padding-top: rem(64.5);
+    padding-bottom: rem(118);
+    background: url(../images/common/birth_bg-sp.png) no-repeat center center / cover;
+  }
 }
 
 .birth::before {  // 背景のベージュ色の画像の上側のモヤモヤ
@@ -48,4 +54,8 @@
 
 .birth__contents {
   margin-top: rem(144);
+
+  @include mq(md) {
+    margin-top: rem(377);
+  }
 }
