@@ -27,6 +27,8 @@
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shippori+Antique+B1&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />  <!-- slick slider の CSS1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  <!-- slick slider の CSS2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="./assets/css/style.css" />
 
@@ -36,6 +38,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>  <!-- GSAPのプラグイン「ScrollTo」 -->
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>  <!-- GSAPのプラグイン「CustomEase」 -->
     <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>  <!-- jQuery -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.min.js"></script>  <!-- slick slider -->
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  <!-- swiper -->
     <script defer src="./assets/js/script.js"></script>
   </head>
@@ -493,7 +496,64 @@
             </div>
           </div>
           <div class="points__slider-area">
+            <div class="points__slick-slider arch-slider">  <!-- 円弧スライダーのエリア全て -->
+              <div class="arch-slider__container">
+                <ul class="arch-slider__main rotate-slider">  <!-- 円弧スライダー -->
+                  <li class="rotate-slider__item"><img src="./assets/images/common/points_card-01.png" alt="01 魚型のランチャームは鯛の形！"></li>
+                  <li class="rotate-slider__item"><img src="./assets/images/common/points_card-02.png" alt="02 バリアフリーで人にやさしい。点字入りのランチャームもある！"></li>
+                  <li class="rotate-slider__item"><img src="./assets/images/common/points_card-03.png" alt="03 ランチャームは魚型だけじゃない！"></li>
+                  <li class="rotate-slider__item"><img src="./assets/images/common/points_card-04.png" alt="04 金色の鯛のランチャームもある！"></li>
+                  <li class="rotate-slider__item"><img src="./assets/images/common/points_card-05.png" alt="05 尾ひれの「旭マーク」が元祖ランチャームの証！"></li>
+                  <li class="rotate-slider__item"><img src="./assets/images/common/points_card-06.png" alt="06 一日あたりの生産量は約100万個！"></li>
+                  <li class="rotate-slider__item"><img src="./assets/images/common/points_card-07.png" alt="07 OEM（委託製造）も可能！"></li>
+                </ul>
+                <!-- ページネーションやカードに対応するコンテンツを囲う要素 -->
+                <div class="arch-slider__sub-contents slider-sub">
+                  <!-- カードに対応するテキストやコンテンツ -->
+                  <ul class="slider-sub__contents slider-subs">
+                    <li class="slider-subs__item">
+                      <p class="slider-subs__text">お寿司と合わせて利用されることが多かったことから魚型が定番の形となりました。<br>縁起の良い鯛の形を模しています。</p>
+                    </li>
+                    <li class="slider-subs__item">
+                      <p class="slider-subs__text">視覚障害者の方にも使いやすいように、点字が入ったランチャームも製造しています。</p>
+                    </li>
+                    <li class="slider-subs__item">
+                      <p class="slider-subs__text">魚型以外にもボトル型やひょうたん、ブタの形のポリ容器、小袋（フィルム）タイプなど多彩なデザインが揃っています。</p>
+                    </li>
+                    <li class="slider-subs__item">
+                      <p class="slider-subs__text">おせちや慶事のオードブルなどで高級感を引き立てる、金色のランチャームもご用意しています。</p>
+                    </li>
+                    <li class="slider-subs__item">
+                      <p class="slider-subs__text">旭創業が製造する魚型のランチャームには、尾ひれに「旭マーク」が付いています。これがないとランチャームとは呼べません。</p>
+                    </li>
+                    <li class="slider-subs__item">
+                      <p class="slider-subs__text">自社工場でのランチャームの生産量は、一日あたり約100万個に達しています。</p>
+                    </li>
+                    <li class="slider-subs__item">
+                      <p class="slider-subs__text">企業様のご要望に応じてOEM（委託製造）も対応しています！お客様の仕様に合わせた液体を充填することも<br class="u-desktop">可能です。</p>
+                      <div class="slider-subs__buttons">
+                        <a href="./case.html" class="slider-subs__btn btn2 js-fadeInUp">
+                          <span class="btn2__text">OEM事業紹介</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.64769 12.2046C14.8167 6.8827 19.3371 6.44774 19.3371 6.44774C15.0307 6.44774 9.64769 0.690918 9.64769 0.690918C9.64769 0.690918 11.3433 3.32882 11.7255 5.60597H0.496582V7.33301H11.7175C11.3218 9.59992 9.64769 12.2046 9.64769 12.2046Z" fill="white"/>
+                          </svg>
+                        </a>
+                        <a href="./case.html" class="slider-subs__btn btn2 js-fadeInUp">
+                          <span class="btn2__text">旭創業の事例一覧</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.64769 12.2046C14.8167 6.8827 19.3371 6.44774 19.3371 6.44774C15.0307 6.44774 9.64769 0.690918 9.64769 0.690918C9.64769 0.690918 11.3433 3.32882 11.7255 5.60597H0.496582V7.33301H11.7175C11.3218 9.59992 9.64769 12.2046 9.64769 12.2046Z" fill="white"/>
+                          </svg>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- ページネーション (ドット『・』) -->
+                  <div class="slider-sub__pagination pagination-dots"></div>
+                  <!-- <div class="sliderArrows"></div> -->
+                </div>
 
+              </div>
+            </div>
           </div>
         </div>
       </section>

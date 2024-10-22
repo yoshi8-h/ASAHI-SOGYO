@@ -366,6 +366,97 @@ window.addEventListener("load", function() {
 });
 
 
+/* -------------------------------------------------------------------------------- */
+/* 『円弧スライダー』 */
+// 『slick slider』を使用。
+// (「lunch.html」の points セクション)
+
+$(function () {
+
+  /*―――――――――――――――――――――――――――――――――――――――――――――
+  /* メインスライダー
+  ――――――――――――――――――――――――――――――――――――――――――――――*/
+  $('.rotate-slider').slick({
+    autoplay: true,
+    speed: 800,  // 切り替わる時間(回転する速さ)：ここは調整しない
+    autoplaySpeed: 2000,  // 次のスライドに切り替わるまでの時間
+    dots: true,
+    infinite: true,
+    centerMode: true,
+    variableWidth: true,
+    pauseOnFocus: false,
+    pauseOnHover: false,
+    cssEase: 'ease',
+    swipe: false,
+    asNavFor: ".slider-subs",
+    appendDots: $('.pagination-dots'), // 任意のクラス内にドットを挿入
+    arrows: false,
+  });
+
+
+  /*―――――――――――――――――――――――――――――――――――――――――――――
+  /* テキストスライダー
+  ――――――――――――――――――――――――――――――――――――――――――――――*/
+  $('.slider-subs').slick({
+    fade: true,
+    asNavFor: ".rotate-slider",
+    arrows: false,
+    swipe: false,
+  });
+
+
+  /*―――――――――――――――――――――――――――――――――――――――――――――
+  /* 回転アニメーションに関するjs
+  ――――――――――――――――――――――――――――――――――――――――――――――*/
+  const slide_width = 338; // スライド1枚の横幅
+  const control_gap = 10; //間隔調整
+  const slides = document.querySelectorAll('.rotate-slider__item');
+  const totalSlides = slides.length + control_gap;
+  const angleStep = 360 / (totalSlides);
+  const radius = 0;
+
+  $('.rotate-slider__item').css({
+    width: slide_width + 'px'
+  })
+
+  let isTransitioning = false; // スライド移動中かどうかを追跡するフラグ
+
+  function updateSlidePositions(currentIndex = 0) {
+    slides.forEach((slide, index) => {
+      const dataIndex = $(slide).data('slick-index');
+      const normalizedIndex = (dataIndex % totalSlides + totalSlides) % totalSlides;
+      const angle = angleStep * (normalizedIndex - currentIndex);
+      const radian = angle * (Math.PI / 180);
+
+      slide.style.transform = `rotate(${angle}deg) translate(${radius}px)`;
+      slide.style.transition = 'transform 0.5s ease';  // ここで、スライドの切り替わるスピードを調整可能 (短い方が自然)
+    });
+  }
+
+  const initialIndex = $('.slick-current').data('slick-index') % totalSlides;
+  updateSlidePositions(initialIndex);
+
+  $('.rotate-slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+    isTransitioning = true; // スライド移動開始
+    const nextIndex = nextSlide % totalSlides;
+    updateSlidePositions(nextIndex);
+  });
+
+  $('.rotate-slider').on('afterChange', function (event, slick, currentSlide) {
+    isTransitioning = false; // スライド移動完了
+  });
+
+  $('.slick-dots li').on('click', function () {
+    if (!isTransitioning) { // スライドが移動中でない場合のみ処理を実行
+      const dotIndex = $(this).index();
+      updateSlidePositions(dotIndex);
+      $('.rotate-slider').slick('slickGoTo', dotIndex); // slickGoTo メソッドを使用してスライドを変更
+    }
+  });
+
+});
+
+
 
 
 

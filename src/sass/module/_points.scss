@@ -45,5 +45,231 @@
 }
 
 .points__slider-area {
+  margin-top: rem(80);
 
+  width: 100vw;
+  margin: 0 calc(50% - 50vw);  // 親要素をはみ出るように指定。(『width: 100vw;』と併用で適用可能)
+}
+
+.points__slick-slider {
+
+}
+
+
+
+
+
+
+// ======================================================
+.arch-slider__container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: rem(934);
+
+  @include mq(md) {
+    height: rem(671);
+  }
+}
+
+.rotate-slider {
+  min-width: 1920px;
+
+  @include mq(md) {
+    transform-origin: top center;
+    transform: scale(0.6);  // SPのカードサイズに。
+  }
+
+  .slick-list {
+    overflow: visible;
+  }
+  .slick-track {
+    display: flex;
+    justify-content: center;
+    transform: none !important; /* .slick-trackのtransformを無効に */
+    position: relative;
+    width: auto !important;
+    height: 2000px;
+    margin-inline: auto;
+  }
+
+  .slick-slide {
+    float: none;
+    -webkit-transform-style: preserve-3d;
+    // transition: 0.5s;
+  }
+
+  .rotate-slider__item {
+    position: absolute;
+    height: 100%;
+    margin: 0;
+    transition: 0.5s ease;
+    transform-origin: bottom center;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .slick-current {
+  }
+}
+
+/*――――――――――――――――――――――――――――――――――――――――――――
+/* slider-sub
+――――――――――――――――――――――――――――――――――――――――――――――*/
+
+/****** slider-sub ******/
+.slider-sub {
+  position: absolute;
+  top: 560px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 500px;
+  z-index: 15;
+
+  @include mq(md) {
+    top: 320px;
+    width: 100vw;
+  }
+}
+
+/****** dots ******/
+.slick-dots {
+  position: static;
+}
+.slick-dots li {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  padding: 3px;
+}
+
+.slick-dots li button {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #000;
+
+  &::before {
+    display: none;
+  }
+}
+.slick-dots li:nth-child(1) button {
+  background-color: #b03c3c;
+}
+.slick-dots li:nth-child(1)::before {
+  border-color: #b03c3c;
+}
+.slick-dots li:nth-child(2) button {
+  background-color: #b03c3c;
+}
+.slick-dots li:nth-child(2)::before {
+  border-color: #b03c3c;
+}
+.slick-dots li:nth-child(3) button {
+  background-color: #57ce2f;
+}
+.slick-dots li:nth-child(3)::before {
+  border-color: #57ce2f;
+}
+.slick-dots li:nth-child(4) button {
+  background-color: #15b7b8;
+}
+.slick-dots li:nth-child(4)::before {
+  border-color: #15b7b8;
+}
+.slick-dots li:nth-child(5) button {
+  background-color: #1539b8;
+}
+.slick-dots li:nth-child(5)::before {
+  border-color: #1539b8;
+}
+.slick-dots li:nth-child(6) button {
+  background-color: #ab61f3;
+}
+.slick-dots li:nth-child(6)::before {
+  border-color: #ab61f3;
+}
+.slick-dots li:nth-child(7) button {
+  background-color: #ec3577;
+}
+.slick-dots li:nth-child(7)::before {
+  border-color: #ec3577;
+}
+.slick-dots .slick-active {
+  border-radius: 50%;
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    border: solid 1px #000;
+    border-radius: 50%;
+    content: "";
+  }
+}
+
+.pagination-dots {
+  position: relative;
+  margin-top: 30px;
+}
+
+/****** arrow ******/
+.sliderArrows {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin-inline: auto;
+}
+.slick-arrow {
+  z-index: 10;
+  padding: 10px;
+
+  &::before {
+    color: #000;
+    font-size: 30px;
+  }
+}
+
+/*――――――――――――――――――――――――――――――――――――――――――――
+/* テキスト
+――――――――――――――――――――――――――――――――――――――――――――――*/
+
+.slider-subs {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+  .slick-track {
+  }
+  .slick-current {
+    pointer-events: auto;
+  }
+}
+
+.slider-subs__item {
+  display: flex !important;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+.slider-subs__text {
+  max-width: 300px;
+}
+
+/*――――――――――――――――――――――――――――――――――――――――――――
+/* ボタン
+――――――――――――――――――――――――――――――――――――――――――――――*/
+.btnBox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
 }
