@@ -10,7 +10,8 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
-  height: rem(1050);  // ここで、『円弧スライダーのエリア全体』を表示する高さを指定する必要あり。
+  // height: rem(1050);  // ここで、『円弧スライダーのエリア全体』を表示する高さを指定する必要あり。
+  height: 930px;
   position: relative;
 
   @include mq(md) {
@@ -23,5 +24,17 @@
 }
 
 .arch-slider__sub-contents {
+  position: absolute;
+  top: rem(550);
+  top: 550px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: rem(438);
+  z-index: 15;
 
+  @include mq(md) {
+    top: 320px;
+    width: 100vw;
+  }
 }

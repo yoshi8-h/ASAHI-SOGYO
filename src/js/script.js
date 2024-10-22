@@ -409,7 +409,7 @@ $(function () {
   /* 回転アニメーションに関するjs
   ――――――――――――――――――――――――――――――――――――――――――――――*/
   const slide_width = 338;  // スライド1枚の横幅
-  const control_gap = 10;  //間隔調整
+  const control_gap = 11;  //間隔調整 (ここの値を大きくすれば、スライドの間隔が小さくなる。)
   const slides = document.querySelectorAll('.rotate-slider__item');
   const totalSlides = slides.length + control_gap;
   const angleStep = 360 / (totalSlides);

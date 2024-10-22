@@ -3,21 +3,19 @@
 
 /* slider-sub (カードに対応するテキストやコンテンツ) */
 .slider-sub {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-}
-
-.slider-sub.slick-track {  // 『slick slider』でデフォルトで設定されているクラス名
 
 }
 
-.slider-sub.slick-current {  // 『slick slider』でデフォルトで設定されているクラス名
+.slider-sub .slick-track {  // 『slick slider』でデフォルトで設定されているクラス名
+
+}
+
+.slider-sub .slick-current {  // 『slick slider』でデフォルトで設定されているクラス名
   pointer-events: auto;
 }
 
 .slider-sub__item {
-
+  pointer-events: none;
 }
 
 .slider-sub__item.is-07 {  // 7個目だけボタンがあるため、縦並びに。

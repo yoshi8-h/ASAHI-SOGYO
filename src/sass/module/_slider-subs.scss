@@ -3,18 +3,7 @@
 
 /* slider-subs (ページネーションやカードに対応するコンテンツを囲う要素) */
 .slider-subs {
-  position: absolute;
-  top: rem(550);
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: rem(438);
-  z-index: 15;
 
-  @include mq(md) {
-    top: 320px;
-    width: 100vw;
-  }
 }
 
 
