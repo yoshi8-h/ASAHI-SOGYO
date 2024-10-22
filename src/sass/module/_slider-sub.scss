@@ -21,6 +21,10 @@
 .slider-sub__item.is-07 {  // 7個目だけボタンがあるため、縦並びに。
   display: grid;
   gap: rem(54);
+
+  @include mq(md) {
+    gap: rem(30);
+  }
 }
 
 .slider-sub__text {
@@ -29,6 +33,10 @@
   line-height: 1.5;
   letter-spacing: 0.04em;
   text-indent: 0.04em;
+
+  @include mq(md) {
+    font-size: rem(15);
+  }
 }
 
 .slider-sub__buttons {
@@ -38,4 +46,9 @@
   max-width: rem(313);
   width: 100%;
   margin-inline: auto;
+
+  @include mq(md) {
+    max-width: rem(300);
+    gap: rem(5);
+  }
 }

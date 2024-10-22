@@ -6,6 +6,11 @@
   padding-bottom: rem(132.8);
   background: url(../images/common/points_bg-pc.png) no-repeat center center / cover;
   position: relative;
+
+  @include mq(md) {
+    padding-top: rem(55);
+    padding-bottom: rem(40);
+  }
 }
 
 .points::before {  // 背景のベージュ色の画像の上側のモヤモヤ
@@ -49,6 +54,10 @@
 
   width: 100vw;
   margin: 0 calc(50% - 50vw);  // 親要素をはみ出るように指定。(『width: 100vw;』と併用で適用可能)
+
+  @include mq(md) {
+    margin-top: rem(55);
+  }
 }
 
 .points__slick-slider {

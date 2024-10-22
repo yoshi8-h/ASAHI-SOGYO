@@ -10,6 +10,10 @@
 /* dots (ページネーション (ドット『・』)) */
 .slider-subs__pagination {
   margin-top: rem(75);
+
+  @include mq(md) {
+    margin-top: rem(50);
+  }
 }
 
 .pagination-dots {
@@ -21,7 +25,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: rem(32);
+  gap: rem(32);  // ドットの間隔 (中身の点同士の間隔)
+
+  @include mq(md) {
+    gap: rem(20);
+  }
 }
 
 .slick-dots li {  // ドットの中の丸
@@ -31,6 +39,12 @@
   height: 24px !important;
   position: relative;
   padding: 8px;
+
+  @include mq(md) {
+    width: 24px !important;
+    height: 24px !important;
+    padding: 8px;
+  }
 }
 
 .slick-dots li button {
@@ -45,6 +59,11 @@
 
   &::before {
     display: none;
+  }
+
+  @include mq(md) {
+    width: 16px !important;
+    height: 16px !important;
   }
 }
 
