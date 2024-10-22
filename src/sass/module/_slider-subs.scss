@@ -1,0 +1,147 @@
+@use "global" as *;
+
+
+/* slider-subs (ページネーションやカードに対応するコンテンツを囲う要素) */
+.slider-subs {
+  position: absolute;
+  top: rem(550);
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: rem(438);
+  z-index: 15;
+
+  @include mq(md) {
+    top: 320px;
+    width: 100vw;
+  }
+}
+
+
+/* dots (ページネーション (ドット『・』)) */
+.slider-subs__pagination {
+  margin-top: rem(75);
+}
+
+.pagination-dots {
+  position: relative;
+}
+
+.slick-dots {  // 『slick slider』でデフォルトで設定されているクラス名
+  position: static;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(32);
+}
+
+.slick-dots li {  // ドットの中の丸
+  display: grid;
+  place-items: center;
+  width: 24px !important;
+  height: 24px !important;
+  position: relative;
+  padding: 8px;
+}
+
+.slick-dots li button {
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 50%;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &::before {
+    display: none;
+  }
+}
+
+.slick-dots li:nth-child(1) button {
+  background-color: #96514D;
+}
+.slick-dots li:nth-child(1)::before {
+  border-color: #96514D;
+}
+
+.slick-dots li:nth-child(2) button {
+  background-color: #C99C1A;
+}
+.slick-dots li:nth-child(2)::before {
+  border-color: #C99C1A;
+}
+
+.slick-dots li:nth-child(3) button {
+  background-color: #D7CF3A;
+}
+.slick-dots li:nth-child(3)::before {
+  border-color: #D7CF3A;
+}
+
+.slick-dots li:nth-child(4) button {
+  background-color: #769164;
+}
+.slick-dots li:nth-child(4)::before {
+  border-color: #769164;
+}
+
+.slick-dots li:nth-child(5) button {
+  background-color: #0B446F;
+}
+.slick-dots li:nth-child(5)::before {
+  border-color: #0B446F;
+}
+
+.slick-dots li:nth-child(6) button {
+  background-color: #74325C;
+}
+.slick-dots li:nth-child(6)::before {
+  border-color: #74325C;
+}
+
+.slick-dots li:nth-child(7) button {
+  background-color: #8C6450;
+}
+.slick-dots li:nth-child(7)::before {
+  border-color: #8C6450;
+}
+
+
+.slick-dots .slick-active {  // 選択中のドット
+  border-radius: 50%;
+}
+
+.slick-dots .slick-active::before {  // 選択中のドットの周りの円
+  content: "";
+  display: block;
+  width: 33px;
+  height: 33px;
+  border: solid 1px #000;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* arrow (今回の実装では非表示) */
+.slider-subs__arrows {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+.slick-arrow {
+  z-index: 10;
+  padding: 10px;
+
+  &::before {
+    color: #000;
+    font-size: 30px;
+  }
+}

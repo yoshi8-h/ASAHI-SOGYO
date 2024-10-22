@@ -1,0 +1,47 @@
+@use "global" as *;
+
+
+.rotate-slider {
+  min-width: rem(1920);
+
+  @include mq(md) {
+    transform-origin: top center;
+    transform: scale(0.562);  // ※ここの値を調整し、PC時のカードサイズをscaleで小さくして『SP時のカードサイズ』に調整。→ 190 / 338 = 0.56213017751
+  }
+}
+
+.rotate-slider .slick-list {  // 『slick slider』でデフォルトで設定されているクラス名
+  overflow: visible;
+}
+
+.rotate-slider .slick-track {  // 『slick slider』でデフォルトで設定されているクラス名
+  display: flex;
+  justify-content: center;
+  transform: none !important; /* .slick-trackのtransformを無効に */
+  position: relative;
+  width: auto !important;
+  height: 2000px;
+  margin-inline: auto;
+}
+
+.rotate-slider .slick-slide {  // 『slick slider』でデフォルトで設定されているクラス名
+  float: none;
+  -webkit-transform-style: preserve-3d;
+  // transition: 0.5s;
+}
+
+.rotate-slider .rotate-slider__item {
+  position: absolute;
+  height: 100%;
+  margin: 0;
+  transition: 0.5s ease;
+  transform-origin: bottom center;
+}
+
+.rotate-slider .rotate-slider__item img {
+  width: 100%;
+}
+
+.rotate-slider .slick-current {
+
+}

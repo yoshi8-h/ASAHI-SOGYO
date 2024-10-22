@@ -1,0 +1,27 @@
+@use "global" as *;
+
+
+// 円弧スライダーのエリア全て (arch-slider)
+.arch-slider {
+
+}
+
+.arch-slider__container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: rem(1050);  // ここで、『円弧スライダーのエリア全体』を表示する高さを指定する必要あり。
+  position: relative;
+
+  @include mq(md) {
+    height: rem(700);
+  }
+}
+
+.arch-slider__main {
+
+}
+
+.arch-slider__sub-contents {
+
+}
