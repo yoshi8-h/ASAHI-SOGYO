@@ -3,13 +3,13 @@
 
 .points {
   padding-top: rem(137.5);
-  padding-bottom: rem(132.8);
+  padding-bottom: rem(100);
   background: url(../images/common/points_bg-pc.png) no-repeat center center / cover;
   position: relative;
 
   @include mq(md) {
     padding-top: rem(55);
-    padding-bottom: rem(40);
+    padding-bottom: rem(10);
   }
 }
 

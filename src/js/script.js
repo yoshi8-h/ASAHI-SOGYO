@@ -394,15 +394,21 @@ $(function () {
     arrows: false,
   });
 
+  // クリックしたスライドに遷移するようにする指定
+  $('.rotate-slider__item img').on('click', function () {
+    const slick_index = $(this).closest('.rotate-slider__item').data('slick-index');
+    $('.rotate-slider').slick('slickGoTo', slick_index);
+  });
 
   /*―――――――――――――――――――――――――――――――――――――――――――――
-  /* テキストスライダー
+  /* サブ部分(カードに対応するコンテンツとページネーションの親の部分)
   ――――――――――――――――――――――――――――――――――――――――――――――*/
   $('.slider-sub').slick({
     fade: true,
     asNavFor: ".rotate-slider",
     arrows: false,
     swipe: false,
+    adaptiveHeight: true,  // カードに対応するコンテンツ(テキストやボタン)に応じて、サブ部分(カードに対応するコンテンツとページネーションの親要素)の高さが自動で調整されるようにする指定。
   });
 
 
@@ -456,10 +462,6 @@ $(function () {
   });
 
 });
-
-
-
-
 
 
 
