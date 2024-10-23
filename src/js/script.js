@@ -369,6 +369,7 @@ window.addEventListener("load", function() {
 /* -------------------------------------------------------------------------------- */
 /* 『円弧スライダー』 */
 // 『slick slider』を使用。
+// PC時のスライドの大きさはJSで指定。SP時のスライドの大きさはCSSのscaleで制御。
 // (「lunch.html」の points セクション)
 
 $(function () {
@@ -379,7 +380,7 @@ $(function () {
   $('.rotate-slider').slick({
     autoplay: true,
     speed: 800,  // 切り替わる時間(回転する速さ)：ここの値は変更せず、下の『slide.style.transition』の部分で調整する事。
-    autoplaySpeed: 2000,  // 次のスライドに切り替わるまでの時間
+    autoplaySpeed: 3300,  // 次のスライドに切り替わるまでの時間
     dots: true,
     infinite: true,
     centerMode: true,
@@ -455,6 +456,11 @@ $(function () {
   });
 
 });
+
+
+
+
+
 
 
 
@@ -840,9 +846,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const trimmingToTopItemsClearlyLong = document.querySelectorAll(".js-trimming-to-top-clearly-long");  // ページ内の、このアニメーションをさせたい全ての要素を取得
 
   trimmingToTopItemsClearlyLong.forEach(topItem => {
-    gsap.fromTo(topItem,{'clipPath':'inset(0 0 100% 0)'},{'clipPath':'inset(0 0 0% 0)', duration: 7.5, ease:"linear", scrollTrigger:{
+    gsap.fromTo(topItem,{'clipPath':'inset(0 0 100% 0)'},{'clipPath':'inset(0 0 0% 0)', ease:"none", scrollTrigger:{  // scrubを使用するため、easeはnoneに設定。
         trigger: topItem,
         start: 'top 60%',
+        end: 'bottom 20%',  // 要素が画面からほぼ消える位置でアニメーションが完了
+        scrub: true,
+        toggleActions: 'play none none none',  // スクロール時の動作を指定
+        once: true,  // 一度だけ実行
         // markers:{
         //   startColor: "green",
         // },

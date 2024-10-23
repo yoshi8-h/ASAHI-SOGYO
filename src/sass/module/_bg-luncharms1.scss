@@ -6,6 +6,8 @@
   height: rem(455);  // ここだけ、heightを指定
   max-height: rem(455);
   background: url(../images/common/bg-luncharms1-pc.png) no-repeat center center / cover;
+  position: relative;
+  z-index: -1;
 
   @include mq(md) {
     height: rem(227);  // ここだけ、heightを指定
@@ -14,6 +16,19 @@
   }
 }
 
+.bg-luncharms1::after {  // 『birth セクション』との境目の背景のベージュ色のモヤモヤ (birth セクションの上側)
+  content: "";
+  width: 100%;
+  height: rem(53);
+  background: url(../images/common/birth_bg-top-pc.png) no-repeat center center / cover;
+  position: absolute;
+  bottom: rem(-20);
+
+  @include mq(md) {
+    height: rem(23);;
+    // background: url(../images/common/birth_bg-top-sp.png) repeat-x center center / cover;
+  }
+}
 
 
 
@@ -27,4 +42,23 @@
   @include mq(md) {
     background: url(../images/common/bg-luncharms1-2-sp.png) no-repeat center center / cover;
   }
+}
+
+.bg-luncharms1--2::before {  // 『birth セクション』との境目の背景のベージュ色のモヤモヤ (birth セクションの下側)
+  content: "";
+  width: 100%;
+  height: rem(53);
+  background: url(../images/common/birth_bg-bottom-pc.png) no-repeat center center / cover;
+  position: absolute;
+  top: rem(-18);
+
+  @include mq(md) {
+    height: rem(20);
+    top: rem(-10);
+    // background: url(../images/common/birth_bg-bottom-sp.png) repeat-x center center / cover;
+  }
+}
+
+.bg-luncharms1--2::after {  // 『birth セクション』との境目の背景のベージュ色のモヤモヤ (birth セクションの下側)
+  display: none;  // 『.bg-luncharms1--2』のafterは不要なため、非表示に。
 }

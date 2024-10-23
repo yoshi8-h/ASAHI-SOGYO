@@ -1,46 +1,22 @@
 @use "global" as *;
 
 
-.birth {
+.birth {  // (セクションの上下のモヤモヤは、overflow-hiddenを適用しないといけない都合上、『.bg-luncharms1』の下側に付与。)
   padding-top: rem(142.75);
   padding-bottom: rem(125.73);
   background: url(../images/common/birth_bg-pc.png) no-repeat center center / cover;
   position: relative;
 
-  z-index: 100;  // 赤い点線のための指定
+  // 画像がはみ出る時(SP時)に『overflow: hidden;』が必要。念のためにPC時の時から指定。
+  // ※かつ、GSAPのスクロールトリガーの影響で、『x方向』だけの指定だと「スクロールが詰まる」事がある為、『y方向のoverflow: hidden;』の指定も必要。
+  overflow: hidden;
+
+  z-index: 100;  // 伸びる赤い点線のための指定
 
   @include mq(md) {
     padding-top: rem(64.5);
     padding-bottom: rem(118);
     background: url(../images/common/birth_bg-sp.png) no-repeat center center / cover;
-  }
-}
-
-.birth::before {  // 背景のベージュ色の画像の上側のモヤモヤ
-  content: "";
-  width: 100%;
-  height: rem(53);
-  background: url(../images/common/birth_bg-top-pc.png) no-repeat center center / cover;
-  position: absolute;
-  top: rem(-15);
-
-  @include mq(md) {
-    height: rem(80);
-    background: url(../images/common/birth_bg-top-sp.png) no-repeat center center / cover;
-  }
-}
-
-.birth::after {  // 背景のベージュ色の画像の下側のモヤモヤ
-  content: "";
-  width: 100%;
-  height: rem(53);
-  background: url(../images/common/birth_bg-bottom-pc.png) no-repeat center center / cover;
-  position: absolute;
-  bottom: rem(-15);
-
-  @include mq(md) {
-    height: rem(80);
-    background: url(../images/common/birth_bg-bottom-sp.png) no-repeat center center / cover;
   }
 }
 

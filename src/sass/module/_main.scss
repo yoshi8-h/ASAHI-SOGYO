@@ -1,0 +1,8 @@
+@use "global" as *;
+
+
+// <main>タグに、『.main』クラスを付与した場合のみ適用するスタイル
+.main {
+  position: relative;
+  z-index: 30;  // footerよりも上に来るように。(lunch.htmlの、pointsセクションの下のベージュのモヤモヤがfooterにかかるように指定。)
+}

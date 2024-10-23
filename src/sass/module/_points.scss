@@ -22,8 +22,9 @@
   top: rem(-15);
 
   @include mq(md) {
-    height: rem(80);
-    background: url(../images/common/points_bg-top-sp.png) no-repeat center center / cover;
+    // height: rem(80);
+    height: rem(23);
+    // background: url(../images/common/points_bg-top-sp.png) no-repeat center center / cover;
   }
 }
 
@@ -36,8 +37,9 @@
   bottom: rem(-15);
 
   @include mq(md) {
-    height: rem(80);
-    background: url(../images/common/points_bg-bottom-sp.png) no-repeat center center / cover;
+    // height: rem(80);
+    height: rem(20);
+    // background: url(../images/common/points_bg-bottom-sp.png) no-repeat center center / cover;
   }
 }
 

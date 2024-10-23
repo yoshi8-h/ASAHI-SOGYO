@@ -27,8 +27,9 @@
   top: rem(-15);
 
   @include mq(md) {
-    height: rem(80);
-    background: url(../images/common/about_bg-red-top-sp.png) no-repeat center center / cover;
+    // height: rem(80);
+    height: rem(20);
+    // background: url(../images/common/about_bg-red-top-sp.png) no-repeat center center / cover;
   }
 }
 
@@ -41,8 +42,10 @@
   bottom: rem(-15);
 
   @include mq(md) {
-    height: rem(80);
-    background: url(../images/common/about_bg-red-bottom-sp.png) no-repeat center center / cover;
+    // height: rem(80);
+    bottom: rem(-10);
+    height: rem(20);
+    // background: url(../images/common/about_bg-red-bottom-sp.png) no-repeat center center / cover;
   }
 }
 
@@ -122,7 +125,7 @@
   color: #FFF;
   font-feature-settings: 'vert' on;
   font-size: rem(24);
-  font-weight: $medium;
+  font-weight: $normal;
   line-height: 1.1;
   letter-spacing: 0.04em;
   text-indent: 0.04em;
