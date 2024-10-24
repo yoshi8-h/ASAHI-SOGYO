@@ -9,10 +9,8 @@
 
 /* dots (ページネーション (ドット『・』)) */
 .slider-subs__pagination {
-  margin-top: rem(70);
-
   @include mq(md) {
-    margin-top: rem(65);
+    margin-top: rem(20);
   }
 }
 
@@ -152,5 +150,14 @@
   &::before {
     color: #000;
     font-size: 30px;
+  }
+}
+
+
+.slider-subs__contents {
+  margin-top: rem(70);
+
+  @include mq(md) {
+    margin-top: rem(45);
   }
 }

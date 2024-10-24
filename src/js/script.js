@@ -380,7 +380,7 @@ $(function () {
   $('.rotate-slider').slick({
     autoplay: true,
     speed: 800,  // 切り替わる時間(回転する速さ)：ここの値は変更せず、下の『slide.style.transition』の部分で調整する事。
-    autoplaySpeed: 3300,  // 次のスライドに切り替わるまでの時間
+    autoplaySpeed: 4000,  // 次のスライドに切り替わるまでの時間
     dots: true,
     infinite: true,
     centerMode: true,
@@ -842,13 +842,14 @@ document.addEventListener('DOMContentLoaded', function() {
 /* -------------------------------------------------------------------------------- */
 /* 点線が伸びていくアニメーション (『ランチャームとはページ』のsvg) */
 
-// 下からトリミングが外れる (上から出現)　の、この『ランチャームとはページ』のsvgが伸びる場合専用！！
+// 下からトリミングが外れる (上から出現) の、この『ランチャームとはページ』のsvgが伸びる場合専用！！
 // アニメーションにかかる『秒数』を長く設定するから！
+// 『-webkit-clip-path』も付与して、safariにも対応。
 document.addEventListener('DOMContentLoaded', function() {
   const trimmingToTopItemsClearlyLong = document.querySelectorAll(".js-trimming-to-top-clearly-long");  // ページ内の、このアニメーションをさせたい全ての要素を取得
 
   trimmingToTopItemsClearlyLong.forEach(topItem => {
-    gsap.fromTo(topItem,{'clipPath':'inset(0 0 100% 0)'},{'clipPath':'inset(0 0 0% 0)', ease:"none", scrollTrigger:{  // scrubを使用するため、easeはnoneに設定。
+    gsap.fromTo(topItem,{'clipPath':'inset(0 0 100% 0)','-webkit-clip-path':'inset(0 0 100% 0)'},{'clipPath':'inset(0 0 0% 0)','-webkit-clip-path':'inset(0 0 0% 0)', ease:"none", scrollTrigger:{  // scrubを使用するため、easeはnoneに設定。
         trigger: topItem,
         start: 'top 60%',
         end: 'bottom 20%',  // 要素が画面からほぼ消える位置でアニメーションが完了
