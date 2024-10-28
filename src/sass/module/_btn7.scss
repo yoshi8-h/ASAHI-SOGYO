@@ -1,0 +1,39 @@
+@use "global" as *;
+
+
+.btn7 {
+  display: inline-block;
+  border-radius: rem(6.27);
+  background: $color-accent1;
+  padding-block: rem(25.8);
+  padding-inline: rem(33.4);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn7:hover .btn7__arrow {  // hover
+  transform: translateX(rem(5));
+}
+
+.btn7__text {
+  color: #FFF;
+  font-size: rem(20);
+  font-weight: $bold;
+  line-height: normal;
+  letter-spacing: 0.07em;
+}
+
+.btn7__arrow {
+  transition: transform 0.2s ease-out;
+  // width: rem(52);
+  // height: rem(52);
+
+  display: grid;
+  place-items: center;
+}
+
+.btn7__arrow svg {
+
+}

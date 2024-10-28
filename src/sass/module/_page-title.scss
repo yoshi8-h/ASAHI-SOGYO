@@ -67,10 +67,10 @@
 // =======================================
 // .page-title--2 (2行のタイトル) (recruit.htmlなど)
 .page-title--2.page-title {
-  gap: rem(30);
+  gap: rem(27);
 
   @include mq(md) {
-    gap: rem(8);
+    gap: rem(16);
   }
 }
 
@@ -79,7 +79,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: rem(35);
+  gap: rem(10);
+
+  @include mq(md) {
+    gap: rem(1);
+  }
+}
+
+.page-title--2 .page-title__main-text {
+  leading-trim: both;
+  text-edge: cap;
+  font-family: $font-family-ja-1;
+  font-size: rem(45);
+  font-weight: $normal;
+  line-height: 1.5;
+  letter-spacing: 0.19em;
+  text-indent: 0.19em;
+
+  @include mq(md) {
+    font-size: rem(28);
+  }
 }
 
 

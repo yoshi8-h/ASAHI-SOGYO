@@ -28,3 +28,12 @@
 .l-footer--lunch.l-footer {
   margin-top: 0;
 }
+
+// l-footer--recruit (採用情報 ページのfooter)
+.l-footer--recruit.l-footer {
+  margin-top: rem(200);
+
+  @include mq(md) {
+    margin-top: rem(140);
+  }
+}

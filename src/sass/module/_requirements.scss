@@ -1,0 +1,36 @@
+@use "global" as *;
+
+
+.requirements {
+
+}
+
+.requirements__inner {
+
+}
+
+.requirements__title {
+
+}
+
+.requirements__contents-wrap {
+  margin-top: rem(40);
+  background: #F5F5F5;
+  padding-block: rem(104);
+  padding-inline: rem(30);
+}
+
+.requirements__contents {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: rem(27);
+  row-gap: rem(27);
+  align-items: flex-start;  // 上揃えに。
+
+  max-width: rem(1210);
+  margin-inline: auto;
+}
+
+.requirements__btn {
+
+}
