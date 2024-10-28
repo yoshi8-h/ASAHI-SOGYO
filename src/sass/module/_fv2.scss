@@ -60,3 +60,12 @@
     background: url(../images/page/sp/service_fv-bg.webp) no-repeat center center / cover;
   }
 }
+
+// fv2--recruit (採用情報ページ)
+.fv2--recruit .fv2__wrap {
+  background: url(../images/page/pc/recruit_fv-bg.webp) no-repeat center center / cover;
+
+  @include mq(md) {
+    background: url(../images/page/sp/recruit_fv-bg.webp) no-repeat center center / cover;
+  }
+}

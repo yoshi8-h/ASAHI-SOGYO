@@ -1,0 +1,68 @@
+@use "global" as *;
+
+
+.recruit-message {
+
+}
+
+.recruit-message__inner {
+
+}
+
+.recruit-message__title {
+
+}
+
+.recruit-message__contents {
+  margin-top: rem(1);
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: rem(35);
+}
+
+.recruit-message__contents-dashline {  // 赤い点線
+  position: absolute;
+  width: rem(1449);
+  top: rem(46);
+  left: rem(-14);
+  z-index: -1;
+}
+
+.recruit-message__contents-dashline svg {
+
+}
+
+.recruit-message__contents-dashline svg path {
+
+}
+
+.recruit-message__texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(34.5);
+
+  width: 50%;
+}
+
+.recruit-message__text {
+  font-size: rem(22);
+  font-weight: $medium;
+  line-height: 2.1;
+  letter-spacing: 0.12em;
+  text-indent: 0.12em;
+}
+
+.recruit-message__img {
+  border-radius: rem(5);
+  width: 31.5%;
+  max-width: rem(461);
+}
+
+.recruit-message__img img {
+  width: 100%;
+}

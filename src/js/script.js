@@ -849,11 +849,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const trimmingToTopItemsClearlyLong = document.querySelectorAll(".js-trimming-to-top-clearly-long");  // ページ内の、このアニメーションをさせたい全ての要素を取得
 
   trimmingToTopItemsClearlyLong.forEach(topItem => {
-    gsap.fromTo(topItem,{'clipPath':'inset(0 0 100% 0)','-webkit-clip-path':'inset(0 0 100% 0)'},{'clipPath':'inset(0 0 0% 0)','-webkit-clip-path':'inset(0 0 0% 0)', ease:"none", scrollTrigger:{  // scrubを使用するため、easeはnoneに設定。
+    gsap.fromTo(topItem,{'clipPath':'inset(0 0 100% 0)','-webkit-clip-path':'inset(0 0 100% 0)'},{'clipPath':'inset(0 0 0% 0)','-webkit-clip-path':'inset(0 0 0% 0)', duration: 13.0, ease:"linear", scrollTrigger:{
         trigger: topItem,
         start: 'top 60%',
-        end: 'bottom 20%',  // 要素が画面からほぼ消える位置でアニメーションが完了
-        scrub: true,
+        // end: 'bottom 20%',  // 要素が画面からほぼ消える位置でアニメーションが完了
         toggleActions: 'play none none none',  // スクロール時の動作を指定
         once: true,  // 一度だけ実行
         // markers:{
