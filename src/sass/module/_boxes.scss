@@ -1,0 +1,15 @@
+@use "global" as *;
+
+
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: rem(36);
+  row-gap: rem(40);
+  align-items: flex-start;  // 上揃えに。
+}
+
+.boxes__item {
+  width: 100%;
+  max-width: rem(337);
+}

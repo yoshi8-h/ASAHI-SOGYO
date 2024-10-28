@@ -1,0 +1,50 @@
+@use "global" as *;
+
+
+.box {
+  border-radius: rem(5);
+  background: $color-background-base-1;
+  text-align: center;
+  padding-top: rem(40);
+  padding-bottom: rem(48);
+}
+
+.box__top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: rem(6);
+  padding-inline: rem(15);
+}
+
+.box__top-icon {
+
+}
+
+.box__top-icon img {
+  aspect-ratio: 1 / 1;
+  width: rem(34);
+  height: rem(34);
+}
+
+.box__top-text {
+  color: $color-accent1;
+  font-size: rem(24);
+  font-weight: $bold;
+  line-height: 2.1;
+  letter-spacing: 0.07em;
+  text-indent: 0.07em;
+}
+
+.box__bottom {
+  padding-inline: rem(7);
+}
+
+.box__bottom-text {
+  font-size: rem(17);
+  font-weight: $medium;
+  line-height: 2.1;
+  letter-spacing: -0.01em;
+  text-indent: -0.01em;
+}
