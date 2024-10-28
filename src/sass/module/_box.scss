@@ -16,6 +16,19 @@
   align-items: center;
   gap: rem(6);
   padding-inline: rem(15);
+  padding-bottom: rem(17.5);
+  position: relative;
+}
+
+.box__top::after {
+  content: "";
+  width: 87.2%;
+  height: 1px;
+  background: #DDD;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
 }
 
 .box__top-icon {
@@ -38,6 +51,7 @@
 }
 
 .box__bottom {
+  margin-top: rem(19);
   padding-inline: rem(7);
 }
 

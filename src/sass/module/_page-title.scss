@@ -81,3 +81,22 @@
   align-items: flex-start;
   gap: rem(35);
 }
+
+
+// .page-title--3 (タイトルの横にアイコンがある場合) (recruit.htmlなど)
+.page-title--3 {
+  position: relative;
+  width: fit-content;
+}
+
+.page-title__icon {  // 人のアイコン
+  position: absolute;
+  bottom: rem(6);
+  left: calc(100% + rem(20));
+  width: 100%;
+}
+
+.page-title__icon img {
+  aspect-ratio: 65.8 / 104;
+  width: rem(65.8);
+}
