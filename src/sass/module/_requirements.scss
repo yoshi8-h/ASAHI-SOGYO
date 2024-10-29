@@ -6,7 +6,10 @@
 }
 
 .requirements__inner {
-
+  @include mq(md) {
+    max-width: rem(calc(500 + 20 * 2));  // 両端のpadding分を考慮
+    margin-inline: auto;
+  }
 }
 
 .requirements__title {
@@ -18,6 +21,11 @@
   background: #F5F5F5;
   padding-block: rem(104);
   padding-inline: rem(30);
+
+  @include mq(md) {
+    padding-block: rem(60);
+    padding-inline: rem(30);
+  }
 }
 
 .requirements__contents {
@@ -29,6 +37,11 @@
 
   max-width: rem(1210);
   margin-inline: auto;
+
+  @include mq(md) {
+    grid-template-columns: repeat(1, 1fr);
+    max-width: none;
+  }
 }
 
 .requirements__btn {

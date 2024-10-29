@@ -11,6 +11,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include mq(md) {
+    padding-block: rem(18);
+    padding-inline: rem(20);
+  }
 }
 
 .btn7:hover .btn7__arrow {  // hover
@@ -23,6 +28,10 @@
   font-weight: $bold;
   line-height: normal;
   letter-spacing: 0.07em;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
 }
 
 .btn7__arrow {
