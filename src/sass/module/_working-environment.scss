@@ -5,10 +5,18 @@
   background: #FFF7F9;
   padding-top: rem(181);
   padding-bottom: rem(200);
+
+  @include mq(md) {
+    padding-top: rem(70);
+    padding-bottom: rem(90);
+  }
 }
 
 .working-environment__inner {
-
+  @include mq(md) {
+    max-width: rem(calc(500 + 20 * 2));  // 両端のpadding分を考慮
+    margin-inline: auto;
+  }
 }
 
 .working-environment__title {
@@ -17,4 +25,8 @@
 
 .working-environment__boxes {
   margin-top: rem(40);
+
+  @include mq(md) {
+    margin-top: rem(50);
+  }
 }

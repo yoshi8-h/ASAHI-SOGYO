@@ -7,10 +7,18 @@
   column-gap: rem(36);
   row-gap: rem(40);
   align-items: flex-start;  // 上揃えに。
+
+  @include mq(md) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .boxes__item {
   width: 100%;
   max-width: rem(337);
   height: 100%;
+
+  @include mq(md) {
+    max-width: none;
+  }
 }
