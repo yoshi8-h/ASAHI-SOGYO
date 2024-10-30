@@ -28,16 +28,18 @@ $mediaquerys: (
 
 } @else {
   $breakpoints: (
-    xl: 1280,
+    xxl: 1920,
+    xl: 1600,  // 先方希望により、メディアクエリを増設
     lg: 1023,
-    md: 899,
+    md: 899,  // 900pxを境にSPとPC切り替え
     sm: 600,
   );
   $mediaquerys: (
     sm: "screen and (max-width: #{map-get($breakpoints,'sm')}px)",
     md: "screen and (max-width: #{map-get($breakpoints,'md')}px)",
     lg: "screen and (max-width: #{map-get($breakpoints,'lg')}px)",
-    xl: "screen and (min-width: #{map-get($breakpoints,'xl')}px)",
+    xl: "screen and (max-width: #{map-get($breakpoints,'xl')}px)",
+    xxl: "screen and (min-width: #{map-get($breakpoints,'xl')}px)",
   );
 
 

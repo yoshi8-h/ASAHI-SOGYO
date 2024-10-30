@@ -509,13 +509,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* -------------------------------------------------------------------------------- */
 /* １つの要素をフワッと下から出現 */
+// ページ先頭にある場合のみ、発火位置を調整するためのクラス『is-top-element』も同時に付与するかどうかで、scrollTriggerの発火位置(start)を調整できるようにしている。
+// →ページの先頭付近にある要素は、scrollTriggerでスクロールしてアニメーションが発火する位置を、元から超えているため、画面リロード時に、すでにアニメーションが発火された状態になってしまっているため、それを防ぐ方法。
 document.addEventListener('DOMContentLoaded', function() {
   const fadeInUps = document.querySelectorAll(".js-fadeInUp");  // ページ内の、このアニメーションをさせたい全ての要素を取得
 
   fadeInUps.forEach(item => {
+    let isTopElement = item.classList.contains("is-top-element");  // クラスを持っているか判定
+
     gsap.fromTo(item, {y:20, autoAlpha:0}, {y:0, autoAlpha:1, scrollTrigger:{
         trigger: item,
-        start: 'top 70%',
+        start: isTopElement ? 'top 50%' : 'top 70%',  // 『is-top-element』クラスも同時に付与されている要素のみ、発火位置を下め(50%)に調整。→ページの先頭付近にある要素は、scrollTriggerでスクロールしてアニメーションが発火する位置を、元から超えているため、画面リロード時に、すでにアニメーションが発火された状態になってしまっているため、それを防ぐ方法。
         // markers:{
         //   startColor: "green",
         // },
@@ -703,6 +707,8 @@ document.addEventListener('DOMContentLoaded', function() {
 /* テキストを、フェードで1文字ずつ表示させる */
 // ※ <span>タグで1文字ずつ囲む処理をする際に、<br>タグは1文字ずつ<span>で囲む対象から外す。
 // ※ <span>タグで1文字ずつ囲む処理をする際にその分割処理から除外する<br>タグについて、<br>にclassが付与されていても除外対象だと判別されるように実装。
+// パターン1には、ページ先頭にある場合のみ、発火位置を調整するためのクラス『is-top-element』も同時に付与するかどうかで、scrollTriggerの発火位置(start)を調整できるようにしている。
+// →ページの先頭付近にある要素は、scrollTriggerでスクロールしてアニメーションが発火する位置を、元から超えているため、画面リロード時に、すでにアニメーションが発火された状態になってしまっているため、それを防ぐ方法。
 
 window.addEventListener('DOMContentLoaded', function() {
   let splitTargets = document.querySelectorAll(".js-splitText");  // ターゲットとなる要素を全て取得
@@ -733,9 +739,10 @@ window.addEventListener('DOMContentLoaded', function() {
   let targets1 = document.querySelectorAll(".js-text-fadein-1");
   targets1.forEach(function(target) {
     let spans = target.querySelectorAll('span');
+    let isTopElement = target.classList.contains("is-top-element");  // 『.is-top-element』クラスも、『.js-text-fadein-1』と同時に持っているか判定
     gsap.fromTo(spans, {autoAlpha:0}, {autoAlpha:1, stagger:.05, scrollTrigger:{
       trigger: spans,
-      start: 'top 50%',
+      start: isTopElement ? 'top 40%' : 'top 50%',  // 『.is-top-element』クラスも同時に付与されている要素のみ、発火位置を下め(40%)に調整。→ページの先頭付近にある要素は、scrollTriggerでスクロールしてアニメーションが発火する位置を、元から超えているため、画面リロード時に、すでにアニメーションが発火された状態になってしまっているため、それを防ぐ方法。
       // markers:{
       //   startColor: "blue",
       // },
