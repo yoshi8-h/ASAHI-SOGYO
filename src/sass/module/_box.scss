@@ -87,6 +87,9 @@
   letter-spacing: -0.01em;
   text-indent: -0.01em;
 
+  font-size: calc(17px / 1920px * 100vw);
+  font-size: clamp(7px, calc(17px / 1920px * 100vw), 17px);
+
   @include mq(md) {
     font-size: rem(16);
   }
