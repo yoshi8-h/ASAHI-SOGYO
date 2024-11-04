@@ -1,0 +1,26 @@
+@use "global" as *;
+
+
+.contact-message {
+
+}
+
+.contact-message__inner {
+
+}
+
+.contact-message__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contact-message__message {
+  font-size: rem(18);
+  line-height: 1.7;
+  font-weight: $normal;
+}
+
+.contact-message__btn {
+
+}

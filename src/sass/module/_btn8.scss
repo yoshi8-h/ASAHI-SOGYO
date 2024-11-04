@@ -1,0 +1,31 @@
+@use "global" as *;
+
+
+.btn8 {
+  display: inline-block;
+  min-width: rem(304);
+  text-align: center;
+  padding-block: rem(13);
+  padding-inline: rem(20);
+  border: rem(1) solid $color-font-base;
+  border-radius: rem(30);
+  transition: background 0.2s ease-out;
+}
+
+.btn8:hover {
+  background: $color-font-base;
+}
+
+.btn8:hover .btn8__text {
+  color: #FFF;
+}
+
+.btn8__wrap {
+
+}
+
+.btn8__text {
+  font-size: rem(14);
+  font-weight: $bold;
+  transition: color 0.2s ease-out;
+}

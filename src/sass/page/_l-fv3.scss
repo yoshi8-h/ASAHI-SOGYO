@@ -1,0 +1,10 @@
+@use "global" as *;
+
+
+.l-fv3 {
+  margin-top: rem(43);
+
+  @include mq(md) {
+    margin-top: rem(29);
+  }
+}

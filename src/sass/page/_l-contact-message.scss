@@ -1,0 +1,10 @@
+@use "global" as *;
+
+
+.l-contact-message {
+  margin-top: rem(70);
+
+  @include mq(md) {
+    margin-top: rem(50);
+  }
+}
