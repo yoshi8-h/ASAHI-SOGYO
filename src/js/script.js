@@ -465,79 +465,15 @@ $(function () {
 
 /* -------------------------------------------------------------------------------- */
 /* 「inquiry.html」の『お問い合わせフォーム』の送信完了時に『thanksページ(thanks.html)』に飛ぶようにする */
-// document.addEventListener('DOMContentLoaded', function () {
-//   // 『送信ボタン』を取得
-//   const sendButton = document.querySelector('.form__sendbtn');
-
-//   // ボタンが存在する場合のみイベントを登録
-//   if (sendButton) {
-//     sendButton.addEventListener('click', function (event) {
-//       // フォーム全体の取得
-//       const form = document.querySelector('.contact__form');
-
-//       // フォームの入力が全て正しく入力されているかを確認
-//       if (!form.checkValidity()) {
-//         // 入力エラーがある場合、デフォルトの送信を防止
-//         event.preventDefault();
-//         alert('必須項目をすべて入力してください。');
-//       } else {
-//         // 全ての必須項目が入力されている場合
-//         event.preventDefault(); // 標準の送信動作を防止
-//         window.location.href = 'thanks.html'; // thanks.htmlに遷移
-//       }
-//     });
-//   }
-// });
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   // 『送信ボタン』を取得
-//   const sendButton = document.querySelector('.form__sendbtn');
-
-//   if (sendButton) {
-//     sendButton.addEventListener('click', function (event) {
-//       const form = document.querySelector('.contact__form');
-
-//       // チェックボックスグループの必須検証
-//       function isCheckboxGroupValid(name) {
-//         const checkboxes = document.querySelectorAll(`input[name="${name}"]`);
-//         return Array.from(checkboxes).some(checkbox => checkbox.checked);
-//       }
-
-//       // チェックボックスグループの検証対象
-//       const checkboxGroups = [
-//         'your-category',          // お問い合わせ内容
-//         'your-discovery_method',  // 弊社をどこで知りましたか？
-//       ];
-
-//       let isValid = true;
-//       for (const group of checkboxGroups) {
-//         if (!isCheckboxGroupValid(group)) {
-//           isValid = false;
-//           break;
-//         }
-//       }
-
-//       // 入力が全て正しく、チェックボックスの検証もパスしたかを確認
-//       if (!form.checkValidity() || !isValid) {
-//         event.preventDefault();
-//         alert('必須項目をすべて入力してください。');
-//       } else {
-//         event.preventDefault(); // 標準の送信動作を防止
-//         window.location.href = 'thanks.html'; // thanks.htmlに遷移
-//       }
-//     });
-//   }
-// });
-
-
-
+// バリデーションも付与。
 document.addEventListener('DOMContentLoaded', function () {
   // 『送信ボタン』を取得
   const sendButton = document.querySelector('.form__sendbtn');
 
   if (sendButton) {
     sendButton.addEventListener('click', function (event) {
+      const form = document.querySelector('.contact__form');
+
       // チェックボックスグループの必須検証
       function isCheckboxGroupValid(name) {
         const checkboxes = document.querySelectorAll(`input[name="${name}"]`);
@@ -547,7 +483,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // チェックボックスグループの検証対象
       const checkboxGroups = [
         'your-category',          // お問い合わせ内容
-        'your-discovery_method'   // 弊社をどこで知りましたか？
+        'your-discovery_method',  // 弊社をどこで知りましたか？
       ];
 
       let isValid = true;
@@ -558,23 +494,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
 
-      // 個人情報規程同意のチェック
-      const agreeCheckbox = document.querySelector('.agree__checkbox input');
-      if (!agreeCheckbox.checked) {
-        isValid = false;
+      // 入力が全て正しく、チェックボックスの検証もパスしたかを確認
+      if (!form.checkValidity() || !isValid) {
+        event.preventDefault();
+        alert('必須項目をすべて入力してください。');
+      } else {
+        event.preventDefault(); // 標準の送信動作を防止
+        window.location.href = 'thanks.html'; // thanks.htmlに遷移
       }
-
-      // カスタムバリデーションが失敗した場合のみ送信を阻止
-      if (!isValid) {
-        event.preventDefault(); // チェックが不足している場合、送信を阻止
-      }
-      // isValidがtrueの場合、ブラウザのデフォルトのバリデーションが実行される
     });
   }
 });
-
-
-
 
 
 
