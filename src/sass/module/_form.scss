@@ -1,0 +1,49 @@
+@use "global" as *;
+
+
+@use "global" as *;
+
+
+.form {  // <form> タグだから、ここにはCSSを指定しない事！！(WordPress化する際に、『Contact Form 7』を使う時に<form>タグは消すため)
+
+}
+
+.form__error-message {  // バリデーションのエラーメッセージのスタイル調整用クラス
+  color: #C94800;
+  margin-bottom: rem(40);
+  font-size: rem(14);
+  font-weight: $normal;
+  line-height: normal;
+  width: rem(224);
+  margin-inline: auto;
+
+  @include mq(md) {
+    width: fit-content;
+  }
+}
+
+.form__fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: rem(24);
+
+  @include mq(md) {
+    gap: rem(40);
+  }
+}
+
+.form__sendbtn-wrap {
+  text-align: center;
+  margin-top: rem(24);
+
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
+
+.form__sendbtn {
+  max-width: rem(202);
+  width: 100%;
+}

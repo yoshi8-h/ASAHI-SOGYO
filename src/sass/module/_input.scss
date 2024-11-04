@@ -1,0 +1,48 @@
+@use "global" as *;
+
+
+.input {
+
+}
+
+.input__text {  // 1行のテキスト入力エリアの共通クラス
+  border: rem(1) solid $color-accent1;
+  background: #FFF;
+
+  padding-block: rem(8);
+  padding-inline: rem(16);
+
+  // 文字を入力した時の色を指定。
+  color: $color-font-base;
+  font-size: rem(16);
+  font-weight: $normal;
+  line-height: normal;
+
+  transition: background 0.2s ease-out;
+}
+
+.input__text:hover,
+.input__text:focus {  //『入力時』＝『focus時』
+  background: rgba(64, 224, 208, 0.1); /* ターコイズブルー + 透明度30％ */
+}
+
+.input__text::placeholder {  // プレイスホルダーのCSS指定 (placeholder)
+  color: #DDF0F1;
+}
+
+// お問い合わせ項目のチェックボックスのエラー時に付与される『.is-error』が付いた時は、プレイスホルダーの色を白に。
+.is-error.input__text::placeholder {
+  color: #FFF;
+}
+
+.js-form-input {
+
+}
+
+
+
+// バリデーションでエラーになった際に、inputタグなどに付与されるクラス
+.is-error {
+  border: rem(1) solid #C94800;
+  background: rgba(201, 72, 0, 0.20);
+}

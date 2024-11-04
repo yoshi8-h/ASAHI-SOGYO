@@ -1,0 +1,13 @@
+@use "global" as *;
+
+
+.textarea {
+  transition: background 0.2s ease-out;
+  padding-block: rem(8);
+  padding-inline: rem(16);
+}
+
+.textarea:hover,
+.textarea:focus {  //『入力時』＝『focus時』
+  background: rgba(64, 224, 208, 0.1); /* ターコイズブルー + 透明度30％ */
+}
