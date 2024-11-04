@@ -10,6 +10,10 @@
   border: rem(1) solid $color-font-base;
   border-radius: rem(30);
   transition: background 0.2s ease-out;
+
+  @include mq(md) {
+    min-width: rem(280);
+  }
 }
 
 .btn8:hover {

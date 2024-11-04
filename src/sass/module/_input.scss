@@ -20,12 +20,18 @@
   line-height: normal;
 
   transition: background 0.2s ease-out;
+
+  @include mq(md) {
+    padding-block: rem(10);
+    padding-inline: rem(10);
+    font-size: rem(14);
+  }
 }
 
-.input__text:hover,
-.input__text:focus {  //『入力時』＝『focus時』
-  background: rgba(64, 224, 208, 0.1); /* ターコイズブルー + 透明度30％ */
-}
+// .input__text:hover,
+// .input__text:focus {  //『入力時』＝『focus時』
+//   background: rgba(64, 224, 208, 0.1); /* ターコイズブルー + 透明度30％ */
+// }
 
 .input__text::placeholder {  // プレイスホルダーのCSS指定 (placeholder)
   color: #DDF0F1;
@@ -39,6 +45,11 @@
 .input__text-alert {
   margin-top: rem(15);
   font-size: rem(18);
+
+  @include mq(md) {
+    margin-top: rem(10);
+    font-size: rem(14);
+  }
 }
 
 .js-form-input {

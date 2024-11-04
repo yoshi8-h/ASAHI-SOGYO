@@ -12,15 +12,27 @@
 .contact-message__wrap {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+
+  @include mq(md) {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .contact-message__message {
   font-size: rem(18);
   line-height: 1.7;
   font-weight: $normal;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
 }
 
 .contact-message__btn {
-
+  @include mq(md) {
+    margin-top: rem(20);
+    margin-inline: auto;
+  }
 }

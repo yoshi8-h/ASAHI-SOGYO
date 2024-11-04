@@ -10,6 +10,10 @@
   border-radius: rem(35);
   padding-block: rem(15);
   position: relative;
+
+  @include mq(md) {
+    font-size: rem(16);
+  }
 }
 
 .btn9:hover .btn9__arrow {  // hover
@@ -27,4 +31,9 @@
 .btn9__arrow img {
   width: rem(21);
   height: rem(20);
+
+  @include mq(md) {
+    width: rem(18);
+    height: rem(17);
+  }
 }

@@ -14,9 +14,15 @@
   padding-left: rem(28);
 
   transition: background 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(14);
+    padding-block: rem(10);
+    padding-left: rem(14);
+  }
 }
 
-.select:hover,
-.select:focus {  //『入力時』＝『focus時』
-  background: rgba(64, 224, 208, 0.1); /* ターコイズブルー + 透明度30％ */
-}
+// .select:hover,
+// .select:focus {  //『入力時』＝『focus時』
+//   background: rgba(64, 224, 208, 0.1); /* ターコイズブルー + 透明度30％ */
+// }

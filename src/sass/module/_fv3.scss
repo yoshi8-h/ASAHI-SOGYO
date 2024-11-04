@@ -20,14 +20,11 @@
 .fv3__wrap  {
   min-height: rem(400);
   border-radius: rem(10);
-  background: #000;
   background: url(../images/page/pc/fv3-bg-red.png) no-repeat center center / cover;
   position: relative;
 
   @include mq(md) {
     min-height: rem(170);
-    border-radius: rem(10);
-    background: url(../images/page/sp/fv3-bg-red.png) no-repeat center center / cover;
   }
 }
 
@@ -45,7 +42,7 @@
   @include mq(md) {
     font-size: rem(24);
     line-height: 1.25;
-    left: rem(40);
+    left: rem(30);
   }
 }
 
@@ -54,10 +51,19 @@
   position: absolute;
   bottom: rem(25);
   right: rem(68);
+
+  @include mq(md) {
+    bottom: rem(15);
+    right: rem(20);
+  }
 }
 
 .fv3__logo img {
   aspect-ratio: 637 / 190;
   width: 100%;
   max-width: rem(637);
+
+  @include mq(md) {
+    width: rem(150);
+  }
 }

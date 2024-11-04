@@ -5,10 +5,10 @@
   transition: background 0.2s ease-out;
 }
 
-.checkbox:hover .checkbox__text::before,
-.checkbox:focus .checkbox__text::before {  //『入力時』＝『focus時』
-  background: rgba(64, 224, 208, 0.1);  /* ターコイズブルー + 透明度30％ */
-}
+// .checkbox:hover .checkbox__text::before,
+// .checkbox:focus .checkbox__text::before {  //『入力時』＝『focus時』
+//   background: rgba(64, 224, 208, 0.1);  /* ターコイズブルー + 透明度30％ */
+// }
 
 .checkbox__input {
   width: 1px;  // デフォルトのチェックボックスを、機能は残したまま非表示に。
@@ -28,6 +28,10 @@
   line-height: normal;
   position: relative;
   padding-left: rem(22);
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
 }
 
 .checkbox__text::before {  // チェックボックスの外枠の四角
@@ -77,11 +81,4 @@
   border-radius: rem(2);
   text-align: center;
   flex-shrink: 0;
-}
-
-
-/* お問い合わせ項目のチェックボックスのエラー時 */
-.is-error + .checkbox__text::before {
-  border: 1px solid #C94800;  /* 赤枠 */
-  background: rgba(201, 72, 0, 0.20);  /* 背景を淡い赤色に */
 }

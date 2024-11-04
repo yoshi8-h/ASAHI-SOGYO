@@ -559,7 +559,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const fadeInUps = document.querySelectorAll(".js-fadeInUp");  // ページ内の、このアニメーションをさせたい全ての要素を取得
 
   fadeInUps.forEach(item => {
-    let isTopElement = item.classList.contains("is-top-element");  // クラスを持っているか判定
+    let isTopElement = item.classList.contains("is-top-element");  // クラスも同時に持っているか判定
 
     gsap.fromTo(item, {y:20, autoAlpha:0}, {y:0, autoAlpha:1, scrollTrigger:{
         trigger: item,

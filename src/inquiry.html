@@ -331,8 +331,8 @@
       <section class="contact-message l-contact-message">
         <div class="contact-message__inner inner">
           <div class="contact-message__wrap">
-            <p class="contact-message__message">よくご質問いただく内容を、FAQページにまとめております。お問い合わせの前に、こちらもご覧ください。</p>
-            <a href="./faq.html" class="contact-message__btn btn8">
+            <p class="contact-message__message js-fadeInUp is-top-element">よくご質問いただく内容を、FAQページにまとめております。お問い合わせの前に、こちらもご覧ください。</p>
+            <a href="./faq.html" class="contact-message__btn btn8 js-fadeInUp is-top-element">
               <div class="btn8__wrap">
                 <div class="btn8__text">よくある質問へ</div>
               </div>
@@ -347,7 +347,7 @@
           <div class="contact__form-wrap">
             <form class="contact__form form">  <!-- form -->
               <div class="form__fields fields">
-                <div class="fields__item field">
+                <div class="fields__item field js-fadeInUp">
                   <div class="field__head">
                     <label for="your-name" class="field__label">
                       <span class="field__label-text">お名前</span>
@@ -365,7 +365,7 @@
                     >
                   </div>
                 </div>
-                <div class="fields__item field">
+                <div class="fields__item field js-fadeInUp">
                   <div class="field__head">
                     <label for="your-name-kana" class="field__label">
                       <span class="field__label-text">フリガナ</span>
@@ -381,7 +381,7 @@
                     >
                   </div>
                 </div>
-                <div class="fields__item field">
+                <div class="fields__item field js-fadeInUp">
                   <div class="field__head">
                     <label for="your-email" class="field__label">
                       <span class="field__label-text">返信先メールアドレス</span>
@@ -399,7 +399,7 @@
                     >
                   </div>
                 </div>
-                <div class="fields__item field">
+                <div class="fields__item field js-fadeInUp">
                   <div class="field__head">
                     <label for="your-company" class="field__label">
                       <span class="field__label-text">会社名</span>
@@ -418,7 +418,7 @@
                     <p class="input__text-alert">※個人の方は「個人」と入力をお願いします</p>
                   </div>
                 </div>
-                <div class="fields__item field">
+                <div class="fields__item field js-fadeInUp">
                   <div class="field__head">
                     <label for="your-tel" class="field__label">
                       <span class="field__label-text">電話番号</span>
@@ -436,7 +436,7 @@
                     >
                   </div>
                 </div>
-                <div class="fields__item field field--post-code">
+                <div class="fields__item field field--post-code js-fadeInUp">
                   <div class="field__head">
                     <label for="your-postーcode" class="field__label">
                       <span class="field__label-text">郵便番号</span>
@@ -447,7 +447,6 @@
                     <input
                       class="input__text js-form-input"
                       type="text"
-                      pattern="\d{3}-\d{4}"
                       name="your-postーcode"
                       id="your-postーcode"
                       placeholder=""
@@ -455,7 +454,7 @@
                     >
                   </div>
                 </div>
-                <div class="fields__item field field--mt2">
+                <div class="fields__item field field--mt2 js-fadeInUp">
                   <div class="field__head">
                     <label for="your-47prefectures" class="field__label">
                       <span class="field__label-text">都道府県</span>
@@ -514,7 +513,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="fields__item field">
+                <div class="fields__item field js-fadeInUp">
                   <div class="field__head">
                     <label for="your-city-address" class="field__label">
                       <span class="field__label-text">市町村区・番地</span>
@@ -530,7 +529,7 @@
                     >
                   </div>
                 </div>
-                <div class="fields__item field field--mt">
+                <div class="fields__item field field--mt js-fadeInUp">
                   <div class="field__head">
                     <div class="field__label">
                       <span class="field__label-text">お問い合わせ内容</span>
@@ -572,7 +571,7 @@
                     </label>
                   </div>
                 </div>
-                <div class="fields__item field is-textarea">  <!-- 『テキストエリア』の項目 -->
+                <div class="fields__item field is-textarea js-fadeInUp">  <!-- 『テキストエリア』の項目 -->
                   <div class="field__head is-textarea">
                     <label for="your-message" class="field__label">
                       <span class="field__label-text">お問い合わせ詳細</span>
@@ -590,7 +589,7 @@
                     ></textarea>
                   </div>
                 </div>
-                <div class="fields__item field field--mt">
+                <div class="fields__item field field--mt js-fadeInUp">
                   <div class="field__head">
                     <div class="field__label">
                       <span class="field__label-text">弊社をどこで知りましたか？</span>
@@ -634,7 +633,7 @@
                 </div>
               </div>
               <div class="form__bottom">
-                <div class="form__agree agree">
+                <div class="form__agree agree js-fadeInUp">
                   <label class="agree__checkbox checkbox">
                     <input
                       type="checkbox"
@@ -646,12 +645,12 @@
                     <span class="checkbox__require">必須</span>
                   </label>
                 </div>
-                <p class="form__agreement-text">
+                <p class="form__agreement-text js-fadeInUp">
                   当社の
-                  <a href="./policy.html" class="form__agreement-link">個人情報の取扱規程</a>
+                  <a href="./policy.html" target="_blank" class="form__agreement-link">個人情報の取扱規程</a>
                   について同意される方のみ送信できます。
                 </p>
-                <div class="form__sendbtn-wrap">
+                <div class="form__sendbtn-wrap js-fadeInUp">
                   <button type="submit" value="submit" class="form__sendbtn btn9">
                     確認画面へ
                     <div class="btn9__arrow">
