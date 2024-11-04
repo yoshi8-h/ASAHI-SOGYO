@@ -2,5 +2,13 @@
 
 
 .checkboxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(28);
+}
+
+.checkboxes__item {
 
 }

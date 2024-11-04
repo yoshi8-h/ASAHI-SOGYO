@@ -6,15 +6,16 @@
 }
 
 .input__text {  // 1行のテキスト入力エリアの共通クラス
-  border: rem(1) solid $color-accent1;
+  border: rem(1) solid #cccccc;
+  border-radius: rem(10);
   background: #FFF;
 
-  padding-block: rem(8);
+  padding-block: rem(21);
   padding-inline: rem(16);
 
   // 文字を入力した時の色を指定。
   color: $color-font-base;
-  font-size: rem(16);
+  font-size: rem(18);
   font-weight: $normal;
   line-height: normal;
 
@@ -33,6 +34,11 @@
 // お問い合わせ項目のチェックボックスのエラー時に付与される『.is-error』が付いた時は、プレイスホルダーの色を白に。
 .is-error.input__text::placeholder {
   color: #FFF;
+}
+
+.input__text-alert {
+  margin-top: rem(15);
+  font-size: rem(18);
 }
 
 .js-form-input {

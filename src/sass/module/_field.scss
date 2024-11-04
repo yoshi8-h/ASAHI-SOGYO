@@ -4,37 +4,16 @@
 .field {
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
-  gap: rem(16);
+  gap: 6.64%;
+  gap: rem(90);
 
   @include mq(md) {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
     gap: rem(40);  // 念の為SP時より上書き
   }
-}
-
-.field:not(:last-child) {  // 最後の要素以外に設定
-  padding-bottom: rem(24);
-  position: relative;
-
-  @include mq(md) {
-    padding-bottom: rem(40);
-  }
-}
-
-.field:not(:last-child)::after {  // 仕切り線 (点線) (最後の要素以外に設定)
-  content: "";
-  width: 100%;
-  height: rem(1);
-  background: url(../images/common/separate-dashed-line.svg) no-repeat center center / cover;
-  position: absolute;
-  bottom: rem(-0.5);
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .field.is-agree {
@@ -42,10 +21,14 @@
 }
 
 .field__head {
+  margin-top: rem(22);
+  width: 16.64%;
+  min-width: 150px;
+  flex-shrink: 0;
 
   @include mq(md) {
     flex-grow: 1;
-    width: 25.85%;
+    width: 20%;
   }
 }
 
@@ -53,30 +36,30 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: rem(8);
+  gap: rem(11);
 }
 
 .field__label-text {
-  font-size: rem(16);
+  font-size: rem(18);
   font-weight: $bold;
   line-height: normal;
-
-  @include mq(md) {
-    flex-shrink: 0;
-  }
+  flex-shrink: 0;
 }
 
 .field__label-require {  // 『必須』のラベル
   display: inline-block;
   color: #FFF;
   font-size: rem(12);
-  font-weight: $normal;
-  line-height: normal;
-  letter-spacing: 0.4em;
-  padding-block: rem(2);
-  padding-inline: rem(16);
-  background: #C94800;
+  font-weight: $bold;
+  line-height: 1.0;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+  padding-block: rem(3.5);
+  padding-inline: rem(4.5);
+  background: $color-accent1;
+  border-radius: rem(2);
   text-align: center;
+  flex-shrink: 0;
 
   @include mq(md) {
     flex-shrink: 0;
@@ -84,11 +67,11 @@
 }
 
 .field__item {
-  width: 100%;
+  width: 75.9%;
 
   @include mq(md) {
     flex-grow: 1;
-    width: 68.57%;
+    width: 100%;
   }
 }
 
@@ -97,6 +80,8 @@
 }
 
 .field__checkboxes {
+  padding-left: rem(9);
+
   @include mq(md) {
     flex-grow: 1;
     width: 68.57%;
@@ -105,11 +90,12 @@
 
 .field__select-wrap {
   position: relative;
-  width: 100%;
+  width: 16.64%;
+  min-width: rem(228);
 
   @include mq(md) {
     flex-grow: 1;
-    width: 68.57%;
+    width: 100%;
   }
 }
 
@@ -140,4 +126,27 @@
 
 .field__agree-checkbox {
 
+}
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+// field--mt (martin-topの値が小さい項目の場合)
+.field--mt .field__head {
+  margin-top: rem(5);
+}
+
+
+// field--post-code (『『郵便番号』の部分。入力欄の幅が小さい)
+.field--post-code .field__item {
+  width: 23.5%;
+}
+
+
+// field--mt2 (martin-topの値が小さい項目の場合。パターン2)
+.field--mt2 .field__head {
+  margin-top: rem(18);
 }

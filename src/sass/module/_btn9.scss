@@ -1,0 +1,30 @@
+@use "global" as *;
+
+
+.btn9 {
+  font-size: rem(18);
+  color: #FFF;
+  letter-spacing: 0.04em;
+  text-indent: 0.04em;
+  background: $color-accent1;
+  border-radius: rem(35);
+  padding-block: rem(15);
+  position: relative;
+}
+
+.btn9:hover .btn9__arrow {  // hover
+  transform: translate(rem(5), -50%);
+}
+
+.btn9__arrow {  // 白い矢印
+  position: absolute;
+  top: 50%;
+  right: rem(20);
+  transform: translateY(-50%);
+  transition: transform 0.2s ease-out;
+}
+
+.btn9__arrow img {
+  width: rem(21);
+  height: rem(20);
+}

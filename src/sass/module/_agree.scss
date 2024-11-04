@@ -1,0 +1,17 @@
+@use "global" as *;
+
+
+.agree {
+
+}
+
+.agree__checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(10);
+}
+
+.agree__text {
+  font-size: rem(18);
+}

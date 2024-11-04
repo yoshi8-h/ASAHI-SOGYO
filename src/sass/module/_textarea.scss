@@ -3,7 +3,13 @@
 
 .textarea {
   transition: background 0.2s ease-out;
-  padding-block: rem(8);
+
+  border: rem(1) solid #cccccc;
+  border-radius: rem(10);
+  background: #FFF;
+
+  font-size: rem(18);
+  padding-block: rem(14);
   padding-inline: rem(16);
 }
 
