@@ -27,3 +27,21 @@
     }
   }
 }
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+// .inner--wide (TOPページのコンテンツ部分のみ、1600px以下でinner幅を広くする。)
+.inner--wide.inner {
+  @include mq(xl) {
+    padding-inline: 8vw;
+  }
+
+  @include mq("md") {
+    padding-right: $padding-sp;
+    padding-left: $padding-sp;
+  }
+}

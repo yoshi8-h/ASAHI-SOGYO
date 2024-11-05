@@ -111,6 +111,10 @@
   top: rem(-40);
   right: rem(60);  // innerのpadding分($padding-pc)を考慮
 
+  @include mq(xl) {
+    right: rem(70);  // TOPページのコンテンツ部分のinner幅を1600pxのブレイクポイントを境に狭くしたので、画像も少しだけ内側に寄せる。
+  }
+
   @include mq(md) {
     display: none;
   }
@@ -127,6 +131,10 @@
   position: absolute;
   bottom: rem(-36);
   left: rem(60);  // innerのpadding分($padding-pc)を考慮
+
+  @include mq(xl) {
+    left: rem(70);  // TOPページのコンテンツ部分のinner幅を1600pxのブレイクポイントを境に狭くしたので、画像も少しだけ内側に寄せる。
+  }
 
   @include mq(md) {
     display: none;
