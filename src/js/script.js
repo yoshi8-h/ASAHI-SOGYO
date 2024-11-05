@@ -466,6 +466,7 @@ $(function () {
 /* -------------------------------------------------------------------------------- */
 /* 「inquiry.html」の『お問い合わせフォーム』の送信完了時に『thanksページ(thanks.html)』に飛ぶようにする */
 // バリデーションも付与。
+// セレクトボックス(ドロップダウンリスト)も必須項目に。
 document.addEventListener('DOMContentLoaded', function () {
   // 『送信ボタン』を取得
   const sendButton = document.querySelector('.form__sendbtn');
@@ -473,8 +474,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (sendButton) {
     sendButton.addEventListener('click', function (event) {
       const form = document.querySelector('.contact__form');
+      const selectPrefecture = document.getElementById('your-47prefectures');
+      let isValid = true;
 
-      // チェックボックスグループの必須検証
+      // チェックボックスグループの必須検証関数
       function isCheckboxGroupValid(name) {
         const checkboxes = document.querySelectorAll(`input[name="${name}"]`);
         return Array.from(checkboxes).some(checkbox => checkbox.checked);
@@ -486,7 +489,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'your-discovery_method',  // 弊社をどこで知りましたか？
       ];
 
-      let isValid = true;
+      // チェックボックスグループの検証
       for (const group of checkboxGroups) {
         if (!isCheckboxGroupValid(group)) {
           isValid = false;
@@ -494,10 +497,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
 
+      // セレクトボックスの検証（未選択状態かを確認）
+      if (selectPrefecture.value === "") {  // valueが空なら未選択とみなす
+        isValid = false;
+      }
+
       // 入力が全て正しく、チェックボックスの検証もパスしたかを確認
       if (!form.checkValidity() || !isValid) {
-        event.preventDefault();
-        alert('必須項目をすべて入力してください。');
+        event.preventDefault();  // 標準の送信動作を防止
+        alert('必須項目をすべて入力してください。');  // 1回のアラートのみ表示
       } else {
         event.preventDefault(); // 標準の送信動作を防止
         window.location.href = 'thanks.html'; // thanks.htmlに遷移
