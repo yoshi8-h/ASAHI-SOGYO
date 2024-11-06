@@ -134,6 +134,7 @@
 
   @include mq(xl) {
     left: rem(70);  // TOPページのコンテンツ部分のinner幅を1600pxのブレイクポイントを境に狭くしたので、画像も少しだけ内側に寄せる。
+    width: rem(290);
   }
 
   @include mq(md) {
