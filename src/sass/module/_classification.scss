@@ -1,0 +1,43 @@
+@use "global" as *;
+
+
+.classification {
+  border: 1px solid $color-background-base-2;
+  background: #fafafa;
+  padding-block: rem(10);
+}
+
+.classification__wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.classification__left {
+  width: 10%;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: rem(17);
+  font-weight: $bold;
+  position: relative;
+}
+
+.classification__left::after {  // 仕切り線
+  content: "";
+  width: 1px;
+  height: rem(31);
+  border-right: 1px solid #cccccc;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.classification__right {
+  width: 90%;
+  padding-left: rem(20);
+}
+
+.classification__item {
+
+}

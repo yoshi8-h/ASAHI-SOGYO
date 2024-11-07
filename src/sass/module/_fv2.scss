@@ -69,3 +69,12 @@
     background: url(../images/page/sp/recruit_fv-bg.webp) no-repeat center center / cover;
   }
 }
+
+// fv2--case (事例紹介(一覧)ページ)
+.fv2--case .fv2__wrap {
+  background: url(../images/page/pc/case_fv-bg.webp) no-repeat center center / cover;
+
+  @include mq(md) {
+    background: url(../images/page/sp/case_fv-bg.webp) no-repeat center center / cover;
+  }
+}
