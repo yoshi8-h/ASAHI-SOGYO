@@ -1,0 +1,34 @@
+@use "global" as *;
+
+
+.case-posts {
+
+}
+
+.case-posts__inner {
+
+}
+
+.case-posts__wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: rem(77);
+  row-gap: rem(70);
+  align-items: flex-start;  // 上揃えに。
+}
+
+.case-posts__item {
+  height: 100%;
+}
+
+.case-posts__pagenavi-wrap {
+  margin-top: rem(107);
+
+  @include mq(md) {
+    margin-top: rem(80);
+  }
+}
+
+.case-posts__pagenavi {
+
+}

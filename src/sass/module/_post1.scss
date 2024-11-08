@@ -16,6 +16,7 @@
   flex-direction: column;
   gap: rem(25);
   justify-content: center;
+  height: 100%;
 
   @include mq(md) {
     gap: rem(23);
@@ -44,9 +45,16 @@
 
 .post1__body {
   padding-inline: rem(7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(47);
+  flex-grow: 1;
 
   @include mq(md) {
     padding-inline: rem(12);
+    gap: rem(15);
   }
 }
 
@@ -56,6 +64,7 @@
   justify-content: center;
   align-items: flex-start;
   gap: rem(6.5);
+  height: 100%;
 
   @include mq(md) {
     gap: rem(12);
@@ -72,6 +81,7 @@
   font-size: rem(22);
   font-weight: $medium;
   line-height: 1.5;
+  flex-grow: 1;
 
   @include mq(md) {
     font-size: rem(18);
@@ -79,9 +89,9 @@
 }
 
 .post1__tags {
-  margin-top: rem(47);
+  // margin-top: rem(47);
 
-  @include mq(md) {
-    margin-top: rem(15);
-  }
+  // @include mq(md) {
+  //   margin-top: rem(15);
+  // }
 }

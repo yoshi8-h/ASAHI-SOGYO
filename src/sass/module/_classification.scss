@@ -36,8 +36,13 @@
 .classification__right {
   width: 90%;
   padding-left: rem(20);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: rem(15);
 }
 
 .classification__item {
-
+  display: block;
+  // min-width: rem(177.64);
 }
