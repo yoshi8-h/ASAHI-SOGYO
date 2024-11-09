@@ -5,12 +5,23 @@
   border: 1px solid $color-background-base-2;
   background: #fafafa;
   padding-block: rem(10);
+
+  @include mq(md) {
+    padding-block: rem(20);
+  }
 }
 
 .classification__wrap {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  @include mq(md) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: rem(24);
+  }
 }
 
 .classification__left {
@@ -20,6 +31,12 @@
   font-size: rem(17);
   font-weight: $bold;
   position: relative;
+
+  @include mq(md) {
+    align-self: center;
+    width: 100%;
+    padding-bottom: rem(12);
+  }
 }
 
 .classification__left::after {  // 仕切り線
@@ -31,18 +48,70 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
+
+  @include mq(md) {
+    width: 90%;
+    height: 1px;
+    border-bottom: 1px solid #cccccc;
+    top: auto;
+    bottom: 0;
+    right: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
 }
 
-.classification__right {
+
+
+// ※WordPressのテンプレートタグ『wp_list_categories()』や『wp_tag_cloud()』を使ってカテゴリやタグを表示するため、タグ自体にスタイルを適用。(親要素のulタグにはオプションで付与するクラス名を指定出来るため、クラスを付与してOK。)
+.classification__right {  // ulタグに指定するクラス名
   width: 90%;
   padding-left: rem(20);
+  padding-right: rem(15);
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: rem(15);
+
+  flex-wrap: wrap;  // カテゴリやタグが増えた時に、折り返すように指定。
+  row-gap: rem(12);
+
+  @include mq(md) {
+    padding-inline: rem(20);
+  }
 }
 
-.classification__item {
+.classification__right li {
   display: block;
-  // min-width: rem(177.64);
+}
+
+.classification__right li a {
+  display: block;
+
+  padding-block: rem(5);
+  padding-inline: rem(19);
+  line-height: 1.0;
+  text-align: center;
+  color: $color-accent1;
+  background: #FFF;
+  border: 1px solid $color-accent1;
+  border-radius: rem(15);
+  font-size: rem(16);
+  transition: background 0.2s ease-out, color 0.2s ease-out;
+
+  @include mq(md) {
+    padding-block: rem(4);
+    padding-inline: rem(14);
+    font-size: rem(15);
+  }
+}
+
+.classification__right li a:hover {  // hover
+  background: $color-accent1;
+  color: #FFF;
+}
+
+.classification__right li.current-cat a {  // ※現在選択されているカテゴリには、自動で『current-cat』というクラス名が付与される
+  background: $color-accent1;
+  color: #FFF;
 }

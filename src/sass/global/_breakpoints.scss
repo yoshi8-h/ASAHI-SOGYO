@@ -41,8 +41,6 @@ $mediaquerys: (
     xl: "screen and (max-width: #{map-get($breakpoints,'xl')}px)",
     xxl: "screen and (min-width: #{map-get($breakpoints,'xl')}px)",
   );
-
-
 }
 
 // @include mq(){}で書くとブレークポイントが反映される（初期値はmd）

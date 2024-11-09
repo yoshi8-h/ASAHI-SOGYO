@@ -17,6 +17,12 @@
 
 }
 
+.wp-pagenavi__number.u-desktop {
+  @include mq(md) {
+    display: none;
+  }
+}
+
 
 
 
@@ -69,67 +75,69 @@
 
 /* 「次へ」「前へ」リンクのスタイル */
 .previouspostslink {  // プラグイン『WP-PageNavi』で自動生成される要素にのデフォルトで付与されるクラス名「.previouspostslink」。前のページがある場合に表示される要素に付与されるクラス名。
-  // margin-right: rem(28);
-  // position: relative;
+  margin-right: rem(6);
+  position: relative;
 }
 
 .previouspostslink::before {  // 『前のページへのボタン』の中身の矢印を擬似要素で作成 (『＜』)
-  // content: "";
-  // width: rem(10);
-  // height: rem(10);
-  // border-left: solid rem(1) $color-accent1;
-  // border-top: solid rem(1) $color-accent1;
-  // position: absolute;
-  // top: 50%;
-  // left: calc(50% + rem(3));  // 真ん中に寄せるために位置調整。
-  // transform: translate(-50%, -50%) rotate(-45deg);  // 回転させて矢印に。
+  content: "";
+  width: rem(10);
+  height: rem(10);
+  border-left: solid rem(2) $color-font-base;
+  border-top: solid rem(2) $color-font-base;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + rem(3));  // 真ん中に寄せるために位置調整。
+  transform: translate(-50%, -50%) rotate(-45deg);  // 回転させて矢印に。
 
-  // transition: border 0.2s ease-out;
+  transition: border 0.2s ease-out;
 }
 
 .nextpostslink {  // プラグイン『WP-PageNavi』で自動生成される要素にのデフォルトで付与されるクラス名「.nextpostslink」。次のページがある場合に表示される要素に付与されるクラス名。
-  // margin-left: rem(28);
-  // position: relative;
+  margin-left: rem(6);
+  position: relative;
 }
 
 .nextpostslink::before {  // 『次のページへのボタン』の中身の矢印を擬似要素で作成 (『＞』)
-  // content: "";
-  // width: rem(10);
-  // height: rem(10);
-  // border-right: solid rem(1) $color-accent1;
-  // border-top: solid rem(1) $color-accent1;
-  // position: absolute;
-  // top: 50%;
-  // left: calc(50% - rem(3));  // 真ん中に寄せるために位置調整。
-  // transform: translate(-50%, -50%) rotate(45deg);  // 回転させて矢印に。
+  content: "";
+  width: rem(10);
+  height: rem(10);
+  border-right: solid rem(2) $color-font-base;
+  border-top: solid rem(2) $color-font-base;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - rem(3));  // 真ん中に寄せるために位置調整。
+  transform: translate(-50%, -50%) rotate(45deg);  // 回転させて矢印に。
 
-  // transition: border 0.2s ease-out;
+  transition: border 0.2s ease-out;
 }
 
 .wp-pagenavi .nextpostslink,
 .wp-pagenavi .previouspostslink {  // 『.nextpostslink』と『.previouspostslink』の共通の指定
-  // height: rem(38);  // ページネーションは高さが絶対に変わらないから、高さを指定してOK。
-  // min-width: rem(38);  // 最小幅を指定。
-  // padding-inline: rem(3);  // paddingは、横方向のみ最低限を指定。縦方向の指定は不要。
-  // display: grid;
-  // place-items: center;
+  height: rem(50);  // ページネーションは高さが絶対に変わらないから、高さを指定してOK。
+  min-width: rem(50);  // 最小幅を指定。
+  padding-inline: rem(3);  // paddingは、横方向のみ最低限を指定。縦方向の指定は不要。
+  display: grid;
+  place-items: center;
+
+  background: #fafafa;
+  border-radius: 50%;
 
   // border: rem(1) solid $color-accent1;
-  // background: $color-background-base;
-  // transition: background 0.2s ease-out;
+  transition: background 0.2s ease-out;
 }
 
 .wp-pagenavi .nextpostslink:hover,
 .wp-pagenavi .previouspostslink:hover {  // hover
-  // background: $color-accent1;
+  background: $color-font-base;
 }
 
 .wp-pagenavi .previouspostslink:hover:before {  // hover
-  // border-left: solid rem(1) #FFF;
-  // border-top: solid rem(1) #FFF;
+  border-left: solid rem(2) #FFF;
+  border-top: solid rem(2) #FFF;
 }
 
 .wp-pagenavi .nextpostslink:hover:before {  // hover
-  // border-right: solid rem(1) #FFF;
-  // border-top: solid rem(1) #FFF;
+  border-right: solid rem(2) #FFF;
+  border-top: solid rem(2) #FFF;
 }

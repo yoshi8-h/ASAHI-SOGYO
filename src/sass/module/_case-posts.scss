@@ -6,7 +6,10 @@
 }
 
 .case-posts__inner {
-
+  @include mq(md) {
+    max-width: rem(calc(500 + 20 * 2));  // 両端のpadding分を考慮
+    margin-inline: auto;
+  }
 }
 
 .case-posts__wrap {
@@ -15,6 +18,12 @@
   column-gap: rem(77);
   row-gap: rem(70);
   align-items: flex-start;  // 上揃えに。
+
+  @include mq(md) {
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: rem(20);  // 念の為指定
+    row-gap: rem(50);
+  }
 }
 
 .case-posts__item {
@@ -25,7 +34,7 @@
   margin-top: rem(107);
 
   @include mq(md) {
-    margin-top: rem(80);
+    margin-top: rem(70);
   }
 }
 

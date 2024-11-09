@@ -13,8 +13,20 @@
   font-family: $font-family-ja-1;
   font-size: rem(38);
   font-weight: $medium;
-  line-height: 1.0;
+  line-height: 1.2;
   letter-spacing: 0.01em;
   text-indent: 0.01em;
   text-align: center;
+
+  @include mq(md) {
+    font-size: rem(18);
+  }
+}
+
+.case-page__title-br {  // 改行
+  display: none;
+
+  @include mq(xl) {
+    display: inline;
+  }
 }

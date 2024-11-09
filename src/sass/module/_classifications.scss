@@ -6,7 +6,10 @@
 }
 
 .classifications__inner {
-
+  @include mq(md) {
+    max-width: rem(calc(500 + 20 * 2));  // 両端のpadding分を考慮
+    margin-inline: auto;
+  }
 }
 
 .classifications__item {
@@ -15,4 +18,8 @@
 
 .classifications__item:last-of-type {
   margin-top: rem(16);
+
+  @include mq(md) {
+    margin-top: rem(20);
+  }
 }
