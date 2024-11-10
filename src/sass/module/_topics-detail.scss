@@ -12,6 +12,10 @@
 .topics-detail__top {
   padding-bottom: rem(45);
   position: relative;
+
+  @include mq(md) {
+    padding-bottom: rem(35);
+  }
 }
 
 .topics-detail__top::after {  // 背景の、草の形のアイコンが並んでいる箇所
@@ -24,6 +28,10 @@
   bottom: 0;
   left: 0;
   opacity: 0.3;
+
+  @include mq(md) {
+    height: rem(200);
+  }
 }
 
 .topics-detail__top-inner {
@@ -59,6 +67,9 @@
 
   @include mq(md) {
     margin-top: rem(30);
+    flex-direction: column;
+    gap: rem(8);
+    align-items: flex-start;
   }
 }
 
@@ -96,7 +107,7 @@
   color: $color-accent1;
 
   @include mq(md) {
-    margin-top: rem(16);
+    margin-top: rem(4);
     font-size: rem(18);
     text-align: left;
   }
@@ -117,7 +128,9 @@
 }
 
 .topics-detail__bottom {
-
+  @include mq(md) {
+    padding-top: rem(40);
+  }
 }
 
 .topics-detail__bottom-inner {
@@ -287,11 +300,12 @@
   padding-bottom: rem(160);
 
   @include mq(md) {
-    padding-top: rem(50);
+    padding-top: 0;
     width: 100%;
     padding-bottom: rem(50);
   }
 }
+
 
 .topics-detail__main-wrap {  // WordPressの『the_content()』の親要素
 
@@ -309,8 +323,8 @@
   border-radius: rem(10);
 
   @include mq(md) {
-    font-size: rem(18);
-    padding-block: rem(10);
+    font-size: rem(20);
+    padding-block: rem(8);
     padding-inline: rem(14);
   }
 }
@@ -328,8 +342,8 @@
 
   @include mq(md) {
     font-size: rem(18);
-    padding-block: rem(10);
-    padding-inline: rem(14);
+    padding-bottom: rem(10);
+    padding-inline: rem(8);
   }
 }
 
@@ -341,6 +355,10 @@
   position: absolute;
   bottom: 0;
   left: 0;
+
+  @include mq(md) {
+    height: rem(3);
+  }
 }
 
 .topics-detail__main-wrap h4 {  // h4
@@ -355,6 +373,7 @@
 
   @include mq(md) {
     font-size: rem(18);
+    padding-left: rem(18);
   }
 }
 
@@ -369,8 +388,8 @@
   transform: translateY(-50%);
 
   @include mq(md) {
-    width: rem(8);
-    height: rem(8);
+    width: rem(12);
+    height: rem(12);
   }
 }
 
@@ -385,7 +404,8 @@
   padding-left: rem(24);
 
   @include mq(md) {
-    font-size: rem(18);
+    font-size: rem(17);
+    padding-left: rem(12);
   }
 }
 
@@ -400,8 +420,7 @@
   transform: translateY(-50%);
 
   @include mq(md) {
-    width: rem(8);
-    height: rem(8);
+    width: rem(6);
   }
 }
 
@@ -413,7 +432,7 @@
   line-height: 1.5;
 
   @include mq(md) {
-    font-size: rem(18);
+    font-size: rem(17);
   }
 }
 
@@ -424,17 +443,18 @@
   line-height: 1.75;
 
   @include mq(md) {
-    font-size: rem(16);
+    font-size: rem(14);
   }
 }
 
 .topics-detail__main-wrap img {  // img
   margin-top: rem(35);
   aspect-ratio: 1087 / 727;
+  width: 100%;
   object-fit: cover;
 
   @include mq(md) {
-    margin-top: rem(20);
+    margin-top: rem(25);
   }
 }
 
