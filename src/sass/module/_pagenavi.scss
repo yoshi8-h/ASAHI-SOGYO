@@ -2,33 +2,95 @@
 
 
 .pagenavi {
-
+  padding-top: rem(19);
+  border-top: 2px solid #e6dfdf;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: auto;
+  padding-inline: rem(18);
+  position: relative;
 }
 
 .pagenavi__prev {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(14);
+}
 
+.pagenavi__prev:hover .pagenavi__prev-btn {  // hover
+  background: #FFF;
+}
+
+.pagenavi__prev:hover .pagenavi__prev-btn svg path {  // hover
+  fill: $color-accent1;
+}
+
+.pagenavi__prev:hover .pagenavi__prev-text {  // hover
+  opacity: 0.7;
 }
 
 .pagenavi__prev-btn {
-
+  aspect-ratio: 1 / 1;
+  width: rem(40);
+  height: rem(40);
+  transform: rotate(180deg);  // 反転 (svgの矢印を反転させて逆向きにするために)
 }
 
 .pagenavi__prev-text {
-
+  font-size: rem(18);
+  line-height: 1.7;
+  color: $color-accent1;
+  font-weight: $medium;
+  transition: opacity 0.2s ease-out;
 }
 
 .pagenavi__next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(14);
+}
 
+.pagenavi__next:hover .pagenavi__next-btn {  // hover
+  background: #FFF;
+}
+
+.pagenavi__next:hover .pagenavi__next-btn svg path {  // hover
+  fill: $color-accent1;
+}
+
+.pagenavi__next:hover .pagenavi__next-text {  // hover
+  opacity: 0.7;
 }
 
 .pagenavi__next-text {
-
+  font-size: rem(18);
+  line-height: 1.7;
+  color: $color-accent1;
+  font-weight: $medium;
+  transition: opacity 0.2s ease-out;
 }
 
 .pagenavi__next-btn {
-
+  aspect-ratio: 1 / 1;
+  width: rem(40);
+  height: rem(40);
 }
 
 .pagenavi__top {
+  font-size: rem(18);
+  line-height: 1.7;
+  color: $color-accent1;
+  font-weight: $medium;
+  position: absolute;
+  top: rem(25);
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.2s ease-out;
+}
 
+.pagenavi__top:hover {  // hover
+  opacity: 0.7;
 }
