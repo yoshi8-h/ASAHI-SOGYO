@@ -43,8 +43,8 @@
   margin-top: 0;
 }
 
-// l-footer--case (採用情報 ページのfooter)
-.l-footer--case.l-footer {
+// l-footer--160 (事例紹介ページや最新情報ページのfooter)
+.l-footer--160.l-footer {
   margin-top: rem(160);
 
   @include mq(md) {

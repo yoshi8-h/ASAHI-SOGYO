@@ -8,3 +8,18 @@
     margin-top: rem(40);
   }
 }
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+// l-classifications--2 (最新情報(一覧/個別)ページの)
+.l-classifications--2 {
+  margin-top: rem(80);
+
+  @include mq(md) {
+    margin-top: rem(45);
+  }
+}

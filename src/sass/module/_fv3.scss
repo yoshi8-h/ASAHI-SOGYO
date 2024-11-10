@@ -67,3 +67,76 @@
     width: rem(150);
   }
 }
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+// fv3--2 (最新情報(一覧/個別)ページのfvのような金色の和紙の背景のFV)
+.fv3--2.fv3 {
+
+}
+
+.fv3--2 .fv3__inner.inner {
+  max-width: rem(calc(1776 + 60 * 2));
+  margin-inline: auto;
+  padding-inline: rem(60);
+  position: relative;
+
+  @include mq(md) {
+    max-width: none;
+    padding-inline: rem(20);
+  }
+}
+
+.fv3--2 .fv3__wrap  {
+  min-height: rem(400);
+  border-radius: rem(10);
+  background: url(../images/page/pc/fv3-bg-gold.png) no-repeat center center / cover;
+  position: relative;
+
+  @include mq(md) {
+    min-height: rem(170);
+  }
+}
+
+.fv3--2 .fv3__text {
+  color: $color-font-base;
+  font-size: rem(32);
+  font-weight: $medium;
+  line-height: 0.9375;
+
+  position: absolute;
+  top: 50%;
+  left: rem(150);
+  transform: translateY(-50%);
+
+  @include mq(md) {
+    font-size: rem(24);
+    line-height: 1.25;
+    left: rem(30);
+  }
+}
+
+.fv3--2 .fv3__logo {  // 『ランチャーム』のグレーのアイコン
+  width: fit-content;
+  position: absolute;
+  bottom: 0;
+  right: rem(35);
+
+  @include mq(md) {
+    right: rem(15);
+  }
+}
+
+.fv3--2 .fv3__logo img {
+  aspect-ratio: 565 / 300;
+  width: 100%;
+  max-width: rem(565);
+
+  @include mq(md) {
+    width: rem(150);
+  }
+}

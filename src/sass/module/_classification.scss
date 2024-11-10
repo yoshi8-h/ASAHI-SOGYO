@@ -39,27 +39,27 @@
   }
 }
 
-.classification__left::after {  // 仕切り線
-  content: "";
-  width: 1px;
-  height: rem(31);
-  border-right: 1px solid #cccccc;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
+// .classification__left::after {  // 仕切り線
+//   content: "";
+//   width: 1px;
+//   height: rem(31);
+//   border-right: 1px solid #cccccc;
+//   position: absolute;
+//   top: 50%;
+//   right: 0;
+//   transform: translateY(-50%);
 
-  @include mq(md) {
-    width: 90%;
-    height: 1px;
-    border-bottom: 1px solid #cccccc;
-    top: auto;
-    bottom: 0;
-    right: auto;
-    left: 50%;
-    transform: translate(-50%, 0);
-  }
-}
+//   @include mq(md) {
+//     width: 90%;
+//     height: 1px;
+//     border-bottom: 1px solid #cccccc;
+//     top: auto;
+//     bottom: 0;
+//     right: auto;
+//     left: 50%;
+//     transform: translate(-50%, 0);
+//   }
+// }
 
 
 
@@ -76,8 +76,11 @@
   flex-wrap: wrap;  // カテゴリやタグが増えた時に、折り返すように指定。
   row-gap: rem(12);
 
+  border-left: 1px solid #cccccc;  // 仕切り線
+
   @include mq(md) {
     padding-inline: rem(20);
+    border-left: none;
   }
 }
 
@@ -91,7 +94,8 @@
   padding-block: rem(5);
   padding-inline: rem(19);
   line-height: 1.0;
-  text-align: center;
+  // text-align: center;
+  text-align: left;
   color: $color-accent1;
   background: #FFF;
   border: 1px solid $color-accent1;

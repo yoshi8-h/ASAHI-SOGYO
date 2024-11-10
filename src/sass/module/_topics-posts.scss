@@ -1,0 +1,47 @@
+@use "global" as *;
+
+
+.topics-posts {
+
+}
+
+.topics-posts__inner {
+  @include mq(md) {
+    max-width: rem(calc(500 + 20 * 2));  // 両端のpadding分を考慮
+    margin-inline: auto;
+  }
+}
+
+.topics-posts__wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: rem(45);
+  row-gap: rem(80);
+  align-items: flex-start;  // 上揃えに。
+
+  @include mq(xl) {
+    row-gap: rem(70);
+  }
+
+  @include mq(md) {
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: rem(20);  // 念の為指定
+    row-gap: rem(55);
+  }
+}
+
+.topics-posts__item {
+  height: 100%;
+}
+
+.topics-posts__pagenavi-wrap {
+  margin-top: rem(75);
+
+  @include mq(md) {
+    margin-top: rem(60);
+  }
+}
+
+.topics-posts__pagenavi {
+
+}
