@@ -5,6 +5,23 @@
   font-size: rem(14);
   font-weight: $medium;
   line-height: 1.9;
+  position: relative;
+  padding-left: rem(13.5);  // 自動生成する『＃』のための余白を設定
+
+  @include mq(md) {
+    font-size: rem(13);
+    padding-left: rem(13);
+  }
+}
+
+.tag::after {  // 自動生成する『＃』(全角)
+  content: "＃";
+  font-size: rem(14);
+  font-weight: $medium;
+  line-height: 1.9;
+  position: absolute;
+  top: 0;
+  left: 0;
 
   @include mq(md) {
     font-size: rem(13);

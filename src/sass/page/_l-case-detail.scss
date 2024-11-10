@@ -1,0 +1,10 @@
+@use "global" as *;
+
+
+.l-case-detail {
+  margin-top: rem(80);
+
+  @include mq(md) {
+    margin-top: rem(70);
+  }
+}

@@ -42,3 +42,12 @@
 .l-footer--mt0.l-footer {
   margin-top: 0;
 }
+
+// l-footer--case (採用情報 ページのfooter)
+.l-footer--case.l-footer {
+  margin-top: rem(160);
+
+  @include mq(md) {
+    margin-top: rem(80);
+  }
+}

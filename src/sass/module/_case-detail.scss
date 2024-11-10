@@ -1,0 +1,245 @@
+@use "global" as *;
+
+
+.case-detail {
+
+}
+
+.case-detail__inner {
+
+}
+
+.case-detail__top {
+
+}
+
+.case-detail__titles {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(41);
+}
+
+.case-detail__category {
+  display: inline-block;
+  padding-block: rem(18);
+  padding-inline: rem(24);
+  font-size: rem(20);
+  font-weight: $bold;
+  color: #FFF;
+  background: $color-accent2;
+}
+
+.case-detail__title {
+  font-family: $font-family-ja-1;
+  font-size: rem(40);
+}
+
+.case-detail__eye-catch {
+  margin-top: rem(45);
+  max-width: rem(710);
+  margin-inline: auto;
+  border-radius: rem(10);
+}
+
+.case-detail__eye-catch img {
+  aspect-ratio: 710 / 430;
+  width: 100%;
+}
+
+.case-detail__tags {
+  margin-top: rem(50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(22);
+  flex-wrap: wrap;
+}
+
+.case-detail__tag {  // 『#』が自動でタグの前に生成されるように指定。
+  font-size: rem(20);
+  font-weight: $medium;
+  padding-left: rem(14);  // 自動生成する『#』のための余白を設定
+  position: relative;
+
+  @include mq(md) {
+    font-size: rem(15);
+    padding-left: rem(10);  // 自動生成する『#』のための余白を設定
+  }
+}
+
+.case-detail__tag::after {  // 自動生成する『#』(半角)
+  content: "#";
+  font-size: rem(20);
+  font-weight: $medium;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include mq(md) {
+    font-size: rem(15);
+  }
+}
+
+.case-detail__bottom {
+  margin-top: rem(72);
+  padding-top: rem(84);
+}
+
+.case-detail__sidebar {
+
+}
+
+.case-detail__nav {
+
+}
+
+.case-detail__nav-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(72);
+
+  @include mq(md) {
+    gap: rem(50);
+  }
+}
+
+.case-detail__nav-item {
+
+}
+
+.case-detail__nav-title {
+  color: $color-accent1;
+  font-size: rem(17);
+  font-weight: $bold;
+  line-height: 1.2;
+  transition: color 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(15);
+  }
+}
+
+
+
+// ※WordPressのテンプレートタグ『wp_list_categories()』や『wp_tag_cloud()』を使ってカテゴリやタグを表示するため、タグ自体にスタイルを適用。(親要素のulタグにはオプションで付与するクラス名を指定出来るため、クラスを付与してOK。)
+.case-detail__nav-list {  // ulタグ
+  margin-top: rem(33);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(24);
+
+  @include mq(md) {
+    margin-top: rem(28);
+    gap: rem(15);
+  }
+}
+
+.case-detail__nav-list li {  // CMS構築時を考慮して、タグ自体にCSSを付与。
+  font-size: rem(14);
+  font-weight: $normal;
+  leading-trim: both;
+  text-edge: cap;
+  line-height: 1.28;
+  letter-spacing: 0.02em;
+  text-indent: 0.02em;
+  padding-left: rem(16);
+  position: relative;
+  transition: color 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(12);
+  }
+}
+
+.case-detail__nav-list li::before {  // 赤の横線 (-)
+  content: "";
+  width: rem(8);
+  height: 0; // 高さを0に設定
+  border-top: 1px solid $color-accent1; // 上部の線を描画 (『height』で指定すると、サブピクセルレンダリングの影響を受けて画面幅によって太さが変わってしまうため、borderを用いて線の太さを制御)
+  position: absolute;
+  top: rem(8);
+  left: 0;
+  transition: border-top 0.2s ease-out;
+  max-height: 1px;
+
+  @include mq(md) {
+    top: rem(8.5);
+  }
+}
+
+.case-detail__nav-list li:hover {  // hover
+  color: $color-accent1;
+}
+
+.case-detail__nav-list li:hover::before {  // hover
+  // background: $color-accent1;
+  border-top: rem(1) solid $color-accent1;
+}
+
+
+.case-detail__main {
+
+}
+
+.case-detail__main-wrap {  // WordPressの『the_content()』の親要素
+
+}
+
+.case-detail__main-img1 {
+
+}
+
+.case-detail__main-img1 img {
+
+}
+
+.case-detail__main-images3 {
+
+}
+
+.case-detail__main-img3 {
+
+}
+
+.case-detail__main-img3 img {
+
+}
+
+.case-detail__main-flex1 {
+
+}
+
+.case-detail__main-img4 {
+
+}
+
+.case-detail__main-img4 img {
+
+}
+
+.case-detail__main-text1 {
+
+}
+
+.case-detail__main-flex2 {
+
+}
+
+.case-detail__main-img5 {
+
+}
+
+.case-detail__main-img5 img {
+
+}
+
+
+.case-detail__main-pagenavi {
+
+}

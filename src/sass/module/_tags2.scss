@@ -9,6 +9,61 @@
   gap: rem(8);
 }
 
-.tags2__item {
+.tags2 li {  // CMS構築を考慮して、タグ自体にCSSを当てる。
+  display: inline-block;
+  background: #FFF;
+  color: $color-font-base;
+  font-family: $font-family-ja-2;
+  font-size: rem(13);
+  font-weight: $normal;
+  line-height: 2.0;
 
+  padding-block: rem(5);
+  padding-inline: rem(12);
+  border-radius: rem(25);
+  border: rem(1) solid $color-font-base;
+  transition: all 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(12);
+    padding-block: rem(5.11);
+    padding-inline: rem(12.25);
+    border-radius: rem(25.526);
+  }
+}
+
+.tags2 li a {  // CMS構築を考慮して、タグ自体にCSSを当てる。
+  padding-left: rem(8);  // 自動生成する『#』のための余白を設定
+  position: relative;
+
+  @include mq(md) {
+    padding-left: rem(7);
+  }
+}
+
+.tags2 li a::after {  // 自動生成する『#』(半角)
+  content: "#";
+  color: $color-font-base;
+  font-family: $font-family-ja-2;
+  font-size: rem(13);
+  font-weight: $normal;
+  line-height: 2.0;
+  position: absolute;
+  top: rem(-3);
+  left: 0;
+  transition: color 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(12);
+    top: rem(-3);
+  }
+}
+
+.tags2 li:hover {  // hover
+  color: #FFF;
+  background: $color-font-base;
+}
+
+.tags2 li:hover a::after {  // hover
+  color: #FFF;
 }

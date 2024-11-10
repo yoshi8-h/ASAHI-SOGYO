@@ -85,3 +85,35 @@
     top: rem(8.5);
   }
 }
+
+
+
+// list2--3 (事例紹介(個別)ページの)
+.list2--3.list2 {
+  leading-trim: both;
+  text-edge: cap;
+  line-height: 1.28;
+  letter-spacing: 0.02em;
+  text-indent: 0.02em;
+  padding-left: rem(16);
+
+  @include mq(md) {
+    font-size: rem(12);
+  }
+}
+
+.list2--3.list2::before {  // 赤の横線 (-)
+  content: "";
+  width: rem(8);
+  height: 0; // 高さを0に設定
+  border-top: 1px solid $color-accent1; // 上部の線を描画 (『height』で指定すると、サブピクセルレンダリングの影響を受けて画面幅によって太さが変わってしまうため、borderを用いて線の太さを制御)
+  position: absolute;
+  top: rem(8);
+  left: 0;
+  transition: border-top 0.2s ease-out;
+  max-height: 1px;
+
+  @include mq(md) {
+    top: rem(8.5);
+  }
+}
