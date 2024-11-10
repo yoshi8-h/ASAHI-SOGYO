@@ -10,6 +10,10 @@
   margin-inline: auto;
   padding-inline: rem(18);
   position: relative;
+
+  @include mq(md) {
+    padding-inline: rem(8);
+  }
 }
 
 .pagenavi__prev {
@@ -44,6 +48,10 @@
   color: $color-accent1;
   font-weight: $medium;
   transition: opacity 0.2s ease-out;
+
+  @include mq(md) {
+    display: none;
+  }
 }
 
 .pagenavi__next {
@@ -71,6 +79,10 @@
   color: $color-accent1;
   font-weight: $medium;
   transition: opacity 0.2s ease-out;
+
+  @include mq(md) {
+    display: none;
+  }
 }
 
 .pagenavi__next-btn {
@@ -89,6 +101,11 @@
   left: 50%;
   transform: translateX(-50%);
   transition: opacity 0.2s ease-out;
+
+  @include mq(md) {
+    font-size: rem(14);
+    top: rem(30);
+  }
 }
 
 .pagenavi__top:hover {  // hover

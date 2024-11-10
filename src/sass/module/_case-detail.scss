@@ -14,7 +14,10 @@
 }
 
 .case-detail__top-inner {
-
+  @include mq(md) {
+    max-width: rem(calc(500 + 20 * 2));  // 両端のpadding分を考慮
+    margin-inline: auto;
+  }
 }
 
 .case-detail__titles {
@@ -23,6 +26,12 @@
   justify-content: center;
   align-items: center;
   gap: rem(41);
+
+  @include mq(md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(8);
+  }
 }
 
 .case-detail__category {
@@ -33,11 +42,22 @@
   font-weight: $bold;
   color: #FFF;
   background: $color-accent2;
+
+  @include mq(md) {
+    padding-block: rem(6);
+    padding-inline: rem(10);
+    font-size: rem(15);
+  }
 }
 
 .case-detail__title {
   font-family: $font-family-ja-1;
   font-size: rem(40);
+
+  @include mq(md) {
+    font-size: rem(18);
+    text-align: left;
+  }
 }
 
 .case-detail__eye-catch {
@@ -45,6 +65,11 @@
   max-width: rem(710);
   margin-inline: auto;
   border-radius: rem(10);
+
+  @include mq(md) {
+    margin-top: rem(20);
+    max-width: none;
+  }
 }
 
 .case-detail__eye-catch img {
@@ -59,6 +84,11 @@
   align-items: center;
   gap: rem(22);
   flex-wrap: wrap;
+
+  @include mq(md) {
+    margin-top: rem(15);
+    gap: rem(12);
+  }
 }
 
 .case-detail__tag {  // 『#』が自動でタグの前に生成されるように指定。
@@ -89,10 +119,17 @@
 .case-detail__bottom {
   background: #f5f5f5;
   margin-top: rem(72);
+
+  @include mq(md) {
+    margin-top: rem(40);
+  }
 }
 
 .case-detail__bottom-inner {
-
+  @include mq(md) {
+    max-width: rem(calc(500 + 20 * 2));  // 両端のpadding分を考慮
+    margin-inline: auto;
+  }
 }
 
 .case-detail__bottom-wrap {
@@ -100,13 +137,23 @@
   justify-content: center;
   align-items: stretch;
   gap: rem(81);
+
+  @include mq(md) {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: rem(30);
+  }
 }
 
 .case-detail__sidebar-wrap {
   flex-grow: 1;
   width: 20.28%;
-  // border-right: 1px solid #e6e6e6;
   position: relative;
+
+  @include mq(md) {
+    width: 100%;
+  }
 }
 
 .case-detail__sidebar-wrap::after {  // 右側の仕切り線
@@ -117,6 +164,17 @@
   position: absolute;
   top: rem(81);
   right: 0;
+
+  @include mq(md) {
+    width: 100%;
+    height: 1px;
+    border-right: none;
+    border-top: 1px solid #e6e6e6;
+    top: 0;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .case-detail__sidebar {
@@ -125,6 +183,14 @@
   position: sticky;  // 追従するように指定。
   top: 0;
   left: 0;
+
+  @include mq(md) {
+    padding-top: rem(30);
+    padding-bottom: rem(70);
+    position: static;
+    top: auto;
+    left: auto;
+  }
 }
 
 .case-detail__nav {
@@ -139,7 +205,7 @@
   gap: rem(72);
 
   @include mq(md) {
-    gap: rem(50);
+    gap: rem(30);
   }
 }
 
@@ -171,8 +237,8 @@
   gap: rem(24);
 
   @include mq(md) {
-    margin-top: rem(28);
-    gap: rem(15);
+    margin-top: rem(18);
+    gap: rem(12);
   }
 }
 
@@ -223,6 +289,12 @@
   flex-grow: 1;
   width: 75.5%;
   padding-bottom: rem(160);
+
+  @include mq(md) {
+    padding-top: rem(50);
+    width: 100%;
+    padding-bottom: rem(50);
+  }
 }
 
 .case-detail__main-wrap {  // WordPressの『the_content()』の親要素
@@ -238,11 +310,21 @@
   padding-block: rem(21);
   padding-inline: rem(29);
   border-radius: rem(10);
+
+  @include mq(md) {
+    font-size: rem(18);
+    padding-block: rem(10);
+    padding-inline: rem(14);
+  }
 }
 
 .case-detail__main-img1 {
   margin-top: rem(63);
   max-width: rem(1080);
+
+  @include mq(md) {
+    margin-top: rem(25);
+  }
 }
 
 .case-detail__main-img1 img {
@@ -256,7 +338,15 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: rem(25);
+  gap: rem(10);
+
+  @include mq(md) {
+    margin-top: rem(25);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: rem(8);
+  }
 }
 
 .case-detail__main-img3 {
@@ -267,6 +357,10 @@
 
 .case-detail__main-img3 img {
   max-width: rem(343);
+
+  @include mq(md) {
+    max-width: none;
+  }
 }
 
 .case-detail__main-flex1 {
@@ -275,10 +369,21 @@
   justify-content: center;
   align-items: flex-start;
   gap: rem(28);
+
+  @include mq(md) {
+    margin-top: rem(25);
+    flex-direction: column;
+    align-items: center;
+    gap: rem(14);
+  }
 }
 
 .case-detail__main-img4 {
   max-width: rem(516);
+
+  @include mq(md) {
+    max-width: none;
+  }
 }
 
 .case-detail__main-img4 img {
@@ -291,6 +396,10 @@
   font-size: rem(16);
   line-height: 1.75;
   font-weight: $medium;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
 }
 
 .case-detail__main-flex2 {
@@ -299,16 +408,31 @@
   justify-content: center;
   align-items: flex-start;
   gap: rem(28);
+
+  @include mq(md) {
+    margin-top: rem(40);
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: rem(14);
+  }
 }
 
 .case-detail__main-text2 {
   font-size: rem(16);
   line-height: 1.75;
   font-weight: $medium;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
 }
 
 .case-detail__main-img5 {
   max-width: rem(516);
+
+  @include mq(md) {
+    max-width: none;
+  }
 }
 
 .case-detail__main-img5 img {
@@ -321,9 +445,18 @@
   margin-top: rem(63);
   font-size: rem(16);
   line-height: 1.75;
+
+  @include mq(md) {
+    margin-top: rem(30);
+    font-size: rem(15);
+  }
 }
 
 
 .case-detail__main-pagenavi {
   margin-top: rem(63);
+
+  @include mq(md) {
+    margin-top: rem(30);
+  }
 }
