@@ -11,6 +11,11 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+
+  @include mq(md) {
+    padding-block: rem(18);
+    gap: rem(15);
+  }
 }
 
 .table__item:last-of-type {  // 最後の要素にはborder-bottomをつける。
@@ -19,12 +24,32 @@
 
 .table__item-title {
   font-size: rem(18);
+  font-weight: $bold;
   width: 22.4%;
   padding-left: rem(28);
+
+  @include mq(md) {
+    width: 32%;
+    font-size: rem(14);
+    padding-left: 0;
+    flex-shrink: 0;
+  }
 }
 
 .table__item-content {
   font-size: rem(18);
+  font-weight: $medium;
   width: 77.6%;
   padding-right: rem(28);
+
+  @include mq(md) {
+    font-size: rem(14);
+    padding-right: 0;
+    width: 68%;
+    flex-shrink: 1;
+    white-space: normal;
+
+    word-wrap: break-word;  // 記号が連続で入る場合に、ブラウザが自然に改行してくれない現象が起こるため、念の為に指定。
+    word-break: break-all;
+  }
 }

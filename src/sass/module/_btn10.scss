@@ -7,6 +7,11 @@
   padding-block: rem(34);
   padding-inline: rem(10);
   position: relative;
+
+  @include mq(md) {
+    border-radius: rem(6);
+    padding-block: rem(18);
+  }
 }
 
 .btn10:hover .btn10__arrow {  // hover
@@ -17,6 +22,10 @@
   font-size: rem(22);
   color: #FFF;
   text-align: center;
+
+  @include mq(md) {
+    font-size: rem(16);
+  }
 }
 
 .btn10__arrow {
@@ -28,6 +37,10 @@
   left: rem(40);
   transform: translateY(-50%);
   transition: transform 0.2s ease-out;
+
+  @include mq(md) {
+    left: rem(20);
+  }
 }
 
 .btn10__arrow svg {

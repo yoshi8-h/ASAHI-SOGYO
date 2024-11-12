@@ -5,8 +5,11 @@
 
 }
 
-.requirements2__inner {
-
+.requirements2__inner {  // ※ここだけ、最大幅を500ではなく600に設定。(500だと狭く見えるため)
+  @include mq(md) {
+    max-width: rem(calc(600 + 20 * 2));  // 両端のpadding分を考慮
+    margin-inline: auto;
+  }
 }
 
 .requirements2__top {
@@ -21,6 +24,10 @@
   margin-top: rem(70);
   max-width: rem(1205);
   margin-inline: auto;
+
+  @include mq(md) {
+    margin-top: rem(35);
+  }
 }
 
 .requirements2__occupation {
@@ -39,7 +46,7 @@
   margin-top: rem(70);
 
   @include mq(md) {
-    margin-top: rem(45);
+    margin-top: rem(50);
   }
 }
 
@@ -48,4 +55,9 @@
   width: 100%;
   max-width: rem(592);
   margin-inline: auto;
+
+  @include mq(md) {
+    max-width: none;
+    max-width: rem(350);
+  }
 }
