@@ -352,18 +352,36 @@ jQuery(".js-accordion").on("click", function (e) {
 /* -------------------------------------------------------------------------------- */
 // ※別ページの遷移先のid部分にアンカーリンクで飛ぶ場合に、アニメーションのせいでDOMが最初に非表示になっている要素の場合だとしっかりアンカーリンク先に飛ばない時がある為、それでもしっかりそのアンカーリンク先に飛ぶようにする指定。
 // (ページ読み込み完了時に処理)
+// window.addEventListener("load", function() {
+//   // URLにハッシュ（#product2など）があるか確認
+//   const hash = window.location.hash;
+//   if (hash) {
+//     // ハッシュに対応する要素がある場合、そこにスクロール
+//     const targetElement = document.querySelector(hash);
+//     if (targetElement) {
+//       // ページ全体がロードされてからスムーズにスクロール
+//       targetElement.scrollIntoView({ behavior: "smooth" });
+//     }
+//   }
+// });
+
+// ※別ページの遷移先のid部分にアンカーリンクで飛ぶ場合に、アニメーションのせいでDOMが最初に非表示になっている要素の場合だとしっかりアンカーリンク先に飛ばない時がある為、それでもしっかりそのアンカーリンク先に飛ぶようにする指定。
+// (ページ読み込み完了時に処理)
 window.addEventListener("load", function() {
-  // URLにハッシュ（#product2など）があるか確認
   const hash = window.location.hash;
   if (hash) {
-    // ハッシュに対応する要素がある場合、そこにスクロール
     const targetElement = document.querySelector(hash);
+
     if (targetElement) {
-      // ページ全体がロードされてからスムーズにスクロール
+      // GSAPのアニメーションがあれば強制的に完了させる
+      gsap.to(targetElement, { y: 0, autoAlpha: 1, duration: 0 });
+
+      // アンカーリンク先にスムーズにスクロール
       targetElement.scrollIntoView({ behavior: "smooth" });
     }
   }
 });
+
 
 
 /* -------------------------------------------------------------------------------- */
