@@ -1,0 +1,39 @@
+@use "global" as *;
+
+
+.occupation {
+
+}
+
+.occupation__inner {
+
+}
+
+.occupation__title {
+  padding-block: rem(17);
+  padding-inline: rem(30);
+  font-size: rem(28);
+  font-weight: $bold;
+  color: #FFF;
+  background: $color-accent1;
+  border-radius: rem(10);
+}
+
+.occupation__description {
+  margin-top: rem(70);
+  font-size: rem(18);
+  line-height: 1.77;
+  font-weight: $normal;
+
+  @include mq(md) {
+    margin-top: rem(45);
+  }
+}
+
+.occupation__table {
+  margin-top: rem(70);
+
+  @include mq(md) {
+    margin-top: rem(45);
+  }
+}

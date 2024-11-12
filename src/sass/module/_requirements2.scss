@@ -1,0 +1,51 @@
+@use "global" as *;
+
+
+.requirements2 {
+
+}
+
+.requirements2__inner {
+
+}
+
+.requirements2__top {
+
+}
+
+.requirements2__title {
+
+}
+
+.requirements2__bottom {
+  margin-top: rem(70);
+  max-width: rem(1205);
+  margin-inline: auto;
+}
+
+.requirements2__occupation {
+
+}
+
+.requirements2__occupation:nth-of-type(n + 2) {  // CMSで増える事も考慮して、2個目以降の要素にはmargin-topを付与。
+  margin-top: rem(100);
+
+  @include mq(md) {
+    margin-top: rem(65);
+  }
+}
+
+.requirements2__btn-wrap {
+  margin-top: rem(70);
+
+  @include mq(md) {
+    margin-top: rem(45);
+  }
+}
+
+.requirements2__btn {
+  display: block;
+  width: 100%;
+  max-width: rem(592);
+  margin-inline: auto;
+}

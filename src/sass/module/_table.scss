@@ -1,0 +1,30 @@
+@use "global" as *;
+
+
+.table {
+
+}
+
+.table__item {
+  padding-block: rem(25);
+  border-top: 1px solid #b3b1b1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.table__item:last-of-type {  // 最後の要素にはborder-bottomをつける。
+  border-bottom: 1px solid #b3b1b1;
+}
+
+.table__item-title {
+  font-size: rem(18);
+  width: 22.4%;
+  padding-left: rem(28);
+}
+
+.table__item-content {
+  font-size: rem(18);
+  width: 77.6%;
+  padding-right: rem(28);
+}

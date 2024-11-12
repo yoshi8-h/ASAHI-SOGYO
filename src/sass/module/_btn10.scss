@@ -1,0 +1,39 @@
+@use "global" as *;
+
+
+.btn10 {
+  background: $color-accent1;
+  border-radius: rem(6.27);
+  padding-block: rem(34);
+  padding-inline: rem(10);
+  position: relative;
+}
+
+.btn10:hover .btn10__arrow {  // hover
+  transform: translate(rem(-6) ,-50%);
+}
+
+.btn10__text {
+  font-size: rem(22);
+  color: #FFF;
+  text-align: center;
+}
+
+.btn10__arrow {
+  width: fit-content;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 50%;
+  left: rem(40);
+  transform: translateY(-50%);
+  transition: transform 0.2s ease-out;
+}
+
+.btn10__arrow svg {
+  transform: rotate(180deg);
+}
+
+.btn10__arrow path {
+
+}
