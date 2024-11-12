@@ -140,3 +140,32 @@
     width: rem(150);
   }
 }
+
+
+
+// fv3--privacy (プライバシーポリシーページのFV)
+.fv3--privacy {
+
+}
+
+.fv3--privacy .fv3__logo {  // 『Policy』の白いロゴ
+  width: fit-content;
+  position: absolute;
+  bottom: rem(40);
+  right: rem(85);
+
+  @include mq(md) {
+    bottom: rem(8);
+    right: rem(14);
+  }
+}
+
+.fv3--privacy .fv3__logo img {
+  aspect-ratio: 470 / 145;
+  width: 100%;
+  max-width: rem(470);
+
+  @include mq(md) {
+    width: rem(140);
+  }
+}

@@ -1,0 +1,97 @@
+@use "global" as *;
+
+
+.cta {
+  padding-block: rem(45);
+  padding-inline: rem(40);
+  background: #f5f5f5;
+  border-radius: rem(10);
+
+  @include mq(md) {
+    padding-block: rem(22);
+    padding-inline: rem(15);
+    border-radius: rem(8);
+  }
+}
+
+.cta__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: rem(40);  // 念の為に指定
+
+  @include mq(md) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: rem(20);
+  }
+}
+
+.cta__left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(39);
+
+  @include mq(md) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: rem(10);
+  }
+}
+
+.cta__title {
+  color: $color-accent1;
+  font-size: rem(25);
+  line-height: 1.2;
+  font-weight: $bold;
+
+  @include mq(md) {
+    font-size: rem(18);
+  }
+}
+
+.cta__info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(18);
+
+  @include mq(md) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: rem(4);
+  }
+}
+
+.cta__company-name {
+  font-size: rem(20);
+  line-height: 1.5;
+  font-weight: $normal;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
+}
+
+.cta__address {
+  font-size: rem(20);
+  font-weight: $normal;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
+}
+
+.cta__right {
+  @include mq(md) {
+    align-self: center;
+  }
+}
+
+.cta__btn {
+
+}

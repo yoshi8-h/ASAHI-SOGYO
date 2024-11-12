@@ -1,0 +1,83 @@
+@use "global" as *;
+
+
+.privacy {
+
+}
+
+.privacy__inner {
+  max-width: rem(calc(1420 + 60 * 2));  // 両端のpadding分を考慮
+  margin-inline: auto;
+
+  @include mq(md) {  // ※ここだけ、最大幅を500ではなく600に設定。(500だと狭く見えるため)
+    max-width: rem(calc(600 + 20 * 2));  // 両端のpadding分を考慮
+    margin-inline: auto;
+  }
+}
+
+.privacy__wrap {  // コンテンツを囲う親要素
+  margin-top: rem(72);
+
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
+
+
+.privacy__wrap p {
+  margin-top: rem(33);
+  font-size: rem(18);
+  line-height: 1.7;
+  font-weight: $normal;
+
+  @include mq(md) {
+    font-size: rem(14);
+    margin-top: rem(18);
+  }
+}
+
+.privacy__wrap ul {
+  margin-top: rem(33);
+  font-size: rem(18);
+  line-height: 1.7;
+  font-weight: $normal;
+
+  @include mq(md) {
+    font-size: rem(14);
+    margin-top: rem(18);
+  }
+}
+
+.privacy__wrap ul li {
+  margin-top: rem(5);
+
+  padding-left: rem(18);  // リスト項目の前にくる『・』が入るためのスペースを確保
+  position: relative;
+
+  @include mq(md) {
+    margin-top: rem(4);
+    padding-left: rem(15);
+  }
+}
+
+.privacy__wrap ul li::after {
+  content: '・';
+  color: $color-font-base;
+  font-size: rem(18);
+  line-height: 1.7;
+  position: absolute;
+  top: rem(0);
+  left: 0;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
+}
+
+.privacy__cta {
+  margin-top: rem(115);
+
+  @include mq(md) {
+    margin-top: rem(45);
+  }
+}
