@@ -350,6 +350,43 @@ jQuery(".js-accordion").on("click", function (e) {
 
 
 /* -------------------------------------------------------------------------------- */
+/* スムーススクロール */
+// ページ上部に固定しているヘッダー(header)の高さも考慮。
+// document.addEventListener('DOMContentLoaded', function () {
+//   // href属性の「#」で始まるリンクを全て取得
+//   const links = document.querySelectorAll('a[href^="#"]');
+//   // ヘッダーの高さを動的に取得する（クラス名で指定）
+//   const header = document.querySelector('.header'); // ヘッダー要素を取得
+
+//   // 取得したリンクを1つずつ処理を実行する
+//   links.forEach((link) => {
+//     // リンクをクリックしたら処理を実行する
+//     link.addEventListener('click', (e) => {
+//       // リンクイベントをキャンセルする
+//       e.preventDefault();
+//       // クリックしたリンクのhref属性を取得
+//       const href = link.getAttribute('href');
+//       // 目的のセクションを取得
+//       const targetSection = document.querySelector(href);
+//       // 画面の上からセクションのtop位置までの垂直方向の距離
+//       const sectionTop = targetSection.getBoundingClientRect().top;
+//       // 現在位置を取得
+//       const currentPos = window.scrollY;
+//       // ヘッダーの高さ（動的に取得）
+//       const headerHeight = header ? header.offsetHeight : 0;
+//       // 現在位置から目的のsectionまでのスクロール量
+//       const target = sectionTop + currentPos - headerHeight;
+//       // 特定の位置までスクロールさせる
+//       window.scrollTo({
+//         top: target, // 目的の位置のY座標を指定
+//         behavior: 'smooth', // スクロールの動きを指定
+//       });
+//     });
+//   });
+// });
+
+
+/* -------------------------------------------------------------------------------- */
 // ※別ページの遷移先のid部分にアンカーリンクで飛ぶ場合に、アニメーションのせいでDOMが最初に非表示になっている要素の場合だとしっかりアンカーリンク先に飛ばない時がある為、それでもしっかりそのアンカーリンク先に飛ぶようにする指定。
 // (ページ読み込み完了時に処理)
 // window.addEventListener("load", function() {
