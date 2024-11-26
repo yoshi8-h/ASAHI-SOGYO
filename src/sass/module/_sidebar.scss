@@ -9,6 +9,7 @@
   position: absolute;
   top: rem(122);
   left: calc(50% - min(46vw, 45.43rem));
+  z-index: 100;
 
   @include mq(md) {
     display: none;

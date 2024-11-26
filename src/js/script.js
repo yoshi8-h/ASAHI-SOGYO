@@ -390,34 +390,112 @@ jQuery(".js-accordion").on("click", function (e) {
 // ※別ページの遷移先のid部分にアンカーリンクで飛ぶ場合に、アニメーションのせいでDOMが最初に非表示になっている要素の場合だとしっかりアンカーリンク先に飛ばない時がある為、それでもしっかりそのアンカーリンク先に飛ぶようにする指定。
 // (ページ読み込み完了時に処理)
 // window.addEventListener("load", function() {
-//   // URLにハッシュ（#product2など）があるか確認
 //   const hash = window.location.hash;
 //   if (hash) {
-//     // ハッシュに対応する要素がある場合、そこにスクロール
 //     const targetElement = document.querySelector(hash);
+
 //     if (targetElement) {
-//       // ページ全体がロードされてからスムーズにスクロール
+//       // GSAPのアニメーションがあれば強制的に完了させる
+//       gsap.to(targetElement, { y: 0, autoAlpha: 1, duration: 0 });
+
+//       // アンカーリンク先にスムーズにスクロール
 //       targetElement.scrollIntoView({ behavior: "smooth" });
 //     }
 //   }
 // });
 
-// ※別ページの遷移先のid部分にアンカーリンクで飛ぶ場合に、アニメーションのせいでDOMが最初に非表示になっている要素の場合だとしっかりアンカーリンク先に飛ばない時がある為、それでもしっかりそのアンカーリンク先に飛ぶようにする指定。
-// (ページ読み込み完了時に処理)
-window.addEventListener("load", function() {
+
+/* スムーススクロール (ページ遷移アニメーションとGSAPアニメーションを両方考慮した指定) */
+// ※ページ遷移アニメーションのためのJSが邪魔して上手くスクロールされないため、ページ遷移後にスムーススクロールを強制的に実行する
+// ※別ページの遷移先のid部分にアンカーリンクで飛ぶ場合に、GSAPアニメーション(フワッと表示など)のせいでDOMが最初に非表示になっている要素の場合だとしっかりアンカーリンク先に飛ばない時がある為、それでもしっかりそのアンカーリンク先に飛ぶようにする指定。
+// headerの高さも考慮。
+// document.addEventListener("DOMContentLoaded", function () {
+//   const header = document.querySelector(".header"); // ヘッダー要素
+//   const animationDelay = 300; // ページ遷移アニメーションの待機時間
+
+//   // 指定されたハッシュリンクにスクロールする処理
+//   function scrollToHash(hash) {
+//     const targetElement = document.querySelector(hash); // ハッシュに対応する要素
+//     if (!targetElement) {
+//       console.warn(`Target element for hash "${hash}" not found.`);
+//       return; // 要素がない場合は中断
+//     }
+
+//     // GSAPを利用して非表示状態の要素を強制的に表示
+//     if (typeof gsap !== "undefined") {
+//       gsap.to(targetElement, { y: 0, autoAlpha: 1, duration: 0 }); // アニメーション即完了
+//     }
+
+//     // スムーズスクロール（ヘッダーの高さを考慮）
+//     setTimeout(() => {
+//       const sectionTop = targetElement.getBoundingClientRect().top; // 要素の画面上位置
+//       const currentPos = window.scrollY; // 現在のスクロール位置
+//       const headerHeight = header ? header.offsetHeight : 0; // ヘッダー高さ
+//       const target = sectionTop + currentPos - headerHeight; // スクロール先計算
+
+//       window.scrollTo({
+//         top: target,
+//         behavior: "smooth", // スムーススクロール
+//       });
+//     }, animationDelay); // 遷移アニメーション時間分待機
+//   }
+
+//   // DOMContentLoaded時点でのハッシュ処理
+//   const hash = window.location.hash;
+//   if (hash) {
+//     scrollToHash(hash);
+//   }
+
+//   // ページ完全読み込み後の追加処理
+//   window.addEventListener("load", function () {
+//     if (hash) {
+//       scrollToHash(hash); // 再実行してより確実に
+//     }
+//   });
+// });
+
+
+/* スムーススクロール (ページ遷移アニメーションとGSAPアニメーションを両方考慮した指定) */
+// ※ページ遷移アニメーションのためのJSが邪魔して上手くスクロールされないため、ページ遷移後にスムーススクロールを強制的に実行する
+// ※別ページの遷移先のid部分にアンカーリンクで飛ぶ場合に、GSAPアニメーション(フワッと表示など)のせいでDOMが最初に非表示になっている要素の場合だとしっかりアンカーリンク先に飛ばない時がある為、それでもしっかりそのアンカーリンク先に飛ぶようにする指定。
+// headerの高さは考慮しない。
+document.addEventListener("DOMContentLoaded", function () {
+  const animationDelay = 300; // ページ遷移アニメーションの待機時間
+
+  // 指定されたハッシュリンクにスクロールする処理
+  function scrollToHash(hash) {
+    const targetElement = document.querySelector(hash); // ハッシュに対応する要素
+    if (!targetElement) {
+      console.warn(`Target element for hash "${hash}" not found.`);
+      return; // 要素がない場合は中断
+    }
+
+    // GSAPを利用して非表示状態の要素を強制的に表示
+    if (typeof gsap !== "undefined") {
+      gsap.to(targetElement, { y: 0, autoAlpha: 1, duration: 0 }); // アニメーション即完了
+    }
+
+    // スムーズスクロール
+    setTimeout(() => {
+      targetElement.scrollIntoView({ behavior: "smooth" }); // スムーススクロール
+    }, animationDelay); // 遷移アニメーション時間分待機
+  }
+
+  // DOMContentLoaded時点でのハッシュ処理
   const hash = window.location.hash;
   if (hash) {
-    const targetElement = document.querySelector(hash);
-
-    if (targetElement) {
-      // GSAPのアニメーションがあれば強制的に完了させる
-      gsap.to(targetElement, { y: 0, autoAlpha: 1, duration: 0 });
-
-      // アンカーリンク先にスムーズにスクロール
-      targetElement.scrollIntoView({ behavior: "smooth" });
-    }
+    scrollToHash(hash);
   }
+
+  // ページ完全読み込み後の追加処理
+  window.addEventListener("load", function () {
+    if (hash) {
+      scrollToHash(hash); // 再実行してより確実に
+    }
+  });
 });
+
+
 
 
 
