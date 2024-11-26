@@ -1,0 +1,83 @@
+@use "global" as *;
+
+
+.sdgs {
+
+}
+
+.sdgs__inner {
+  @include mq(md) {
+    max-width: rem(calc(500 + 20 * 2));  // 両端のpadding分を考慮
+    margin-inline: auto;
+  }
+}
+
+.sdgs__title {
+
+}
+
+.sdgs__contents {
+  margin-top: rem(80);
+  max-width: rem(1200);
+  margin-inline: auto;
+
+  @include mq(md) {
+    margin-top: rem(30);
+    max-width: auto;
+  }
+}
+
+.sdgs__text {
+  font-size: rem(16);
+  line-height: 1.75;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
+}
+
+.sdgs__images {
+  margin-top: rem(45);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: rem(60);
+
+  @include mq(md) {
+    margin-top: rem(30);
+    gap: rem(20);
+  }
+}
+
+.sdgs__img {
+  aspect-ratio: 576 / 778;
+  max-width: rem(576);
+  width: 100%;
+  object-fit: cover;
+
+  @include mq(md) {
+    max-width: auto;
+  }
+}
+
+.sdgs__img img {
+  aspect-ratio: 576 / 778;
+  max-width: rem(576);
+  width: 100%;
+  object-fit: cover;
+
+  @include mq(md) {
+    max-width: auto;
+  }
+}
+
+.sdgs__text2 {
+  margin-top: rem(30);
+  font-size: rem(16);
+  line-height: 1.75;
+
+  @include mq(md) {
+    margin-top: rem(20);
+    font-size: rem(14);
+  }
+}

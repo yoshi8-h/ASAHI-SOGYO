@@ -1,0 +1,23 @@
+@use "global" as *;
+
+
+.company-top {
+
+}
+
+.company-top__inner {
+
+}
+
+.company-top__title {
+  margin-top: rem(45);
+  font-family: $font-family-ja-1;
+  font-size: rem(56);
+  text-align: center;
+
+  @include mq(md) {
+    margin-top: rem(40);
+    text-align: center;
+    font-size: rem(32);
+  }
+}

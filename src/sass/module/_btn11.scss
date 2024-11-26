@@ -1,0 +1,84 @@
+@use "global" as *;
+
+
+.btn11 {
+  display: inline-block;
+  padding-block: rem(12);
+  padding-inline: rem(25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(16);
+
+  background: $color-accent1;
+  border-radius: rem(25);
+  transition: opacity 0.2s ease-out;
+
+  @include mq(md) {
+    padding-block: rem(8);
+    padding-inline: rem(15);
+    gap: rem(10);
+    border-radius: rem(20);
+  }
+}
+
+.btn11:hover {  // hover
+  opacity: 0.6;
+}
+
+.btn11__left-img {  // PDFのアイコン
+  aspect-ratio: 25 / 26;
+  max-width: rem(25);
+  width: 100%;
+  object-fit: contain;
+
+  @include mq(md) {
+    aspect-ratio: 18 / 19;
+    max-width: rem(18);
+  }
+}
+
+.btn11__left-img img {
+  aspect-ratio: 25 / 26;
+  max-width: rem(25);
+  width: 100%;
+  object-fit: contain;
+
+  @include mq(md) {
+    aspect-ratio: 18 / 19;
+    max-width: rem(18);
+  }
+}
+
+.btn11__text {
+  color: #FFF;
+  font-size: rem(18);
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
+}
+
+.btn11__right-img {
+  aspect-ratio: 19 / 21;
+  max-width: rem(19);
+  width: 100%;
+  object-fit: contain;
+
+  @include mq(md) {
+    aspect-ratio: 16 / 18;
+    max-width: rem(16);
+  }
+}
+
+.btn11__right-img img {
+  aspect-ratio: 19 / 21;
+  max-width: rem(19);
+  width: 100%;
+  object-fit: contain;
+
+  @include mq(md) {
+    aspect-ratio: 16 / 18;
+    max-width: rem(16);
+  }
+}

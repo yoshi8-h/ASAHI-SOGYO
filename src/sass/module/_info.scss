@@ -1,0 +1,71 @@
+@use "global" as *;
+
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: rem(8);
+
+  @include mq(md) {
+    gap: rem(8);
+  }
+}
+
+.info__item {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 7%;
+
+  @include mq(md) {
+    flex-direction: column;
+    justify-content: center;
+    gap: rem(2);
+  }
+}
+
+.info__item-title {
+  width: 23.7%;
+
+  font-size: rem(14);
+  font-weight: $bold;
+
+  @include mq(md) {
+    font-size: rem(16);
+    width: 100%;
+  }
+}
+
+.info__item-body {
+  width: 76.2%;
+
+  font-size: rem(16);
+
+  @include mq(md) {
+    width: 100%;
+    font-size: rem(14);
+  }
+}
+
+.info__item-list {
+
+}
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+// .info--top
+.info--top {
+  gap: rem(23);
+
+  @include mq(md) {
+    gap: rem(8);
+  }
+}

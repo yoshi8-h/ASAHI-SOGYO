@@ -1,0 +1,18 @@
+@use "global" as *;
+
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: rem(73);
+
+  @include mq(md) {
+    gap: rem(40);
+  }
+}
+
+.questions__item {
+  width: 100%;
+}

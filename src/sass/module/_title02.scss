@@ -1,0 +1,29 @@
+@use "global" as *;
+
+
+.title02 {
+  font-family: $font-family-ja-1;
+  font-size: rem(56);
+  padding-left: rem(60);
+  position: relative;
+
+  @include mq(md) {
+    font-size: rem(24);
+    padding-left: rem(35);
+  }
+}
+
+.title02::before {  // 左側の赤い横線
+  content: "";
+  width: rem(48);
+  height: 2px;
+  background: $color-accent1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+
+  @include mq(md) {
+    width: rem(26);
+  }
+}

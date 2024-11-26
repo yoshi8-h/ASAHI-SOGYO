@@ -1,0 +1,50 @@
+@use "global" as *;
+
+
+.anchor {
+  display: block;
+  border: 1px solid $color-accent1;
+  border-radius: rem(30);
+  padding-block: rem(12);
+  padding-inline: rem(15);  // 最低限を指定
+  display: grid;
+  place-items: center;
+  position: relative;
+
+  @include mq(md) {
+    padding-block: rem(10);
+  }
+}
+
+.anchor:hover .anchor__arrow {  // hover
+  transform: translateY(calc(-50% + 4px));
+}
+
+.anchor__arrow {
+  width: fit-content;
+  position: absolute;
+  left: rem(16);
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease-out;
+}
+
+.anchor__arrow img {
+  aspect-ratio: 1 / 1;
+  width: rem(22);
+
+  @include mq(md) {
+    width: rem(18);
+  }
+}
+
+.anchor__text {
+  font-size: rem(17);
+  color: $color-accent1;
+  font-weight: $bold;
+  padding-left: rem(10);
+
+  @include mq(md) {
+    font-size: rem(16);
+  }
+}

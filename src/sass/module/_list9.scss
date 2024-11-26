@@ -1,0 +1,80 @@
+@use "global" as *;
+
+
+.list9 {
+
+}
+
+.list9__item {
+  padding-left: rem(16);
+  padding-top: rem(18);
+  padding-bottom: rem(70);
+  border-top: 2px solid $color-accent1;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  @include mq(md) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: rem(12);
+    padding-inline: 0;
+    padding-block: rem(24);
+  }
+}
+
+.list9__title {
+  width: 18.3%;
+
+  color: $color-accent1;
+  font-size: rem(20);
+  font-weight: $bold;
+
+  @include mq(md) {
+    width: 100%;
+    font-size: rem(19);
+  }
+}
+
+.list9__body {
+  width: 81.7%;
+  padding-bottom: rem(25);
+  border-bottom: 1px solid #b3b1b1;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include mq(md) {
+    width: 100%;
+    padding-bottom: 0;
+    border-bottom: none;
+
+    flex-direction: column;
+    justify-content: center;
+    gap: rem(15);
+  }
+}
+
+.list9__info {
+  width: 65%;
+
+  @include mq(md) {
+    width: 100%;
+  }
+}
+
+.list9__btn-wrap {
+  max-width: rem(231);
+  width: 100%;
+
+  @include mq(md) {
+    max-width: rem(200);
+  }
+}
+
+.list9__btn {
+
+}

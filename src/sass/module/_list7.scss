@@ -1,0 +1,36 @@
+@use "global" as *;
+
+
+.list7 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(25);
+
+  @include mq(md) {
+    gap: rem(22);
+  }
+}
+
+.list7__item {
+
+}
+
+.list7__item-title {
+
+}
+
+.list7__item-text {
+  margin-top: rem(10);
+  font-size: rem(16);
+  line-height: 1.75;
+
+  padding-left: rem(77);
+
+  @include mq(md) {
+    margin-top: rem(2);
+    font-size: rem(14);
+    padding-left: 0;
+  }
+}

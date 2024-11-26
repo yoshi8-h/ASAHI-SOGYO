@@ -1,0 +1,55 @@
+@use "global" as *;
+
+
+.anchors {
+
+}
+
+.anchors__inner.inner {
+
+  @include mq(md) {
+    padding-inline: 0;
+  }
+}
+
+.anchors__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: rem(20);  // 最低限のgapを指定
+
+  flex-wrap: wrap;
+  row-gap: rem(25);
+
+  @include mq(md) {
+    justify-content: center;
+    row-gap: rem(20);
+  }
+}
+
+.anchors__item {
+  max-width: rem(269);
+  width: 100%;
+
+  @include mq(md) {
+    max-width: rem(345);
+  }
+}
+
+
+
+
+// =======================================
+// モディファイア
+// =======================================
+// .anchors--2 (企業情報ページの)
+.anchors--2 {
+
+}
+
+.anchors--2 .anchors__wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  column-gap: rem(27);  // 最低限のgapを指定
+}

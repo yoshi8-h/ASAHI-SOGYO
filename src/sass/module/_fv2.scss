@@ -87,3 +87,12 @@
     background: url(../images/page/sp/case_fv-bg.webp) no-repeat center center / cover;
   }
 }
+
+// fv2--sdgs (環境への取り組みページ)
+.fv2--sdgs .fv2__wrap {
+  background: url(../images/page/pc/sdgs_fv-bg.webp) no-repeat center center / cover;
+
+  @include mq(md) {
+    background: url(../images/page/sp/sdgs_fv-bg.webp) no-repeat center center / cover;
+  }
+}

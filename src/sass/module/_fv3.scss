@@ -143,6 +143,88 @@
 
 
 
+// fv3--3 (企業情報ページの)
+.fv3--3.fv3 {
+
+}
+
+.fv3--3 .fv3__inner.inner {
+  max-width: rem(calc(1776 + 60 * 2));
+  margin-inline: auto;
+  padding-inline: rem(60);
+  position: relative;
+
+  @include mq(md) {
+    max-width: none;
+    padding-inline: rem(20);
+  }
+}
+
+.fv3--3 .fv3__wrap  {
+  min-height: rem(400);
+  border-radius: rem(10);
+  background: url(../images/page/pc/fv3-bg-gold-2.png) no-repeat center center / cover;
+  position: relative;
+
+  @include mq(md) {
+    min-height: rem(170);
+  }
+}
+
+.fv3--3 .fv3__text {
+  color: $color-font-base;
+  font-size: rem(32);
+  font-weight: $medium;
+  line-height: 0.9375;
+
+  position: absolute;
+  top: 50%;
+  left: rem(150);
+  transform: translateY(-50%);
+
+  @include mq(md) {
+    font-size: rem(24);
+    line-height: 1.25;
+    left: rem(30);
+  }
+}
+
+.fv3--3 .fv3__logo {  // ランチャームの『尾ビレ』
+  display: block;
+  width: fit-content;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  @include mq(md) {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+
+    aspect-ratio: 525 / 490;
+    max-width: rem(137);
+    width: fit-content;
+    height: fit-content;
+  }
+}
+
+.fv3--3 .fv3__logo img {
+  aspect-ratio: 525 / 396;
+  width: 100%;
+  max-width: rem(525);
+
+  @include mq(md) {
+    aspect-ratio: 525 / 500;
+    // width: 100%;
+    // max-width: auto;
+    // width: auto;
+    // height: 75%;
+  }
+}
+
+
+
 // fv3--privacy (プライバシーポリシーページのFV)
 .fv3--privacy {
 
@@ -171,6 +253,7 @@
 }
 
 
+
 // .fv3--inquiry (お問い合わせページの)
 .fv3--inquiry {
 
@@ -178,4 +261,32 @@
 
 .fv3--inquiry .fv3__logo img {
   opacity: 0.7;
+}
+
+
+
+// fv3--faq (よくあるご質問ページのFV)
+.fv3--faq {
+
+}
+.fv3--faq .fv3__logo {  // 『Policy』の白いロゴ
+  width: fit-content;
+  position: absolute;
+  bottom: rem(40);
+  right: rem(85);
+
+  @include mq(md) {
+    bottom: rem(8);
+    right: rem(14);
+  }
+}
+
+.fv3--faq .fv3__logo img {
+  aspect-ratio: 470 / 194;
+  width: 100%;
+  max-width: rem(470);
+
+  @include mq(md) {
+    width: rem(140);
+  }
 }

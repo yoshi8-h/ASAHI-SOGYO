@@ -1,0 +1,14 @@
+@use "global" as *;
+
+
+.l-faq {
+
+}
+
+.l-faq:first-of-type {
+  margin-top: rem(80);
+
+  @include mq(md) {
+    margin-top: rem(45);
+  }
+}

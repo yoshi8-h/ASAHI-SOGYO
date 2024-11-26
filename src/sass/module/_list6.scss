@@ -1,0 +1,97 @@
+@use "global" as *;
+
+
+.list6 {
+
+}
+
+.list6__item {
+  padding-block: rem(30);
+  padding-inline: rem(20);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 6.7%;
+
+  border-top: 1px solid #b3b1b1;
+
+  @include mq(md) {
+    padding-block: rem(20);
+    padding-inline: rem(5);
+    flex-direction: column;
+    justify-content: center;
+    gap: rem(10);
+  }
+}
+
+.list6__item:last-of-type {
+  border-bottom: 1px solid #b3b1b1;
+}
+
+.list6__title {
+  color: $color-accent1;
+  font-size: rem(24);
+  font-weight: $bold;
+
+  width: 17.25%;
+
+  @include mq(md) {
+    font-size: rem(18);
+    width: 100%;
+  }
+}
+
+.list6__main {
+
+}
+
+.list6__text {
+  font-size: rem(16);
+  line-height: 1.75;
+
+  @include mq(md) {
+    font-size: rem(14);
+  }
+}
+
+
+.list6__list {
+  font-size: rem(16);
+
+  padding-left: rem(27);
+  position: relative;
+
+  @include mq(md) {
+    font-size: rem(14);
+    padding-left: rem(22);
+  }
+}
+
+.list6__list::before {  // 左側の赤い横線
+  content: "";
+  width: rem(17);
+  height: 2px;
+  background: $color-accent1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+
+  @include mq(md) {
+    width: rem(14);
+  }
+}
+
+.list6__list:not(:first-of-type) {
+  margin-top: rem(20);
+
+  @include mq(md) {
+    margin-top: rem(8);
+  }
+}
+
+
+
+.list6__list2 {
+  // width: 100%;
+}

@@ -1,0 +1,86 @@
+@use "global" as *;
+
+
+.title04 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: rem(24);
+
+  @include mq(md) {
+    gap: rem(18);
+  }
+}
+
+.title04__left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: rem(30);
+
+  @include mq(md) {
+    gap: rem(24);
+  }
+}
+
+.title04__left__number {
+  color: $color-accent1;
+  font-size: rem(50);
+  margin-top: rem(-4);  // 位置調整
+
+  @include mq(md) {
+    font-size: rem(30);
+  }
+}
+
+.title04__left__en {
+  color: $color-accent1;
+  font-size: rem(24);
+  position: relative;
+
+  @include mq(md) {
+    font-size: rem(18);
+  }
+}
+
+.title04__left__en::before {  // 仕切り線
+  content: "";
+  width: 1px;
+  height: rem(36);
+  background: $color-accent1;
+  position: absolute;
+  top: 50%;
+  left: rem(-15);
+  transform: translateY(-50%);
+
+  @include mq(md) {
+    height: rem(24);
+    left: rem(-12);
+  }
+}
+
+.title04__right {
+  color: $color-accent1;
+  font-size: rem(20);
+  font-weight: $bold;
+
+  @include mq(md) {
+    font-size: rem(16);
+  }
+}
+
+.title04__right.is-02 {  // 位置調整用
+  padding-left: rem(14);
+
+  @include mq(md) {
+    padding-left: 0;
+  }
+}
+
+.title04__right.is-03 {  // 位置調整用
+  padding-left: rem(20);
+
+  @include mq(md) {
+    padding-left: 0;
+  }
+}

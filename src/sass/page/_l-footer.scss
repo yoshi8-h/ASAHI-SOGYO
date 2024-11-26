@@ -51,3 +51,12 @@
     margin-top: rem(80);
   }
 }
+
+// l-footer--sdgs (採用情報 ページのfooter)
+.l-footer--sdgs.l-footer {
+  margin-top: rem(180);
+
+  @include mq(md) {
+    margin-top: rem(65);
+  }
+}
