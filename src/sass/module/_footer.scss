@@ -117,6 +117,59 @@
   line-height: 1.5;
 }
 
+.footer__map-link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: rem(7);
+  transition: opacity 0.2s ease-out;
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.footer__map-link:hover {  // hover
+  opacity: 0.6;
+}
+
+.footer__map-text {
+  color: $color-accent1;
+  font-size: rem(14);
+  font-weight: $bold;
+  line-height: 1.5;
+  position: relative;
+}
+
+.footer__map-text::after {  // 下線
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: $color-accent1;
+  position: absolute;
+  bottom: rem(-2);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.footer__map-icon {  // 斜め右上向きのアイコン
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+  max-width: rem(20);
+  width: rem(20);
+  object-fit: contain;
+
+  display: grid;
+  place-items: center;
+}
+
+.footer__map-icon img {
+  aspect-ratio: 1 / 1;
+  max-width: rem(20);
+  width: rem(20);
+  object-fit: contain;
+}
+
 .footer__tel {
   font-family: Roboto;
   font-size: rem(14);
