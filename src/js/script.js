@@ -121,38 +121,89 @@ function closeModal(modal) {
 
 
 /* -------------------------------------------------------------------------------- */
-/* headerのスクロール検知 (下にスクロールした時は非表示に。上にスクロールした時は表示する) */
+/*  headerのスクロール検知 (下にスクロールした時は非表示に。上にスクロールした時は表示する)  */
 // headerはページ上部に固定。 (CSSで制御)
 // fixedでは、headerの下にheaderの真下の要素が潜り込んでしまうため、「headerの高さ」と「headerの真下にある要素(セクション)」を自動検知し、headerの真下にある要素に『margin-top』でheaderの高さ分を付与してページの見た目を保つ制御。(headerの真下のセクションを自動検知する事で全ページで適用可能なコード)
 // fvまではheaderを表示し、fvを超えた時にheaderを非表示にする。
-// fvが存在しないページも考慮し(TOPページ以外)、fvが存在しない場合でもエラーにならず、スクロールに応じてheaderの表示・非表示を切り替える仕様に。
-
-// ヘッダーの高さを取得して、headerの真下のセクションの上に余白を追加する
-// ヘッダーの高さを取得して、headerの真下のセクションの上に余白を追加する
-// ヘッダーの高さを取得して、headerの真下のセクションの上に余白を追加する
+// fvが存在しないページ(TOPページ以外)も考慮し、fvが存在しない場合でもエラーにならず、スクロールに応じてheaderの表示・非表示を切り替える仕様に。
+// アンカーリンクで画面下から上にスムーススクロールされる際の上スクロールは、上スクロール判定にならない(headerが表示されない)ように。
+// footerなどに記述している、他ページへのアンカーリンクでの遷移時を指定しているリンク先について、そのページ内で押した場合でも上スクロール判定にならない(headerが表示されない)ように。
+// 【注意点】：スクロールの時間に合わせて1000msを調整してください。これが短すぎると、スクロール途中でheaderが表示される可能性があります。
 function adjustSectionPadding() {
   const header = document.querySelector('.header'); // ヘッダーを取得
-  const nextElement = header.nextElementSibling; // ヘッダーの次にある要素（最初のセクション）を取得
+  const nextElement = header.nextElementSibling; // ヘッダーの次の要素を取得
 
   if (nextElement) {
     const headerHeight = header.offsetHeight; // ヘッダーの高さを取得
-
-    // 最初のセクションにヘッダーの高さ分の余白を追加
-    nextElement.style.marginTop = `${headerHeight}px`;
+    nextElement.style.marginTop = `${headerHeight}px`; // 次の要素に余白を追加
   }
 }
 
-// ページが読み込まれた時と、ウィンドウがリサイズされた時に実行
+// ページ読み込みとリサイズ時に余白調整
 window.addEventListener('DOMContentLoaded', adjustSectionPadding);
 window.addEventListener('resize', adjustSectionPadding);
 
-// ファーストビューが存在するか確認し、その高さを取得する
+// スクロール時のヘッダー制御
 const fv = document.querySelector('.fv');
 const header = document.querySelector('.header');
-let lastScrollY = window.scrollY; // スクロールの位置を保持
+let lastScrollY = window.scrollY; // 最後のスクロール位置
+let isAnchorScrolling = false; // アンカーリンクスクロール中フラグ
+const TOP_SCROLL_THRESHOLD = 15; // ページ上部付近のスクロール位置閾値
 
+// アンカーリンククリック時の処理
+function handleAnchorClick(e, targetElement) {
+  e.preventDefault(); // デフォルトのリンク動作を無効化
+  isAnchorScrolling = true; // アンカーリンクスクロール中に設定
+
+  // ヘッダーを非表示にする
+  header.classList.add('hidden');
+
+  // スムーススクロール
+  targetElement.scrollIntoView({ behavior: 'smooth' });
+
+  // タイマーを設定して一定時間後にフラグを解除
+  setTimeout(() => {
+    isAnchorScrolling = false; // フラグ解除
+  }, 800); // スクロール時間に応じて調整
+}
+
+// ページ遷移時にハッシュがあれば処理
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash; // 現在のURLのハッシュ部分を取得
+  if (hash) {
+    const targetElement = document.querySelector(hash); // ハッシュに対応する要素を取得
+    if (targetElement) {
+      handleAnchorClick({ preventDefault: () => {} }, targetElement); // ページ遷移時もアンカーリンク処理
+    }
+  }
+});
+
+// ページ内のアンカーリンククリック時に処理を追加
+document.querySelectorAll('a[href^="#"], a[href*=".html#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    const href = anchor.getAttribute('href'); // リンクのhref属性を取得
+    const hash = href.split('#')[1]; // ハッシュ部分を抽出
+    const targetElement = document.querySelector(`#${hash}`); // 対象要素を取得
+
+    if (targetElement) {
+      handleAnchorClick(e, targetElement); // アンカーリンククリック時の処理
+    }
+  });
+});
+
+// スクロールイベントの制御
 window.addEventListener('scroll', () => {
+  if (isAnchorScrolling) return; // アンカーリンクスクロール中は何もしない
+
   const currentScrollY = window.scrollY;
+
+  // ページ上部付近でのスクロール判定を無効化
+  if (currentScrollY <= TOP_SCROLL_THRESHOLD) {
+    // ページ上部付近では常にヘッダーを表示
+    header.classList.remove('hidden');
+    lastScrollY = currentScrollY; // 現在の位置を更新
+    return;
+  }
 
   if (fv) {
     const fvHeight = fv.offsetHeight; // ファーストビューの高さを取得
@@ -171,7 +222,7 @@ window.addEventListener('scroll', () => {
       header.classList.remove('hidden');
     }
   } else {
-    // .fvが存在しない場合の処理
+    // ファーストビューが存在しない場合の処理
     if (currentScrollY > lastScrollY) {
       // 下にスクロールしている時はヘッダーを非表示
       header.classList.add('hidden');
@@ -663,32 +714,78 @@ document.addEventListener('DOMContentLoaded', function () {
 // ランチャームが回っている (GIF動画)
 // 『ローディング中...』の文字は、1文字ずつ上に少し上がり、時間が経つと1文字ずつ順番に元の位置に下がってくるアニメーション。
 // 以下の処理で1文字ずつ<span>タグで囲った文字を、動かすために『※CSSでinline要素以外にする指定』が必要。
+//      ↓↓↓
+// サイトに1番最初に訪れた時のみ表示するように。(2回目以降、つまり、他の下層ページに移動してからまたTOPページに戻る時は、アニメーションが発火しないようにする)
+// 他のページ(TOPページではなく、下層ページ)に最初からアクセスして、その後、TOPページに移動した場合も、アニメーションが発火するようにする。
+// タブを1度閉じたら、また再度アクセスする時はアニメーションが発火するように。(セッションストレージという仕組みを使用。)
 
-// 各文字をspanで包む関数
+// // 各文字をspanで包む関数
+// function wrapTextInSpan(selector) {
+//   const element = document.querySelector(selector);
+
+//   // elementが存在する場合のみ処理を実行
+//   if (element) {
+//     const text = element.textContent; // テキストを取得
+//     const wrappedText = text.split('').map(char => `<span>${char}</span>`).join(''); // 各文字をspanでラップ
+//     element.innerHTML = wrappedText; // 新しいHTMLに置き換え
+//   }
+// }
+
+// // DOMが完全にロードされた後にアニメーションを設定
+// document.addEventListener('DOMContentLoaded', function() {
+//   // .opening__text のテキストをspanでラップする
+//   wrapTextInSpan('.opening__text'); // // 上で定義した『各文字をspanで包む関数』を実行。 → .opening__textのテキストをspanでラップ
+
+//   // GSAPアニメーションの実装
+//   gsap.timeline({ repeat: -1, repeatDelay: 1 }) // 無限ループ。ループの繰り返しの間隔は1秒。
+//   .fromTo(".opening__text span", {y: 0}, { y: -10, stagger: 0.1, delay:0.4, duration: 0.4, ease: "liner"})
+//   .fromTo(".opening__text span", { y: -10}, {y: 0, stagger: 0.1, duration: 0.4, ease: "liner"},'-=.5')  // 最後の文字が上がりきる前に最初の文字が下がり始めるように、少し食い気味に発火。
+
+//   // 上で作った『オープニング画面』を、非表示に。
+//   gsap.ticker.lagSmoothing(false);  // 別タブを開いている間もアニメーションが進むように
+//   gsap.fromTo('.opening', {autoAlpha:1}, {autoAlpha:0, duration:1.0, delay:2.2, ease:'power4.out'})
+// });
+
+
+// 各文字を<span>で包む関数
 function wrapTextInSpan(selector) {
   const element = document.querySelector(selector);
 
-  // elementが存在する場合のみ処理を実行
   if (element) {
     const text = element.textContent; // テキストを取得
-    const wrappedText = text.split('').map(char => `<span>${char}</span>`).join(''); // 各文字をspanでラップ
+    const wrappedText = text.split('').map(char => `<span>${char}</span>`).join(''); // 各文字を<span>でラップ
     element.innerHTML = wrappedText; // 新しいHTMLに置き換え
   }
 }
 
-// DOMが完全にロードされた後にアニメーションを設定
-document.addEventListener('DOMContentLoaded', function() {
-  // .opening__text のテキストをspanでラップする
-  wrapTextInSpan('.opening__text'); // // 上で定義した『各文字をspanで包む関数』を実行。 → .opening__textのテキストをspanでラップ
+// ローディングアニメーションの設定
+function runOpeningAnimation() {
+  // .opening__textのテキストを<span>でラップ
+  wrapTextInSpan('.opening__text');
 
-  // GSAPアニメーションの実装
-  gsap.timeline({ repeat: -1, repeatDelay: 1 }) // 無限ループ。ループの繰り返しの間隔は1秒。
-  .fromTo(".opening__text span", {y: 0}, { y: -10, stagger: 0.1, delay:0.4, duration: 0.4, ease: "liner"})
-  .fromTo(".opening__text span", { y: -10}, {y: 0, stagger: 0.1, duration: 0.4, ease: "liner"},'-=.5')  // 最後の文字が上がりきる前に最初の文字が下がり始めるように、少し食い気味に発火。
+  // GSAPアニメーションの実行
+  const timeline = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+  timeline
+    .fromTo(".opening__text span", { y: 0 }, { y: -10, stagger: 0.1, delay: 0.4, duration: 0.4, ease: "liner" })
+    .fromTo(".opening__text span", { y: -10 }, { y: 0, stagger: 0.1, duration: 0.4, ease: "liner" }, '-=0.5');
 
-  // 上で作った『オープニング画面』を、非表示に。
-  gsap.ticker.lagSmoothing(false);  // 別タブを開いている間もアニメーションが進むように
-  gsap.fromTo('.opening', {autoAlpha:1}, {autoAlpha:0, duration:1.0, delay:2.2, ease:'power4.out'})
+  // オープニング画面を非表示に
+  gsap.ticker.lagSmoothing(false); // 別タブでも動作するように
+  gsap.fromTo('.opening', { autoAlpha: 1 }, { autoAlpha: 0, duration: 1.0, delay: 2.2, ease: 'power4.out' });
+}
+
+// 初回訪問チェック
+document.addEventListener('DOMContentLoaded', function () {
+  const isTopVisited = sessionStorage.getItem('topVisited'); // セッションストレージのフラグを取得
+
+  if (!isTopVisited) {
+    // 初回訪問時のみアニメーションを実行
+    runOpeningAnimation();
+    sessionStorage.setItem('topVisited', 'true'); // セッションストレージにフラグを設定
+  } else {
+    // 初回以外の処理
+    document.querySelector('.opening').style.display = 'none'; // .openingを非表示
+  }
 });
 
 
@@ -837,28 +934,65 @@ document.addEventListener('DOMContentLoaded', function() {
 /* -------------------------------------------------------------------------------- */
 /* 背景が先に上からトリミングが外れる形で表示され、その後、文字がフワッと上から下にフェードインして表示される */
 // TOPページのFV。
-// ※ローディング画面が終わった後に実行するようにするために、『delay』で大幅(3.0s)に実行を遅延。
+//      ↓↓↓
+// ※最初は、オープニングアニメーション(ローディング画面)が終わった後に実行するようにするために、『delay』で大幅(2.6s)に実行を遅延させて対応していたが、
+// オープニングアニメーションが、サイトに1番最初に訪れた時のみ表示するように変更になったため、(2回目以降、つまり、他の下層ページに移動してからまたTOPページに戻る時は、アニメーションが発火しないようにする)
+// 同様にして、このTOPページのFVアニメーションも、最初の1度目のみ、2.6s遅延するようにして、かつ、2回目以降は、ページ遷移アニメーションがあるため、「1.2s」の遅延にする記述。
+// (タブを1度閉じたら、また再度アクセスする時はアニメーションが発火するように。(セッションストレージという仕組みを使用。))
+// (他のページ(TOPページではなく、下層ページ)に最初からアクセスして、その後、TOPページに移動した場合も、アニメーションが2.6s遅延して発火するようにする。)
 
-document.addEventListener('DOMContentLoaded', function() {
-  const downBgToTexts = document.querySelectorAll(".js-down-bg-to-text");  // ページ内の、このアニメーションをさせたい全ての要素を取得
+// document.addEventListener('DOMContentLoaded', function() {
+//   const downBgToTexts = document.querySelectorAll(".js-down-bg-to-text");  // ページ内の、このアニメーションをさせたい全ての要素を取得
+
+//   downBgToTexts.forEach(downBgToText => {
+//     let bg = downBgToText.querySelectorAll('.js-down-bg');
+//     let text = downBgToText.querySelectorAll('.js-down-text');
+
+//     let tl = gsap.timeline({scrollTrigger:{
+//       trigger: downBgToText,
+//       start: 'top 70%',
+//       // markers:{
+//       //   startColor: "green",
+//       // },
+//     }});
+//     tl  // 先にトリミングが外れて背景が表示され、その後、テキストがフェードインで表示される
+//     .fromTo(bg, {'clipPath':'inset(0 0 100% 0)'}, {'clipPath':'inset(0 0 0% 0)',delay:2.6, duration:.6, ease:"out"})
+//     .fromTo(text, {y:-20, autoAlpha:0}, {y:0, autoAlpha:1},'-=.27')
+
+//   });
+// });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const downBgToTexts = document.querySelectorAll(".js-down-bg-to-text"); // ページ内の対象要素を取得
+  const isFvVisited = sessionStorage.getItem('fvVisited'); // セッションストレージのフラグを取得
+
+  const delayTime = !isFvVisited ? 2.6 : 1.2; // 初回訪問時は2.6秒、それ以降は1.2秒の遅延
 
   downBgToTexts.forEach(downBgToText => {
     let bg = downBgToText.querySelectorAll('.js-down-bg');
     let text = downBgToText.querySelectorAll('.js-down-text');
 
-    let tl = gsap.timeline({scrollTrigger:{
-      trigger: downBgToText,
-      start: 'top 70%',
-      // markers:{
-      //   startColor: "green",
-      // },
-    }});
-    tl  // 先にトリミングが外れて背景が表示され、その後、テキストがフェードインで表示される
-    .fromTo(bg, {'clipPath':'inset(0 0 100% 0)'}, {'clipPath':'inset(0 0 0% 0)',delay:2.6, duration:.6, ease:"out"})
-    .fromTo(text, {y:-20, autoAlpha:0}, {y:0, autoAlpha:1},'-=.27')
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: downBgToText,
+        start: 'top 70%',
+        // markers: {
+        //   startColor: "green",
+        // },
+      }
+    });
 
+    tl  // 背景とテキストのアニメーション
+      .fromTo(bg, { 'clipPath': 'inset(0 0 100% 0)' }, { 'clipPath': 'inset(0 0 0% 0)', delay: delayTime, duration: 0.6, ease: "out" })
+      .fromTo(text, { y: -20, autoAlpha: 0 }, { y: 0, autoAlpha: 1 }, '-=.27');
   });
+
+  // セッションストレージにフラグを保存
+  if (!isFvVisited) {
+    sessionStorage.setItem('fvVisited', 'true');
+  }
 });
+
 
 
 /* -------------------------------------------------------------------------------- */
