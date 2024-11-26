@@ -6,6 +6,7 @@
   font-size: rem(56);
   padding-left: rem(60);
   position: relative;
+  font-weight: $normal;
 
   @include mq(md) {
     font-size: rem(24);

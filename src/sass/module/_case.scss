@@ -36,6 +36,10 @@
   align-items: flex-start;
   gap: rem(32);
   width: rem(366);
+
+  @include mq(md) {
+    width: fit-content;
+  }
 }
 
 .case__head {
