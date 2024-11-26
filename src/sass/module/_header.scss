@@ -169,6 +169,20 @@
   visibility: visible;
 }
 
+.header__link.is-current::after {  // 現在のページ(currentページ)の場合に、グローバルナビの下に表示する黒いアンダーライン。クラス名は『.is-current』で制御
+  content: "";
+  background: $color-font-base;
+  width: rem(16);
+  height: rem(2);
+  position: absolute;
+  bottom: rem(16);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1 ;  // hover時の指定を上書きして、見えるように。
+  visibility: visible;  // hover時の指定を上書きして、見えるように。
+  transition: all 0.2s ease-out;
+}
+
 .header__link.is-service::before,
 .header__link.is-company::before {  // hover時のグレーの三角形▲ (サブメニューの一部)
   content: "";
