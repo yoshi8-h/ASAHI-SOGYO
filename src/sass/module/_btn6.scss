@@ -40,3 +40,11 @@
     font-size: rem(12.7);
   }
 }
+
+
+
+.btn6__text.is-sp-2row {  // SP時に2行になる場合は、line-heightを調整
+  @include mq(md) {
+    line-height: 1.7;
+  }
+}
