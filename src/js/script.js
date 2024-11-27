@@ -747,7 +747,14 @@ document.addEventListener('DOMContentLoaded', function () {
 // });
 
 
-// 各文字を<span>で包む関数
+/* オープニングアニメーション (ローディング) */
+// ランチャームが回っている (GIF動画)
+// 『ローディング中...』の文字は、1文字ずつ上に少し上がり、時間が経つと1文字ずつ順番に元の位置に下がってくるアニメーション。
+// 以下の処理で1文字ずつ<span>タグで囲った文字を、動かすために『※CSSでinline要素以外にする指定』が必要。
+//      ↓↓↓
+// サイトに1番最初に訪れた時のみ表示するように。(2回目以降、つまり、他の下層ページに移動してからまたTOPページに戻る時は、アニメーションが発火しないようにする)
+// 他のページ(TOPページではなく、下層ページ)に最初からアクセスして、その後、TOPページに移動した場合も、アニメーションが発火するようにする。
+// タブを1度閉じたら、また再度アクセスする時はアニメーションが発火するように。(セッションストレージという仕組みを使用。)
 function wrapTextInSpan(selector) {
   const element = document.querySelector(selector);
 
@@ -787,6 +794,16 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.opening').style.display = 'none'; // .openingを非表示
   }
 });
+
+
+/* -------------------------------------------------------------------------------- */
+/* ページ遷移アニメーション (フェード) */
+window.addEventListener('load', function() {
+  const openingTL = gsap.timeline();
+  openingTL
+  .fromTo('.page-shift',{autoAlpha:1},{autoAlpha:0,delay:.3})  // delayで、アニメーションの秒数を指定。(durationはアニメーションにかける長さのため、白色が消え始めるまでの時間を指定したからdelayで指定する)
+  .set('.opening',{autoAlpha:0})  // 「.opening」が、透明だが(要素として)前面に表示されてしまっているから、それを消す為の記述。
+})
 
 
 /* -------------------------------------------------------------------------------- */
