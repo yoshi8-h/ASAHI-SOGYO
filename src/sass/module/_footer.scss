@@ -97,12 +97,12 @@
 }
 
 .footer__address {
-  transition: color 0.2s ease-out;
+  // transition: color 0.2s ease-out;
 }
 
-.footer__address:hover {  // hover
-  color: $color-accent1;
-}
+// .footer__address:hover {  // hover
+//   color: $color-accent1;
+// }
 
 .footer__address-number {
   font-size: rem(14);
@@ -123,6 +123,8 @@
   align-items: flex-end;
   gap: rem(7);
   transition: opacity 0.2s ease-out;
+
+  margin-top: rem(-35);
 
   @include mq(md) {
     display: none;
