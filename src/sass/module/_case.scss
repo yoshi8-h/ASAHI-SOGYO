@@ -116,7 +116,8 @@
   gap: rem(115);
   position: absolute;
   bottom: rem(48);
-  right: calc(50% - min(48vw, 56rem));  // ※min関数で制御
+  // right: calc(50% - min(48vw, 56rem));  // ※min関数で制御
+  right: calc(50% - min(40vw, 56rem));  // ※min関数で制御
   z-index: 100;
 
   @include mq(md) {

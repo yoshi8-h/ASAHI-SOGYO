@@ -6,7 +6,8 @@
   display: inline-block;
   position: fixed;
   bottom: rem(40);
-  right: rem(60);
+  // right: rem(60);
+  right: rem(12);
   z-index: 300;
   opacity: 0;    // 通常は透明に。(スクロールしたら現れる)
   visibility: hidden;  // かつ、通常は押せないように。

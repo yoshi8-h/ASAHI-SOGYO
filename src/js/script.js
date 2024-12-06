@@ -57,18 +57,81 @@ setupHoverEvents('is-service', 'is-service');
 // 開閉の際にアニメーションを付与。
 // 『閉じるボタン(×アイコン)』を押した時だけでなく、モーダルの外枠をクリックした時もモーダルが閉じるように実装。
 
+// // モーダルを開く処理
+// document.querySelectorAll(".js-modal-open").forEach(function(button) {
+//   button.addEventListener("click", function(e) {
+//     e.preventDefault();
+//     var modalNumber = this.getAttribute("data-modal");
+//     var modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
+//     modal.showModal();
+//     modal.classList.add("is-visible");  // クラスを追加してアニメーションを適用
+//     document.documentElement.classList.add("is-fixed");
+
+//     // モーダルの枠外をクリックした時の処理を追加
+//     modal.addEventListener('click', function(event) {
+//       if (event.target === modal) {
+//         closeModal(modal);
+//       }
+//     });
+//   });
+// });
+
+// // モーダルを閉じる処理
+// document.querySelectorAll(".js-modal-close").forEach(function(button) {
+//   button.addEventListener("click", function(e) {
+//     e.preventDefault();
+//     var modalNumber = this.getAttribute("data-modal");
+//     var modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
+//     closeModal(modal);
+//   });
+// });
+
+// // モーダルを閉じる共通処理
+// // function closeModal(modal) {
+// //   modal.classList.remove("is-visible");  // クラスを削除してアニメーションを適用
+// //   // アニメーションが終わるのを待ってからモーダルを閉じる
+// //   setTimeout(function() {
+// //     modal.close();
+// //   }, 200);  // アニメーションの時間と同じに設定
+// //   document.documentElement.classList.remove("is-fixed");
+// // }
+
+// // モーダルを閉じる共通処理 (requestAnimationFrameを使用 → 『setTimeout』を使うと、アニメーションがカクつく可能性があるから。)
+// function closeModal(modal) {
+//   modal.classList.remove("is-visible");  // クラスを削除してアニメーションを適用
+
+//   const animationDuration = 200;  // アニメーションの時間 (200ms)
+//   let startTime = null;
+
+//   // アニメーションが終わるのを待ってからモーダルを閉じる処理
+//   function waitForAnimation(time) {
+//     if (!startTime) startTime = time;  // 初回呼び出し時に開始時間をセット
+//     const elapsedTime = time - startTime;
+
+//     if (elapsedTime >= animationDuration) {
+//       modal.close();  // アニメーション終了後にモーダルを閉じる
+//       document.documentElement.classList.remove("is-fixed");
+//     } else {
+//       requestAnimationFrame(waitForAnimation);  // アニメーションの進行を監視し続ける
+//     }
+//   }
+
+//   requestAnimationFrame(waitForAnimation);  // 初回のフレームをリクエスト
+// }
+
+
 // モーダルを開く処理
-document.querySelectorAll(".js-modal-open").forEach(function(button) {
-  button.addEventListener("click", function(e) {
+document.querySelectorAll(".js-modal-open").forEach(function (button) {
+  button.addEventListener("click", function (e) {
     e.preventDefault();
-    var modalNumber = this.getAttribute("data-modal");
-    var modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
+    const modalNumber = this.getAttribute("data-modal");
+    const modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
     modal.showModal();
-    modal.classList.add("is-visible");  // クラスを追加してアニメーションを適用
+    modal.classList.add("is-visible");
     document.documentElement.classList.add("is-fixed");
 
-    // モーダルの枠外をクリックした時の処理を追加
-    modal.addEventListener('click', function(event) {
+    // モーダルの枠外をクリックした場合に閉じる
+    modal.addEventListener("click", function (event) {
       if (event.target === modal) {
         closeModal(modal);
       }
@@ -77,47 +140,53 @@ document.querySelectorAll(".js-modal-open").forEach(function(button) {
 });
 
 // モーダルを閉じる処理
-document.querySelectorAll(".js-modal-close").forEach(function(button) {
-  button.addEventListener("click", function(e) {
+document.querySelectorAll(".js-modal-close").forEach(function (button) {
+  button.addEventListener("click", function (e) {
     e.preventDefault();
-    var modalNumber = this.getAttribute("data-modal");
-    var modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
+    const modalNumber = this.getAttribute("data-modal");
+    const modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
     closeModal(modal);
   });
 });
 
-// モーダルを閉じる共通処理
-// function closeModal(modal) {
-//   modal.classList.remove("is-visible");  // クラスを削除してアニメーションを適用
-//   // アニメーションが終わるのを待ってからモーダルを閉じる
-//   setTimeout(function() {
-//     modal.close();
-//   }, 200);  // アニメーションの時間と同じに設定
-//   document.documentElement.classList.remove("is-fixed");
-// }
+// メガメニュー内のリンククリック時の処理
+document.querySelectorAll(".nav2__contents a, .nav-sub2__title, .list2__item").forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    const href = this.getAttribute("href"); // リンク先を取得
+    const isAnchorLink = href.startsWith("#") || (href.includes(window.location.pathname) && href.includes("#")); // アンカーリンク判定
+    const modal = this.closest(".mega-menu"); // 現在のモーダルを取得
 
-// モーダルを閉じる共通処理 (requestAnimationFrameを使用 → 『setTimeout』を使うと、アニメーションがカクつく可能性があるから。)
-function closeModal(modal) {
-  modal.classList.remove("is-visible");  // クラスを削除してアニメーションを適用
+    if (isAnchorLink) {
+      e.preventDefault(); // デフォルトの挙動をキャンセル
 
-  const animationDuration = 200;  // アニメーションの時間 (200ms)
-  let startTime = null;
+      // スムーススクロールを実行
+      const targetId = href.split("#")[1];
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" }); // スムーススクロール
+      }
 
-  // アニメーションが終わるのを待ってからモーダルを閉じる処理
-  function waitForAnimation(time) {
-    if (!startTime) startTime = time;  // 初回呼び出し時に開始時間をセット
-    const elapsedTime = time - startTime;
-
-    if (elapsedTime >= animationDuration) {
-      modal.close();  // アニメーション終了後にモーダルを閉じる
-      document.documentElement.classList.remove("is-fixed");
+      // モーダルを閉じる
+      closeModal(modal);
     } else {
-      requestAnimationFrame(waitForAnimation);  // アニメーションの進行を監視し続ける
+      // ページ遷移する場合もモーダルを閉じる
+      closeModal(modal);
     }
-  }
+  });
+});
 
-  requestAnimationFrame(waitForAnimation);  // 初回のフレームをリクエスト
+// モーダルを閉じる共通処理
+function closeModal(modal) {
+  modal.classList.remove("is-visible");
+
+  const animationDuration = 200; // アニメーションの時間 (200ms)
+  setTimeout(() => {
+    modal.close();
+    document.documentElement.classList.remove("is-fixed");
+  }, animationDuration);
 }
+
+
 
 
 /* -------------------------------------------------------------------------------- */
@@ -801,14 +870,14 @@ document.addEventListener('DOMContentLoaded', function () {
 window.addEventListener('load', function() {
   const openingTL = gsap.timeline();
   openingTL
-  .fromTo('.page-shift',{autoAlpha:1},{autoAlpha:0,delay:.3})  // delayで、アニメーションの秒数を指定。(durationはアニメーションにかける長さのため、白色が消え始めるまでの時間を指定したからdelayで指定する)
+  .fromTo('.page-shift',{autoAlpha:1},{autoAlpha:0,delay:.28})  // delayで、アニメーションの秒数を指定。(durationはアニメーションにかける長さのため、白色が消え始めるまでの時間を指定したからdelayで指定する)
   .set('.opening',{autoAlpha:0})  // 「.opening」が、透明だが(要素として)前面に表示されてしまっているから、それを消す為の記述。
 })
 
 
 /* -------------------------------------------------------------------------------- */
 /* １つの要素をフワッと下から出現 */
-// ページ先頭にある場合のみ、発火位置を調整するためのクラス『is-top-element』も同時に付与するかどうかで、scrollTriggerの発火位置(start)を調整できるようにしている。
+// ページ先頭にある場合のみ、発火位置を調整するためのクラス『is-top-element』も同時に付与するかどうかで、scrollTriggerの発火位置(start)を調整できるようにしている。→ 修正依頼にて、やはりページ遷移した際にすぐに発火するようにして欲しいとの事だったので、95%に修正。
 // →ページの先頭付近にある要素は、scrollTriggerでスクロールしてアニメーションが発火する位置を、元から超えているため、画面リロード時に、すでにアニメーションが発火された状態になってしまっているため、それを防ぐ方法。
 document.addEventListener('DOMContentLoaded', function() {
   const fadeInUps = document.querySelectorAll(".js-fadeInUp");  // ページ内の、このアニメーションをさせたい全ての要素を取得
@@ -818,7 +887,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     gsap.fromTo(item, {y:20, autoAlpha:0}, {y:0, autoAlpha:1, scrollTrigger:{
         trigger: item,
-        start: isTopElement ? 'top 50%' : 'top 70%',  // 『is-top-element』クラスも同時に付与されている要素のみ、発火位置を下め(50%)に調整。→ページの先頭付近にある要素は、scrollTriggerでスクロールしてアニメーションが発火する位置を、元から超えているため、画面リロード時に、すでにアニメーションが発火された状態になってしまっているため、それを防ぐ方法。
+        start: isTopElement ? 'top 95%' : 'top 70%',  // 『is-top-element』クラスも同時に付与されている要素のみ、発火位置を下め(50%)に調整。→ページの先頭付近にある要素は、scrollTriggerでスクロールしてアニメーションが発火する位置を、元から超えているため、画面リロード時に、すでにアニメーションが発火された状態になってしまっているため、それを防ぐ方法。→ 修正依頼にて、やはりページ遷移した際にすぐに発火するようにして欲しいとの事だったので、95%に修正。
         // markers:{
         //   startColor: "green",
         // },
@@ -909,25 +978,55 @@ document.addEventListener('DOMContentLoaded', function() {
 /* -------------------------------------------------------------------------------- */
 /* 1つの親要素に囲まれた複数枚の要素を時差でフワッと下から出現 (順番に時差で) */
 // 事業紹介ページのタイトル部分など。
+// 「.is-top-element」クラスを同時に持つ要素は、発火位置が95%になる。それ以外の要素は60%で発火
 
-document.addEventListener('DOMContentLoaded', function() {
+// document.addEventListener('DOMContentLoaded', function() {
 
-  // ページ内の全ての要素のコンテナ(複数の要素のコンテナ。トリガーとなる要素)を取得
+//   // ページ内の全ての要素のコンテナ(複数の要素のコンテナ。トリガーとなる要素)を取得
+//   const elementContainers = document.querySelectorAll(".js-elements-fadeInUp-trigger");
+
+//   elementContainers.forEach(container => {
+//     const elements = container.querySelectorAll(".js-element-fadeInUp");  // そのコンテナ内の要素を全て取得
+//     gsap.fromTo(elements, {y:40, autoAlpha:0}, {y:0, autoAlpha:1, stagger:.3, scrollTrigger:{
+//         trigger: container,
+//         start: 'top 60%',
+//         // markers:{
+//         //   startColor: "green",
+//         // },
+//       }
+//     });
+//   });
+
+// });
+
+document.addEventListener('DOMContentLoaded', function () {
+  // ページ内の全ての要素のコンテナを取得
   const elementContainers = document.querySelectorAll(".js-elements-fadeInUp-trigger");
 
   elementContainers.forEach(container => {
-    const elements = container.querySelectorAll(".js-element-fadeInUp");  // そのコンテナ内の要素を全て取得
-    gsap.fromTo(elements, {y:40, autoAlpha:0}, {y:0, autoAlpha:1, stagger:.3, scrollTrigger:{
-        trigger: container,
-        start: 'top 60%',
-        // markers:{
-        //   startColor: "green",
-        // },
-      }
+    // コンテナに『.is-top-element』クラスがあるかを判定
+    const isTopElement = container.classList.contains("is-top-element");
+
+    // コンテナ内のアニメーション対象要素を取得
+    const elements = container.querySelectorAll(".js-element-fadeInUp");
+
+    elements.forEach(element => {
+      // GSAPのアニメーション設定
+      gsap.fromTo(element,{ y: 40, autoAlpha: 0 },{y: 0,autoAlpha: 1,stagger: 0.3,
+          scrollTrigger: {
+            trigger: container,
+            start: isTopElement ? 'top 95%' : 'top 60%', // コンテナのクラスで発火位置を調整
+            // markers: {
+            //   startColor: "green",
+            // },
+          }
+        }
+      );
     });
   });
 
 });
+
 
 
 /* -------------------------------------------------------------------------------- */
@@ -1078,7 +1177,7 @@ window.addEventListener('DOMContentLoaded', function() {
     let isTopElement = target.classList.contains("is-top-element");  // 『.is-top-element』クラスも、『.js-text-fadein-1』と同時に持っているか判定
     gsap.fromTo(spans, {autoAlpha:0}, {autoAlpha:1, stagger:.05, scrollTrigger:{
       trigger: spans,
-      start: isTopElement ? 'top 40%' : 'top 50%',  // 『.is-top-element』クラスも同時に付与されている要素のみ、発火位置を下め(40%)に調整。→ページの先頭付近にある要素は、scrollTriggerでスクロールしてアニメーションが発火する位置を、元から超えているため、画面リロード時に、すでにアニメーションが発火された状態になってしまっているため、それを防ぐ方法。
+      start: isTopElement ? 'top 95%' : 'top 50%',  // 『.is-top-element』クラスも同時に付与されている要素のみ、発火位置を下め(40%)に調整。→ページの先頭付近にある要素は、scrollTriggerでスクロールしてアニメーションが発火する位置を、元から超えているため、画面リロード時に、すでにアニメーションが発火された状態になってしまっているため、それを防ぐ方法。→ 修正依頼にて、やはりページ遷移した際にすぐに発火するようにして欲しいとの事だったので、95%に修正。
       // markers:{
       //   startColor: "blue",
       // },
