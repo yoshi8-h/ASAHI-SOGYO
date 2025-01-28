@@ -120,17 +120,20 @@ setupHoverEvents('is-service', 'is-service');
 // }
 
 
+
 // モーダルを開く処理
 document.querySelectorAll(".js-modal-open").forEach(function (button) {
   button.addEventListener("click", function (e) {
     e.preventDefault();
+
     const modalNumber = this.getAttribute("data-modal");
     const modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
+
     modal.showModal();
     modal.classList.add("is-visible");
     document.documentElement.classList.add("is-fixed");
 
-    // モーダルの枠外をクリックした場合に閉じる
+    // モーダル外枠をクリックした場合に閉じる
     modal.addEventListener("click", function (event) {
       if (event.target === modal) {
         closeModal(modal);
@@ -143,8 +146,10 @@ document.querySelectorAll(".js-modal-open").forEach(function (button) {
 document.querySelectorAll(".js-modal-close").forEach(function (button) {
   button.addEventListener("click", function (e) {
     e.preventDefault();
+
     const modalNumber = this.getAttribute("data-modal");
     const modal = document.querySelector(".js-mega-menu-modal-" + modalNumber);
+
     closeModal(modal);
   });
 });
@@ -152,40 +157,42 @@ document.querySelectorAll(".js-modal-close").forEach(function (button) {
 // メガメニュー内のリンククリック時の処理
 document.querySelectorAll(".nav2__contents a, .nav-sub2__title, .list2__item").forEach(function (link) {
   link.addEventListener("click", function (e) {
-    const href = this.getAttribute("href"); // リンク先を取得
-    const isAnchorLink = href.startsWith("#") || (href.includes(window.location.pathname) && href.includes("#")); // アンカーリンク判定
-    const modal = this.closest(".mega-menu"); // 現在のモーダルを取得
+    const href = this.getAttribute("href");
+    const isAnchorLink = href.startsWith("#") || (href.includes(window.location.pathname.replace(/\/$/, "/index.html")) && href.includes("#"));
+    const modal = this.closest(".mega-menu");
 
     if (isAnchorLink) {
-      e.preventDefault(); // デフォルトの挙動をキャンセル
+      e.preventDefault();
 
-      // スムーススクロールを実行
       const targetId = href.split("#")[1];
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" }); // スムーススクロール
+        targetElement.scrollIntoView({ behavior: "smooth" });
       }
 
-      // モーダルを閉じる
-      closeModal(modal);
+      if (modal) {
+        closeModal(modal);
+      }
     } else {
-      // ページ遷移する場合もモーダルを閉じる
-      closeModal(modal);
+      if (modal) {
+        closeModal(modal);
+      }
     }
   });
 });
 
 // モーダルを閉じる共通処理
 function closeModal(modal) {
+  if (!modal) return;
+
   modal.classList.remove("is-visible");
 
-  const animationDuration = 200; // アニメーションの時間 (200ms)
+  const animationDuration = 200;
   setTimeout(() => {
     modal.close();
     document.documentElement.classList.remove("is-fixed");
   }, animationDuration);
 }
-
 
 
 
